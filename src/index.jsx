@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 
+import TodoListForm from './TodoListForm';
+
 function App() {
 
   const [todoListLength, setTodoListLength] = useState(0);
@@ -17,11 +19,13 @@ function App() {
   };
   return (
     <div>
-      <h1>To-Do</h1>
-      <div>
-        <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
-        <button type="button" onClick={handleAddTodoList}>추가</button>
-      </div>
+      <h1>
+        To-Do (
+        {todoListLength}
+        )
+      </h1>
+
+      <TodoListForm input={input} onChange={(e) => setInput(e.target.value)} onClick={handleAddTodoList} />
 
       <ul style={{ marginTop: '20px' }}>
         <li>
