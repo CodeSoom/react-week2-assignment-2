@@ -17,6 +17,12 @@ function App() {
     setTodoListLength(todoListLength + 1);
     setInput('');
   };
+
+  const handleRemoveTodoList = (id) => {
+    setTodoList(todoList.filter((item) => item.id !== id));
+    setTodoListLength(todoListLength - 1);
+  };
+
   return (
     <div>
       <h1>
@@ -30,7 +36,7 @@ function App() {
         onChange={(e) => setInput(e.target.value)}
         onClick={handleAddTodoList}
       />
-      <TodoList list={todoList} />
+      <TodoList list={todoList} handleRemove={handleRemoveTodoList} />
     </div>
   );
 }
