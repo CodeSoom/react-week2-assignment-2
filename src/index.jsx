@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 
 import TodoListForm from './TodoListForm';
+import TodoList from './TodoList';
 
 function App() {
-
   const [todoListLength, setTodoListLength] = useState(0);
   const [todoList, setTodoList] = useState([]);
   const [input, setInput] = useState('');
@@ -25,14 +25,12 @@ function App() {
         )
       </h1>
 
-      <TodoListForm input={input} onChange={(e) => setInput(e.target.value)} onClick={handleAddTodoList} />
-
-      <ul style={{ marginTop: '20px' }}>
-        <li>
-          test
-          <button type="button" style={{ marginLeft: '10px' }}>완료</button>
-        </li>
-      </ul>
+      <TodoListForm
+        input={input}
+        onChange={(e) => setInput(e.target.value)}
+        onClick={handleAddTodoList}
+      />
+      <TodoList list={todoList} />
     </div>
   );
 }
