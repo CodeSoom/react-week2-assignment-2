@@ -10,6 +10,10 @@ function App() {
   const [input, setInput] = useState('');
 
   const handleAddTodoList = () => {
+    if (input.trim() === '') {
+      setInput('');
+      return;
+    }
     setTodoList([...todoList, {
       id: todoListLength,
       text: input,
@@ -23,6 +27,10 @@ function App() {
     setTodoListLength(todoListLength - 1);
   };
 
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
+
   return (
     <div>
       <h1>
@@ -33,7 +41,7 @@ function App() {
 
       <TodoListForm
         input={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={handleInput}
         onClick={handleAddTodoList}
       />
       <TodoList list={todoList} handleRemove={handleRemoveTodoList} />
