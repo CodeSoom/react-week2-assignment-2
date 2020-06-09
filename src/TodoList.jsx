@@ -9,11 +9,11 @@ export default function TodoList({ todos, handleRemoveTodo }) {
   return (
     <ul>
       {todos.map((todo, index) => {
-        const key = index + 1;
+        const key = new Date().getTime();
         return (
           <TodoItem
             key={key}
-            index={key}
+            index={index + 1}
             todo={todo.todo}
             handleRemoveTodo={handleRemoveTodo}
           />
