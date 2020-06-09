@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import TodoAddInput from './TodoAddInput';
-import TodoAddButton from './TodoAddButton';
+import TodoHeaderTemplate from './TodoHeaderTemplate';
 
 export default function TodoHeader({ onClick }) {
   const [state, setState] = useState({
@@ -24,9 +23,11 @@ export default function TodoHeader({ onClick }) {
   }
 
   return (
-    <div>
-      <TodoAddInput inputValue={inputValue} onChange={handleChange} />
-      <TodoAddButton inputValue={inputValue} onClick={onClick} clearInput={clearInputValue} />
-    </div>
+    <TodoHeaderTemplate
+      inputValue={inputValue}
+      onClick={onClick}
+      handleChange={handleChange}
+      clearInputValue={clearInputValue}
+    />
   );
 }
