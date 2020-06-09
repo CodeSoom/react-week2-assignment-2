@@ -5,7 +5,7 @@ import TodoAddButton from './TodoAddButton';
 export default function TodoHeader({ onClick }) {
   return (
     <div>
-      <input />
+      <input id="todo-input" />
       <TodoAddButton onClick={onClick} />
     </div>
   );
