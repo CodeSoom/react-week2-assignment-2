@@ -1,13 +1,12 @@
 import React from 'react';
 
-import TodoAddButton from './TodoAddButton';
+import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
 
 export default function TodoTemplate({ todoList, onClick, onClickRemove }) {
   return (
     <div>
-      <input />
-      <TodoAddButton onClick={onClick} />
+      <TodoHeader onClick={onClick} />
       <TodoList todoList={todoList} onClick={onClickRemove} />
     </div>
   );
