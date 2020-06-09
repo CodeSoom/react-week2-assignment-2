@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Title from './Title';
 import AddTodo from './AddTodo';
@@ -22,7 +23,7 @@ export default function App() {
     setTodos([
       ...todos,
       {
-        id: new Date().getTime().toString(),
+        id: uuidv4(),
         title: todo,
       },
     ]);
