@@ -26,6 +26,10 @@ export default function App() {
   }
 
   return (
-    <TodoTemplate todoList={todoList} onClickAdd={handleClickAdd} onClickRemove={handleClickRemove} />
+    <TodoTemplate
+      todoList={todoList}
+      onClickAdd={handleClickAdd}
+      onClickRemove={handleClickRemove}
+    />
   );
 }
