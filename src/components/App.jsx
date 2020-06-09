@@ -3,10 +3,7 @@ import TodoTemplate from './TodoTemplate';
 
 export default function App() {
   const [state, setState] = useState({
-    todoList: [
-      { data: '아무것도 안하기1', key: 1 },
-      { data: '아무것도 안하기2', key: 2 },
-    ],
+    todoList: [],
   });
 
   const { todoList } = state;
