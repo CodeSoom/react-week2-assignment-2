@@ -5,7 +5,13 @@ import Todo from './Todo';
 export default function TodoList({ todoList, onClick }) {
   return (
     <ul>
-      {todoList.map(({ key, data }) => <Todo key={key} id={key} data={data} onClick={onClick} />)}
+      {
+        (todoList.length === 0)
+          ? '할 일이 없어요!'
+          : todoList.map(
+            ({ key, data }) => <Todo key={key} id={key} data={data} onClick={onClick} />,
+          )
+      }
     </ul>
   );
 }
