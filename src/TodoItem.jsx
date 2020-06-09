@@ -1,14 +1,14 @@
 import React from 'react';
 
-export default function TodoItem({ index, todo, handleRemoveTodo }) {
+export default function TodoItem({ number, todo, handleRemoveTodo }) {
   const liStyle = {
     listStyleType: 'none',
   };
 
   return (
     <li style={liStyle}>
-      {`${index}. ${todo} `}
-      <button type="button" onClick={() => handleRemoveTodo(index)}>
+      {`${number}. ${todo.title} `}
+      <button type="button" onClick={() => handleRemoveTodo(todo.id)}>
         완료
       </button>
     </li>

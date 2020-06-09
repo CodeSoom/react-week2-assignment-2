@@ -22,15 +22,16 @@ export default function App() {
     setTodos([
       ...todos,
       {
-        todo,
+        id: new Date().getTime(),
+        title: todo,
       },
     ]);
     setTodo('');
   };
 
-  const handleRemoveTodo = (indexTodo) => {
-    todos.splice(indexTodo - 1, 1);
-    setTodos([...todos]);
+  const handleRemoveTodo = (key) => {
+    const newTodos = todos.filter((value) => value.id !== key);
+    setTodos(newTodos);
   };
 
   return (
