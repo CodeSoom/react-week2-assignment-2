@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TodoTemplate from './TodoTemplate';
 
 export default function App() {
   const [state, setState] = useState({
@@ -19,11 +20,6 @@ export default function App() {
   }
 
   return (
-    <div>
-      <button type="button" onClick={handleClickAdd}>추가</button>
-      <ul>
-        {todoList.map((todo) => <li key={todo.key}>{todo.data}</li>)}
-      </ul>
-    </div>
+    <TodoTemplate todoList={todoList} onClick={handleClickAdd} />
   );
 }
