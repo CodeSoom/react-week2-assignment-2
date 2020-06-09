@@ -19,7 +19,13 @@ export default function App() {
     });
   }
 
+  function handleClickRemove(target) {
+    setState({
+      todoList: todoList.filter(({ key }) => key !== target),
+    });
+  }
+
   return (
-    <TodoTemplate todoList={todoList} onClick={handleClickAdd} />
+    <TodoTemplate todoList={todoList} onClick={handleClickAdd} onClickRemove={handleClickRemove} />
   );
 }
