@@ -42,11 +42,27 @@ export default function Todo() {
     setState({ ...state, input: e.target.value });
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleClickAddTodo();
+    }
+  };
+
   return (
     <div>
-      <h1>To-Do ({todoList.length})</h1>
+      <h1>
+        To-Do
+        (
+        {todoList.length}
+        )
+      </h1>
 
-      <TodoListForm input={input} onChange={handleInput} onClick={handleClickAddTodo} />
+      <TodoListForm
+        input={input}
+        onChange={handleInput}
+        onClick={handleClickAddTodo}
+        onKeyPress={handleKeyPress}
+      />
       <TodoList list={todoList} handleRemove={handleClickRemoveTodo} />
     </div>
   );
