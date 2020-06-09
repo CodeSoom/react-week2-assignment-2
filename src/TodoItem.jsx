@@ -6,7 +6,7 @@ export default function TodoItem({ index, todo, handleRemoveTodo }) {
   };
 
   return (
-    <li style={liStyle} key={index}>
+    <li style={liStyle}>
       {`${index}. ${todo} `}
       <button type="button" onClick={() => handleRemoveTodo(index)}>
         완료
