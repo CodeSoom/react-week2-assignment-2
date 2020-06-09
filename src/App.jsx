@@ -4,7 +4,6 @@ import Title from './Title';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 
-
 export default function App() {
   const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState([]);
@@ -42,10 +41,7 @@ export default function App() {
         handleInputTodo={handleInputTodo}
         handleAddTodo={handleAddTodo}
       />
-      <TodoList
-        todos={todos}
-        handleRemoveTodo={handleRemoveTodo}
-      />
+      <TodoList todos={todos} handleRemoveTodo={handleRemoveTodo} />
     </div>
   );
 }

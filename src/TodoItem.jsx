@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoItem({ index, todo, handleRemoveTodo }) {
+export default function TodoItem({ index, todo, handleRemoveTodo }) {
   const liStyle = {
     listStyleType: 'none',
   };
@@ -8,9 +8,9 @@ function TodoItem({ index, todo, handleRemoveTodo }) {
   return (
     <li style={liStyle} key={index}>
       {`${index}. ${todo} `}
-      <button type="button" onClick={() => handleRemoveTodo(index)}>완료</button>
+      <button type="button" onClick={() => handleRemoveTodo(index)}>
+        완료
+      </button>
     </li>
   );
 }
-
-export default TodoItem;

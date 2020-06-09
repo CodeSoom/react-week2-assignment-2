@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-function TodoList({ todos, handleRemoveTodo }) {
+export default function TodoList({ todos, handleRemoveTodo }) {
   return (
     todos.length === 0
       ? '할 일이 없어요!'
@@ -22,5 +22,3 @@ function TodoList({ todos, handleRemoveTodo }) {
       )
   );
 }
-
-export default TodoList;
