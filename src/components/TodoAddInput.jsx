@@ -7,13 +7,14 @@ export default function TodoAddInput() {
 
   const { inputValue } = state;
 
-  function handleChange() {
+  function handleChange({ target }) {
+    const { value } = target;
     setState({
-      inputValue: document.getElementById('todo-input').value,
+      inputValue: value,
     });
   }
 
   return (
-    <input id="todo-input" value={inputValue} onChange={handleChange} />
+    <input id="todo-input" value={inputValue} onChange={(e) => handleChange(e)} />
   );
 }
