@@ -1,11 +1,12 @@
 import React from 'react';
 
+import TodoAddInput from './TodoAddInput';
 import TodoAddButton from './TodoAddButton';
 
 export default function TodoHeader({ onClick }) {
   return (
     <div>
-      <input id="todo-input" />
+      <TodoAddInput />
       <TodoAddButton onClick={onClick} />
     </div>
   );
