@@ -17,10 +17,16 @@ export default function TodoHeader({ onClick }) {
     });
   }
 
+  function clearInputValue() {
+    setState({
+      inputValue: '',
+    });
+  }
+
   return (
     <div>
       <TodoAddInput inputValue={inputValue} onChange={handleChange} />
-      <TodoAddButton inputValue={inputValue} onClick={onClick} />
+      <TodoAddButton inputValue={inputValue} onClick={onClick} clearInput={clearInputValue} />
     </div>
   );
 }
