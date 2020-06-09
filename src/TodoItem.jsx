@@ -8,7 +8,7 @@ export default function TodoItem({ number, todo, handleRemoveTodo }) {
   return (
     <li style={liStyle}>
       {`${number}. ${todo.title} `}
-      <button type="button" onClick={() => handleRemoveTodo(todo.id)}>
+      <button type="button" onClick={handleRemoveTodo}>
         완료
       </button>
     </li>

@@ -22,7 +22,7 @@ export default function App() {
     setTodos([
       ...todos,
       {
-        id: new Date().getTime(),
+        id: new Date().getTime().toString(),
         title: todo,
       },
     ]);

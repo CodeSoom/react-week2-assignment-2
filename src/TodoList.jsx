@@ -14,7 +14,7 @@ export default function TodoList({ todos, handleRemoveTodo }) {
           key={todo.id}
           number={index + 1}
           todo={todo}
-          handleRemoveTodo={handleRemoveTodo}
+          handleRemoveTodo={() => handleRemoveTodo(todo.id)}
         />
       ))}
     </ul>
