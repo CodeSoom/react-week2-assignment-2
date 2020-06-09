@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import TodoAddInput from './TodoAddInput';
 import TodoAddButton from './TodoAddButton';
 
 export default function TodoHeader({ onClick }) {
+  const [state, setState] = useState({
+    inputValue: '',
+  });
+
+  const { inputValue } = state;
+
+  function handleChange({ target }) {
+    const { value } = target;
+    setState({
+      inputValue: value,
+    });
+  }
+
   return (
     <div>
-      <TodoAddInput />
-      <TodoAddButton onClick={onClick} />
+      <TodoAddInput inputValue={inputValue} onChange={handleChange} />
+      <TodoAddButton inputValue={inputValue} onClick={onClick} />
     </div>
   );
 }

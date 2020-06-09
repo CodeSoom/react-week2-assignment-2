@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function TodoAddButton({ onClick }) {
+export default function TodoAddButton({ inputValue, onClick }) {
   return (
-    <button type="button" onClick={() => onClick(document.getElementById('todo-input').value)}>추가</button>
+    <button type="button" onClick={() => onClick(inputValue)}>추가</button>
   );
 }
