@@ -1,15 +1,22 @@
 import React from 'react';
 
-import TodoListEmpty from './TodoListEmpty';
-import TodoListNotEmpty from './TodoListNotEmpty';
-
+import TodoListItem from './TodoListItem';
 
 export default function TodoList({ list, handleRemove }) {
+  const style = { marginTop: '20px' };
   return (
-    <ul style={{ marginTop: '20px' }}>
-      {
-        list.length ? <TodoListNotEmpty list={list} remove={handleRemove} /> : <TodoListEmpty />
-      }
+    <ul style={style}>
+      {list.length ? (
+        list.map((item) => (
+          <TodoListItem
+            key={item.id}
+            item={item}
+            onClick={() => handleRemove(item.id)}
+          />
+        ))
+      ) : (
+        <p>할 일이 없어요!</p>
+      )}
     </ul>
   );
 }
