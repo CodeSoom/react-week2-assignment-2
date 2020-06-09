@@ -11,10 +11,10 @@ export default function App() {
 
   const { todoList } = state;
 
-  function handleClickAdd() {
+  function handleClickAdd(todoContent) {
     setState({
       todoList: todoList.concat(
-        { data: '아무것도 안하기', key: todoList.length + 1 },
+        { data: todoContent, key: todoList.length + 1 },
       ),
     });
   }
