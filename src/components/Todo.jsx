@@ -5,8 +5,12 @@ export default function Todo({ index, todo, onCompleteTodo }) {
     <div>
       <b>{index + 1}</b>
       <span>
-        -
+        ------
+        [
+        {' '}
         {todo.task}
+        {' '}
+        ]
       </span>
       <button type="button" onClick={onCompleteTodo}>완료</button>
     </div>
