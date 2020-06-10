@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import TodoInsert from './components/TodoInsert';
-import TodoList from './components/TodoList';
+import TodoPage from './components/TodoPage';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
+  const [value, setValue] = useState('');
   const [nextId, setId] = useState(0);
 
   const onInsert = (text) => {
@@ -23,20 +23,23 @@ export default function App() {
     );
   };
 
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    onInsert(value);
+    setValue('');
+    e.preventDefault();
+  };
+
   return (
-    <div>
-      <h1>To-do</h1>
-      <TodoInsert
-        onInsert={onInsert}
-      />
-      {!todos.length
-        ? <p>할 일이 없어요!</p>
-        : (
-          <TodoList
-            todos={todos}
-            onRemove={onRemove}
-          />
-        )}
-    </div>
+    <TodoPage
+      todos={todos}
+      value={value}
+      onChange={onChange}
+      onSubmit={onSubmit}
+      onRemove={onRemove}
+    />
   );
 }

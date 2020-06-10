@@ -1,18 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function TodoInsert({ onInsert }) {
-  const [value, setValue] = useState('');
-
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
-
-  const onSubmit = (e) => {
-    onInsert(value);
-    setValue('');
-    e.preventDefault();
-  };
-
+export default function TodoInsert(
+  { value, onChange, onSubmit },
+) {
   return (
     <form onSubmit={onSubmit}>
       <input
