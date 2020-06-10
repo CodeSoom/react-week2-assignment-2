@@ -1,7 +1,8 @@
 import React from 'react';
-import Input from '../Input';
 
-function Form({
+import Input from './Input';
+
+export default function Form({
   onSubmit, value, onChange, isEmpty,
 }) {
   return (
@@ -14,5 +15,3 @@ function Form({
     </form>
   );
 }
-
-export default Form;

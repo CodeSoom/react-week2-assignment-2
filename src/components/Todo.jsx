@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Todo({ index, todo, onCompleteTodo }) {
+export default function Todo({ index, todo, onCompleteTodo }) {
   return (
     <div>
       <b>{index + 1}</b>
@@ -12,5 +12,3 @@ function Todo({ index, todo, onCompleteTodo }) {
     </div>
   );
 }
-
-export default Todo;

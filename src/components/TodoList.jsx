@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import Todo from '../Todo';
-import Form from '../Form';
+import Todo from './Todo';
+import Form from './Form';
 
 function TodoList() {
   const [state, setState] = useState({
@@ -49,7 +49,6 @@ function TodoList() {
 
   return (
     <div>
-      <h1>TodoList</h1>
       <Form onSubmit={onSubmit} value={value} onChange={onChange} isEmpty={isEmpty} />
       {todos.map((todo, index) => (
         <Todo
