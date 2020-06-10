@@ -11,7 +11,6 @@ export default function App() {
 
   const insertTodoItem = (text) => {
     setState({
-      ...state,
       value: '',
       nextId: nextId + 1,
       todos: todos.concat({
