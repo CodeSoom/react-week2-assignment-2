@@ -2,12 +2,10 @@ import React from 'react';
 
 import List from './List';
 
-export default ({ list }) => (
-  <ul>{
-      console.log(list)
-    }
+export default ({ list, handleRemove }) => (
+  <ul style={{listStyle: 'none'}}>
     {list.map((item, index) => (
-      <List todo={item} index={index} key={`${index}-${item}`} />
+      <List item={item} index={index} key={`${item.id}`} handleRemove={handleRemove}/>
     ))}
   </ul>
 );

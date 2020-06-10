@@ -9,12 +9,16 @@ export default () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setList((lists) => [...lists, value]);
+    setList((lists) => [...lists, { id: `${list.length}-${value}`, todo: value }]);
     setValue('');
   };
 
   const handleInput = (e) => {
     setValue(e.target.value);
+  };
+
+  const handleRemove = (e) => {
+    setList(list.filter((item) => e.target.dataset.id !== item.id));
   };
 
   return (
@@ -24,7 +28,7 @@ export default () => {
       {
         !list.length
           ? <p>할 일이 없어요!</p>
-          : <Ul list={list} />
+          : <Ul list={list} handleRemove={handleRemove} />
       }
     </div>
   );
