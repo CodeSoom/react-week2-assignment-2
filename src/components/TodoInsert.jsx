@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function TodoInsert({ onInsert }) {
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
+  const onChange = (e) => {
     setValue(e.target.value);
   };
 
@@ -19,8 +19,9 @@ export default function TodoInsert({ onInsert }) {
         type="text"
         placeholder="할 일을 입력해 주세요"
         name="todo"
+        autoComplete="off"
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
       />
       <button type="submit">추가</button>
     </form>

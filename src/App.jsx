@@ -3,33 +3,24 @@ import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
 export default function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      todo: '자바스크립트 공부',
-      checked: false,
-    },
-    {
-      id: 2,
-      todo: '리액트 공부',
-      checked: false,
-    },
-    {
-      id: 3,
-      todo: '운동하기',
-      checked: false,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
+  const [nextId, setId] = useState(0);
 
-  const onInsert = (value) => {
+  const onInsert = (text) => {
     setTodos([
       ...todos,
       {
-        id: 4,
-        todo: value,
-        checked: false,
+        id: nextId,
+        todo: text,
       },
     ]);
+    setId(nextId + 1);
+  };
+
+  const onRemove = (id) => {
+    setTodos(
+      [...todos].filter((todo) => todo.id !== id),
+    );
   };
 
   return (
@@ -38,9 +29,14 @@ export default function App() {
       <TodoInsert
         onInsert={onInsert}
       />
-      <TodoList
-        todos={todos}
-      />
+      {!todos.length
+        ? <p>할 일이 없어요!</p>
+        : (
+          <TodoList
+            todos={todos}
+            onRemove={onRemove}
+          />
+        )}
     </div>
   );
 }
