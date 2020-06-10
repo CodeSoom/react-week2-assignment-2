@@ -8,6 +8,7 @@ function App() {
   const [state, setState] = useState({
     todoList: [],
     input: '',
+    id: 0,
   });
   const { todoList, input } = state;
 
@@ -20,17 +21,18 @@ function App() {
 
   const handleClickAddTodo = () => {
     if (input.trim() !== '') {
-      setState({
+      setState((prevState) => ({
         ...state,
         input: '',
+        id: prevState.id + 1,
         todoList: [
           ...todoList,
           {
-            id: todoList.length,
+            id: state.id,
             text: input,
           },
         ],
-      });
+      }));
     }
   };
 

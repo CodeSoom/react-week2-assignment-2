@@ -4,19 +4,22 @@ import TodoItem from './TodoItem';
 
 export default function TodoList({ todoList, onClick }) {
   const style = { marginTop: '20px' };
+
+  if (todoList.length === 0) {
+    return <p>할 일이 없어요!</p>;
+  }
+
   return (
     <ul style={style}>
-      {todoList.length > 0 ? (
-        todoList.map((item) => (
+      {todoList.map((todo) => {
+        return (
           <TodoItem
-            key={item.id}
-            item={item}
+            key={todo.id}
+            item={todo}
             onClick={onClick}
           />
-        ))
-      ) : (
-        <p>할 일이 없어요!</p>
-      )}
+        );
+      })}
     </ul>
   );
 }
