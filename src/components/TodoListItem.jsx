@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function TodoListItem() {
+export default function TodoListItem({ todo }) {
   return (
     <li>
-      할 일
+      {todo}
       <button type="button">
         완료
       </button>

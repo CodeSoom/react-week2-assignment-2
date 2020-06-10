@@ -1,12 +1,15 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 
-export default function TodoList() {
+export default function TodoList({ todos }) {
   return (
     <ol>
-      <TodoListItem />
-      <TodoListItem />
-      <TodoListItem />
+      {todos.map(({ id, todo }) => (
+        <TodoListItem
+          key={id}
+          todo={todo}
+        />
+      ))}
     </ol>
   );
 }
