@@ -2,16 +2,16 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-export default function TodoList({ list, handleRemove }) {
+export default function TodoList({ todoList, onClick }) {
   const style = { marginTop: '20px' };
   return (
     <ul style={style}>
-      {list.length ? (
-        list.map((item) => (
+      {todoList.length > 0 ? (
+        todoList.map((item) => (
           <TodoItem
             key={item.id}
             item={item}
-            onClick={() => handleRemove(item.id)}
+            onClick={onClick}
           />
         ))
       ) : (

@@ -5,7 +5,7 @@ export default function TodoItem({ item, onClick }) {
   return (
     <li>
       {item.text}
-      <button type="button" style={style} onClick={onClick}>완료</button>
+      <button type="button" style={style} onClick={() => onClick(item.id)}>완료</button>
     </li>
   );
 }

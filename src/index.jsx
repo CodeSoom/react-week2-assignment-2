@@ -11,25 +11,27 @@ function App() {
   });
   const { todoList, input } = state;
 
-  const handleClickAddTodo = () => {
-    const resetInput = {
-      ...state,
-      input: '',
-    };
-    if (input.trim() === '') {
-      setState({ ...resetInput });
-      return;
-    }
+  const handleChangeInput = ({ target: { value } }) => {
     setState({
-      ...resetInput,
-      todoList: [
-        ...todoList,
-        {
-          id: todoList.length,
-          text: input,
-        },
-      ],
+      ...state,
+      input: value,
     });
+  };
+
+  const handleClickAddTodo = () => {
+    if (input.trim() !== '') {
+      setState({
+        ...state,
+        input: '',
+        todoList: [
+          ...todoList,
+          {
+            id: todoList.length,
+            text: input,
+          },
+        ],
+      });
+    }
   };
 
   const handleClickRemoveTodo = (id) => {
@@ -37,10 +39,6 @@ function App() {
       ...state,
       todoList: todoList.filter((item) => item.id !== id),
     });
-  };
-
-  const handleChangeInput = (e) => {
-    setState({ ...state, input: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -56,14 +54,16 @@ function App() {
         {todoList.length}
         )
       </h1>
-
       <TodoForm
         input={input}
         onChange={handleChangeInput}
         onClick={handleClickAddTodo}
         onSubmit={handleSubmit}
       />
-      <TodoList list={todoList} handleRemove={handleClickRemoveTodo} />
+      <TodoList
+        todoList={todoList}
+        onClick={handleClickRemoveTodo}
+      />
     </div>
   );
 }
