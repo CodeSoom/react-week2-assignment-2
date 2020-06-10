@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Title from './components/Title';
 import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList'
+import TodoList from './components/TodoList';
 import EmptyMessage from './components/EmptyMessage';
 
 export default function App() {
