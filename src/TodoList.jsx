@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todoList, onClick }) {
+export default function TodoList({ todoList, onClicktoRemove }) {
   const style = { marginTop: '20px' };
 
   if (todoList.length === 0) {
@@ -16,7 +16,7 @@ export default function TodoList({ todoList, onClick }) {
           <TodoItem
             key={todo.id}
             item={todo}
-            onClick={onClick}
+            onClicktoRemove={onClicktoRemove}
           />
         );
       })}

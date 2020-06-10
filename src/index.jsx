@@ -58,13 +58,13 @@ function App() {
       </h1>
       <TodoForm
         input={input}
-        onChange={handleChangeInput}
-        onClick={handleClickAddTodo}
+        onChangeInput={handleChangeInput}
+        onClickSubmitButton={handleClickAddTodo}
         onSubmit={handleSubmit}
       />
       <TodoList
         todoList={todoList}
-        onClick={handleClickRemoveTodo}
+        onClicktoRemove={handleClickRemoveTodo}
       />
     </div>
   );
