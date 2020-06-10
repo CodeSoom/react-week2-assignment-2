@@ -4,7 +4,7 @@ import TodoList from './TodoList';
 
 export default function TodoPage(
   {
-    todos, value, onChange, onSubmit, onRemove,
+    todos, value, onChangeInputValue, onSubmitTodoItem, onRemoveTodoItem,
   },
 ) {
   return (
@@ -12,15 +12,15 @@ export default function TodoPage(
       <h1>To-do</h1>
       <TodoInputBox
         value={value}
-        onChange={onChange}
-        onSubmit={onSubmit}
+        onChangeInputValue={onChangeInputValue}
+        onSubmitTodoItem={onSubmitTodoItem}
       />
       {!todos.length
         ? <p>할 일이 없어요!</p>
         : (
           <TodoList
             todos={todos}
-            onRemove={onRemove}
+            onRemoveTodoItem={onRemoveTodoItem}
           />
         )}
     </div>

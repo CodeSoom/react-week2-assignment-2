@@ -28,7 +28,7 @@ export default function App() {
     });
   };
 
-  const handleChangeInputText = (e) => {
+  const handleChangeInputValue = (e) => {
     setState({
       ...state,
       value: e.target.value,
@@ -44,9 +44,9 @@ export default function App() {
     <TodoPage
       todos={todos}
       value={value}
-      onChange={handleChangeInputText}
-      onSubmit={handleClickSubmitButton}
-      onRemove={handleClickCompleteButton}
+      onChangeInputValue={handleChangeInputValue}
+      onSubmitTodoItem={handleClickSubmitButton}
+      onRemoveTodoItem={handleClickCompleteButton}
     />
   );
 }
