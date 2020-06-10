@@ -50,14 +50,14 @@ function TodoList() {
   return (
     <div>
       <Form onSubmit={onSubmit} value={value} onChange={onChange} isEmpty={isEmpty} />
-      {todos.map((todo, index) => (
+      {todos.length ? todos.map((todo, index) => (
         <Todo
           key={todo.id}
           index={index}
           todo={todo}
           onCompleteTodo={() => onCompleteTodo(todo.id)}
         />
-      ))}
+      )) : <span>할 일이 없어요!</span>}
     </div>
   );
 }
