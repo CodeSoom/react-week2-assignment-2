@@ -1,25 +1,21 @@
 import React from 'react';
 
-function Todolist({ todos }) {
+function Todolist({ todos, completeClick }) {
   if (todos.length > 0) {
     return (
-      todos.map((value) => (
+      todos.map((value, index) => (
         <p>
           {value}
-          <button type="button">완료</button>
+          <button type="button" onClick={() => completeClick(index)}>완료</button>
         </p>
       ))
     );
   }
 
   return (
-    [1, 2, 3, 4, 5].map((i) => (
-      <p>
-        {i}
-        리스트
-        <button key={i} type="button">완료</button>
-      </p>
-    ))
+    <p>
+      할 일이 없어요!
+    </p>
   );
 }
 

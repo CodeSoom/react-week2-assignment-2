@@ -17,6 +17,13 @@ function App() {
     });
   }
 
+  function handleCompleteClick(value) {
+    setState({
+      inputText,
+      todos: todos.filter((_, index) => index !== value),
+    });
+  }
+
   function handleChange(event) {
     // event.preventDefault(); // prevent to reload page
     setState({
@@ -32,6 +39,7 @@ function App() {
       inputText={inputText}
       todos={todos}
       addClick={handleAddClick}
+      completeClick={handleCompleteClick}
       handleChange={handleChange}
     />
   );

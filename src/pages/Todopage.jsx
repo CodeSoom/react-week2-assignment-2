@@ -3,7 +3,7 @@ import Todoinput from '../components/Todoinput';
 import Todolist from '../components/Todolist';
 
 function Todopage({
-  inputText, todos, addClick, handleChange,
+  inputText, todos, addClick, completeClick, handleChange,
 }) {
   return (
     <div>
@@ -15,6 +15,7 @@ function Todopage({
       />
       <Todolist
         todos={todos}
+        completeClick={completeClick}
       />
     </div>
   );
