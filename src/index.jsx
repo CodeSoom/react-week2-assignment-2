@@ -5,28 +5,33 @@ import Todopage from './pages/Todopage';
 function App() {
   const [state, setState] = useState({
     inputText: '',
+    todos: [],
   });
 
-  const { inputText } = state;
+  const { inputText, todos } = state;
 
-  function handleInput(value) {
+  function handleAddClick(value) {
     setState({
-      inputText: value,
+      inputText: '',
+      todos: [...todos, value],
     });
   }
 
   function handleChange(event) {
+    // event.preventDefault(); // prevent to reload page
     setState({
       inputText: event.target.value,
+      todos,
     });
   }
 
-  console.log('input :', inputText);
+  console.log('todos :', todos);
 
   return (
     <Todopage
       inputText={inputText}
-      addClick={handleInput}
+      todos={todos}
+      addClick={handleAddClick}
       handleChange={handleChange}
     />
   );

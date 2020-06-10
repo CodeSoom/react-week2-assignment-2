@@ -2,7 +2,9 @@ import React from 'react';
 import Todoinput from '../components/Todoinput';
 import Todolist from '../components/Todolist';
 
-function Todopage({ inputText, addClick, handleChange }) {
+function Todopage({
+  inputText, todos, addClick, handleChange,
+}) {
   return (
     <div>
       <h1>To-do</h1>
@@ -11,7 +13,9 @@ function Todopage({ inputText, addClick, handleChange }) {
         onClick={addClick}
         onChange={handleChange}
       />
-      <Todolist />
+      <Todolist
+        todos={todos}
+      />
     </div>
   );
 }
