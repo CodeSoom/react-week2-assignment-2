@@ -2,34 +2,41 @@ import React, { useState } from 'react';
 import TodoPage from './components/TodoPage';
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
-  const [value, setValue] = useState('');
-  const [nextId, setId] = useState(0);
+  const [state, setState] = useState({
+    value: '',
+    nextId: 1,
+    todos: [],
+  });
+  const { value, nextId, todos } = state;
 
   const onInsert = (text) => {
-    setTodos([
-      ...todos,
-      {
+    setState({
+      ...state,
+      value: '',
+      nextId: nextId + 1,
+      todos: todos.concat({
         id: nextId,
         todo: text,
-      },
-    ]);
-    setId(nextId + 1);
+      }),
+    });
   };
 
   const onRemove = (id) => {
-    setTodos(
-      [...todos].filter((todo) => todo.id !== id),
-    );
+    setState({
+      ...state,
+      todos: [...todos].filter((todo) => todo.id !== id),
+    });
   };
 
   const onChange = (e) => {
-    setValue(e.target.value);
+    setState({
+      ...state,
+      value: e.target.value,
+    });
   };
 
   const onSubmit = (e) => {
     onInsert(value);
-    setValue('');
     e.preventDefault();
   };
 
