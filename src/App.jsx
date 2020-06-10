@@ -9,7 +9,7 @@ export default function App() {
   });
   const { value, nextId, todos } = state;
 
-  const onInsert = (text) => {
+  const insertTodoItem = (text) => {
     setState({
       ...state,
       value: '',
@@ -21,22 +21,22 @@ export default function App() {
     });
   };
 
-  const onRemove = (id) => {
+  const handleClickCompleteButton = (id) => {
     setState({
       ...state,
       todos: [...todos].filter((todo) => todo.id !== id),
     });
   };
 
-  const onChange = (e) => {
+  const handleChangeInputText = (e) => {
     setState({
       ...state,
       value: e.target.value,
     });
   };
 
-  const onSubmit = (e) => {
-    onInsert(value);
+  const handleClickSubmitButton = (e) => {
+    insertTodoItem(value);
     e.preventDefault();
   };
 
@@ -44,9 +44,9 @@ export default function App() {
     <TodoPage
       todos={todos}
       value={value}
-      onChange={onChange}
-      onSubmit={onSubmit}
-      onRemove={onRemove}
+      onChange={handleChangeInputText}
+      onSubmit={handleClickSubmitButton}
+      onRemove={handleClickCompleteButton}
     />
   );
 }
