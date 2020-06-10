@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default ({value, handleSubmit, handleInput}) => (
   <form onSubmit={handleSubmit}>
