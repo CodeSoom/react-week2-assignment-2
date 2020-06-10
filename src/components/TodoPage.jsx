@@ -15,7 +15,7 @@ export default function TodoPage(
         onChangeInputValue={onChangeInputValue}
         onSubmitTodoItem={onSubmitTodoItem}
       />
-      {!todos.length
+      {todos.length === 0
         ? <p>할 일이 없어요!</p>
         : (
           <TodoList
