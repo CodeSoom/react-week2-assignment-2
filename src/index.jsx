@@ -1,49 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Todopage from './pages/Todopage';
-
-function App() {
-  const [state, setState] = useState({
-    inputText: '',
-    todos: [],
-  });
-
-  const { inputText, todos } = state;
-
-  function handleAddClick(value) {
-    setState({
-      inputText: '',
-      todos: [...todos, value],
-    });
-  }
-
-  function handleCompleteClick(value) {
-    setState({
-      inputText,
-      todos: todos.filter((_, index) => index !== value),
-    });
-  }
-
-  function handleChange(event) {
-    // event.preventDefault(); // prevent to reload page
-    setState({
-      inputText: event.target.value,
-      todos,
-    });
-  }
-
-  console.log('todos :', todos);
-
-  return (
-    <Todopage
-      inputText={inputText}
-      todos={todos}
-      addClick={handleAddClick}
-      completeClick={handleCompleteClick}
-      handleChange={handleChange}
-    />
-  );
-}
+import App from './App';
 
 ReactDOM.render(
   <App />,
