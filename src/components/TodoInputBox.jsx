@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodoInsert(
+export default function TodoInputBox(
   { value, onChange, onSubmit },
 ) {
   return (
