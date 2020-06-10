@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+import Title from './components/Title';
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
+
 export default function App() {
   const [todo, setTodo] = useState({ id: 1, text: '' });
   const [todos, setTodos] = useState([]);
@@ -21,24 +25,9 @@ export default function App() {
 
   return (
     <>
-      <h1>To-do</h1>
-      <form onSubmit={handleTodoSubmit}>
-        <input
-          onChange={handleTodoInput}
-          type="text"
-          placeholder="할 일을 입력해주세요"
-        />
-        <input type="submit" value="추가" />
-      </form>
-      {!todos.length && <p>할 일이 없어요!</p>}
-      <ol>
-        {todos.map((todoItem) => (
-          <li key={todoItem.id}>
-            {todoItem.text}
-            <button type="button" onClick={() => handleComplete(todoItem.id)}>완료</button>
-          </li>
-        ))}
-      </ol>
+      <Title />
+      <TodoInput handleTodoInput={handleTodoInput} handleTodoSubmit={handleTodoSubmit} />
+      <TodoList todos={todos} handleComplete={handleComplete} />
     </>
   );
 }
