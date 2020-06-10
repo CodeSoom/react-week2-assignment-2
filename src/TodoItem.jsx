@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodoListItem({ item, onClick }) {
+export default function TodoItem({ item, onClick }) {
   const style = { marginLeft: '10px' };
   return (
     <li>
