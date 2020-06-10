@@ -28,7 +28,7 @@ function TodoList() {
     }
     setState({
       ...state,
-      todos: [...state.todos, { id: state.todos.length, task: value }],
+      todos: [...state.todos, { id: new Date().getTime(), task: value }],
       value: '',
     });
   };
