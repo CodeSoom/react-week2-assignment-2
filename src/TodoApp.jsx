@@ -1,4 +1,5 @@
 import React from 'react';
+
 import TodoAppHeader from './TodoAppHeader';
 import TodoAppBody from './TodoAppBody';
 
@@ -9,11 +10,18 @@ const TodoAppStyle = {
   padding: '10px',
 };
 
-const TodoApp = ({ todos, onAddTodoItem, onRemoveTodoItem }) => (
-  <div style={TodoAppStyle}>
-    <TodoAppHeader onAddTodoItem={onAddTodoItem} />
-    <TodoAppBody todos={todos} onRemoveTodoItem={onRemoveTodoItem} />
-  </div>
-);
-
-export default TodoApp;
+export default function TodoApp({
+  todos, input, onAddTodoItem, onRemoveTodoItem, onInputChange, onInputSubmit,
+}) {
+  return (
+    <div style={TodoAppStyle}>
+      <TodoAppHeader
+        input={input}
+        onAddTodoItem={onAddTodoItem}
+        onInputChange={onInputChange}
+        onInputSubmit={onInputSubmit}
+      />
+      <TodoAppBody todos={todos} onRemoveTodoItem={onRemoveTodoItem} />
+    </div>
+  );
+}

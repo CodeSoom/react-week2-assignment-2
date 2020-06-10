@@ -1,19 +1,18 @@
 import React from 'react';
-import TodoListItem from './TodoListItem';
+
+import TodoItem from './TodoItem';
 
 const ulStyle = {
   listStyleType: 'none',
   padding: '5px',
 };
 
-const TodoList = ({ todos, onRemoveTodoItem }) => {
+export default function TodoItems({ todos, onRemoveTodoItem }) {
   const todoList = todos.map((todo, index) => (
-    <TodoListItem index={index} todo={todo} key={todo.id} onRemoveTodoItem={onRemoveTodoItem} />
+    <TodoItem index={index} todo={todo} key={todo.id} onRemoveTodoItem={onRemoveTodoItem} />
   ));
 
   return (
     todoList.length !== 0 ? (<ul style={ulStyle}>{ todoList }</ul>) : '할 일이 없어요!'
   );
-};
-
-export default TodoList;
+}

@@ -1,14 +1,15 @@
 import React from 'react';
-import TodoList from './TodoList';
+
+import TodoItems from './TodoItems';
 
 const TodoAppBodyStyle = {
   marginTop: '10px',
 };
 
-const TodoAppBody = ({ todos, onRemoveTodoItem }) => (
-  <div style={TodoAppBodyStyle}>
-    <TodoList todos={todos} onRemoveTodoItem={onRemoveTodoItem} />
-  </div>
-);
-
-export default TodoAppBody;
+export default function TodoAppBody({ todos, onRemoveTodoItem }) {
+  return (
+    <div style={TodoAppBodyStyle}>
+      <TodoItems todos={todos} onRemoveTodoItem={onRemoveTodoItem} />
+    </div>
+  );
+}

@@ -5,13 +5,20 @@ const h1Style = {
   textAlign: 'center',
 };
 
-const TodoAppHeader = ({ onAddTodoItem }) => (
-  <div>
-    <h1 style={h1Style}>To-do</h1>
+export default function TodoAppHeader({
+  onAddTodoItem, input, onInputChange, onInputSubmit,
+}) {
+  return (
     <div>
-      <TodoInput onAddTodoItem={onAddTodoItem} />
+      <h1 style={h1Style}>To-do</h1>
+      <div>
+        <TodoInput
+          onAddTodoItem={onAddTodoItem}
+          input={input}
+          onInputChange={onInputChange}
+          onInputSubmit={onInputSubmit}
+        />
+      </div>
     </div>
-  </div>
-);
-
-export default TodoAppHeader;
+  );
+}
