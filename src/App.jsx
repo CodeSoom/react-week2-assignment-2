@@ -12,13 +12,6 @@ export default function App() {
 
   const { todos, value, isEmpty } = state;
 
-  const onChange = (e) => {
-    setState({
-      ...state,
-      value: e.target.value,
-      isEmpty: false,
-    });
-  };
 
   const onAddTodo = () => {
     if (!value) {
@@ -44,10 +37,19 @@ export default function App() {
   };
 
 
+  const onChange = (e) => {
+    setState({
+      ...state,
+      value: e.target.value,
+      isEmpty: false,
+    });
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     onAddTodo();
   };
+
 
   return (
     <>
