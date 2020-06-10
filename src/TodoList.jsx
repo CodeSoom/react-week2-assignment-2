@@ -11,15 +11,13 @@ export default function TodoList({ todoList, onClicktoRemove }) {
 
   return (
     <ul style={style}>
-      {todoList.map((todo) => {
-        return (
-          <TodoItem
-            key={todo.id}
-            item={todo}
-            onClicktoRemove={onClicktoRemove}
-          />
-        );
-      })}
+      {todoList.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          item={todo}
+          onClicktoRemove={onClicktoRemove}
+        />
+      ))}
     </ul>
   );
 }
