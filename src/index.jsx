@@ -1,73 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
 
-import TodoForm from './TodoForm';
-import TodoList from './TodoList';
+import Todo from './pages/Todo';
 
 function App() {
-  const [state, setState] = useState({
-    todoList: [],
-    input: '',
-    id: 0,
-  });
-  const { todoList, input } = state;
-
-  const handleChangeInput = ({ target: { value } }) => {
-    setState({
-      ...state,
-      input: value,
-    });
-  };
-
-  const handleClickAddTodo = () => {
-    if (input.trim() !== '') {
-      setState((prevState) => ({
-        ...state,
-        input: '',
-        id: prevState.id + 1,
-        todoList: [
-          ...todoList,
-          {
-            id: state.id,
-            text: input,
-          },
-        ],
-      }));
-    }
-  };
-
-  const handleClickRemoveTodo = (id) => {
-    setState({
-      ...state,
-      todoList: todoList.filter((item) => item.id !== id),
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleClickAddTodo();
-  };
-
-  return (
-    <div>
-      <h1>
-        To-Do
-        (
-        {todoList.length}
-        )
-      </h1>
-      <TodoForm
-        input={input}
-        onChangeInput={handleChangeInput}
-        onClickSubmitButton={handleClickAddTodo}
-        onSubmit={handleSubmit}
-      />
-      <TodoList
-        todoList={todoList}
-        onClicktoRemove={handleClickRemoveTodo}
-      />
-    </div>
-  );
+  return <Todo />;
 }
 
 ReactDom.render(<App />, document.getElementById('app'));
