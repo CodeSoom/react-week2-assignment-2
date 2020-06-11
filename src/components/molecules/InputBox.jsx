@@ -10,8 +10,8 @@ export default function InputBox({ onCreate }) {
     setText(inputValue);
   };
 
-  const handleClick = () => {
-    onCreate(text);
+  const handleClick = (inputValue) => {
+    onCreate(inputValue);
     setText('');
   };
 
@@ -23,7 +23,7 @@ export default function InputBox({ onCreate }) {
         onChange={handleInputChange}
       />
       <Button
-        onClick={() => handleClick()}
+        onClick={() => handleClick(text)}
       >
         추가
       </Button>

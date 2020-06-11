@@ -7,7 +7,11 @@ export default function TodoItem({ text, onComplete }) {
   return (
     <>
       <Span>{text}</Span>
-      <Button onClick={onComplete}>완료</Button>
+      <Button
+        onClick={onComplete}
+      >
+        완료
+      </Button>
     </>
   );
 }
