@@ -5,23 +5,26 @@ function App() {
   const [state, setState] = useState({
     inputText: '',
     todos: [],
+    nextTodoID: 0,
   });
 
-  const { inputText, todos } = state;
+  const { inputText, todos, nextTodoID } = state;
 
-  function handleClickAddTodo(todo) {
-    if (todo !== '') {
+  function handleClickAddTodo(todoText, todoID) {
+    if (todoText !== '') {
       setState({
         inputText: '',
-        todos: [...todos, todo.trim()],
+        todos: [...todos, { id: todoID, text: todoText.trim() }],
+        nextTodoID: todoID + 1,
       });
     }
   }
 
-  function handleClickCompleteTodo(position) {
+  function handleClickCompleteTodo(completedTodo) {
     setState({
       inputText,
-      todos: todos.filter((_, index) => index !== position),
+      todos: todos.filter((todo) => todo.id !== completedTodo.id),
+      nextTodoID,
     });
   }
 
@@ -29,6 +32,7 @@ function App() {
     setState({
       inputText: event.target.value,
       todos,
+      nextTodoID,
     });
   }
 
@@ -36,6 +40,7 @@ function App() {
     <Todopage
       inputText={inputText}
       todos={todos}
+      nextTodoID={nextTodoID}
       onClickAddTodo={handleClickAddTodo}
       onClickCompleteTodo={handleClickCompleteTodo}
       onChangeInputText={handleInputChange}

@@ -3,10 +3,10 @@ import React from 'react';
 function Todolist({ todos, onClickCompleteTodo }) {
   if (todos.length > 0) {
     return (
-      todos.map((value, index) => (
+      todos.map((todo) => (
         <p>
-          {value}
-          <button type="button" onClick={() => onClickCompleteTodo(index)}>완료</button>
+          {todo.text}
+          <button type="button" onClick={() => onClickCompleteTodo(todo)}>완료</button>
         </p>
       ))
     );
