@@ -3,7 +3,9 @@ import React from 'react';
 import TodoHeader from './TodoHeader/TodoHeader';
 import TodoList from './TodoBody/TodoList';
 
-export default function TodoTemplate({ todos, onClickAdd, onClickRemove, inputValueState, handleInputValueChange, clearInputValue }) {
+export default function TodoTemplate({
+  todos, onClickAdd, onClickRemove, inputValueState, handleInputValueChange, clearInputValue,
+}) {
   return (
     <div>
       <TodoHeader
