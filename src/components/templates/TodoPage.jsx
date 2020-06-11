@@ -4,7 +4,7 @@ import Title from '../molecules/Title';
 import InputBox from '../molecules/InputBox';
 import TodoContent from '../organisms/TodoContent';
 
-export default function TodoPage({ items }) {
+export default function TodoPage({ items, onComplete }) {
   return (
     <>
       <Title
@@ -16,6 +16,7 @@ export default function TodoPage({ items }) {
       <div>
         <TodoContent
           items={items}
+          onComplete={(id) => onComplete(id)}
         />
       </div>
     </>

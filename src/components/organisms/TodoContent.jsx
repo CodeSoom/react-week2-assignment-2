@@ -5,7 +5,7 @@ import ListItem from '../atoms/ListItem';
 import Message from '../molecules/Message';
 import TodoItem from '../molecules/TodoItem';
 
-export default function TodoContent({ items }) {
+export default function TodoContent({ items, onComplete }) {
   const message = (todoItems) => {
     if (todoItems.length !== 0) {
       return <></>;
@@ -27,6 +27,7 @@ export default function TodoContent({ items }) {
           >
             <TodoItem
               text={item.text}
+              onComplete={() => onComplete(item.id)}
             />
           </ListItem>
         ))}
