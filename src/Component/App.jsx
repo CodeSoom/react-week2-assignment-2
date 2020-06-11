@@ -12,16 +12,16 @@ export default function App() {
 
   function handleClick() {
     if (!text) return;
-    const tempArray = [...items];
-    tempArray.push({ id: items.length + 1, value: text });
-    setItem(tempArray);
+    const todos = [...items];
+    // 혹시 아래처럼 쓴 방식도 Guard Clauses 에 해당하나요?
+    if (items.length) todos.push({ id: todos[todos.length - 1].id + 1, value: text });
+    if (!items.length) todos.push({ id: 1, value: text });
+    setItem(todos);
     setText('');
   }
 
   function deleteItem(item) {
-    const tempArray = [...items];
-    tempArray.splice(items.indexOf(item), 1);
-    setItem(tempArray);
+    setItem([...items].filter((i) => i.id !== item.id));
   }
 
   return (

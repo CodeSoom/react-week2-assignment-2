@@ -20,7 +20,7 @@ export default function Page({
       />
       <TodoList
         items={items}
-        deleteItem={deleteItem}
+        onClick={deleteItem}
       />
     </div>
   );
