@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function TodoInputBox(
-  { value, onChangeInputValue, onSubmitTodoItem },
+  { value, onChangeInputValue, onSubmitAddTodo },
 ) {
   return (
-    <form onSubmit={onSubmitTodoItem}>
+    <form onSubmit={onSubmitAddTodo}>
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"

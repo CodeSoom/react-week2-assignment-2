@@ -23,7 +23,8 @@ export default function App() {
     });
   };
 
-  const handleClickSubmit = (e) => {
+  const handleClickAddTodo = (e) => {
+    e.preventDefault();
     setState({
       value: '',
       nextId: nextId + 1,
@@ -32,7 +33,6 @@ export default function App() {
         todo: value,
       }],
     });
-    e.preventDefault();
   };
 
   return (
@@ -40,8 +40,8 @@ export default function App() {
       todos={todos}
       value={value}
       onChangeInputValue={handleChangeInputValue}
-      onSubmitTodoItem={handleClickSubmit}
-      onRemoveTodoItem={handleClickComplete}
+      onSubmitAddTodo={handleClickAddTodo}
+      onClickRemoveTodo={handleClickComplete}
     />
   );
 }
