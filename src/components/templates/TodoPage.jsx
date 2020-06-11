@@ -4,7 +4,7 @@ import Title from '../molecules/Title';
 import InputBox from '../molecules/InputBox';
 import TodoContent from '../organisms/TodoContent';
 
-export default function TodoPage() {
+export default function TodoPage({ items }) {
   return (
     <>
       <Title
@@ -14,7 +14,9 @@ export default function TodoPage() {
         <InputBox />
       </div>
       <div>
-        <TodoContent />
+        <TodoContent
+          items={items}
+        />
       </div>
     </>
   );
