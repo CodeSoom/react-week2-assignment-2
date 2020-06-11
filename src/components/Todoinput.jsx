@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Todoinput({ inputText, onClick, onChange }) {
+function Todoinput({ inputText, onClickAddTodo, onChangeInputText }) {
   return (
     <span>
-      <input type="text" value={inputText} onChange={onChange} />
-      <button type="button" onClick={() => onClick(inputText)}>추가</button>
+      <input type="text" value={inputText} onChange={onChangeInputText} />
+      <button type="button" onClick={() => onClickAddTodo(inputText)}>추가</button>
     </span>
   );
 }

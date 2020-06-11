@@ -3,19 +3,19 @@ import Todoinput from '../components/Todoinput';
 import Todolist from '../components/Todolist';
 
 function Todopage({
-  inputText, todos, addClick, completeClick, handleChange,
+  inputText, todos, onClickAddTodo, onClickCompleteTodo, onChangeInputText,
 }) {
   return (
     <div>
       <h1>To-do</h1>
       <Todoinput
         inputText={inputText}
-        onClick={addClick}
-        onChange={handleChange}
+        onClickAddTodo={onClickAddTodo}
+        onChangeInputText={onChangeInputText}
       />
       <Todolist
         todos={todos}
-        completeClick={completeClick}
+        onClickCompleteTodo={onClickCompleteTodo}
       />
     </div>
   );

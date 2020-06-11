@@ -9,23 +9,23 @@ function App() {
 
   const { inputText, todos } = state;
 
-  function handleAddClick(value) {
-    if (value !== '') {
+  function handleClickAddTodo(todo) {
+    if (todo !== '') {
       setState({
         inputText: '',
-        todos: [...todos, value],
+        todos: [...todos, todo.trim()],
       });
     }
   }
 
-  function handleCompleteClick(value) {
+  function handleClickCompleteTodo(position) {
     setState({
       inputText,
-      todos: todos.filter((_, index) => index !== value),
+      todos: todos.filter((_, index) => index !== position),
     });
   }
 
-  function handleChange(event) {
+  function handleInputChange(event) {
     setState({
       inputText: event.target.value,
       todos,
@@ -36,9 +36,9 @@ function App() {
     <Todopage
       inputText={inputText}
       todos={todos}
-      addClick={handleAddClick}
-      completeClick={handleCompleteClick}
-      handleChange={handleChange}
+      onClickAddTodo={handleClickAddTodo}
+      onClickCompleteTodo={handleClickCompleteTodo}
+      onChangeInputText={handleInputChange}
     />
   );
 }
