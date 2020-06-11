@@ -18,9 +18,7 @@ export default function App() {
 
   function handleClickAdd(todoContent) {
     setTodosState({
-      todos: todos.concat(
-        { content: todoContent, key: generateKey() },
-      ),
+      todos: [...todos, { content: todoContent, key: generateKey() }],
     });
   }
 
