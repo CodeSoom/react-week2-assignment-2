@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Title from './components/Title';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
-import EmptyMessage from './components/EmptyMessage';
 
 export default function App() {
   const [todo, setTodo] = useState({ id: 1, text: '' });
@@ -31,7 +30,6 @@ export default function App() {
         handleTodoInput={handleTodoInput}
         handleTodoSubmit={handleTodoSubmit}
       />
-      <EmptyMessage todos={todos} />
       <TodoList todos={todos} handleComplete={handleComplete} />
     </>
   );
