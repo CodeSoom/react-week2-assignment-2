@@ -4,14 +4,16 @@ import Title from '../molecules/Title';
 import InputBox from '../molecules/InputBox';
 import TodoContent from '../organisms/TodoContent';
 
-export default function TodoPage({ items, onComplete }) {
+export default function TodoPage({ items, onComplete, onCreate }) {
   return (
     <>
       <Title
         title="To-do"
       />
       <div>
-        <InputBox />
+        <InputBox
+          onCreate={(text) => onCreate(text)}
+        />
       </div>
       <div>
         <TodoContent

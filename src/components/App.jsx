@@ -3,16 +3,7 @@ import React, { useState } from 'react';
 import TodoPage from './templates/TodoPage';
 
 export default function App() {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      text: '할 일',
-    },
-    {
-      id: 2,
-      text: '아무것도 하지 않기',
-    },
-  ]);
+  const [items, setItems] = useState([]);
 
   const removeItemById = (todoItems, id) => {
     const index = todoItems.findIndex((i) => i.id === id);
@@ -23,11 +14,21 @@ export default function App() {
     setItems(removeItemById(items, id));
   };
 
+  const handleCreate = (todoItems, text) => {
+    const lastId = Math.max(...todoItems.map((i) => i.id));
+    const item = {
+      id: lastId + 1,
+      text,
+    };
+    setItems([...items, item]);
+  };
+
   return (
     <>
       <TodoPage
         items={items}
         onComplete={(id) => handleComplete(items, id)}
+        onCreate={(text) => handleCreate(items, text)}
       />
     </>
   );
