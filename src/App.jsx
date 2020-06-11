@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import Title from './components/Title';
 import TodoList from './components/TodoList';
+import Form from './components/Form';
 
-export default function App() {
+export default function () {
   const [state, setState] = useState({
     todos: [],
     value: '',
@@ -11,7 +12,6 @@ export default function App() {
   });
 
   const { todos, value, isEmpty } = state;
-
 
   const onAddTodo = () => {
     if (!value) {
@@ -28,14 +28,13 @@ export default function App() {
     });
   };
 
-  const onCompleteTodo = (id) => {
+  const onCompleteTodo = useCallback((id) => {
     const filteredTodos = todos.filter((todo) => todo.id !== id);
     setState({
       ...state,
       todos: filteredTodos,
     });
-  };
-
+  }, [todos]);
 
   const onChange = (e) => {
     setState({
@@ -50,10 +49,10 @@ export default function App() {
     onAddTodo();
   };
 
-
   return (
     <>
       <Title title="To-do" />
+      <Form onSubmit={onSubmit} value={value} onChange={onChange} isEmpty={isEmpty} />
       <TodoList
         value={value}
         onChange={onChange}

@@ -1,14 +1,12 @@
 import React from 'react';
 
 import Todo from './Todo';
-import Form from './Form';
 
-function TodoList({
-  value, onChange, onSubmit, isEmpty, todos, onCompleteTodo,
+export default function ({
+  todos, onCompleteTodo,
 }) {
   return (
     <div>
-      <Form onSubmit={onSubmit} value={value} onChange={onChange} isEmpty={isEmpty} />
       {todos.length ? todos.map((todo, index) => (
         <Todo
           key={todo.id}
@@ -20,5 +18,3 @@ function TodoList({
     </div>
   );
 }
-
-export default TodoList;

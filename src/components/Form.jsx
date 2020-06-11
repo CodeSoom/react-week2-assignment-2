@@ -2,7 +2,7 @@ import React from 'react';
 
 import Input from './Input';
 
-export default function Form({
+export default function ({
   onSubmit, value, onChange, isEmpty,
 }) {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Todo({ index, todo, onCompleteTodo }) {
+export default function ({ index, todo, onCompleteTodo }) {
   return (
     <div>
       <b>{index + 1}</b>
