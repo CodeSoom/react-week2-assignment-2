@@ -4,15 +4,16 @@ import TodoHeader from './TodoHeader/TodoHeader';
 import TodoList from './TodoBody/TodoList';
 
 export default function TodoTemplate({
-  todos, onClickAdd, onClickRemove, inputValueState, handleInputValueChange, clearInputValue,
+  state, onClickAdd, onClickRemove, handleInputValueChange,
 }) {
+  const { todos, inputValue } = state;
+
   return (
     <div>
       <TodoHeader
         onClick={onClickAdd}
-        inputValueState={inputValueState}
+        inputValue={inputValue}
         handleChange={handleInputValueChange}
-        clearInputValue={clearInputValue}
       />
       <TodoList
         todos={todos}

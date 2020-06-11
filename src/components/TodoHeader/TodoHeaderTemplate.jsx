@@ -3,17 +3,11 @@ import React from 'react';
 import TodoAddInput from './TodoAddInput';
 import TodoAddButton from './TodoAddButton';
 
-export default function TodoHeaderTemplate({
-  inputValueState, handleChange, onClick, clearInputValue,
-}) {
+export default function TodoHeaderTemplate({ inputValue, handleChange, onClick }) {
   return (
     <div>
-      <TodoAddInput inputValueState={inputValueState} onChange={handleChange} />
-      <TodoAddButton
-        inputValueState={inputValueState}
-        onClick={onClick}
-        clearInput={clearInputValue}
-      />
+      <TodoAddInput inputValue={inputValue} onChange={handleChange} />
+      <TodoAddButton onClick={onClick} />
     </div>
   );
 }

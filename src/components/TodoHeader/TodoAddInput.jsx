@@ -1,8 +1,6 @@
 import React from 'react';
 
-export default function TodoAddInput({ inputValueState, onChange }) {
-  const { inputValue } = inputValueState;
-
+export default function TodoAddInput({ inputValue, onChange }) {
   return (
     <input value={inputValue} onChange={(e) => onChange(e)} />
   );

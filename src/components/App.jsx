@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import TodoTemplate from './TodoTemplate';
 
 export default function App() {
-  const [todosState, setTodosState] = useState({
+  const [state, setState] = useState({
     todos: [],
+    inputValue: '',
   });
 
-  const { todos } = todosState;
+  const { todos, inputValue } = state;
 
   function generateKey() {
     if (todos.length === 0) {
@@ -16,43 +17,34 @@ export default function App() {
     return Math.max(...todos.map(({ key }) => key)) + 1;
   }
 
-  function handleClickAdd(todoContent) {
-    setTodosState({
-      todos: [...todos, { content: todoContent, key: generateKey() }],
+  function handleClickAdd() {
+    setState({
+      todos: [...todos, { content: inputValue, key: generateKey() }],
+      inputValue: '',
     });
   }
 
   function handleClickRemove(target) {
-    setTodosState({
+    setState({
       todos: todos.filter(({ key }) => key !== target),
+      inputValue,
     });
   }
-
-  const [inputValueState, setInputValueState] = useState({
-    inputValue: '',
-  });
 
   function handleInputValueChange({ target }) {
     const { value } = target;
-    setInputValueState({
+    setState({
+      todos,
       inputValue: value,
-    });
-  }
-
-  function clearInputValue() {
-    setInputValueState({
-      inputValue: '',
     });
   }
 
   return (
     <TodoTemplate
-      todos={todos}
+      state={state}
       onClickAdd={handleClickAdd}
       onClickRemove={handleClickRemove}
-      inputValueState={inputValueState}
       handleInputValueChange={handleInputValueChange}
-      clearInputValue={clearInputValue}
     />
   );
 }

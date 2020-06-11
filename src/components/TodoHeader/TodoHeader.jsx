@@ -2,15 +2,12 @@ import React from 'react';
 
 import TodoHeaderTemplate from './TodoHeaderTemplate';
 
-export default function TodoHeader({
-  onClick, inputValueState, handleChange, clearInputValue,
-}) {
+export default function TodoHeader({ onClick, inputValue, handleChange }) {
   return (
     <TodoHeaderTemplate
-      inputValueState={inputValueState}
+      inputValue={inputValue}
       onClick={onClick}
       handleChange={handleChange}
-      clearInputValue={clearInputValue}
     />
   );
 }
