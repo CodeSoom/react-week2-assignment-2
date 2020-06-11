@@ -13,14 +13,14 @@ export default function App() {
     setState({
       value: '',
       nextId: nextId + 1,
-      todos: todos.concat({
+      todos: [...todos, {
         id: nextId,
         todo: text,
-      }),
+      }],
     });
   };
 
-  const handleClickCompleteButton = (id) => {
+  const handleClickComplete = (id) => {
     setState({
       ...state,
       todos: [...todos].filter((todo) => todo.id !== id),
@@ -34,7 +34,7 @@ export default function App() {
     });
   };
 
-  const handleClickSubmitButton = (e) => {
+  const handleClickSubmit = (e) => {
     insertTodoItem(value);
     e.preventDefault();
   };
@@ -44,8 +44,8 @@ export default function App() {
       todos={todos}
       value={value}
       onChangeInputValue={handleChangeInputValue}
-      onSubmitTodoItem={handleClickSubmitButton}
-      onRemoveTodoItem={handleClickCompleteButton}
+      onSubmitTodoItem={handleClickSubmit}
+      onRemoveTodoItem={handleClickComplete}
     />
   );
 }
