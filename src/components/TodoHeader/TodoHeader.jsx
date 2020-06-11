@@ -1,30 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import TodoHeaderTemplate from './TodoHeaderTemplate';
 
-export default function TodoHeader({ onClick }) {
-  const [state, setState] = useState({
-    inputValue: '',
-  });
-
-  const { inputValue } = state;
-
-  function handleChange({ target }) {
-    const { value } = target;
-    setState({
-      inputValue: value,
-    });
-  }
-
-  function clearInputValue() {
-    setState({
-      inputValue: '',
-    });
-  }
-
+export default function TodoHeader({ onClick, inputValueState, handleChange, clearInputValue }) {
   return (
     <TodoHeaderTemplate
-      inputValue={inputValue}
+      inputValueState={inputValueState}
       onClick={onClick}
       handleChange={handleChange}
       clearInputValue={clearInputValue}

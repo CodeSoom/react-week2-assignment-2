@@ -4,12 +4,16 @@ import TodoAddInput from './TodoAddInput';
 import TodoAddButton from './TodoAddButton';
 
 export default function TodoHeaderTemplate({
-  inputValue, handleChange, onClick, clearInputValue,
+  inputValueState, handleChange, onClick, clearInputValue,
 }) {
   return (
     <div>
-      <TodoAddInput inputValue={inputValue} onChange={handleChange} />
-      <TodoAddButton inputValue={inputValue} onClick={onClick} clearInput={clearInputValue} />
+      <TodoAddInput inputValueState={inputValueState} onChange={handleChange} />
+      <TodoAddButton
+        inputValueState={inputValueState}
+        onClick={onClick}
+        clearInput={clearInputValue}
+      />
     </div>
   );
 }

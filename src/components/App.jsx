@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import TodoTemplate from './TodoTemplate';
 
 export default function App() {
-  const [state, setState] = useState({
+  const [todosState, setTodosState] = useState({
     todos: [],
   });
 
-  const { todos } = state;
+  const { todos } = todosState;
 
   function generateKey() {
     if (todos.length === 0) {
@@ -17,7 +17,7 @@ export default function App() {
   }
 
   function handleClickAdd(todoContent) {
-    setState({
+    setTodosState({
       todos: todos.concat(
         { content: todoContent, key: generateKey() },
       ),
@@ -25,8 +25,25 @@ export default function App() {
   }
 
   function handleClickRemove(target) {
-    setState({
+    setTodosState({
       todos: todos.filter(({ key }) => key !== target),
+    });
+  }
+
+  const [inputValueState, setInputValueState] = useState({
+    inputValue: '',
+  });
+
+  function handleInputValueChange({ target }) {
+    const { value } = target;
+    setInputValueState({
+      inputValue: value,
+    });
+  }
+
+  function clearInputValue() {
+    setInputValueState({
+      inputValue: '',
     });
   }
 
@@ -35,6 +52,9 @@ export default function App() {
       todos={todos}
       onClickAdd={handleClickAdd}
       onClickRemove={handleClickRemove}
+      inputValueState={inputValueState}
+      handleInputValueChange={handleInputValueChange}
+      clearInputValue={clearInputValue}
     />
   );
 }

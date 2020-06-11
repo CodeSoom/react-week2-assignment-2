@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function TodoAddButton({ inputValue, onClick, clearInput }) {
+export default function TodoAddButton({ inputValueState, onClick, clearInput }) {
+  const { inputValue } = inputValueState;
+
   function handleClickAdd() {
     onClick(inputValue);
     clearInput();
