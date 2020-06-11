@@ -4,21 +4,21 @@ import TodoTemplate from './TodoTemplate';
 
 export default function App() {
   const [state, setState] = useState({
-    todoList: [],
+    todos: [],
   });
 
-  const { todoList } = state;
+  const { todos } = state;
 
   function generateKey() {
-    if (todoList.length === 0) {
+    if (todos.length === 0) {
       return 0;
     }
-    return Math.max(...todoList.map(({ key }) => key)) + 1;
+    return Math.max(...todos.map(({ key }) => key)) + 1;
   }
 
   function handleClickAdd(todoContent) {
     setState({
-      todoList: todoList.concat(
+      todos: todos.concat(
         { content: todoContent, key: generateKey() },
       ),
     });
@@ -26,13 +26,13 @@ export default function App() {
 
   function handleClickRemove(target) {
     setState({
-      todoList: todoList.filter(({ key }) => key !== target),
+      todos: todos.filter(({ key }) => key !== target),
     });
   }
 
   return (
     <TodoTemplate
-      todoList={todoList}
+      todos={todos}
       onClickAdd={handleClickAdd}
       onClickRemove={handleClickRemove}
     />

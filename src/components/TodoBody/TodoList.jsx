@@ -2,8 +2,8 @@ import React from 'react';
 
 import Todo from './Todo';
 
-export default function TodoList({ todoList, onClick }) {
-  if (todoList.length === 0) {
+export default function TodoList({ todos, onClick }) {
+  if (todos.length === 0) {
     return (
       <div>할 일이 없어요!</div>
     );
@@ -12,7 +12,7 @@ export default function TodoList({ todoList, onClick }) {
   return (
     <ul>
       {
-        todoList.map(
+        todos.map(
           ({ content, key }) => <Todo key={key} id={key} data={content} onClick={onClick} />,
         )
       }

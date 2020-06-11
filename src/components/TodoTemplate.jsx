@@ -3,12 +3,12 @@ import React from 'react';
 import TodoHeader from './TodoHeader/TodoHeader';
 import TodoList from './TodoBody/TodoList';
 
-export default function TodoTemplate({ todoList, onClickAdd, onClickRemove }) {
+export default function TodoTemplate({ todos, onClickAdd, onClickRemove }) {
   return (
     <div>
       <TodoHeader onClick={onClickAdd} />
       <TodoList
-        todoList={todoList}
+        todos={todos}
         onClick={onClickRemove}
       />
     </div>
