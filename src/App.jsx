@@ -9,17 +9,6 @@ export default function App() {
   });
   const { value, nextId, todos } = state;
 
-  const insertTodoItem = (text) => {
-    setState({
-      value: '',
-      nextId: nextId + 1,
-      todos: [...todos, {
-        id: nextId,
-        todo: text,
-      }],
-    });
-  };
-
   const handleClickComplete = (id) => {
     setState({
       ...state,
@@ -35,7 +24,14 @@ export default function App() {
   };
 
   const handleClickSubmit = (e) => {
-    insertTodoItem(value);
+    setState({
+      value: '',
+      nextId: nextId + 1,
+      todos: [...todos, {
+        id: nextId,
+        todo: value,
+      }],
+    });
     e.preventDefault();
   };
 
