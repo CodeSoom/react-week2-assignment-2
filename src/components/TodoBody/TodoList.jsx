@@ -9,7 +9,7 @@ export default function TodoList({ todoList, onClick }) {
         (todoList.length === 0)
           ? '할 일이 없어요!'
           : todoList.map(
-            ({ key, data }) => <Todo key={key} id={key} data={data} onClick={onClick} />,
+            ({ data, key }) => <Todo key={key} id={key} data={data} onClick={onClick} />,
           )
       }
     </ul>

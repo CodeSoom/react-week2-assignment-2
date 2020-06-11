@@ -7,7 +7,10 @@ export default function TodoTemplate({ todoList, onClickAdd, onClickRemove }) {
   return (
     <div>
       <TodoHeader onClick={onClickAdd} />
-      <TodoList todoList={todoList} onClick={onClickRemove} />
+      <TodoList
+        todoList={todoList}
+        onClick={onClickRemove}
+      />
     </div>
   );
 }

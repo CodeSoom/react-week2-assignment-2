@@ -9,10 +9,17 @@ export default function App() {
 
   const { todoList } = state;
 
+  function generateKey() {
+    if (todoList.length === 0) {
+      return 0;
+    }
+    return Math.max(...todoList.map(({ key }) => key)) + 1;
+  }
+
   function handleClickAdd(todoContent) {
     setState({
       todoList: todoList.concat(
-        { data: todoContent, key: todoList.length + 1 },
+        { data: todoContent, key: generateKey() },
       ),
     });
   }
