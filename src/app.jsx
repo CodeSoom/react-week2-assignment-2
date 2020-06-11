@@ -19,8 +19,8 @@ export default function App() {
     setTodo({ id: todo.id + 1, text: '' });
   };
 
-  const handleComplete = (index) => {
-    setTodos(todos.filter((todoItem) => todoItem.id !== index));
+  const handleComplete = (id) => {
+    setTodos(todos.filter((todoItem) => todoItem.id !== id));
   };
 
   return (
