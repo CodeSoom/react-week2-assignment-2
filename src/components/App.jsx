@@ -19,7 +19,7 @@ export default function App() {
   function handleClickAdd(todoContent) {
     setState({
       todoList: todoList.concat(
-        { data: todoContent, key: generateKey() },
+        { content: todoContent, key: generateKey() },
       ),
     });
   }

@@ -5,7 +5,7 @@ import Todo from './Todo';
 export default function TodoList({ todoList, onClick }) {
   if (todoList.length === 0) {
     return (
-      <div>할 일이 없어요</div>
+      <div>할 일이 없어요!</div>
     );
   }
 
@@ -13,7 +13,7 @@ export default function TodoList({ todoList, onClick }) {
     <ul>
       {
         todoList.map(
-          ({ data, key }) => <Todo key={key} id={key} data={data} onClick={onClick} />,
+          ({ content, key }) => <Todo key={key} id={key} data={content} onClick={onClick} />,
         )
       }
     </ul>
