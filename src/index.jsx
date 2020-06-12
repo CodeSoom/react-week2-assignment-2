@@ -1,29 +1,47 @@
-/* @jsx createElement */
-function createElement(tagName, props, ...children) {
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import Page from './page/Page';
 
-    const element = document.createElement(tagName);
 
-    Object.entries(props || {}).forEach(([key, value]) => {
-        element[key.toLowerCase] = value;
+function App() {
+  const [state, setState] = useState({
+    todo: [],
+  });
+
+  function addTodo() {
+    const inputVal = document.getElementById('input').value;
+    document.getElementById('input').value = '';
+    setState({
+      todo: [...state.todo, inputVal],
     });
+  }
 
-    children.forEach((child) => {
-        if (child instanceof Node) {
-            element.appendChild(child);
-            return;
+  function deleteBelow(passedKey) {
+    const array = state.todo.filter((i, key) => (key !== passedKey));
+    setState({
+      todo: array,
+    });
+  }
+
+  return (
+    <div>
+      <Page />
+      <p>
+        <input id="input" />
+        <button type="button" onClick={() => addTodo()}>추가</button>
+      </p>
+      <div>
+        {
+          state.todo.length !== 0 ? state.todo.map((i, key) => (
+            <div key={i}>
+              {i}
+              <button type="button" onClick={() => deleteBelow(key)}>완료</button>
+            </div>
+          )) : <div>할 일이 없어요!</div>
         }
-        element.appendChild(document.createTextNode(child));
-    });
-
-    return element;
-
+      </div>
+    </div>
+  );
 }
 
-const element = (
-    <div>
-      init
-    </div>
-)
-
-document.getElementById('app').textContent('');
-document.getElementById('app').appendChild(element);
+ReactDOM.render(<App />, document.getElementById('app'));
