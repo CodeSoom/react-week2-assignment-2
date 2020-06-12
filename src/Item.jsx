@@ -14,7 +14,6 @@ export default function Item({ index, item, onClickConfirm }) {
         {' '}
       </span>
       <Button
-        value={item}
         onClick={() => onClickConfirm(item)}
         label={label}
       />
