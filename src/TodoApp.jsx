@@ -11,13 +11,12 @@ const TodoAppStyle = {
 };
 
 export default function TodoApp({
-  todos, input, onAddTodoItem, onRemoveTodoItem, onInputChange, onInputSubmit,
+  todos, input, onRemoveTodoItem, onInputChange, onInputSubmit,
 }) {
   return (
     <div style={TodoAppStyle}>
       <TodoAppHeader
         input={input}
-        onAddTodoItem={onAddTodoItem}
         onInputChange={onInputChange}
         onInputSubmit={onInputSubmit}
       />

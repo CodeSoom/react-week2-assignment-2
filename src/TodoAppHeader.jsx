@@ -6,14 +6,13 @@ const h1Style = {
 };
 
 export default function TodoAppHeader({
-  onAddTodoItem, input, onInputChange, onInputSubmit,
+  input, onInputChange, onInputSubmit,
 }) {
   return (
     <div>
       <h1 style={h1Style}>To-do</h1>
       <div>
         <TodoInput
-          onAddTodoItem={onAddTodoItem}
           input={input}
           onInputChange={onInputChange}
           onInputSubmit={onInputSubmit}

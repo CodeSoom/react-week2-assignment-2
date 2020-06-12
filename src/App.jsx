@@ -2,21 +2,15 @@ import React, { useState } from 'react';
 
 import TodoApp from './TodoApp';
 
+function makeRandomId(todo) {
+  return ([...todo].reduce((acc, v) => acc + v.charCodeAt(0), 0)
+        + Math.floor(Math.random() * 999)
+        + todo[0]);
+}
+
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
-
-  const handleAddTodoItem = ({ todo }) => {
-    setTodos([
-      ...todos,
-      {
-        id: [...todo].reduce((acc, v) => acc + v.charCodeAt(0), 0)
-        + Math.floor(Math.random() * 999)
-        + todo[0],
-        todo,
-      },
-    ]);
-  };
 
   const handleRemoveTodoItem = ({ id }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
@@ -28,7 +22,19 @@ export default function App() {
 
   const handleInputSubmit = (e) => {
     e.preventDefault();
-    handleAddTodoItem({ todo: input });
+
+    if (input === '') {
+      return;
+    }
+
+    setTodos([
+      ...todos,
+      {
+        id: makeRandomId(input),
+        input,
+      },
+    ]);
+
     setInput('');
   };
 
@@ -36,7 +42,6 @@ export default function App() {
     <TodoApp
       todos={todos}
       input={input}
-      onAddTodoItem={handleAddTodoItem}
       onRemoveTodoItem={handleRemoveTodoItem}
       onInputChange={handleInputChange}
       onInputSubmit={handleInputSubmit}

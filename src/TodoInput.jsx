@@ -15,9 +15,9 @@ const FormStyle = {
 
 export default function TodoInput({ input, onInputChange, onInputSubmit }) {
   return (
-    <form style={FormStyle}>
+    <form style={FormStyle} onSubmit={onInputSubmit}>
       <input onChange={onInputChange} value={input} style={TodoInputStyle} />
-      <button type="submit" onClick={onInputSubmit}>추가</button>
+      <button type="submit">추가</button>
     </form>
   );
 }

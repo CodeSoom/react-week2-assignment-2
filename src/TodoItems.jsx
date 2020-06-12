@@ -8,11 +8,15 @@ const ulStyle = {
 };
 
 export default function TodoItems({ todos, onRemoveTodoItem }) {
-  const todoList = todos.map((todo, index) => (
-    <TodoItem index={index} todo={todo} key={todo.id} onRemoveTodoItem={onRemoveTodoItem} />
-  ));
+  if (todos.length === 0) {
+    return '할 일이 없어요!';
+  }
 
   return (
-    todoList.length !== 0 ? (<ul style={ulStyle}>{ todoList }</ul>) : '할 일이 없어요!'
+    <ul style={ulStyle}>
+      {todos.map((todo, index) => (
+        <TodoItem index={index + 1} todo={todo} key={todo.id} onRemoveTodoItem={onRemoveTodoItem} />
+      )) }
+    </ul>
   );
 }
