@@ -2,21 +2,55 @@ import React, { useState } from 'react';
 import Page from './Page';
 
 export default function App() {
-  const [state, setState] = useState([]);
+  const [state, setState] = useState({
+    ids: [],
+    todos: [],
+    newTodo: '',
+  });
+  const { ids, todos, newTodo } = state;
 
-  function handleClickAdd(newTodo) {
-    setState([...state, newTodo]);
+  const generateId = () => Date.now().toString();
+
+  function handleChange(event) {
+    setState({
+      ids,
+      todos,
+      newTodo: event.target.value,
+    });
   }
 
-  function handleClickComplete(completeTodo) {
-    setState(state.filter((t) => t !== completeTodo));
+  function handleSubmit(event) {
+    setState({
+      ids: [...ids, generateId()],
+      todos: [...todos, newTodo],
+      newTodo: '',
+    });
+    event.preventDefault();
   }
+
+  function handleClickComplete(completedId) {
+    setState({
+      ids: ids.filter((id) => id !== completedId),
+      todos: todos.filter((_, index) => index !== ids.indexOf(completedId)),
+    });
+  }
+
+  const addFormState = {
+    newTodo,
+    handleChange,
+    handleSubmit,
+  };
+
+  const todoState = {
+    ids,
+    todos,
+    handleClickComplete,
+  };
 
   return (
     <Page
-      todo={state}
-      handleClickAdd={handleClickAdd}
-      handleClickComplete={handleClickComplete}
+      addFormState={addFormState}
+      todoState={todoState}
     />
   );
 }

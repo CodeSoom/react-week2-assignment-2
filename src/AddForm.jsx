@@ -1,16 +1,10 @@
 import React from 'react';
-import Button from './Button';
 
-export default function AddForm({ onClick }) {
-  const handleClick = () => {
-    onClick(document.getElementById('add-todo').value);
-    document.getElementById('add-todo').value = null;
-  };
-
+export default function AddForm({ newTodo, onChange, onSubmit }) {
   return (
-    <p>
-      <input type="text" id="add-todo" />
-      <Button name="추가" onClick={handleClick} />
-    </p>
+    <form onSubmit={onSubmit}>
+      <input type="text" value={newTodo || ''} onChange={onChange} />
+      <input type="submit" value="추가" />
+    </form>
   );
 }

@@ -1,22 +1,18 @@
 import React from 'react';
 import AddForm from './AddForm';
-import Todo from './Todo';
+import Todos from './Todos';
 
-export default function Page({ todo, handleClickAdd, handleClickComplete }) {
+export default function Page({ addFormState, todoState }) {
+  const { newTodo, handleChange, handleSubmit } = addFormState;
+  const { ids, todos, handleClickComplete } = todoState;
+
   return (
     <div>
       <h1>To-do</h1>
-      <AddForm onClick={handleClickAdd} />
+      <AddForm newTodo={newTodo} onChange={handleChange} onSubmit={handleSubmit} />
       {
-        todo.length
-          ? todo.map((t) => (
-            <Todo
-              number={todo.indexOf(t)}
-              todo={t}
-              onClick={handleClickComplete}
-              key={t}
-            />
-          ))
+        todos.length
+          ? <Todos ids={ids} todos={todos} onClick={handleClickComplete} />
           : <p>할 일이 없어요!</p>
       }
     </div>

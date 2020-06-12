@@ -1,13 +1,11 @@
 import React from 'react';
 import Button from './Button';
 
-export default function Todo({ number, todo, onClick }) {
+export default function Todo({ todo, onClick }) {
   return (
-    <p>
-      { number }
-      .
+    <li>
       { todo }
-      <Button name="완료" onClick={() => onClick(todo)} />
-    </p>
+      <Button name="완료" onClick={onClick} />
+    </li>
   );
 }
