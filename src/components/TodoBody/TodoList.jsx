@@ -13,7 +13,14 @@ export default function TodoList({ todos, onClick }) {
     <ul>
       {
         todos.map(
-          ({ content, key }) => <Todo key={key} id={key} data={content} onClick={onClick} />,
+          ({ content, key }) => (
+            <Todo
+              key={key}
+              id={key}
+              data={content}
+              onClick={() => onClick(key)}
+            />
+          ),
         )
       }
     </ul>

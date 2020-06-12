@@ -2,11 +2,11 @@ import React from 'react';
 
 import TodoRemoveButton from './TodoRemoveButton';
 
-export default function Todo({ id, data, onClick }) {
+export default function Todo({ data, onClick }) {
   return (
     <li>
       {data}
-      <TodoRemoveButton id={id} onClick={onClick} />
+      <TodoRemoveButton onClick={onClick} />
     </li>
   );
 }

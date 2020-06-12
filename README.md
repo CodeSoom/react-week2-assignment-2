@@ -70,6 +70,6 @@ npm test
 - [ ] state가 퍼지지 않고 하나의 state에서 객체 내부의 속성으로 관리할 수 있도록 개선
 
 ## 2차 피드백
-- [ ] TodoRemoveButton에서 onClick 이벤트 핸들러에 전달되는 구체적인 정보 제거
+- [X] TodoRemoveButton에서 onClick 이벤트 핸들러에 전달되는 구체적인 정보 제거
 - [ ] 상태 통합 관리하면서 덜 진행한 리팩토링 마무리(TodoAddButton, TodoHeaderTemplate)
 - [ ] TodoAddInput의 이벤트 핸들러 가독성 높이기
