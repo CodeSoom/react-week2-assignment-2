@@ -16,7 +16,7 @@ function App() {
     });
   }
 
-  function deleteBelow(passedKey) {
+  function deleteTodo(passedKey) {
     const array = state.todo.filter((i, key) => (key !== passedKey));
     setState({
       todo: array,
@@ -25,21 +25,7 @@ function App() {
 
   return (
     <div>
-      <Page />
-      <p>
-        <input id="input" />
-        <button type="button" onClick={() => addTodo()}>추가</button>
-      </p>
-      <div>
-        {
-          state.todo.length !== 0 ? state.todo.map((i, key) => (
-            <div key={i}>
-              {i}
-              <button type="button" onClick={() => deleteBelow(key)}>완료</button>
-            </div>
-          )) : <div>할 일이 없어요!</div>
-        }
-      </div>
+      <Page todo={state.todo} addTodo={addTodo} deleteTodo={deleteTodo} />
     </div>
   );
 }
