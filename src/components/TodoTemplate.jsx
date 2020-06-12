@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoHeader from './TodoHeader/TodoHeader';
+import TodoHeaderTemplate from './TodoHeader/TodoHeaderTemplate';
 import TodoList from './TodoBody/TodoList';
 
 export default function TodoTemplate({
@@ -10,7 +10,7 @@ export default function TodoTemplate({
 
   return (
     <div>
-      <TodoHeader
+      <TodoHeaderTemplate
         onClick={onClickAdd}
         inputValue={inputValue}
         handleChange={handleInputValueChange}
