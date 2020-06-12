@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import TodoPage from './templates/TodoPage';
 
 export default function App() {
-  const [items, setItems] = useState([]);
-  const [input, setInput] = useState('');
+  const [state, setState] = useState({
+    items: [],
+    input: '',
+  });
 
   const removeItemById = (todoItems, id) => {
     const index = todoItems.findIndex((i) => i.id === id);
@@ -15,7 +17,10 @@ export default function App() {
     : Math.max(...todoItems.map((i) => i.id)));
 
   const handleComplete = (todoItems, id) => {
-    setItems(removeItemById(items, id));
+    setState({
+      ...state,
+      items: removeItemById(state.items, id),
+    });
   };
 
   const handleSubmit = (todoItems, text) => {
@@ -24,21 +29,27 @@ export default function App() {
       id: lastId + 1,
       text,
     };
-    setItems([...items, item]);
-    setInput('');
+    setState({
+      ...state,
+      items: [...state.items, item],
+      input: '',
+    });
   };
 
   const handleInputChange = (inputValue) => {
-    setInput(inputValue);
+    setState({
+      ...state,
+      input: inputValue,
+    });
   };
 
   return (
     <>
       <TodoPage
-        items={items}
-        input={input}
-        onComplete={(id) => handleComplete(items, id)}
-        onSubmit={() => handleSubmit(items, input)}
+        items={state.items}
+        input={state.input}
+        onComplete={(id) => handleComplete(state.items, id)}
+        onSubmit={() => handleSubmit(state.items, state.input)}
         onInputChange={(text) => handleInputChange(text)}
       />
     </>
