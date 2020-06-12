@@ -7,9 +7,9 @@ export default function TodoList({ items, onClick }) {
     return <Empty />;
   }
   return (
-    items.map((item) => (
+    items.map((item, i) => (
       <div key={item.id}>
-        {item.id}
+        {i + 1}
         .
         {item.value}
         <button type="button" onClick={() => onClick(item)}>완료</button>

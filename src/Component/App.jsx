@@ -4,7 +4,7 @@ import Page from './Page';
 
 export default function App() {
   const [text, setText] = useState('');
-  const [items, setItem] = useState([]);
+  const [items, setItems] = useState([]);
 
   function handleChange(event) {
     setText(event.target.value);
@@ -12,16 +12,12 @@ export default function App() {
 
   function handleClick() {
     if (!text) return;
-    const todos = [...items];
-    // 혹시 아래처럼 쓴 방식도 Guard Clauses 에 해당하나요?
-    if (items.length) todos.push({ id: todos[todos.length - 1].id + 1, value: text });
-    if (!items.length) todos.push({ id: 1, value: text });
-    setItem(todos);
+    setItems([...items, { id: new Date().valueOf() + Math.random(), value: text }]);
     setText('');
   }
 
   function deleteItem(item) {
-    setItem([...items].filter((i) => i.id !== item.id));
+    setItems(items.filter((i) => i.id !== item.id));
   }
 
   return (
