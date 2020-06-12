@@ -1,8 +1,7 @@
 import React from 'react';
 
-function TodoItem({ item, onClickRemove }) {
+function TodoItem({ item: { id, text }, onClickRemove }) {
   const style = { marginLeft: '10px' };
-  const { id, text } = item;
   return (
     <li>
       {text}
