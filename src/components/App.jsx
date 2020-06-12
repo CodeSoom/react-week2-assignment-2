@@ -8,10 +8,7 @@ export default function App() {
     input: '',
   });
 
-  const removeItemById = (todoItems, id) => {
-    const index = todoItems.findIndex((i) => i.id === id);
-    return [...todoItems.slice(0, index), ...todoItems.slice(index + 1)];
-  };
+  const removeItemById = (todoItems, id) => [...todoItems].filter((i) => i.id !== id);
 
   const getLastId = (todoItems) => (todoItems.length === 0 ? 0
     : Math.max(...todoItems.map((i) => i.id)));
