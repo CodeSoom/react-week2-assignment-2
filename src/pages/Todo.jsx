@@ -7,7 +7,6 @@ export default function Todo({
   todoList,
   input,
   handleChangeInput,
-  handleClickAddTodo,
   handleClickRemoveTodo,
   handleSubmit,
 }) {
@@ -22,13 +21,9 @@ export default function Todo({
       <TodoForm
         input={input}
         onChangeInput={handleChangeInput}
-        onClickSubmitButton={handleClickAddTodo}
         onSubmit={handleSubmit}
       />
-      <TodoList
-        todoList={todoList}
-        onClicktoRemove={handleClickRemoveTodo}
-      />
+      <TodoList todoList={todoList} handleClickRemove={handleClickRemoveTodo} />
     </div>
   );
 }

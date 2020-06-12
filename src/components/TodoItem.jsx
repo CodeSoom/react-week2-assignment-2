@@ -1,11 +1,16 @@
 import React from 'react';
 
-export default function TodoItem({ item, onClicktoRemove }) {
+function TodoItem({ item, onClickRemove }) {
   const style = { marginLeft: '10px' };
+  const { id, text } = item;
   return (
     <li>
-      {item.text}
-      <button type="button" style={style} onClick={() => onClicktoRemove(item.id)}>완료</button>
+      {text}
+      <button type="button" style={style} onClick={() => onClickRemove(id)}>
+        완료
+      </button>
     </li>
   );
 }
+
+export default React.memo(TodoItem);

@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todoList, onClicktoRemove }) {
+function TodoList({ todoList, handleClickRemove }) {
   const style = { marginTop: '20px' };
 
   if (todoList.length === 0) {
@@ -12,12 +12,10 @@ export default function TodoList({ todoList, onClicktoRemove }) {
   return (
     <ul style={style}>
       {todoList.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          item={todo}
-          onClicktoRemove={onClicktoRemove}
-        />
+        <TodoItem key={todo.id} item={todo} onClickRemove={handleClickRemove} />
       ))}
     </ul>
   );
 }
+
+export default React.memo(TodoList);
