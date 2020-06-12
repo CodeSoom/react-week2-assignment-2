@@ -14,8 +14,11 @@ export default function App() {
     setItems(removeItemById(items, id));
   };
 
+  const getLastId = (todoItems) => (todoItems.length === 0 ? 0
+    : Math.max(...todoItems.map((i) => i.id)));
+
   const handleCreate = (todoItems, text) => {
-    const lastId = Math.max(...todoItems.map((i) => i.id));
+    const lastId = getLastId(todoItems);
     const item = {
       id: lastId + 1,
       text,
