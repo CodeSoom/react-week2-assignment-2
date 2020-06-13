@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function TodoForm({ onSubmit }) {
   const handleSubmit = (e) => {
@@ -21,3 +22,7 @@ export default function TodoForm({ onSubmit }) {
     </form>
   );
 }
+
+TodoForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

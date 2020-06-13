@@ -31,10 +31,16 @@ export default function App() {
   return (
     <div>
       <TodoForm onSubmit={AddTodo} />
-      <TodoList
-        todoList={todoList}
-        onClick={deleteTodo}
-      />
+      {
+        todoList.length
+          ? (
+            <TodoList
+              todoList={todoList}
+              onClick={deleteTodo}
+            />
+          )
+          : <div>입력 된 할 일이 없습니다.</div>
+      }
     </div>
   );
 }
