@@ -3,26 +3,25 @@ import Page from './Page';
 
 export default function App() {
   const [state, setState] = useState({
-    ids: [],
     todos: [],
     newTodo: '',
   });
-  const { ids, todos, newTodo } = state;
+  const { todos, newTodo } = state;
 
   const generateId = () => Date.now().toString();
 
   function handleChange(event) {
     setState({
-      ids,
       todos,
       newTodo: event.target.value,
     });
   }
 
   function handleSubmit(event) {
+    const newId = generateId();
+
     setState({
-      ids: [...ids, generateId()],
-      todos: [...todos, newTodo],
+      todos: [...todos, { id: newId, content: newTodo }],
       newTodo: '',
     });
     event.preventDefault();
@@ -30,27 +29,18 @@ export default function App() {
 
   function handleClickComplete(completedId) {
     setState({
-      ids: ids.filter((id) => id !== completedId),
-      todos: todos.filter((_, index) => index !== ids.indexOf(completedId)),
+      todos: todos.filter((todo) => todo.id !== completedId),
+      newTodo: '',
     });
   }
 
-  const addFormState = {
-    newTodo,
-    handleChange,
-    handleSubmit,
-  };
-
-  const todoState = {
-    ids,
-    todos,
-    handleClickComplete,
-  };
-
   return (
     <Page
-      addFormState={addFormState}
-      todoState={todoState}
+      todos={todos}
+      newTodo={newTodo}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      handleClickComplete={handleClickComplete}
     />
   );
 }

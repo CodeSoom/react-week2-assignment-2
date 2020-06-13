@@ -1,15 +1,15 @@
 import React from 'react';
 import Todo from './Todo';
 
-export default function Todos({ ids, todos, onClick }) {
+export default function Todos({ todos, onClick }) {
   return (
     <ol>
       {
-        todos.map((todo, index) => (
+        todos.map((todo) => (
           <Todo
-            key={ids[index]}
-            todo={todo}
-            onClick={() => onClick(ids[index])}
+            key={todo.id}
+            content={todo.content}
+            onClick={() => onClick(todo.id)}
           />
         ))
       }
