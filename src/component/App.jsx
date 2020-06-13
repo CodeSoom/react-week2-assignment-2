@@ -30,10 +30,10 @@ export default function App() {
   }
 
   function handleChangeInput(event) {
-    const newText = event.target.value;
+    const input = event.target.value;
     setState({
       todo: {
-        text: newText,
+        text: input,
       },
       todos,
     });
