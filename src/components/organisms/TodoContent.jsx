@@ -8,7 +8,7 @@ import TodoItem from '../molecules/TodoItem';
 export default function TodoContent({ items, onComplete }) {
   const message = (todoItems) => {
     if (todoItems.length !== 0) {
-      return <></>;
+      return null;
     }
     return (
       <Message
