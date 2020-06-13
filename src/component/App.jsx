@@ -47,8 +47,7 @@ export default function App() {
     });
   }
 
-  function handleTodoDone(event) {
-    const { id } = event.target;
+  function handleTodoDone(id) {
     deleteTodo(id);
   }
 
