@@ -2,11 +2,11 @@ import React from 'react';
 
 import Item from './Item';
 
-export default function TodoItems({ todoItems, onClickConfirm }) {
+export default function TodoItems({ todoList, onClickConfirm }) {
   return (
     <div>
       {
-        todoItems.todoList.map((item, index) => (
+        todoList.map((item, index) => (
           <Item
             key={item.task + item.id}
             index={index}

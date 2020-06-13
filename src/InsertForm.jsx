@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 
-export default function InsertTodoItem({ todoItems, onChange, onClick }) {
+export default function InsertForm({ todoItems, onChangeWriteTodo, onClickAddTodo }) {
   const label = '추가';
   return (
     <div>
@@ -10,10 +10,10 @@ export default function InsertTodoItem({ todoItems, onChange, onClick }) {
           type="text"
           value={todoItems.note || ''}
           placeholder="할 일을 입력해 주세요"
-          onChange={onChange}
+          onChange={onChangeWriteTodo}
         />
         <Button
-          onClick={() => onClick()}
+          onClick={() => onClickAddTodo()}
           label={label}
         />
       </p>

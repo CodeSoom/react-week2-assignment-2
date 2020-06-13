@@ -1,23 +1,23 @@
 import React from 'react';
 
-import InsertTodoItem from './InsertTodoItem';
+import InsertForm from './InsertForm';
 import TodoList from './TodoList';
 
 export default function Page({
-  todoItems, onChange, onClick, onClickConfirm,
+  todoItems, onChangeWriteTodo, onClickAddTodo, onClickConfirm,
 }) {
   return (
     <div>
       <p>
         To-do
       </p>
-      <InsertTodoItem
+      <InsertForm
         todoItems={todoItems}
-        onChange={onChange}
-        onClick={onClick}
+        onChangeWriteTodo={onChangeWriteTodo}
+        onClickAddTodo={onClickAddTodo}
       />
       <TodoList
-        todoItems={todoItems}
+        todoList={todoItems.todoList}
         onClickConfirm={onClickConfirm}
       />
     </div>
