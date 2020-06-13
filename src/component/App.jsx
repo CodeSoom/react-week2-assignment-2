@@ -32,18 +32,18 @@ export default function App() {
   function handleChangeInput(event) {
     const input = event.target.value;
     setState({
+      ...state,
       todo: {
         text: input,
       },
-      todos,
     });
   }
 
   function deleteTodo(id) {
-    const newTodos = todos.filter((element) => element.id !== id);
+    const filteredTodos = todos.filter((element) => element.id !== id);
     setState({
       ...state,
-      todos: newTodos,
+      todos: filteredTodos,
     });
   }
 
