@@ -1,15 +1,12 @@
 import React from 'react';
 
-export default function ToDo({ uuid, text, deleteToDo }) {
+export default function ToDo({ id, text, deleteToDo }) {
   return (
-    <div>
+    <li key={id}>
       {text}
-      <button
-        type="button"
-        onClick={() => deleteToDo(uuid)}
-      >
+      <button type="button" onClick={() => deleteToDo(id)}>
         완료
       </button>
-    </div>
+    </li>
   );
 }

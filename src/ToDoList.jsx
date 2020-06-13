@@ -9,14 +9,13 @@ export default function ToDoList({ toDos, deleteToDo }) {
 
   return (
     <ol start="1">
-      {toDos.map(({ uuid, text }) => (
-        <li key={uuid}>
-          <ToDo
-            uuid={uuid}
-            text={text}
-            deleteToDo={deleteToDo}
-          />
-        </li>
+      {toDos.map(({ id, text }) => (
+        <ToDo
+          key={id}
+          id={id}
+          text={text}
+          deleteToDo={deleteToDo}
+        />
       ))}
     </ol>
   );

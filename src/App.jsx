@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Page from './Page';
 
@@ -22,9 +23,10 @@ export default function App() {
   function createToDo() {
     if (toDoInput) {
       const newToDo = {
-        uuid: Math.random() + 1,
+        id: uuidv4(),
         text: toDoInput,
       };
+      console.log(newToDo);
       setState({
         toDoInput: '',
         toDos: [...toDos, newToDo],
@@ -32,10 +34,10 @@ export default function App() {
     }
   }
 
-  function deleteToDo(uuid) {
+  function deleteToDo(id) {
     setState({
       ...state,
-      toDos: toDos.filter((thisToDo) => thisToDo.uuid !== uuid),
+      toDos: toDos.filter((thisToDo) => thisToDo.id !== id),
     });
   }
 
