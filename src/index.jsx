@@ -37,13 +37,16 @@ function ToDo({ id, text, deleteToDo }) {
 
 function ToDoList({ toDoList, deleteToDo }) {
   return (
-    <ol start="1">
-      {toDoList.map(({ id, text }) => (
-        <li key={id}>
-          <ToDo id={id} text={text} deleteToDo={deleteToDo} />
-        </li>
-      ))}
-    </ol>
+    (toDoList.length) ? (
+      <ol start="1">
+        {toDoList.map(({ id, text }) => (
+          <li key={id}>
+            <ToDo id={id} text={text} deleteToDo={deleteToDo} />
+          </li>
+        ))}
+      </ol>
+    )
+      : <div>할 일이 없어요!</div>
   );
 }
 
@@ -73,8 +76,8 @@ function App() {
     const { name, value } = e.target;
     console.log(name, value);
     setState({
-      [name]: value,
       ...state,
+      [name]: value,
     });
   }
 
