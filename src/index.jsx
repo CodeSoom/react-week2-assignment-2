@@ -7,7 +7,7 @@ function Register({ toDoInput, handleToDoInput, createToDo }) {
       <input
         type="text"
         name="toDoInput"
-        value={toDoInput.text}
+        value={toDoInput}
         onChange={(e) => handleToDoInput(e)}
         placeholder="할 일을 입력해주세요."
       />
@@ -49,12 +49,12 @@ function ToDoList({ toDoList, deleteToDo }) {
 
 
 function Page({
-  toDoInput, toDoList, createToDo, deleteToDo,
+  toDoInput, toDoList, handleToDoInput, createToDo, deleteToDo,
 }) {
   return (
     <div>
       <h1>To-do</h1>
-      <Register toDoInput={toDoInput} createToDo={createToDo} />
+      <Register toDoInput={toDoInput} handleToDoInput={handleToDoInput} createToDo={createToDo} />
       <ToDoList toDoList={toDoList} deleteToDo={deleteToDo} />
     </div>
   );
@@ -73,7 +73,8 @@ function App() {
     const { name, value } = e.target;
     console.log(name, value);
     setState({
-      [name]: value.text,
+      [name]: value,
+      ...state,
     });
   }
 
@@ -93,8 +94,6 @@ function App() {
       toDoList: toDoList.filter((thisToDo) => thisToDo.id !== id),
     });
   }
-
-  console.log(toDoList);
 
   return (
     <Page
