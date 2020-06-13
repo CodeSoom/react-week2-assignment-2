@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Task({ toDo, handleDeleteTask }) {
-  const { id, task } = toDo;
+function Task({ todo, handleDeleteTask }) {
+  const { id, task } = todo;
 
   return (
     <li>

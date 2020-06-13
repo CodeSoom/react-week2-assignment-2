@@ -7,7 +7,7 @@ import TodoList from './TodoList';
 function Main({
   state, handleInputText, handleAddTask, handleDeleteTask,
 }) {
-  const { toDos, inputText } = state;
+  const { todos, inputText } = state;
 
   return (
     <div>
@@ -20,7 +20,7 @@ function Main({
         handleAddTask={handleAddTask}
       />
       <TodoList
-        toDos={toDos}
+        todos={todos}
         handleDeleteTask={handleDeleteTask}
       />
     </div>

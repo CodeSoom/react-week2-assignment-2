@@ -2,19 +2,19 @@ import React from 'react';
 
 import Task from './Task';
 
-function TodoList({ toDos, handleDeleteTask }) {
+function TodoList({ todos, handleDeleteTask }) {
   return (
     <div>
-      {toDos.length === 0
+      {todos.length === 0
         ? '할 일이 없어요!'
         : (
           <ol>
-            {toDos.map((toDo) => {
-              const { id } = toDo;
+            {todos.map((todo) => {
+              const { id } = todo;
               return (
                 <Task
                   key={id}
-                  toDo={toDo}
+                  todo={todo}
                   handleDeleteTask={handleDeleteTask}
                 />
               );

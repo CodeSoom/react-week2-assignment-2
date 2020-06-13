@@ -4,11 +4,11 @@ import Main from './Main';
 
 function App() {
   const initialState = {
-    toDos: [],
+    todos: [],
     inputText: '',
   };
   const [state, setState] = useState(initialState);
-  const { toDos } = state;
+  const { todos } = state;
 
   function handleInputText(event) {
     setState({
@@ -18,24 +18,24 @@ function App() {
   }
 
   function getNextId() {
-    if (toDos.length === 0) {
+    if (todos.length === 0) {
       return 1;
     }
-    return toDos.reduce((acc, cur) => {
+    return todos.reduce((acc, cur) => {
       const { id } = cur;
       return id > acc ? id : acc;
     }, 0) + 1;
   }
 
   function handleAddTask(task) {
-    const toDo = {
+    const todo = {
       id: getNextId(),
       task,
       complete: true,
     };
     setState({
       ...state,
-      toDos: [...toDos, toDo],
+      todos: [...todos, todo],
       inputText: '',
     });
   }
@@ -43,8 +43,8 @@ function App() {
   function handleDeleteTask(taskId) {
     setState({
       ...state,
-      toDos: toDos.filter((toDo) => {
-        const { id } = toDo;
+      todos: todos.filter((todo) => {
+        const { id } = todo;
         return id !== taskId;
       }),
     });
