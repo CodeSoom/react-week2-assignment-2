@@ -6,10 +6,10 @@ import Page from './Page';
 export default function App() {
   const [state, setState] = useState({
     toDoInput: '',
-    toDoList: [],
+    toDos: [],
   });
 
-  const { toDoInput, toDoList } = state;
+  const { toDoInput, toDos } = state;
 
   function handleToDoInput(e) {
     const { name, value } = e.target;
@@ -20,29 +20,29 @@ export default function App() {
   }
 
   function createToDo() {
-    if (toDoInput.length) {
+    if (toDoInput) {
       const newToDo = {
-        id: Math.random() + 1,
-        text: toDoInput.slice(),
+        uuid: Math.random() + 1,
+        text: toDoInput,
       };
       setState({
         toDoInput: '',
-        toDoList: [...toDoList, newToDo],
+        toDos: [...toDos, newToDo],
       });
     }
   }
 
-  function deleteToDo(id) {
+  function deleteToDo(uuid) {
     setState({
       ...state,
-      toDoList: toDoList.filter((thisToDo) => thisToDo.id !== id),
+      toDos: toDos.filter((thisToDo) => thisToDo.uuid !== uuid),
     });
   }
 
   return (
     <Page
       toDoInput={toDoInput}
-      toDoList={toDoList}
+      toDos={toDos}
       handleToDoInput={handleToDoInput}
       createToDo={createToDo}
       deleteToDo={deleteToDo}

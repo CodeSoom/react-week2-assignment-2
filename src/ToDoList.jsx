@@ -2,21 +2,22 @@ import React from 'react';
 
 import ToDo from './ToDo';
 
-export default function ToDoList({ toDoList, deleteToDo }) {
+export default function ToDoList({ toDos, deleteToDo }) {
+  if (toDos.length === 0) {
+    return <div>할 일이 없어요!</div>;
+  }
+
   return (
-    (toDoList.length) ? (
-      <ol start="1">
-        {toDoList.map(({ id, text }) => (
-          <li key={id}>
-            <ToDo
-              id={id}
-              text={text}
-              deleteToDo={deleteToDo}
-            />
-          </li>
-        ))}
-      </ol>
-    )
-      : <div>할 일이 없어요!</div>
+    <ol start="1">
+      {toDos.map(({ uuid, text }) => (
+        <li key={uuid}>
+          <ToDo
+            uuid={uuid}
+            text={text}
+            deleteToDo={deleteToDo}
+          />
+        </li>
+      ))}
+    </ol>
   );
 }

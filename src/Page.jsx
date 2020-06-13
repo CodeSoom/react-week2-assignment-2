@@ -4,7 +4,7 @@ import Register from './Register';
 import ToDoList from './ToDoList';
 
 export default function Page({
-  toDoInput, toDoList, handleToDoInput, createToDo, deleteToDo,
+  toDoInput, toDos, handleToDoInput, createToDo, deleteToDo,
 }) {
   return (
     <div>
@@ -15,7 +15,7 @@ export default function Page({
         createToDo={createToDo}
       />
       <ToDoList
-        toDoList={toDoList}
+        toDos={toDos}
         deleteToDo={deleteToDo}
       />
     </div>
