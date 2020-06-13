@@ -6,7 +6,7 @@ function Todolist({ todos, onClickCompleteTodo }) {
       todos.map((todo) => (
         <p>
           {todo.text}
-          <button type="button" onClick={() => onClickCompleteTodo(todo)}>완료</button>
+          <button type="button" onClick={() => onClickCompleteTodo(todo.id)}>완료</button>
         </p>
       ))
     );

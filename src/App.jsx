@@ -1,46 +1,43 @@
 import React, { useState } from 'react';
-import Todopage from './pages/Todopage';
+import TodoPage from './pages/TodoPage';
 
 function App() {
   const [state, setState] = useState({
     inputText: '',
     todos: [],
-    nextTodoID: 0,
+    nextTodoId: 0,
   });
 
-  const { inputText, todos, nextTodoID } = state;
+  const { inputText, todos, nextTodoId } = state;
 
-  function handleClickAddTodo(todoText, todoID) {
+  function handleClickAddTodo(todoText) {
     if (todoText !== '') {
       setState({
         inputText: '',
-        todos: [...todos, { id: todoID, text: todoText.trim() }],
-        nextTodoID: todoID + 1,
+        todos: [...todos, { id: nextTodoId, text: todoText.trim() }],
+        nextTodoId: nextTodoId + 1,
       });
     }
   }
 
-  function handleClickCompleteTodo(completedTodo) {
+  function handleClickCompleteTodo(completedTodoId) {
     setState({
-      inputText,
-      todos: todos.filter((todo) => todo.id !== completedTodo.id),
-      nextTodoID,
+      ...state,
+      todos: todos.filter((todo) => todo.id !== completedTodoId),
     });
   }
 
   function handleInputChange(event) {
     setState({
+      ...state,
       inputText: event.target.value,
-      todos,
-      nextTodoID,
     });
   }
 
   return (
-    <Todopage
+    <TodoPage
       inputText={inputText}
       todos={todos}
-      nextTodoID={nextTodoID}
       onClickAddTodo={handleClickAddTodo}
       onClickCompleteTodo={handleClickCompleteTodo}
       onChangeInputText={handleInputChange}
