@@ -13,7 +13,6 @@ export default function App() {
 
   function handleToDoInput(e) {
     const { name, value } = e.target;
-    console.log(name, value);
     setState({
       ...state,
       [name]: value,
@@ -21,18 +20,21 @@ export default function App() {
   }
 
   function createToDo() {
-    const newToDo = {
-      id: Math.random() + 1,
-      text: toDoInput.slice(),
-    };
-    setState({
-      toDoInput: '',
-      toDoList: [...toDoList, newToDo],
-    });
+    if (toDoInput.length) {
+      const newToDo = {
+        id: Math.random() + 1,
+        text: toDoInput.slice(),
+      };
+      setState({
+        toDoInput: '',
+        toDoList: [...toDoList, newToDo],
+      });
+    }
   }
 
   function deleteToDo(id) {
     setState({
+      ...state,
       toDoList: toDoList.filter((thisToDo) => thisToDo.id !== id),
     });
   }

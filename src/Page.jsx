@@ -9,8 +9,15 @@ export default function Page({
   return (
     <div>
       <h1>To-do</h1>
-      <Register toDoInput={toDoInput} handleToDoInput={handleToDoInput} createToDo={createToDo} />
-      <ToDoList toDoList={toDoList} deleteToDo={deleteToDo} />
+      <Register
+        toDoInput={toDoInput}
+        handleToDoInput={handleToDoInput}
+        createToDo={createToDo}
+      />
+      <ToDoList
+        toDoList={toDoList}
+        deleteToDo={deleteToDo}
+      />
     </div>
   );
 }

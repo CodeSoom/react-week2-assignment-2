@@ -8,7 +8,11 @@ export default function ToDoList({ toDoList, deleteToDo }) {
       <ol start="1">
         {toDoList.map(({ id, text }) => (
           <li key={id}>
-            <ToDo id={id} text={text} deleteToDo={deleteToDo} />
+            <ToDo
+              id={id}
+              text={text}
+              deleteToDo={deleteToDo}
+            />
           </li>
         ))}
       </ol>
