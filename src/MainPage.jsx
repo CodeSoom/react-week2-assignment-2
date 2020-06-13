@@ -4,8 +4,8 @@ import Title from './Title';
 import InputTask from './InputTask';
 import TodoList from './TodoList';
 
-function Main({
-  state, handleInputText, handleAddTask, handleDeleteTask,
+function MainPage({
+  state, handleChangeText, handleClickAddTask, handleClickDeleteTask,
 }) {
   const { todos, inputText } = state;
 
@@ -16,15 +16,15 @@ function Main({
       />
       <InputTask
         inputText={inputText}
-        handleInputText={handleInputText}
-        handleAddTask={handleAddTask}
+        handleChangeText={handleChangeText}
+        handleClickAddTask={handleClickAddTask}
       />
       <TodoList
         todos={todos}
-        handleDeleteTask={handleDeleteTask}
+        handleClickDeleteTask={handleClickDeleteTask}
       />
     </div>
   );
 }
 
-export default Main;
+export default MainPage;

@@ -1,10 +1,10 @@
 import React from 'react';
 
-function InputTask({ inputText, handleInputText, handleAddTask }) {
+function InputTask({ inputText, handleChangeText, handleClickAddTask }) {
   return (
     <p>
-      <input type="text" onChange={(e) => handleInputText(e)} value={inputText} />
-      <button type="button" onClick={() => handleAddTask(inputText)}> 추가 </button>
+      <input type="text" onChange={(e) => handleChangeText(e)} value={inputText} />
+      <button type="button" onClick={() => handleClickAddTask(inputText)}> 추가 </button>
     </p>
   );
 }

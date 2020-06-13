@@ -1,12 +1,11 @@
 import React from 'react';
 
-function Task({ todo, handleDeleteTask }) {
+function Task({ todo, handleClickDeleteTask }) {
   const { id, task } = todo;
-
   return (
     <li>
       {task}
-      <button type="button" onClick={() => handleDeleteTask(id)}>완료</button>
+      <button type="button" onClick={() => handleClickDeleteTask(id)}>완료</button>
     </li>
   );
 }

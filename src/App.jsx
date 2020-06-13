@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Main from './Main';
+import MainPage from './MainPage';
 
 function App() {
   const initialState = {
@@ -10,7 +10,7 @@ function App() {
   const [state, setState] = useState(initialState);
   const { todos } = state;
 
-  function handleInputText(event) {
+  function handleChangeText(event) {
     setState({
       ...state,
       inputText: event.target.value,
@@ -21,13 +21,12 @@ function App() {
     if (todos.length === 0) {
       return 1;
     }
-    return todos.reduce((acc, cur) => {
-      const { id } = cur;
-      return id > acc ? id : acc;
-    }, 0) + 1;
+    const idArray = todos.map((todo) => todo.id);
+    const maxNumber = Math.max(...idArray);
+    return maxNumber + 1;
   }
 
-  function handleAddTask(task) {
+  function handleClickAddTask(task) {
     const todo = {
       id: getNextId(),
       task,
@@ -40,7 +39,7 @@ function App() {
     });
   }
 
-  function handleDeleteTask(taskId) {
+  function handleClickDeleteTask(taskId) {
     setState({
       ...state,
       todos: todos.filter((todo) => {
@@ -51,11 +50,11 @@ function App() {
   }
 
   return (
-    <Main
+    <MainPage
       state={state}
-      handleAddTask={handleAddTask}
-      handleDeleteTask={handleDeleteTask}
-      handleInputText={handleInputText}
+      handleClickAddTask={handleClickAddTask}
+      handleClickDeleteTask={handleClickDeleteTask}
+      handleChangeText={handleChangeText}
     />
   );
 }
