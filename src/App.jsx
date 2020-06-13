@@ -8,7 +8,7 @@ function App() {
     inputText: '',
   };
   const [state, setState] = useState(initialState);
-  const { todos } = state;
+  const { todos, inputText } = state;
 
   function handleChangeText(event) {
     setState({
@@ -51,7 +51,8 @@ function App() {
 
   return (
     <MainPage
-      state={state}
+      todos={todos}
+      inputText={inputText}
       handleClickAddTask={handleClickAddTask}
       handleClickDeleteTask={handleClickDeleteTask}
       handleChangeText={handleChangeText}

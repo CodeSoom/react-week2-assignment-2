@@ -5,10 +5,8 @@ import InputTask from './InputTask';
 import TodoList from './TodoList';
 
 function MainPage({
-  state, handleChangeText, handleClickAddTask, handleClickDeleteTask,
+  todos, inputText, handleChangeText, handleClickAddTask, handleClickDeleteTask,
 }) {
-  const { todos, inputText } = state;
-
   return (
     <div>
       <Title
