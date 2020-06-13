@@ -1,9 +1,17 @@
 import React from 'react';
 
-export default function TodoList({ todoList = [1, 2, 3] }) {
+import TodoItem from './TodoItem';
+
+export default function TodoList({ todoList, onClick }) {
   return (
     <ul>
-      {todoList.map((todo) => (<li key={todo}>{todo}</li>))}
+      {todoList.map((todo) => (
+        <TodoItem
+          key={todo}
+          todo={todo}
+          onClick={onClick}
+        />
+      ))}
     </ul>
   );
 }

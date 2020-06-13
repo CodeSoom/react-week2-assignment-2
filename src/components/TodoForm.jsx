@@ -17,7 +17,7 @@ export default function TodoForm({ onSubmit }) {
         placeholder="할 일을 입력해주세요"
         name="todoText"
       />
-      <button type="button">추가</button>
+      <button type="submit">추가</button>
     </form>
   );
 }

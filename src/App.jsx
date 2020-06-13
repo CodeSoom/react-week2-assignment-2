@@ -15,12 +15,21 @@ export default function App() {
       todoList: todoList.concat(todoText),
     });
   };
+  const deleteTodo = (deleteTodoItem) => {
+    setState({
+      ...state,
+      todoList: todoList.filter((todoText) => todoText !== deleteTodoItem),
+    });
+  };
 
 
   return (
     <div>
       <TodoForm onSubmit={AddTodo} />
-      <TodoList todoList={todoList} />
+      <TodoList
+        todoList={todoList}
+        onClick={deleteTodo}
+      />
     </div>
   );
 }
