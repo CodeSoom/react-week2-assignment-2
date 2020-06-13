@@ -7,7 +7,7 @@ export default function TodoList({ todoList, onClick }) {
     <ul>
       {todoList.map((todo) => (
         <TodoItem
-          key={todo}
+          key={todo.id}
           todo={todo}
           onClick={onClick}
         />

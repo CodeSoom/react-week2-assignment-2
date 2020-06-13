@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default function TodoItem({ todo, onClick }) {
+export default function TodoItem({ todo: { todoText, id }, onClick }) {
   return (
     <li>
-      {todo}
+      {todoText}
       <button
         type="button"
-        onClick={() => onClick(todo)}
+        onClick={() => onClick(id)}
       >
         완료
       </button>

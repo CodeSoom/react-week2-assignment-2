@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
@@ -12,13 +13,17 @@ export default function App() {
   const AddTodo = (todoText) => {
     setState({
       ...state,
-      todoList: todoList.concat(todoText),
+      todoList: todoList.concat({
+        completed: false,
+        id: uuidv4(),
+        todoText,
+      }),
     });
   };
-  const deleteTodo = (deleteTodoItem) => {
+  const deleteTodo = (deleteTodoId) => {
     setState({
       ...state,
-      todoList: todoList.filter((todoText) => todoText !== deleteTodoItem),
+      todoList: todoList.filter(({ id }) => id !== deleteTodoId),
     });
   };
 
