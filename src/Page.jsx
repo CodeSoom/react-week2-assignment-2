@@ -4,7 +4,7 @@ import InsertForm from './InsertForm';
 import TodoList from './TodoList';
 
 export default function Page({
-  todoItems, onChangeWriteTodo, onClickAddTodo, onClickConfirm,
+  note, todoList, onChangeWriteTodo, onClickAddTodo, onClickConfirm,
 }) {
   return (
     <div>
@@ -12,12 +12,12 @@ export default function Page({
         To-do
       </p>
       <InsertForm
-        todoItems={todoItems}
+        note={note}
         onChangeWriteTodo={onChangeWriteTodo}
         onClickAddTodo={onClickAddTodo}
       />
       <TodoList
-        todoList={todoItems.todoList}
+        todoList={todoList}
         onClickConfirm={onClickConfirm}
       />
     </div>

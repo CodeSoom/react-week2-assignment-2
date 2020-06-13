@@ -8,30 +8,26 @@ export default function App() {
     todoList: [],
   });
 
-  const todoItems = state;
+  const { note, todoList } = state;
 
   function handleClick() {
-    const { todoList } = todoItems;
-    todoList.push({
-      task: todoItems.note,
-    });
-
+    const todo = {
+      task: note,
+    };
     setState({
-      todoList,
+      todoList: [...todoList, todo],
+      note: '',
     });
-
-    todoItems.note = '';
   }
 
   function handleChange(e) {
     setState({
       note: e.target.value,
-      todoList: todoItems.todoList,
+      todoList,
     });
   }
 
   function handleConfirm(selectedItem) {
-    const { todoList } = todoItems;
     const filteredList = todoList
       .filter((item) => (item !== selectedItem));
 
@@ -43,7 +39,8 @@ export default function App() {
   return (
     <div>
       <Page
-        todoItems={todoItems}
+        note={note}
+        todoList={todoList}
         onChangeWriteTodo={handleChange}
         onClickAddTodo={handleClick}
         onClickConfirm={handleConfirm}
