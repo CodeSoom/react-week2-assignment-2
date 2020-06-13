@@ -1,14 +1,14 @@
 import React from 'react';
-import AddPart from '../component/AddPart';
-import BelowPart from '../component/BelowPart';
+import AddTodoList from '../component/AddTodoList';
+import ShowTodoList from '../component/ShowTodoList';
 
 
-function Page({ todo, addTodo, deleteTodo }) {
+function Page({ todos, addTodo, deleteTodo }) {
   return (
     <div>
       <h1>To-do</h1>
-      <AddPart addTodo={addTodo} />
-      <BelowPart todo={todo} deleteTodo={deleteTodo} />
+      <AddTodoList addTodo={addTodo} />
+      <ShowTodoList todos={todos} deleteTodo={deleteTodo} />
     </div>
   );
 }
