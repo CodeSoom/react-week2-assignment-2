@@ -18,7 +18,7 @@ export default function TodoItem({ index, todo, onRemoveTodoItem }) {
         {index}
         .
         {' '}
-        {todo.input}
+        {todo.title}
       </span>
       <button type="button" onClick={() => onRemoveTodoItem({ id: todo.id })}>완료</button>
     </li>

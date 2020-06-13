@@ -16,7 +16,7 @@ export default function TodoItems({ todos, onRemoveTodoItem }) {
     <ul style={ulStyle}>
       {todos.map((todo, index) => (
         <TodoItem index={index + 1} todo={todo} key={todo.id} onRemoveTodoItem={onRemoveTodoItem} />
-      )) }
+      ))}
     </ul>
   );
 }

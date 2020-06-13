@@ -13,10 +13,10 @@ const FormStyle = {
   padding: '3px',
 };
 
-export default function TodoInput({ input, onInputChange, onInputSubmit }) {
+export default function TodoInput({ title, onInputChange, onInputSubmit }) {
   return (
     <form style={FormStyle} onSubmit={onInputSubmit}>
-      <input onChange={onInputChange} value={input} style={TodoInputStyle} />
+      <input onChange={onInputChange} value={title} style={TodoInputStyle} />
       <button type="submit">추가</button>
     </form>
   );
