@@ -16,16 +16,16 @@ export default function App() {
   const { todo, todos } = state;
 
   function handleTodoAdd() {
-    todos.push({
+    const newTodo = {
       ...todo,
       id: Date.now().toString(),
-    });
+    };
     setState({
       todo: {
         id: '',
         text: '',
       },
-      todos,
+      todos: [...todos, newTodo],
     });
   }
 
