@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ToDo({ id, text, deleteToDo }) {
   return (
-    <li key={id}>
+    <li>
       {text}
       <button type="button" onClick={() => deleteToDo(id)}>
         완료
