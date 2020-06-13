@@ -10,8 +10,7 @@ export default function App() {
 
   const removeItemById = (todoItems, id) => [...todoItems].filter((i) => i.id !== id);
 
-  const getLastId = (todoItems) => (todoItems.length === 0 ? 0
-    : Math.max(...todoItems.map((i) => i.id)));
+  const getLastId = (todoItems) => Math.max(0, ...todoItems.map(({ id }) => id));
 
   const handleComplete = (todoItems, id) => {
     setState({
