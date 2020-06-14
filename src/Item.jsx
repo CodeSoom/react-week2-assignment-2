@@ -1,9 +1,6 @@
 import React from 'react';
 
-import Button from './Button';
-
 export default function Item({ index, item, onClickConfirm }) {
-  const label = '완료';
   return (
     <div>
       <span>
@@ -13,10 +10,9 @@ export default function Item({ index, item, onClickConfirm }) {
         {item.task}
         {' '}
       </span>
-      <Button
-        onClick={() => onClickConfirm(item)}
-        label={label}
-      />
+      <button type="button" onClick={() => onClickConfirm(item)}>
+        완료
+      </button>
     </div>
   );
 }
