@@ -40,10 +40,9 @@ export default function App() {
   }
 
   function deleteTodo(id) {
-    const filteredTodos = todos.filter((element) => element.id !== id);
     setState({
       ...state,
-      todos: filteredTodos,
+      todos: todos.filter((element) => element.id !== id),
     });
   }
 
