@@ -14,8 +14,7 @@ export default function App() {
   }
 
   function handleCompleteClick(index) {
-    const { length } = todos;
-    const newTodos = [...todos.slice(0, index), ...todos.slice(index + 1, length)];
+    const newTodos = todos.filter((t) => t !== todos[index]);
     setTodos(newTodos);
   }
 
