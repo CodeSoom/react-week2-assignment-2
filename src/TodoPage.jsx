@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Form from './Form';
-import List from './List';
+import Todos from './Todos';
 
 export default function TodoPage({
   state: { inputValue, todoList }, onSubmitAddTodo, onChangeInput, onClickRemove,
@@ -13,7 +13,7 @@ export default function TodoPage({
       {
         todoList.length === 0
           ? <p>할 일이 없어요!</p>
-          : <List list={todoList} onClick={onClickRemove} />
+          : <Todos todos={todoList} onClick={onClickRemove} />
       }
     </div>
   );

@@ -17,7 +17,7 @@ export default function App() {
     setState({
       ...state,
       inputValue: '',
-      todoList: [...todoList, { id: shortId.generate(), todo: inputValue }],
+      todoList: [...todoList, { id: shortId.generate(), title: inputValue }],
     });
   };
 
@@ -28,7 +28,7 @@ export default function App() {
   const handleClickRemoveTodo = (removeId) => {
     setState({
       ...state,
-      todoList: todoList.filter((item) => removeId !== item.id),
+      todoList: todoList.filter((todo) => removeId !== todo.id),
     });
   };
 
