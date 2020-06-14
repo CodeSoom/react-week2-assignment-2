@@ -2,23 +2,54 @@ import React, { useState } from 'react';
 import Page from './page/Page';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [state, setState] = useState({
+    todos: [],
+    inputSentence: '',
+  });
 
-  function addTodo(sentence) {
-    const todoObject = {
-      id: Math.random().toString(16).slice(-4),
-      sentence,
-    };
-    setTodos([...todos, todoObject]);
+  const { todos, inputSentence } = state;
+
+  function handleChangeInputSentence(value) {
+    setState({
+      todos,
+      inputSentence: value,
+    });
   }
 
-  function deleteTodo(passedKey) {
-    setTodos(todos.filter((i) => (i.id !== passedKey)));
+  function generateId() {
+    if (todos.length === 0) {
+      return 0;
+    }
+    return todos.length + 1;
+  }
+
+  function handleClickAdd() {
+    const todoObject = {
+      id: generateId(),
+      sentence: inputSentence,
+    };
+    setState({
+      todos: [...todos, todoObject],
+      inputSentence: '',
+    });
+  }
+
+  function handleClickDelete(id) {
+    setState({
+      todos: todos.filter((i) => (i.id !== id)),
+      inputSentence,
+    });
   }
 
   return (
     <div>
-      <Page todos={todos} addTodo={addTodo} deleteTodo={deleteTodo} />
+      <Page
+        todos={todos}
+        inputSentence={inputSentence}
+        handleChangeInputSentence={handleChangeInputSentence}
+        handleClickAdd={handleClickAdd}
+        handleClickDelete={handleClickDelete}
+      />
     </div>
   );
 }
