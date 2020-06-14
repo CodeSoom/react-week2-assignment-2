@@ -4,7 +4,7 @@ import TodoInputBox from './TodoInputBox';
 import TodoList from './TodoList';
 
 
-export default function CounterContainer() {
+export default function TodoContainer() {
   const [todoInput, setTodoInput] = useState('');
   const [todoList, setTodoList] = useState([]);
 
@@ -19,7 +19,7 @@ export default function CounterContainer() {
     setTodoList([
       ...todoList,
       {
-        id: `${todoInput}-${(new Date()).getTime()}`,
+        id: `${(new Date()).getTime()}`,
         content: todoInput,
       },
     ]);
