@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
 import TodoInputBox from './TodoInputBox';
-import TodoList from './TodoList';
+import TodoDisplay from './TodoDisplay';
 
 
 export default function TodoContainer() {
   const [todoInput, setTodoInput] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  const [todos, setTodos] = useState([]);
 
-  function updateTodoInput({ target }) {
-    setTodoInput(target.value);
+  function updateTodoInput(todoContent) {
+    setTodoInput(todoContent);
   }
 
   function appendTodo() {
     if (todoInput === '') {
       return;
     }
-    setTodoList([
-      ...todoList,
+    setTodos([
+      ...todos,
       {
         id: `${(new Date()).getTime()}`,
         content: todoInput,
@@ -26,10 +26,9 @@ export default function TodoContainer() {
     setTodoInput('');
   }
 
-  function removeTodo({ target }) {
-    const { todoId } = target.dataset;
-    const nextTodolList = todoList.filter((todo) => todo.id !== todoId);
-    setTodoList(nextTodolList);
+  function removeTodo(todoId) {
+    const nextTodos = todos.filter((todo) => todo.id !== todoId);
+    setTodos(nextTodos);
   }
 
   return (
@@ -37,12 +36,12 @@ export default function TodoContainer() {
       <h1>To-Do</h1>
       <TodoInputBox
         todoInput={todoInput}
-        updateTodoInput={updateTodoInput}
+        handleChangeTodoInput={updateTodoInput}
         appendTodo={appendTodo}
       />
-      <TodoList
-        todoList={todoList}
-        removeTodo={removeTodo}
+      <TodoDisplay
+        todos={todos}
+        handleClickFinishButton={removeTodo}
       />
     </div>
   );
