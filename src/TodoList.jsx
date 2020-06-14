@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 import Item from './Item';
 
@@ -13,7 +12,7 @@ export default function TodoList({ todoList, onClickConfirm }) {
       {
         todoList.map((item, index) => (
           <Item
-            key={uuidv4()}
+            key={item.taskId}
             index={index}
             item={item}
             onClickConfirm={onClickConfirm}
