@@ -34,6 +34,7 @@ export default function App() {
     setState({
       ...state,
       todo: {
+        id: '',
         text: input,
       },
     });
