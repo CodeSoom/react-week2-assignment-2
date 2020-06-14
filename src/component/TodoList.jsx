@@ -2,7 +2,7 @@ import React from 'react';
 
 import Todo from './Todo';
 
-export default function TodoList({ todos, handleTodoDone }) {
+export default function TodoList({ todos, onTodoDone }) {
   const isEmpty = (array) => array.length === 0;
 
   if (isEmpty(todos)) return '할 일이 없어요!';
@@ -13,7 +13,7 @@ export default function TodoList({ todos, handleTodoDone }) {
         <Todo
           key={todo.id}
           todo={todo}
-          handleTodoDone={handleTodoDone}
+          onTodoDone={onTodoDone}
         />
       )))}
     </ol>

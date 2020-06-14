@@ -15,7 +15,7 @@ export default function App() {
 
   const { todo, todos } = state;
 
-  function handleTodoAdd() {
+  function handleTodoCreate() {
     const newTodo = {
       ...todo,
       id: Date.now().toString(),
@@ -57,11 +57,11 @@ export default function App() {
       <InputPanel
         todo={todo}
         onInputChange={handleInputChange}
-        handleTodoAdd={handleTodoAdd}
+        onTodoCreate={handleTodoCreate}
       />
       <TodoList
         todos={todos}
-        handleTodoDone={handleTodoDone}
+        onTodoDone={handleTodoDone}
       />
     </div>
   );
