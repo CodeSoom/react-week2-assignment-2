@@ -29,7 +29,7 @@ export default function App() {
     });
   }
 
-  function handleChangeInput(event) {
+  function handleInputChange(event) {
     const input = event.target.value;
     setState({
       ...state,
@@ -56,7 +56,7 @@ export default function App() {
       <Title />
       <InputPanel
         todo={todo}
-        handleChangeInput={handleChangeInput}
+        onInputChange={handleInputChange}
         handleTodoAdd={handleTodoAdd}
       />
       <TodoList
