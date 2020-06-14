@@ -7,7 +7,6 @@ import TodoList from './TodoList';
 export default function App() {
   const [state, setState] = useState({
     todo: {
-      id: '',
       text: '',
     },
     todos: [],
@@ -22,7 +21,6 @@ export default function App() {
     };
     setState({
       todo: {
-        id: '',
         text: '',
       },
       todos: [...todos, newTodo],
@@ -34,7 +32,6 @@ export default function App() {
     setState({
       ...state,
       todo: {
-        id: '',
         text: input,
       },
     });
