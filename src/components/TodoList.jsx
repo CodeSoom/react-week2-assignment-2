@@ -1,13 +1,14 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 
 function Todolist({ todos, onClickCompleteTodo }) {
   if (todos.length > 0) {
     return (
       todos.map((todo) => (
-        <p>
-          {todo.text}
-          <button type="button" onClick={() => onClickCompleteTodo(todo.id)}>완료</button>
-        </p>
+        <TodoItem
+          todo={todo}
+          onClickCompleteTodo={onClickCompleteTodo}
+        />
       ))
     );
   }
