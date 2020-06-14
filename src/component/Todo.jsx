@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SingleTodo({ todo, handleTodoDone }) {
+export default function Todo({ todo, handleTodoDone }) {
   return (
     <li>
       {todo.text}

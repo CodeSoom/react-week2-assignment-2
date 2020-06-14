@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SingleTodo from './SingleTodo';
+import Todo from './Todo';
 
 export default function TodoList({ todos, handleTodoDone }) {
   const isEmpty = (array) => array.length === 0;
@@ -10,7 +10,7 @@ export default function TodoList({ todos, handleTodoDone }) {
   return (
     <ol>
       {(todos.map((todo) => (
-        <SingleTodo
+        <Todo
           key={todo.id}
           todo={todo}
           handleTodoDone={handleTodoDone}
