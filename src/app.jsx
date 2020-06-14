@@ -1,35 +1,35 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Page from './page';
 
-function App() {
-  const [todo, setTodo] = useState('');
-  const [todoList, setTodoList] = useState(null);
+export default function App() {
+  const [todo, setTodo] = useState({ text: '' });
+  const [todos, setTodos] = useState([]);
 
   function handleCreateClick() {
-    const newTodoList = (todoList === null) ? [todo] : [...todoList.flat(), todo];
-    setTodoList(newTodoList);
-    setTodo('');
+    const newTodos = (todos === []) ? [todo] : [...todos.flat(), todo];
+    setTodos(newTodos);
+    setTodo({ text: '' });
   }
 
   function handleCompleteClick(index) {
-    const { length } = todoList;
-    const newTodoList = [...todoList.slice(0, index), ...todoList.slice(index + 1, length)];
-    setTodoList(newTodoList);
+    const { length } = todos;
+    const newTodos = [...todos.slice(0, index), ...todos.slice(index + 1, length)];
+    setTodos(newTodos);
   }
 
   function handleTodoChange(e) {
-    setTodo(e.target.value);
+    setTodo({ id: uuidv4(), text: e.target.value });
   }
 
   return (
     <Page
       todo={todo}
-      todoList={todoList}
+      todos={todos}
       handleTodoChange={handleTodoChange}
       handleCreateClick={handleCreateClick}
       handleCompleteClick={handleCompleteClick}
     />
   );
 }
-export default App;

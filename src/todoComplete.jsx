@@ -1,11 +1,15 @@
 import React from 'react';
 
-function TodoComplete({ todoList, handleCompleteClick }) {
+export default function TodoComplete({ todos, handleCompleteClick }) {
+  if (todos.length === 0) {
+    return '할 일이 없어요!';
+  }
+
   return (
     <div>
-      {(todoList === null) ? '할 일이 없어요!' : todoList.map((todo, index) => (
-        <div key={String(index)}>
-          {`${index + 1}. ${todo}`}
+      {todos.map((todo, index) => (
+        <div key={todo.id}>
+          {`${index + 1}. ${todo.text}`}
           <button type="button" onClick={() => handleCompleteClick(index)}>
             완료
           </button>
@@ -14,4 +18,3 @@ function TodoComplete({ todoList, handleCompleteClick }) {
     </div>
   );
 }
-export default TodoComplete;

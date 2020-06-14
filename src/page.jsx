@@ -3,8 +3,8 @@ import React from 'react';
 import TodoCreate from './todoCreate';
 import TodoComplete from './todoComplete';
 
-function Page({
-  todo, todoList, handleTodoChange, handleCreateClick, handleCompleteClick,
+export default function Page({
+  todo, todos, handleTodoChange, handleCreateClick, handleCompleteClick,
 }) {
   return (
     <div>
@@ -15,10 +15,9 @@ function Page({
         handleCreateClick={handleCreateClick}
       />
       <TodoComplete
-        todoList={todoList}
+        todos={todos}
         handleCompleteClick={handleCompleteClick}
       />
     </div>
   );
 }
-export default Page;
