@@ -1,8 +1,8 @@
 import React from 'react';
 
-function TodoInputForm({ inputSentence, handleChangeInputSentence }) {
+function TodoInputForm({ inputSentence, onChangeInputSentence }) {
   return (
-    <input placeholder="" value={inputSentence} onChange={(e) => handleChangeInputSentence(e.target.value)} />
+    <input placeholder="" value={inputSentence} onChange={(e) => onChangeInputSentence(e.target.value)} />
   );
 }
 

@@ -1,23 +1,19 @@
 import React from 'react';
 import AddTodoInputForm from '../component/AddTodoInputForm';
-import EntireTodoListView from '../component/EntireTodoListView';
+import TodoList from '../component/TodoList';
 
 function Page({
-  todos,
-  inputSentence,
-  handleChangeInputSentence,
-  handleClickAdd,
-  handleClickDelete,
+  todos, inputSentence, onChangeInputSentence, onClickAdd, onClickDelete,
 }) {
   return (
     <div>
       <h1>To-do</h1>
       <AddTodoInputForm
         inputSentence={inputSentence}
-        handleChangeInputSentence={handleChangeInputSentence}
-        handleClickAdd={handleClickAdd}
+        onChangeInputSentence={onChangeInputSentence}
+        onClickAdd={onClickAdd}
       />
-      <EntireTodoListView todos={todos} handleClickDelete={handleClickDelete} />
+      <TodoList todos={todos} onClickDelete={onClickDelete} />
     </div>
   );
 }

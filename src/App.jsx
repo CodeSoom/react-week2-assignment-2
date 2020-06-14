@@ -20,7 +20,7 @@ function App() {
     if (todos.length === 0) {
       return 0;
     }
-    return todos.length + 1;
+    return Math.max(...todos.map((key) => key.id)) + 1;
   }
 
   function handleClickAdd() {
@@ -36,7 +36,7 @@ function App() {
 
   function handleClickDelete(id) {
     setState({
-      todos: todos.filter((i) => (i.id !== id)),
+      todos: todos.filter((todo) => (todo.id !== id)),
       inputSentence,
     });
   }
@@ -46,9 +46,9 @@ function App() {
       <Page
         todos={todos}
         inputSentence={inputSentence}
-        handleChangeInputSentence={handleChangeInputSentence}
-        handleClickAdd={handleClickAdd}
-        handleClickDelete={handleClickDelete}
+        onChangeInputSentence={handleChangeInputSentence}
+        onClickAdd={handleClickAdd}
+        onClickDelete={handleClickDelete}
       />
     </div>
   );
