@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import TodoPage from './TodoPage';
 
+const shortId = require('shortid');
+
 export default function App() {
   const [state, setState] = useState({
     inputValue: '',
@@ -10,14 +12,12 @@ export default function App() {
 
   const { inputValue, todoList } = state;
 
-  const generateRandom = () => Math.random().toString(36).substring(7);
-
   const handleSubmitAddTodo = (e) => {
     e.preventDefault();
     setState({
       ...state,
       inputValue: '',
-      todoList: [...todoList, { id: inputValue + generateRandom(), todo: inputValue }],
+      todoList: [...todoList, { id: shortId.generate(), todo: inputValue }],
     });
   };
 
@@ -25,10 +25,10 @@ export default function App() {
     setState({ ...state, inputValue: e.target.value });
   };
 
-  const handleClickRemoveTodo = (e) => {
+  const handleClickRemoveTodo = (removeId) => {
     setState({
       ...state,
-      todoList: todoList.filter((item) => e.target.dataset.id !== item.id),
+      todoList: todoList.filter((item) => removeId !== item.id),
     });
   };
 

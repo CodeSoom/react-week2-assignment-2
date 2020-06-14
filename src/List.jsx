@@ -1,13 +1,12 @@
 import React from 'react';
 
+import Item from './Item';
+
 export default function List({ list, onClick }) {
   return (
     <ul style={{ listStyle: 'none' }}>
       {list.map((item) => (
-        <li>
-          <span>{`${item.todo} `}</span>
-          <button type="button" data-id={item.id} onClick={onClick}>완료</button>
-        </li>
+        <Item key={item.id} item={item} onClick={onClick} />
       ))}
     </ul>
   );
