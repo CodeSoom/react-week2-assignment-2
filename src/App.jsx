@@ -10,20 +10,20 @@ export default function App() {
   });
   const { todoList } = state;
 
-  const AddTodo = (todoText) => {
+  const AddTodo = (text) => {
     setState({
       ...state,
       todoList: todoList.concat({
-        completed: false,
         id: uuidv4(),
-        todoText,
+        text,
       }),
     });
   };
-  const deleteTodo = (deleteTodoId) => {
+
+  const deleteTodo = (ID) => {
     setState({
       ...state,
-      todoList: todoList.filter(({ id }) => id !== deleteTodoId),
+      todoList: todoList.filter((todo) => todo.id !== ID),
     });
   };
 
@@ -31,16 +31,10 @@ export default function App() {
   return (
     <div>
       <TodoForm onSubmit={AddTodo} />
-      {
-        todoList.length
-          ? (
-            <TodoList
-              todoList={todoList}
-              onClick={deleteTodo}
-            />
-          )
-          : <div>입력 된 할 일이 없습니다.</div>
-      }
+      <TodoList
+        todoList={todoList}
+        onClick={deleteTodo}
+      />
     </div>
   );
 }

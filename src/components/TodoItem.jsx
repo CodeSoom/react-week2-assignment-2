@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function TodoItem({ todoText, id, onClick }) {
+export default function TodoItem({ text, id, onClick }) {
   return (
     <li>
-      {todoText}
+      {text}
       <button
         type="button"
         onClick={() => onClick(id)}
@@ -16,7 +16,7 @@ export default function TodoItem({ todoText, id, onClick }) {
 }
 
 TodoItem.propTypes = {
-  todoText: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
