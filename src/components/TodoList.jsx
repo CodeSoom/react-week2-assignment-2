@@ -7,7 +7,7 @@ export default function TodoList({ todoList, onClick }) {
   const hasNotTodo = todoList.length === 0;
 
   if (hasNotTodo) {
-    return (<div>입력 된 할 일이 없습니다.</div>);
+    return (<div>할 일이 없어요!</div>);
   }
 
   return (
