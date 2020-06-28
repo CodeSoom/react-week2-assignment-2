@@ -7,18 +7,18 @@ export default function App() {
   const [todo, setTodo] = useState({ text: '' });
   const [todos, setTodos] = useState([]);
 
-  function handleCreateClick() {
-    const newTodos = (todos === []) ? [todo] : [...todos.flat(), todo];
+  function handleClickCreate() {
+    const newTodos = (todos === []) ? [todo] : [...todos, todo];
     setTodos(newTodos);
     setTodo({ text: '' });
   }
 
-  function handleCompleteClick(index) {
+  function handleClickComplete(index) {
     const newTodos = todos.filter((t) => t !== todos[index]);
     setTodos(newTodos);
   }
 
-  function handleTodoChange(e) {
+  function handleChangeTodo(e) {
     setTodo({ id: uuidv4(), text: e.target.value });
   }
 
@@ -26,9 +26,9 @@ export default function App() {
     <Page
       todo={todo}
       todos={todos}
-      handleTodoChange={handleTodoChange}
-      handleCreateClick={handleCreateClick}
-      handleCompleteClick={handleCompleteClick}
+      onChangeTodo={handleChangeTodo}
+      onClickCreate={handleClickCreate}
+      onClickComplete={handleClickComplete}
     />
   );
 }
