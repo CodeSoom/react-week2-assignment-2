@@ -4,23 +4,23 @@ import TodoCreate from './todoCreate';
 import TodoComplete from './todoComplete';
 
 export default function Page({
-  todo,
+  todoTitle,
   todos,
-  handleChangeTodo,
-  handleClickCreate,
-  handleClickComplete,
+  onChangeTodo,
+  onClickCreate,
+  onClickComplete,
 }) {
   return (
     <div>
       <h1>To-do</h1>
       <TodoCreate
-        todo={todo}
-        onChange={handleChangeTodo}
-        onClick={handleClickCreate}
+        value={todoTitle}
+        onChange={onChangeTodo}
+        onClick={onClickCreate}
       />
       <TodoComplete
         todos={todos}
-        onClick={handleClickComplete}
+        onClick={onClickComplete}
       />
     </div>
   );

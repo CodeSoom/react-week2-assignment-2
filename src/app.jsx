@@ -1,30 +1,42 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 import Page from './page';
 
+const initialState = {
+  newId: 1,
+  todoTitle: '',
+  todos: [],
+};
+
 export default function App() {
-  const [todo, setTodo] = useState({ text: '' });
-  const [todos, setTodos] = useState([]);
+  const [state, setState] = useState(initialState);
+  const { newId, todoTitle, todos } = state;
+
+  function handleChangeTodo(event) {
+    setState({
+      ...state,
+      todoTitle: event.target.value,
+    });
+  }
 
   function handleClickCreate() {
-    const newTodos = (todos === []) ? [todo] : [...todos, todo];
-    setTodos(newTodos);
-    setTodo({ text: '' });
+    setState({
+      newId: newId + 1,
+      todoTitle: '',
+      todos: [...todos, { id: newId, title: todoTitle }],
+    });
   }
 
-  function handleClickComplete(index) {
-    const newTodos = todos.filter((t) => t !== todos[index]);
-    setTodos(newTodos);
-  }
-
-  function handleChangeTodo(e) {
-    setTodo({ id: uuidv4(), text: e.target.value });
+  function handleClickComplete(id) {
+    setState({
+      ...state,
+      todos: todos.filter((todo) => todo.id !== id),
+    });
   }
 
   return (
     <Page
-      todo={todo}
+      todoTitle={todoTitle}
       todos={todos}
       onChangeTodo={handleChangeTodo}
       onClickCreate={handleClickCreate}

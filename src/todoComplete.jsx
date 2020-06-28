@@ -7,10 +7,10 @@ export default function TodoComplete({ todos, onClick }) {
 
   return (
     <div>
-      {todos.map((todo, index) => (
+      {todos.map((todo) => (
         <div key={todo.id}>
-          {`${index + 1}. ${todo.text}`}
-          <button type="button" onClick={() => onClick(index)}>
+          {todo.title}
+          <button type="button" onClick={() => onClick(todo.id)}>
             완료
           </button>
         </div>
