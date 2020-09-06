@@ -48,3 +48,28 @@ npm run lint
 ```bash
 npm test
 ```
+
+## Todo List의 Todo List(?)
+- [X] 화면에 '추가' 버튼 출력
+- [X] '추가' 버튼 밑에 '아무것도 안하기'가 적힌 Todo List 렌더링
+- [X] '추가' 버튼 클릭 시 아래에 '아무것도 안하기'라는 글자가 추가된다.
+- [X] Todo 항목 별로 '완료' 버튼 렌더링
+- [X] '완료' 버튼 클릭 시 Todo List에서 해당 항목 제거
+- [X] '추가' 버튼 옆에 input 창 렌더링
+- [X] '추가' 버튼 클릭 시 input 창 안의 내용이 Todo List에 추가됨
+  - [X] 할일 추가 함수가 들어갈 내용을 입력받을 수 있도록 변경
+  - [X] '추가' 버튼 클릭 시 input 창 초기화
+- [X] Todo List가 아무것도 없을 때 '할 일이 없어요!' 렌더링
+
+## 1차 피드백
+- [X] array state를 스프레드 연산자로 좀 더 간단하게 개선
+- [X] 자체 컴포넌트와 서드 파티 라이브러리 간 import 공백 추가
+- [X] list component를 위해 유니크한 key 값을 생성하도록 개선
+- [X] '할 일이 없어요' 처리하는 부분을 3항 연산자 없이 가능하도록 개선
+- [X] App에서 모든 상태를 관리하도록 개선
+- [ ] state가 퍼지지 않고 하나의 state에서 객체 내부의 속성으로 관리할 수 있도록 개선
+
+## 2차 피드백
+- [X] TodoRemoveButton에서 onClick 이벤트 핸들러에 전달되는 구체적인 정보 제거
+- [X] 상태 통합 관리하면서 덜 진행한 리팩토링 마무리(TodoAddButton, TodoHeaderTemplate)
+- [X] TodoAddInput의 이벤트 핸들러 가독성 높이기
