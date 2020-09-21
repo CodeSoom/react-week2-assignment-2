@@ -3,17 +3,14 @@ import React, { useState } from 'react';
 import TodoInput from './TodoInput';
 
 export default function TodoApp() {
-  const initialState = {
+  const [state, setState] = useState({
     todoItems: [],
-  };
-
-  const [state, setState] = useState(
-    initialState,
-  );
+  });
 
   const { todoItems } = state;
 
-  const onAddTodo = (todoItem) => {
+  const onAddTodo = (todoText) => {
+    const todoItem = { id: todoItems.length + 1, todoText };
     setState({ todoItems: [...todoItems, todoItem] });
   };
 
