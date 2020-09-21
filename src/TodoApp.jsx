@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import TodoInput from './TodoInput';
+import TodoList from './TodoList';
 
 export default function TodoApp() {
   const [state, setState] = useState({
@@ -18,6 +19,7 @@ export default function TodoApp() {
     <div>
       <h1>To-do</h1>
       <TodoInput onAddTodo={onAddTodo} />
+      <TodoList todoItems={todoItems} />
     </div>
   );
 }
