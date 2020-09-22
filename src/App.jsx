@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import TodoListPage from './TodoListPage';
 
 export default function App() {
   const [state, setState] = useState({
@@ -23,10 +22,10 @@ export default function App() {
   };
 
   return (
-    <div>
-      <h1>To-do</h1>
-      <TodoInput onAddTodo={handleAddTodo} />
-      <TodoList todoItems={todoItems} onClick={handleClickCompletedButton} />
-    </div>
+    <TodoListPage
+      todoItems={todoItems}
+      onAddTodo={handleAddTodo}
+      onClick={handleClickCompletedButton}
+    />
   );
 }
