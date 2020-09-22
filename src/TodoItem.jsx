@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from './Button';
 
-function TodoItem() {
+function TodoItem({ item }) {
   return (
     <li style={{ listStyleType: 'decimal' }}>
-      할일
+      {item}
       <Button type="button">완료</Button>
     </li>
   );
