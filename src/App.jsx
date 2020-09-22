@@ -9,9 +9,10 @@ export default function App() {
   });
 
   const { todoItems } = state;
+  const id = () => Math.random().toString(36).substr(2, 10);
 
   const onAddTodo = (todoText) => {
-    const todoItem = { id: todoItems.length + 1, todoText };
+    const todoItem = { id: id(), todoText };
     setState({ todoItems: [...todoItems, todoItem] });
   };
 
