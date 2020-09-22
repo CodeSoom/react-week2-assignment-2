@@ -5,21 +5,21 @@ import AddWorkForm from './components/AddWorkForm';
 import WorkList from './components/WorkList';
 
 function App() {
-  const [works, setTodos] = useState([]);
+  const [works, setWorks] = useState([]);
 
-  const [work, setTodo] = useState('');
+  const [work, setWork] = useState('');
 
   function handleWorkTextChange(event) {
-    setTodo(event.target.value);
+    setWork(event.target.value);
   }
 
   function handleAddWorkButtonClick() {
-    setTodos([...works, { key: Date.now(), value: work }]);
-    setTodo('');
+    setWorks([...works, { key: Date.now(), value: work }]);
+    setWork('');
   }
 
   function handleCompleteWorkButtonClick(deleteTodoKey) {
-    setTodos(works.filter(({ key }) => key !== deleteTodoKey));
+    setWorks(works.filter(({ key }) => key !== deleteTodoKey));
   }
 
   return (
