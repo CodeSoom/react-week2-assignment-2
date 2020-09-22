@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 function Ul({ onClick, toDos, id }) {
   return (
     <ul>
-      {toDos[0] === undefined ? (<h3>할일이 없나요?</h3>)
+      {toDos[0] === undefined ? (<h3>할 일이 없어요!</h3>)
         : (
           <List
             onClick={onClick}
