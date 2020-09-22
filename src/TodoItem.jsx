@@ -4,7 +4,7 @@ import Button from './Button';
 function TodoItem({ item, deleteTodoItem }) {
   return (
     <li style={{ listStyleType: 'decimal' }}>
-      {item}
+      {item.todo}
       <Button onClick={() => deleteTodoItem(item)}>
         완료
       </Button>

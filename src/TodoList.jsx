@@ -5,7 +5,13 @@ function TodoList({ todoItems, deleteTodoItem }) {
   if (todoItems.length === 0) return <p>할 일이 없어요!</p>;
   return (
     <ul>
-      {todoItems.map((item, index) => <TodoItem item={item} deleteTodoItem={deleteTodoItem} key={`todoItem${index + 1}`} />)}
+      {todoItems.map((item) => (
+        <TodoItem
+          item={item}
+          deleteTodoItem={deleteTodoItem}
+          key={item.id}
+        />
+      ))}
     </ul>
   );
 }

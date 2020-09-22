@@ -7,11 +7,12 @@ function App() {
 
   function addTodoItem(newItem) {
     if (!newItem.trim()) return;
-    setTodoItems([...todoItems, newItem]);
+    const newItemId = `todo ${todoItems.length}`;
+    setTodoItems([...todoItems, { todo: newItem, id: newItemId }]);
   }
 
   function removeTodoItem(selectedItem) {
-    const newTodoItems = todoItems.filter((item) => item !== selectedItem);
+    const newTodoItems = todoItems.filter((item) => item.id !== selectedItem.id);
     setTodoItems(newTodoItems);
   }
 
