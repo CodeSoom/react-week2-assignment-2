@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FinishButton({ onClick }) {
+function TodoFinishButton({ onClick }) {
   return (
     <button type="button" onClick={onClick}>
       완료
@@ -8,4 +8,4 @@ function FinishButton({ onClick }) {
   );
 }
 
-export default FinishButton;
+export default TodoFinishButton;
