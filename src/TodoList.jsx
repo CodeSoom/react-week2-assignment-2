@@ -12,16 +12,15 @@ export default function TodoList({ todoItems, onClick }) {
   }
 
   return (
-    <ul>
-      {todoItems.map(({ id, todoText }, index) => (
+    <ol>
+      {todoItems.map(({ id, todoText }) => (
         <TodoItem
           key={id}
           id={id}
-          index={Number(index) + 1}
           todoText={todoText}
           onClick={onClick}
         />
       ))}
-    </ul>
+    </ol>
   );
 }

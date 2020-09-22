@@ -1,19 +1,13 @@
 import React from 'react';
 
-export default function TodoItem({
-  id, index, todoText, onClick,
-}) {
-  const styles = {
-    listStyle: 'none',
-  };
-
+export default function TodoItem({ id, todoText, onClick }) {
   const handleClick = () => {
     onClick(id);
   };
 
   return (
-    <li style={styles}>
-      {`${index}. ${todoText}`}
+    <li>
+      {todoText}
       <button type="button" onClick={handleClick}>완료</button>
     </li>
   );
