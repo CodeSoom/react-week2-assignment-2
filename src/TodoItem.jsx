@@ -5,7 +5,7 @@ function TodoItem({ item, deleteTodoItem }) {
   return (
     <li style={{ listStyleType: 'decimal' }}>
       {item}
-      <Button buttonType="button" onClick={() => deleteTodoItem(item)}>
+      <Button onClick={() => deleteTodoItem(item)}>
         완료
       </Button>
     </li>

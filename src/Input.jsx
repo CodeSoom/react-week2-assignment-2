@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Button from './Button';
 
-function Form({ addTodoItem }) {
+function Input({ addTodoItem }) {
   const [value, setValue] = useState('');
 
-  function onFormSubmit(event) {
-    event.preventDefault();
+  function onClickAddButton() {
     addTodoItem(value);
     setValue('');
   }
@@ -15,13 +14,13 @@ function Form({ addTodoItem }) {
   }
 
   return (
-    <form onSubmit={(e) => onFormSubmit(e)}>
+    <div>
       <input type="text" placeholder="할 일을 입력해 주세요" value={value} onChange={(e) => onInputChange(e)} />
-      <Button>
+      <Button onClick={onClickAddButton}>
         추가
       </Button>
-    </form>
+    </div>
   );
 }
 
-export default Form;
+export default Input;
