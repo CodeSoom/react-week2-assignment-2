@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
+import AddWorkForm from './components/AddWorkForm';
+import WorkList from './components/WorkList';
+
 function App() {
   const [works, setTodos] = useState([]);
 
@@ -22,26 +25,18 @@ function App() {
   return (
     <div>
       <h1>TO-DO</h1>
-      <div>
-        <input type="text" placeholder="할 일을 입력해주세요." value={work} onChange={(e) => handleWorkTextChange(e)} />
-        <button type="button" value="추가" onClick={handleAddWorkButtonClick}>추가</button>
-      </div>
+      <AddWorkForm
+        value={work}
+        onClick={handleAddWorkButtonClick}
+        onChange={(e) => handleWorkTextChange(e)}
+      />
 
-      <div>
-        {
-          works.length <= 0 ? <p>할 일이 없어요!</p> : ''
-        }
-        <ol>
-          {
-            works.map(({ key, value }) => (
-              <li key={key}>
-                {value}
-                <button type="button" onClick={() => handleCompleteWorkButtonClick(key)}> 완료</button>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
+      {
+        works.length <= 0 ? <p>할 일이 없어요!</p> : ''
+      }
+
+      <WorkList works={works} onClick={handleCompleteWorkButtonClick} />
+
     </div>
   );
 }
