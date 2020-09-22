@@ -4,7 +4,9 @@ import TodoList from './TodoList';
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
+
   function addTodoItem(newItem) {
+    if (!newItem.trim()) return;
     setTodoItems([...todoItems, newItem]);
   }
 
