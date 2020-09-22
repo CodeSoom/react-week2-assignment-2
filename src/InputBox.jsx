@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Button from './Button';
 
-function Input({ addTodoItem }) {
+function InputBox({ AddInputValue }) {
   const [value, setValue] = useState('');
 
   function onClickAddButton() {
-    addTodoItem(value);
+    AddInputValue(value);
     setValue('');
   }
 
@@ -23,4 +23,4 @@ function Input({ addTodoItem }) {
   );
 }
 
-export default Input;
+export default InputBox;
