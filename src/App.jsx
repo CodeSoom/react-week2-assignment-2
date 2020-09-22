@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './Form';
+import Button from './Button';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <ul>
         <li style={{ listStyleType: 'decimal' }}>
           할일
-          <button type="button">완료</button>
+          <Button type="button">완료</Button>
         </li>
       </ul>
     </div>
