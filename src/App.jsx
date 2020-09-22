@@ -16,11 +16,17 @@ export default function App() {
     setState({ todoItems: [...todoItems, todoItem] });
   };
 
+  const handleClickCompletedButton = (todoId) => {
+    setState({
+      todoItems: todoItems.filter((todoItem) => todoItem.id !== todoId),
+    });
+  };
+
   return (
     <div>
       <h1>To-do</h1>
       <TodoInput onAddTodo={onAddTodo} />
-      <TodoList todoItems={todoItems} />
+      <TodoList todoItems={todoItems} onClick={handleClickCompletedButton} />
     </div>
   );
 }

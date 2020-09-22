@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todoItems }) {
+export default function TodoList({ todoItems, onClick }) {
   const isArrayEmpty = (arr) => (Array.isArray(arr) && arr.length === 0);
 
   if (isArrayEmpty(todoItems)) {
@@ -14,7 +14,14 @@ export default function TodoList({ todoItems }) {
   return (
     <ul>
       {todoItems.map(({ id, todoText }, index) => (
-        <TodoItem key={id} index={Number(index) + 1} todoText={todoText} />))}
+        <TodoItem
+          key={id}
+          id={id}
+          index={Number(index) + 1}
+          todoText={todoText}
+          onClick={onClick}
+        />
+      ))}
     </ul>
   );
 }
