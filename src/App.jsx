@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
+  const [state, setState] = useState({
+    text: '',
+    todoList: [],
+  });
+
+  const { text, todoList } = state;
+
+  const handleChange = (e) => {
+    setState({
+      ...todoList,
+      text: e.target.value,
+    });
+  };
+
   return (
     <div>
       <h1>To-do</h1>
       <div>
-        <input type="text" placeholder="할 일을 입력해 주세요." />
+        <input
+          type="text"
+          value={text}
+          placeholder="할 일을 입력해 주세요."
+          onChange={handleChange}
+        />
         <button type="button">추가</button>
       </div>
       <div>
