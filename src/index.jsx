@@ -1,49 +1,85 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+
+function Ul({ onClick, toDos, id }) {
+  return (
+    <ul>
+      {toDos[0] === undefined ? (<h3>할일이 없나요?</h3>)
+        : (
+          <List
+            onClick={onClick}
+            toDos={toDos}
+            key={id}
+          />
+        )}
+    </ul>
+  );
+}
+
+function List({ onClick, toDos, key }) {
+  return (
+    <>
+      {toDos.map((toDo) => (
+        <li key={key}>
+          {toDo}
+          <button type="button" onClick={onClick}>
+            완료
+          </button>
+        </li>
+      ))}
+    </>
+  );
+}
+
+function InputForm({ onClick }) {
+  return (
+    <form>
+      <input id="input" type="text" required />
+      <button type="submit" onClick={onClick}>
+        추가
+      </button>
+    </form>
+  );
+}
 
 function App() {
   const [state, setState] = useState({
-    list: [],
+    toDos: [],
+    id: 0,
   });
-  const { list } = state;
-  console.log(list);
-  function handleClick(e) {
-    e.preventDefault();
-    const input = document.getElementById("input");
-    const { value } = input;
-    input.value = "";
-    console.log(value);
-    setState({
-      list: [...list, value],
-    });
 
-    console.log("클릭!");
+  const { toDos, id } = state;
+
+  function handleClick(e) {
+    const input = document.getElementById('input');
+    const { value } = input;
+    input.value = '';
+
+    e.preventDefault();
+
+    setState({
+      ...state,
+      toDos: [...toDos, value],
+      id: id + 1,
+    });
   }
 
-  function handleClickDeleteList() {
-    console.log("삭제");
+  function handleClickCompleteList(e) {
+    const ul = document.querySelector('ul');
+    ul.removeChild(e.target.parentNode);
   }
 
   return (
     <div>
       <h1>To-do</h1>
-      <form>
-        <input id="input" type="text" required />
-        <button type="submit" onClick={handleClick}>
-          추가
-        </button>
-      </form>
-      <ul>
-        <li>할일이 없나요?</li>
-        <li>
-          할일1
-          <button type="button" onClick={handleClickDeleteList}>
-            종료
-          </button>
-        </li>
-      </ul>
+      <InputForm onClick={handleClick} />
+      <Ul
+        onClick={handleClickCompleteList}
+        toDos={toDos}
+        id={id}
+      />
     </div>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
