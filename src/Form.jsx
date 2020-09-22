@@ -17,7 +17,7 @@ function Form({ addTodoItem }) {
   return (
     <form onSubmit={(e) => onFormSubmit(e)}>
       <input type="text" placeholder="할 일을 입력해 주세요" value={value} onChange={(e) => onInputChange(e)} />
-      <Button type="submit">
+      <Button>
         추가
       </Button>
     </form>
