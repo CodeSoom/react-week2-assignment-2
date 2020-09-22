@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FinishButton() {
+function FinishButton({ onClick }) {
   return (
-    <button type="button">
+    <button type="button" onClick={onClick}>
       완료
     </button>
   );
