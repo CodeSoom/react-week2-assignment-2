@@ -1,30 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function TodoInput({
+  value,
+  onChange,
   onClick,
 }) {
-  const [value, setValue] = useState('');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const handleClick = () => {
-    onClick(value);
-    setValue('');
-  };
-
   return (
     <>
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
       />
       <button
         type="button"
-        onClick={handleClick}
+        onClick={onClick}
       >
         추가
       </button>
