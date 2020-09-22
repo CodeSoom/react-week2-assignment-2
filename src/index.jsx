@@ -27,15 +27,15 @@ function App() {
         todoList.length === 0 ? (
           <p>할 일이 없어요!</p>
         ) : (
-            <ol>
-              {todoList.map((i) => (
-                <li key={i}>
-                  {i}
-                  <button type="button" onClick={() => handleClickDone(i)}>완료</button>
-                </li>
-              ))}
-            </ol>
-          )
+          <ol>
+            {todoList.map((i) => (
+              <li key={i}>
+                {i}
+                <button type="button" onClick={() => handleClickDone(i)}>완료</button>
+              </li>
+            ))}
+          </ol>
+        )
       }
     </div>
   );
