@@ -17,7 +17,6 @@ function InputBox({ AddInputValue }) {
   return (
     <div>
       <Input placeholder="할 일을 입력해 주세요" value={value} onChange={onInputChange} />
-      <input type="text" placeholder="할 일을 입력해 주세요" value={value} onChange={(e) => onInputChange(e)} />
       <Button onClick={onClickAddButton}>
         추가
       </Button>
