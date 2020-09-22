@@ -11,7 +11,7 @@ export default function App() {
   const { todoItems } = state;
   const id = () => Math.random().toString(36).substr(2, 10);
 
-  const onAddTodo = (todoText) => {
+  const handleAddTodo = (todoText) => {
     const todoItem = { id: id(), todoText };
     setState({ todoItems: [...todoItems, todoItem] });
   };
@@ -25,7 +25,7 @@ export default function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <TodoInput onAddTodo={onAddTodo} />
+      <TodoInput onAddTodo={handleAddTodo} />
       <TodoList todoItems={todoItems} onClick={handleClickCompletedButton} />
     </div>
   );
