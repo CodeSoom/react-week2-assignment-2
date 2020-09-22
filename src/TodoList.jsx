@@ -8,8 +8,9 @@ function TodoList({
 }) {
   return (
     <>
-      {todos.length
-        ? (
+      {todos.length === 0
+        ? <p>할 일이 없어요!</p>
+        : (
           <ol>
             {todos.map(({ key, value }) => (
               <TodoListItem
@@ -19,8 +20,7 @@ function TodoList({
               />
             ))}
           </ol>
-        )
-        : <p>할 일이 없어요!</p>}
+        )}
     </>
   );
 }
