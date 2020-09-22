@@ -2,12 +2,12 @@ import React from 'react';
 import InputBox from './InputBox';
 import TodoList from './TodoList';
 
-function Todo({ addTodoItem, todoItems, removeTodoItem }) {
+function Todo({ addTodoItem, todoItems, removeSelectedTodo }) {
   return (
     <div>
       <h1>To-do</h1>
-      <InputBox AddInputValue={addTodoItem} />
-      <TodoList todoItems={todoItems} deleteTodoItem={removeTodoItem} />
+      <InputBox addInputValue={addTodoItem} />
+      <TodoList todoItems={todoItems} removeSelectedTodo={removeSelectedTodo} />
     </div>
   );
 }

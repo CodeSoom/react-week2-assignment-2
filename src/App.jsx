@@ -10,13 +10,13 @@ function App() {
     setTodoItems([...todoItems, { todo: newItem, id: newItemId }]);
   }
 
-  function removeTodoItem(selectedItem) {
+  function removeSelectedTodo(selectedItem) {
     const newTodoItems = todoItems.filter((item) => item.id !== selectedItem.id);
     setTodoItems(newTodoItems);
   }
 
   return (
-    <Todo addTodoItem={addTodoItem} todoItems={todoItems} removeTodoItem={removeTodoItem} />
+    <Todo addTodoItem={addTodoItem} todoItems={todoItems} removeSelectedTodo={removeSelectedTodo} />
   );
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from './Button';
 
-function TodoItem({ item, deleteTodoItem }) {
+function TodoItem({ item, removeSelectedTodo }) {
   return (
     <li style={{ listStyleType: 'decimal' }}>
       {item.todo}
-      <Button onClick={() => deleteTodoItem(item)}>
+      <Button onClick={() => removeSelectedTodo(item)}>
         완료
       </Button>
     </li>

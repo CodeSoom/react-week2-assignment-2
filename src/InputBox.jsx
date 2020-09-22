@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Button from './Button';
 import Input from './Input';
 
-function InputBox({ AddInputValue }) {
+function InputBox({ addInputValue }) {
   const [value, setValue] = useState('');
 
   function onClickAddButton() {
-    AddInputValue(value);
+    addInputValue(value);
     setValue('');
   }
 
