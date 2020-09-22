@@ -9,11 +9,16 @@ function App() {
     setTodoItems([...todoItems, newItem]);
   }
 
+  function removeTodoItem(selectedItem) {
+    const newTodoItems = todoItems.filter((item) => item !== selectedItem);
+    setTodoItems(newTodoItems);
+  }
+
   return (
     <div>
       <h1>To-do</h1>
       <Form addTodoItem={addTodoItem} />
-      <TodoList todoItems={todoItems} />
+      <TodoList todoItems={todoItems} deleteTodoItem={removeTodoItem} />
     </div>
   );
 }

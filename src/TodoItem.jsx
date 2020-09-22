@@ -1,11 +1,13 @@
 import React from 'react';
 import Button from './Button';
 
-function TodoItem({ item }) {
+function TodoItem({ item, deleteTodoItem }) {
   return (
     <li style={{ listStyleType: 'decimal' }}>
       {item}
-      <Button type="button">완료</Button>
+      <Button type="button" onClick={() => deleteTodoItem(item)}>
+        완료
+      </Button>
     </li>
   );
 }
