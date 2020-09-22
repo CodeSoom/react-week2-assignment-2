@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Button from './Button';
 
-function Form() {
+function Form({ addTodoItem }) {
   const [value, setValue] = useState('');
 
   function onFormSubmit(event) {
     event.preventDefault();
+    addTodoItem(value);
     setValue('');
   }
 
