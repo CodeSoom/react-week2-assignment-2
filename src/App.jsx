@@ -11,7 +11,9 @@ function App() {
   }
 
   function removeSelectedTodo(selectedItem) {
-    const newTodoItems = todoItems.filter((item) => item.id !== selectedItem.id);
+    const newTodoItems = todoItems
+      .filter((item) => item.id !== selectedItem.id)
+      .map((item, index) => ({ todo: item.todo, id: `todo ${index}` }));
     setTodoItems(newTodoItems);
   }
 
