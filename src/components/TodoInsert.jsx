@@ -1,9 +1,9 @@
 import React from 'react';
 
-function TodoInsert() {
+function TodoInsert({ onChange, onSubmit, todo }) {
   return (
-    <form>
-      <input placeholder="할 일을 입력하세요!" />
+    <form onSubmit={onSubmit}>
+      <input placeholder="할 일을 입력하세요!" value={todo} onChange={onChange} />
       <button type="submit">추가</button>
     </form>
   );

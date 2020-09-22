@@ -1,10 +1,10 @@
 import React from 'react';
 
-function TodoItem() {
+function TodoItem({ todo, count, onRemove }) {
   return (
     <div>
-      1. 할 일
-      <button type="button">완료</button>
+      {`${count + 1}. ${todo}`}
+      <button type="button" onClick={onRemove}>완료</button>
     </div>
   );
 }
