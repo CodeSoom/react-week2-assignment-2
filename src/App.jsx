@@ -5,18 +5,6 @@ import Page from './Page';
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const removeTodo = (key) => {
-    const findedIndex = todos.findIndex((todo) => todo.key === key);
-    if (typeof findedIndex !== 'number') {
-      return;
-    }
-
-    const copiedTods = [...todos];
-    copiedTods.splice(findedIndex, 1);
-
-    setTodos(copiedTods);
-  };
-
   const handleClickAdd = (value) => {
     const lastTodo = todos[todos.length - 1];
     const newTodo = {
@@ -27,15 +15,17 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
-  const handleClickComplete = (key) => {
-    removeTodo(key);
+  const handleClickRemove = (key) => {
+    const filteredTodos = todos.filter((todo) => todo.key !== key);
+
+    setTodos(filteredTodos);
   };
 
   return (
     <Page
       todos={todos}
       onClickAdd={handleClickAdd}
-      onClickComplete={handleClickComplete}
+      onClickComplete={handleClickRemove}
     />
   );
 }
