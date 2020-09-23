@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todoItems, onClick }) {
+export default function TodoList({ todoItems, onClickComplete }) {
   const isArrayEmpty = (arr) => (Array.isArray(arr) && arr.length === 0);
 
   if (isArrayEmpty(todoItems)) {
@@ -18,7 +18,7 @@ export default function TodoList({ todoItems, onClick }) {
           key={id}
           id={id}
           todoText={todoText}
-          onClick={onClick}
+          onClickComplete={onClickComplete}
         />
       ))}
     </ol>

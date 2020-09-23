@@ -25,7 +25,7 @@ export default function App() {
     <TodoListPage
       todoItems={todoItems}
       onAddTodo={handleAddTodo}
-      onClick={handleClickComplete}
+      onClickComplete={handleClickComplete}
     />
   );
 }
