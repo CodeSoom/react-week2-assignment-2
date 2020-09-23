@@ -4,27 +4,27 @@ import UpdatableTodoList from './UpdatableTodoList';
 
 export default function App() {
   const [state, setState] = useState({
-    task: '',
+    inputTask: '',
     tasks: [
     ],
   });
 
-  const { task, tasks } = state;
+  const { inputTask, tasks } = state;
 
   const handleChange = (e) => {
     setState({
       ...state,
-      task: e.target.value,
+      inputTask: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setState({
-      task: '',
+      inputTask: '',
       tasks: [...tasks, {
-        name: task,
-        date: new Date(),
+        id: new Date(),
+        name: inputTask,
       }],
     });
   };
@@ -33,7 +33,7 @@ export default function App() {
     <UpdatableTodoList
       onChange={handleChange}
       onSubmit={handleSubmit}
-      task={task}
+      inputTask={inputTask}
       tasks={tasks}
     />
   );

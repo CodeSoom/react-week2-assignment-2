@@ -4,8 +4,8 @@ import TodoItem from './TodoItem';
 
 export default function TodoList({ tasks }) {
   return (
-    tasks.map(({ name, date }, index) => (
-      <TodoItem key={date} index={index} name={name} />
+    tasks.map(({ id, name }, index) => (
+      <TodoItem key={id} index={index} name={name} />
     ))
   );
 }

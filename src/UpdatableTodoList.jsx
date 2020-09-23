@@ -4,7 +4,7 @@ import Form from './Form';
 import TodoList from './TodoList';
 
 export default function UpdatableTodoList({
-  task,
+  inputTask,
   tasks,
   onChange,
   onSubmit,
@@ -14,7 +14,7 @@ export default function UpdatableTodoList({
   return (
     <div>
       <h1>To-do</h1>
-      <Form task={task} onSubmit={onSubmit} onChange={onChange} />
+      <Form inputTask={inputTask} onSubmit={onSubmit} onChange={onChange} />
       {isTodoListNotEmpty
         ? <TodoList tasks={tasks} />
         : <p>할 일이 없어요</p>}
