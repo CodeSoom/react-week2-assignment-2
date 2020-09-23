@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 
 export default function TodoInput({ onAddTodo }) {
-  const initialState = { todoItem: '' };
+  const initialState = { todoText: '' };
 
   const [state, setState] = useState(
     initialState,
   );
 
-  const { todoItem } = state;
+  const { todoText } = state;
 
   const handleChange = (e) => {
     setState({
-      todoItem: e.target.value,
+      todoText: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (todoItem === '') return;
+    if (todoText === '') return;
 
-    onAddTodo(todoItem);
+    onAddTodo(todoText);
     setState(initialState);
   };
 
@@ -28,7 +28,7 @@ export default function TodoInput({ onAddTodo }) {
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
-        value={todoItem}
+        value={todoText}
         onChange={handleChange}
       />
       <button type="submit" value="submit">
