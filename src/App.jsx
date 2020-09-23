@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 
@@ -18,8 +19,7 @@ function App() {
 
   function handleClick() {
     setState({
-      ...state,
-      list: [...list, input],
+      list: list.indexOf(input) === 0 ? [...list, input] : list,
       input: '',
     });
   }
