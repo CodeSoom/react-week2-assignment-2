@@ -1,5 +1,6 @@
 import React from 'react';
-import TodoItem from './TodoItem';
+
+import TodoItems from './TodoItems';
 
 function TodoList({ list }) {
   return (
@@ -8,14 +9,9 @@ function TodoList({ list }) {
         list.length === 0
           ? '할 일이 없어요!'
           : (
-            <ol>
-              {list.map((item) => (
-                <TodoItem
-                  key={item}
-                  value={item}
-                />
-              ))}
-            </ol>
+            <TodoItems
+              list={list}
+            />
           )
       }
     </div>
