@@ -17,10 +17,22 @@ function App() {
     });
   }
 
-  function handleClick() {
+  function handleClickTodoAdd() {
     setState({
-      list: list.indexOf(input) === 0 ? [...list, input] : list,
+      list: list.indexOf(input) === -1 ? [...list, input] : list,
       input: '',
+    });
+  }
+
+  function handleClickTodoComplete(value) {
+    const targetIndex = list.indexOf(value);
+
+    setState({
+      ...state,
+      list: [
+        ...list.slice(0, targetIndex),
+        ...list.slice(targetIndex + 1, list.length),
+      ],
     });
   }
 
@@ -31,11 +43,12 @@ function App() {
         <TodoInput
           value={input}
           onChange={handleChange}
-          onClick={handleClick}
+          onClick={handleClickTodoAdd}
         />
       </p>
       <TodoList
         list={list}
+        onClick={handleClickTodoComplete}
       />
     </div>
   );
