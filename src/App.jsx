@@ -8,10 +8,10 @@ export default function App() {
   });
 
   const { todoItems } = state;
-  const id = () => Math.random().toString(36).substr(2, 10);
+  const generateId = () => Math.random().toString(36).substr(2, 10);
 
   const handleAddTodo = (todoText) => {
-    const todoItem = { id: id(), todoText };
+    const todoItem = { id: generateId(), todoText };
     setState({ todoItems: [...todoItems, todoItem] });
   };
 
