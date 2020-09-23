@@ -18,7 +18,7 @@ export default function UpdatableTodoList({
       <Form inputTask={inputTask} onSubmit={onSubmit} onChange={onChange} />
       {isTodoListNotEmpty
         ? <TodoList tasks={tasks} onClick={onClick} />
-        : <p>할 일이 없어요</p>}
+        : <p>할 일이 없어요!</p>}
     </div>
   );
 }
