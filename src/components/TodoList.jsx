@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItems from './TodoItems';
 
-function TodoList({ list }) {
+function TodoList({ list, onClick }) {
   return (
     <div>
       {
@@ -11,6 +11,7 @@ function TodoList({ list }) {
           : (
             <TodoItems
               list={list}
+              onClick={onClick}
             />
           )
       }

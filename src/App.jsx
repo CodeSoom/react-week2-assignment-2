@@ -24,6 +24,18 @@ function App() {
     });
   }
 
+  function handleClickTodoComplete(value) {
+    const targetIndex = list.indexOf(value);
+
+    setState({
+      ...state,
+      list: [
+        ...list.slice(0, targetIndex),
+        ...list.slice(targetIndex + 1, list.length),
+      ],
+    });
+  }
+
   return (
     <div>
       <h1>To-do</h1>
@@ -36,6 +48,7 @@ function App() {
       </p>
       <TodoList
         list={list}
+        onClick={handleClickTodoComplete}
       />
     </div>
   );
