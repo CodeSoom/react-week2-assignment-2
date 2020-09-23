@@ -1,17 +1,17 @@
 import React from 'react';
 
-const TodoInput = ({ todoText, updateTodoText, addTodo }) => (
+const TodoInput = ({ todoText, onChangeTodoText, onClickAddTodo }) => (
   <p>
     <input
       type="text"
       id="todo"
       placeholder="할 일을 입력해 주세요"
-      onChange={updateTodoText}
+      onChange={onChangeTodoText}
       value={todoText}
     />
     <button
       type="button"
-      onClick={addTodo}
+      onClick={onClickAddTodo}
     >
       추가
     </button>

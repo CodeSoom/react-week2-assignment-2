@@ -7,11 +7,11 @@ const App = () => {
   const [todoText, setTodoText] = useState('');
   const [todoArray, setTodoArray] = useState([]);
 
-  function updateTodoText(event) {
+  function handleChangeTodoText(event) {
     setTodoText(event.target.value);
   }
 
-  function addTodo() {
+  function handleClickAddTodo() {
     if (!todoText) throw new Error('No content!');
 
     setTodoArray([...todoArray, { id: count, text: todoText }]);
@@ -19,17 +19,17 @@ const App = () => {
     setTodoText('');
   }
 
-  function deleteTodo({ id }) {
+  function handleClickDeleteTodo({ id }) {
     setTodoArray(todoArray.filter((todo) => todo.id !== id));
   }
 
   return (
     <Page
       todoText={todoText}
-      updateTodoText={updateTodoText}
+      onChangeTodoText={handleChangeTodoText}
       todoArray={todoArray}
-      addTodo={addTodo}
-      deleteTodo={deleteTodo}
+      onClickAddTodo={handleClickAddTodo}
+      onClickDeleteTodo={handleClickDeleteTodo}
     />
   );
 };

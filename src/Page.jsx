@@ -4,18 +4,18 @@ import TodoForm from './TodoForm';
 import TodoArray from './TodoArray';
 
 const Page = ({
-  todoText, updateTodoText, todoArray, addTodo, deleteTodo,
+  todoText, onChangeTodoText, todoArray, onClickAddTodo, onClickDeleteTodo,
 }) => (
   <div>
     <h2>To-do</h2>
     <TodoForm
       todoText={todoText}
-      updateTodoText={updateTodoText}
-      addTodo={addTodo}
+      onChangeTodoText={onChangeTodoText}
+      onClickAddTodo={onClickAddTodo}
     />
     <TodoArray
       todoArray={todoArray}
-      deleteTodo={deleteTodo}
+      onClickDeleteTodo={onClickDeleteTodo}
     />
   </div>
 );
