@@ -15,7 +15,7 @@ export default function App() {
     setState({ todoItems: [...todoItems, todoItem] });
   };
 
-  const handleClickCompletedButton = (todoId) => {
+  const handleClickComplete = (todoId) => {
     setState({
       todoItems: todoItems.filter((todoItem) => todoItem.id !== todoId),
     });
@@ -25,7 +25,7 @@ export default function App() {
     <TodoListPage
       todoItems={todoItems}
       onAddTodo={handleAddTodo}
-      onClick={handleClickCompletedButton}
+      onClick={handleClickComplete}
     />
   );
 }
