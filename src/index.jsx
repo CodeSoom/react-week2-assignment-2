@@ -25,6 +25,7 @@ function App() {
 
   function onRemove(key) {
     setTodoList(todoList.filter((todoItem) => todoItem.id !== key));
+    setId(id - 1);
   }
 
   return (
