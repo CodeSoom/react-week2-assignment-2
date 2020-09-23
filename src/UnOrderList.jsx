@@ -2,10 +2,7 @@ import React from 'react';
 
 import List from './List';
 
-<<<<<<< HEAD
 function UnOrderList({ onClick, toDos }) {
-=======
->>>>>>> 1fe368d6577bff0713ca79b1deadb192862a6e8d
   return (
     <ul>
       {toDos[0] === undefined
@@ -14,9 +11,6 @@ function UnOrderList({ onClick, toDos }) {
           <List
             onClick={onClick}
             toDos={toDos}
-<<<<<<< HEAD
-=======
->>>>>>> 1fe368d6577bff0713ca79b1deadb192862a6e8d
           />
         )}
     </ul>
