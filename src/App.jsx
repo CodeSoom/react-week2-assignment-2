@@ -25,14 +25,9 @@ function App() {
   }
 
   function handleClickTodoComplete(value) {
-    const targetIndex = list.indexOf(value);
-
     setState({
       ...state,
-      list: [
-        ...list.slice(0, targetIndex),
-        ...list.slice(targetIndex + 1, list.length),
-      ],
+      list: list.filter((item) => item !== value),
     });
   }
 
