@@ -2,7 +2,9 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-function TodoList({ todos, setTodos }) {
+function TodoList({ states }) {
+  const { todos, setTodos } = states;
+
   if (todos.length === 0) {
     return <div>할 일이 없어요!</div>;
   }

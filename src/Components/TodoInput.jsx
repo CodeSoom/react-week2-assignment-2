@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function TodoInput({ todos, setTodos }) {
-  const [todoInput, setTodoInput] = useState('');
+function TodoInput({ states }) {
+  const {
+    todos, setTodos, todoInput, setTodoInput,
+  } = states;
 
   const handleChangeTodoInput = (event) => {
     setTodoInput(event.target.value);

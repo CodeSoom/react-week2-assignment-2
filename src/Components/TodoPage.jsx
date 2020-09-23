@@ -3,16 +3,21 @@ import React, { useState } from 'react';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
-function Todo() {
+function TodoPage() {
   const [todos, setTodos] = useState([]);
+  const [todoInput, setTodoInput] = useState('');
+
+  const states = {
+    todos, setTodos, todoInput, setTodoInput,
+  };
 
   return (
     <div>
       <h1>To-do</h1>
-      <TodoInput todos={todos} setTodos={setTodos} />
-      <TodoList todos={todos} setTodos={setTodos} />
+      <TodoInput states={states} />
+      <TodoList states={states} />
     </div>
   );
 }
 
-export default Todo;
+export default TodoPage;
