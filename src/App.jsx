@@ -4,7 +4,7 @@ import Todo from './Todo';
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
-  const [value, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   function handleDoneButtonClick(selectedItem) {
     const newTodoItems = todoItems
@@ -15,20 +15,20 @@ function App() {
 
   function handleInputSubmit(event) {
     event.preventDefault();
-    if (!value.trim()) return;
+    if (!inputValue.trim()) return;
     const newItemId = `todo ${todoItems.length}`;
-    setTodoItems([...todoItems, { todo: value, id: newItemId }]);
-    setValue('');
+    setTodoItems([...todoItems, { todo: inputValue, id: newItemId }]);
+    setInputValue('');
   }
 
   function handleInputChange(event) {
-    setValue(event.target.value);
+    setInputValue(event.target.value);
   }
 
   return (
     <Todo
       todoItems={todoItems}
-      value={value}
+      value={inputValue}
       onInputSubmit={handleInputSubmit}
       onDoneButtonClick={handleDoneButtonClick}
       onInputChange={handleInputChange}
