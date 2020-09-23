@@ -29,10 +29,18 @@ export default function App() {
     });
   };
 
+  const handleClick = (clickedId) => {
+    setState({
+      ...state,
+      tasks: tasks.filter(({ id }) => id !== clickedId),
+    });
+  };
+
   return (
     <UpdatableTodoList
       onChange={handleChange}
       onSubmit={handleSubmit}
+      onClick={handleClick}
       inputTask={inputTask}
       tasks={tasks}
     />
