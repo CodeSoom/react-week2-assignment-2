@@ -4,6 +4,11 @@ function TodoItem({ value }) {
   return (
     <li>
       {value}
+      <button
+        type="button"
+      >
+        완료
+      </button>
     </li>
   );
 }

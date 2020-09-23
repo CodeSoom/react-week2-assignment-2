@@ -19,7 +19,7 @@ function App() {
 
   function handleClick() {
     setState({
-      list: list.indexOf(input) === 0 ? [...list, input] : list,
+      list: list.indexOf(input) === -1 ? [...list, input] : list,
       input: '',
     });
   }

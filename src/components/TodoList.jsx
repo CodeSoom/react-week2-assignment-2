@@ -7,7 +7,7 @@ function TodoList({ list }) {
     <div>
       {
         list.length === 0
-          ? '할 일이 없어요!'
+          ? <p>할 일이 없어요!</p>
           : (
             <TodoItems
               list={list}

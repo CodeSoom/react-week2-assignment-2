@@ -4,14 +4,14 @@ import TodoItem from './TodoItem';
 
 function TodoItems({ list }) {
   return (
-    <oi>
+    <ol>
       {list.map((item) => (
         <TodoItem
           key={item}
           value={item}
         />
       ))}
-    </oi>
+    </ol>
   );
 }
 
