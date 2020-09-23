@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
 
 function App() {
   const [state, setState] = useState({
@@ -33,7 +34,9 @@ function App() {
           onClick={handleClick}
         />
       </p>
-      <p>할 일이 없어요!</p>
+      <TodoList
+        list={list}
+      />
     </div>
   );
 }
