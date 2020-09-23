@@ -6,8 +6,8 @@ function TodoList({ todoList, onClick }) {
     <div>
       {todoList.length ? (
         <ol>
-          {todoList.map((todo, i) => (
-            <Todo key={i} index={i} todo={todo} onClick={onClick} />
+          {todoList.map((todo) => (
+            <Todo key={todo.id} todo={todo} onClick={onClick} />
           ))}
         </ol>
       ) : (
