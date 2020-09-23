@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Todo from './Components/Todo';
+import TodoPage from './Components/TodoPage';
 
 function App() {
-  return <Todo />;
+  return <TodoPage />;
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
