@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import Button from './Button';
 import Input from './Input';
 
-function InputBox({ addInputValue }) {
-  const [value, setValue] = useState('');
-
-  function onClickAddButton() {
-    addInputValue(value);
-    setValue('');
-  }
-
-  function onInputChange(event) {
-    setValue(event.target.value);
-  }
-
+function InputBox({ onClickAddButton, onInputChange, value }) {
   return (
     <div>
       <Input placeholder="할 일을 입력해 주세요" value={value} onChange={onInputChange} />

@@ -4,6 +4,7 @@ import Todo from './Todo';
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
+  const [value, setValue] = useState('');
 
   function addTodoItem(newItem) {
     if (!newItem.trim()) return;
@@ -18,8 +19,23 @@ function App() {
     setTodoItems(newTodoItems);
   }
 
+  function onClickAddButton() {
+    addTodoItem(value);
+    setValue('');
+  }
+
+  function onInputChange(event) {
+    setValue(event.target.value);
+  }
+
   return (
-    <Todo addTodoItem={addTodoItem} todoItems={todoItems} removeSelectedTodo={removeSelectedTodo} />
+    <Todo
+      todoItems={todoItems}
+      removeSelectedTodo={removeSelectedTodo}
+      value={value}
+      onClickAddButton={onClickAddButton}
+      onInputChange={onInputChange}
+    />
   );
 }
 
