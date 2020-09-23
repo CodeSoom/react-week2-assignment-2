@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import CreateTodo from './CreateTodo';
+import TodoList from './TodoList';
 
 const initialState = {
   input: '',
@@ -34,33 +36,12 @@ function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <div>
-        <input
-          type="text"
-          value={input}
-          placeholder="할 일을 입력해 주세요."
-          onChange={handleChange}
-        />
-        <button type="button" onClick={() => handleClickInsert()}>
-          추가
-        </button>
-      </div>
-      <div>
-        {todoList.length ? (
-          <ol>
-            {todoList.map((todo, i) => (
-              <li key={i}>
-                {todo}
-                <button type="button" onClick={() => handleClickComplete(i)}>
-                  완료
-                </button>
-              </li>
-            ))}
-          </ol>
-        ) : (
-          <p>할 일이 없어요!</p>
-        )}
-      </div>
+      <CreateTodo
+        input={input}
+        onChange={handleChange}
+        onClick={handleClickInsert}
+      />
+      <TodoList todoList={todoList} onClick={handleClickComplete} />
     </div>
   );
 }
