@@ -19,8 +19,7 @@ function App() {
 
   function handleClick() {
     setState({
-      ...state,
-      list: [...list, input],
+      list: list.indexOf(input) === 0 ? [...list, input] : list,
       input: '',
     });
   }
