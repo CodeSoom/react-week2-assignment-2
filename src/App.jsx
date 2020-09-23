@@ -24,6 +24,13 @@ function App() {
     });
   };
 
+  const handleClickComplete = (value) => {
+    setState({
+      input,
+      todoList: todoList.filter((todo, i) => i !== value),
+    });
+  };
+
   return (
     <div>
       <h1>To-do</h1>
@@ -34,14 +41,18 @@ function App() {
           placeholder="할 일을 입력해 주세요."
           onChange={handleChange}
         />
-        <button type="button" onClick={() => handleClickInsert()}>추가</button>
+        <button type="button" onClick={() => handleClickInsert()}>
+          추가
+        </button>
       </div>
       <div>
         <ol>
           {todoList.map((todo, i) => (
             <li key={i}>
               {todo}
-              <button type="button">완료</button>
+              <button type="button" onClick={() => handleClickComplete(i)}>
+                완료
+              </button>
             </li>
           ))}
         </ol>
