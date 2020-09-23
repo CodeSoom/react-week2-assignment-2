@@ -1,20 +1,20 @@
 import React from 'react';
 
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import TodoForm from './TodoForm';
+import TodoArray from './TodoArray';
 
 const Page = ({
-  todoText, updateTodoText, todoList, addTodo, deleteTodo,
+  todoText, updateTodoText, todoArray, addTodo, deleteTodo,
 }) => (
   <div>
     <h2>To-do</h2>
-    <TodoInput
+    <TodoForm
       todoText={todoText}
       updateTodoText={updateTodoText}
       addTodo={addTodo}
     />
-    <TodoList
-      todoList={todoList}
+    <TodoArray
+      todoArray={todoArray}
       deleteTodo={deleteTodo}
     />
   </div>

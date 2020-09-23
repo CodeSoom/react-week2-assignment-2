@@ -5,29 +5,29 @@ import Page from './Page';
 const App = () => {
   const [count, setCount] = useState(0);
   const [todoText, setTodoText] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  const [todoArray, setTodoArray] = useState([]);
 
-  function updateTodoText({ text }) {
-    setTodoText(text);
+  function updateTodoText(event) {
+    setTodoText(event.target.value);
   }
 
-  function addTodo({ text }) {
-    if (!text) throw new Error('No content!');
+  function addTodo() {
+    if (!todoText) throw new Error('No content!');
 
-    setTodoList([...todoList, { id: count, text }]);
+    setTodoArray([...todoArray, { id: count, text: todoText }]);
     setCount(count + 1);
     setTodoText('');
   }
 
   function deleteTodo({ id }) {
-    setTodoList(todoList.filter((todo) => todo.id !== id));
+    setTodoArray(todoArray.filter((todo) => todo.id !== id));
   }
 
   return (
     <Page
       todoText={todoText}
       updateTodoText={updateTodoText}
-      todoList={todoList}
+      todoArray={todoArray}
       addTodo={addTodo}
       deleteTodo={deleteTodo}
     />
