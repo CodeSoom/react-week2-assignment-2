@@ -1,12 +1,12 @@
 import React from 'react';
 
-function List({ onClick, toDos, key }) {
+function List({ onClick, toDos }) {
   return (
     <>
-      {toDos.map((toDo) => (
-        <li key={key}>
+      {toDos.map(({ toDo, id }) => (
+        <li key={id}>
           {toDo}
-          <button type="button" onClick={onClick}>
+          <button type="button" onClick={() => onClick(id)}>
             완료
           </button>
         </li>
