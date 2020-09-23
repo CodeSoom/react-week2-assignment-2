@@ -17,7 +17,7 @@ function App() {
     });
   }
 
-  function handleClick() {
+  function handleClickTodoAdd() {
     setState({
       list: list.indexOf(input) === -1 ? [...list, input] : list,
       input: '',
@@ -43,7 +43,7 @@ function App() {
         <TodoInput
           value={input}
           onChange={handleChange}
-          onClick={handleClick}
+          onClick={handleClickTodoAdd}
         />
       </p>
       <TodoList
