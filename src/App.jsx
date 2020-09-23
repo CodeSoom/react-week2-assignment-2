@@ -6,12 +6,6 @@ function App() {
   const [todoItems, setTodoItems] = useState([]);
   const [value, setValue] = useState('');
 
-  function addTodoItem(newItem) {
-    if (!newItem.trim()) return;
-    const newItemId = `todo ${todoItems.length}`;
-    setTodoItems([...todoItems, { todo: newItem, id: newItemId }]);
-  }
-
   function removeSelectedTodo(selectedItem) {
     const newTodoItems = todoItems
       .filter((item) => item.id !== selectedItem.id)
@@ -20,7 +14,9 @@ function App() {
   }
 
   function onClickAddButton() {
-    addTodoItem(value);
+    if (!value.trim()) return;
+    const newItemId = `todo ${todoItems.length}`;
+    setTodoItems([...todoItems, { todo: value, id: newItemId }]);
     setValue('');
   }
 
@@ -31,9 +27,9 @@ function App() {
   return (
     <Todo
       todoItems={todoItems}
-      removeSelectedTodo={removeSelectedTodo}
       value={value}
       onClickAddButton={onClickAddButton}
+      removeSelectedTodo={removeSelectedTodo}
       onInputChange={onInputChange}
     />
   );
