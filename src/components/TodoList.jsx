@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 
 function TodoList({ list }) {
   return (
@@ -9,9 +10,10 @@ function TodoList({ list }) {
           : (
             <ol>
               {list.map((item) => (
-                <li key={item}>
-                  {item}
-                </li>
+                <TodoItem
+                  key={item}
+                  value={item}
+                />
               ))}
             </ol>
           )
