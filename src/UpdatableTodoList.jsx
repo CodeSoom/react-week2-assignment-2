@@ -1,33 +1,23 @@
 import React from 'react';
 
+import Form from './Form';
+import TodoList from './TodoList';
+
 export default function UpdatableTodoList({
   task,
   tasks,
   onChange,
   onSubmit,
 }) {
+  const isListEmpty = tasks.length === 0;
+
   return (
     <div>
       <h1>To-do</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="할 일을 입력해 주세요"
-          value={task}
-          onChange={onChange}
-        />
-        <button type="submit">추가</button>
-      </form>
-      {tasks
-        ? tasks.map(({ name, date }, index) => (
-          <p key={date}>
-            {index + 1}
-            .
-            {name}
-            <button type="button">완료</button>
-          </p>
-        ))
-        : '할 일이 없어요'}
+      <Form task={task} onSubmit={onSubmit} onChange={onChange} />
+      {isListEmpty
+        ? <p>할 일이 없어요</p>
+        : <TodoList tasks={tasks} />}
     </div>
   );
 }

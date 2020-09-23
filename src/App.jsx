@@ -6,7 +6,6 @@ export default function App() {
   const [state, setState] = useState({
     task: '',
     tasks: [
-      { name: '할일 1', date: '2020-09-23' },
     ],
   });
 
