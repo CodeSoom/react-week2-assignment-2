@@ -1,44 +1,36 @@
 import React, { useState } from 'react';
+
 import TodoPage from './TodoPage';
 
 function App() {
   const [state, setState] = useState({
-    todo: '',
+    todo: {
+      id: 1,
+      content: '',
+    },
     todos: [],
-    isEmpty: true,
   });
 
-  const { todo, todos, isEmpty } = state;
+  const { todo, todos } = state;
 
   function handleClickAdd() {
-    if (todo === '') {
-      return;
-    }
-
-    todos.push(todo);
-
     setState({
-      ...state,
-      todo: '',
-      isEmpty: false,
+      todo: { id: todo.id + 1, content: '' },
+      todos: [...todos, todo],
     });
   }
 
-  function handleClickFinish(index) {
-    todos.splice(index, 1);
-
-    const isEmptyCheck = (todos.length === 0);
-
+  function handleClickFinish(id) {
     setState({
       ...state,
-      isEmpty: isEmptyCheck,
+      todos: todos.filter((item) => item.id !== id),
     });
   }
 
   function handleChangeTodo(e) {
     setState({
       ...state,
-      todo: e.target.value,
+      todo: { ...todo, content: e.target.value },
     });
   }
 
@@ -46,10 +38,9 @@ function App() {
     <TodoPage
       todo={todo}
       todos={todos}
-      isEmpty={isEmpty}
-      handleChangeTodo={handleChangeTodo}
-      handleClickAdd={handleClickAdd}
-      handleClickFinish={handleClickFinish}
+      onChangeTodo={handleChangeTodo}
+      onClickAdd={handleClickAdd}
+      onClickFinish={handleClickFinish}
     />
   );
 }
