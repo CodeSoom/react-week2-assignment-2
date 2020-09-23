@@ -7,17 +7,14 @@ function App() {
   const [inputValue, setInputValue] = useState('');
 
   function handleDoneButtonClick(selectedItem) {
-    const newTodoItems = todoItems
-      .filter((item) => item.id !== selectedItem.id)
-      .map((item, index) => ({ todo: item.todo, id: `todo ${index}` }));
+    const newTodoItems = todoItems.filter((item) => item.id !== selectedItem.id);
     setTodoItems(newTodoItems);
   }
 
   function handleInputSubmit(event) {
     event.preventDefault();
     if (!inputValue.trim()) return;
-    const newItemId = `todo ${todoItems.length}`;
-    setTodoItems([...todoItems, { todo: inputValue, id: newItemId }]);
+    setTodoItems([...todoItems, { todo: inputValue, id: new Date() }]);
     setInputValue('');
   }
 
