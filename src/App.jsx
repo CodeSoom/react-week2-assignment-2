@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
 
 function App() {
+  const [state, setState] = useState({
+    input: '',
+    list: [],
+  });
+  const { input, list } = state;
+
+  function handleChange(e) {
+    setState({
+      ...state,
+      input: e.target.value,
+    });
+  }
+
+  function handleClick() {
+    setState({
+      ...state,
+      list: [...list, input],
+      input: '',
+    });
+  }
+
   return (
     <div>
       <h1>To-do</h1>
       <p>
-        <input
-          type="text"
-          placeholder="할 일을 입력해주세요"
+        <TodoInput
+          value={input}
+          onChange={handleChange}
+          onClick={handleClick}
         />
-        <button
-          type="button"
-        >
-          추가
-        </button>
       </p>
-      <p>할 일이 없어요!</p>
+      <TodoList
+        list={list}
+      />
     </div>
   );
 }
