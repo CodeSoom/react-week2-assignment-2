@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const initialState = {
   input: '',
-  todoList: ['할일', '아무것도 하지 않기', '코드숨 과제하기'],
+  todoList: [],
 };
 
 function App() {
@@ -46,16 +46,20 @@ function App() {
         </button>
       </div>
       <div>
-        <ol>
-          {todoList.map((todo, i) => (
-            <li key={i}>
-              {todo}
-              <button type="button" onClick={() => handleClickComplete(i)}>
-                완료
-              </button>
-            </li>
-          ))}
-        </ol>
+        {todoList.length ? (
+          <ol>
+            {todoList.map((todo, i) => (
+              <li key={i}>
+                {todo}
+                <button type="button" onClick={() => handleClickComplete(i)}>
+                  완료
+                </button>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <p>할 일이 없어요!</p>
+        )}
       </div>
     </div>
   );
