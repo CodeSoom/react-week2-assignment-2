@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-function TodoList({ todoItems, removeSelectedTodo }) {
+function TodoList({ todoItems, onDoneButtonClick }) {
   return (
     <ul>
       {todoItems.length === 0
@@ -10,7 +10,7 @@ function TodoList({ todoItems, removeSelectedTodo }) {
         : (todoItems.map((item) => (
           <TodoItem
             item={item}
-            removeSelectedTodo={removeSelectedTodo}
+            onDoneButtonClick={onDoneButtonClick}
             key={item.id}
           />
         )))}

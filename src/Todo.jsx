@@ -4,13 +4,13 @@ import InputBox from './InputBox';
 import TodoList from './TodoList';
 
 function Todo({
-  onClickAddButton, onInputChange, value, todoItems, removeSelectedTodo,
+  value, todoItems, onAddButtonClick, onInputChange, onDoneButtonClick,
 }) {
   return (
     <div>
       <h1>To-do</h1>
-      <InputBox value={value} onClickAddButton={onClickAddButton} onInputChange={onInputChange} />
-      <TodoList todoItems={todoItems} removeSelectedTodo={removeSelectedTodo} />
+      <InputBox value={value} onAddButtonClick={onAddButtonClick} onInputChange={onInputChange} />
+      <TodoList todoItems={todoItems} onDoneButtonClick={onDoneButtonClick} />
     </div>
   );
 }
