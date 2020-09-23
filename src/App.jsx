@@ -4,7 +4,7 @@ import UpdatableTodoList from './UpdatableTodoList';
 
 export default function App() {
   const [state, setState] = useState({
-    inputTask: '',
+    newTask: '',
     tasks: [
     ],
   });
@@ -15,7 +15,7 @@ export default function App() {
     setState({
       newTask: '',
       tasks: [...tasks, {
-        id: new Date(),
+        id: new Date().toISOString(),
         name: newTask,
       }],
     });
