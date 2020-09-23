@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
 export default function TodoInput({ onAddTodo }) {
-  const initialState = { todoText: '' };
-
   const [state, setState] = useState(
-    initialState,
+    { todoText: '' },
   );
 
   const { todoText } = state;
@@ -20,7 +18,7 @@ export default function TodoInput({ onAddTodo }) {
     if (todoText === '') return;
 
     onAddTodo(todoText);
-    setState(initialState);
+    setState({ todoText: '' });
   };
 
   return (
