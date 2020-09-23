@@ -36,7 +36,9 @@ function App() {
         <button type="button" onClick={onCreate}>
           추가
         </button>
-        <TodoList todoList={todoList} onRemove={onRemove} />
+        {todoList.length
+          ? <TodoList todoList={todoList} onRemove={onRemove} />
+          : <p>할 일이 없어요!</p>}
       </div>
     </div>
   );
