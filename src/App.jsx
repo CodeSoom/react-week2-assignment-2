@@ -9,39 +9,38 @@ export default function App() {
     ],
   });
 
-  const { inputTask, tasks } = state;
+  const { newTask, tasks } = state;
 
-  const handleChange = (e) => {
+  const addTask = () => {
     setState({
-      ...state,
-      inputTask: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setState({
-      inputTask: '',
+      newTask: '',
       tasks: [...tasks, {
         id: new Date(),
-        name: inputTask,
+        name: newTask,
       }],
     });
   };
 
-  const handleClick = (clickedId) => {
+  const deleteTask = (id) => {
     setState({
       ...state,
-      tasks: tasks.filter(({ id }) => id !== clickedId),
+      tasks: tasks.filter(({ id: taskId }) => taskId !== id),
+    });
+  };
+
+  const changeNewTask = (source) => {
+    setState({
+      ...state,
+      newTask: source,
     });
   };
 
   return (
     <UpdatableTodoList
-      onChange={handleChange}
-      onSubmit={handleSubmit}
-      onClick={handleClick}
-      inputTask={inputTask}
+      changeNewTask={changeNewTask}
+      addTask={addTask}
+      deleteTask={deleteTask}
+      newTask={newTask}
       tasks={tasks}
     />
   );
