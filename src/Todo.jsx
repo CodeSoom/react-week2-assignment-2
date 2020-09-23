@@ -1,15 +1,15 @@
 import React from 'react';
 
-import InputBox from './InputBox';
+import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 function Todo({
-  value, todoItems, onAddButtonClick, onInputChange, onDoneButtonClick,
+  value, todoItems, onInputSubmit, onInputChange, onDoneButtonClick,
 }) {
   return (
     <div>
       <h1>To-do</h1>
-      <InputBox value={value} onAddButtonClick={onAddButtonClick} onInputChange={onInputChange} />
+      <TodoForm value={value} onInputSubmit={onInputSubmit} onInputChange={onInputChange} />
       <TodoList todoItems={todoItems} onDoneButtonClick={onDoneButtonClick} />
     </div>
   );

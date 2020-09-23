@@ -13,7 +13,8 @@ function App() {
     setTodoItems(newTodoItems);
   }
 
-  function handleAddButtonClick() {
+  function handleInputSubmit(event) {
+    event.preventDefault();
     if (!value.trim()) return;
     const newItemId = `todo ${todoItems.length}`;
     setTodoItems([...todoItems, { todo: value, id: newItemId }]);
@@ -28,7 +29,7 @@ function App() {
     <Todo
       todoItems={todoItems}
       value={value}
-      onAddButtonClick={handleAddButtonClick}
+      onInputSubmit={handleInputSubmit}
       onDoneButtonClick={handleDoneButtonClick}
       onInputChange={handleInputChange}
     />
