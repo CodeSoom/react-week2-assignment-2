@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import TodoInput from './TodoInput';
+import TodoList from './TodoList';
+
+const isEmpty = (text) => text.length === 0;
 
 function App() {
   const [state, setState] = useState({
@@ -21,9 +24,18 @@ function App() {
   }
 
   function handleInsertClick() {
+    if (isEmpty(todoInput)) return;
+
     todoList.push(todoInput);
     setState({
       todoInput: '',
+      todoList,
+    });
+  }
+
+  function handleDeleteClick(pos) {
+    todoList.splice(pos, 1);
+    setState({
       todoList,
     });
   }
@@ -37,10 +49,10 @@ function App() {
         onChange={handleChangeInput}
         onClick={handleInsertClick}
       />
-      {/* <TodoList
-        todoList={}
-        onClick={}
-      /> */}
+      <TodoList
+        todoList={todoList}
+        onClick={handleDeleteClick}
+      />
     </div>
   );
 }
