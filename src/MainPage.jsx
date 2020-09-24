@@ -16,11 +16,11 @@ function MainPage({
       <TodoInput
         todoInput={todoInput}
         onChange={onChange}
-        onClickAdd={onClickAdd}
+        onClick={onClickAdd}
       />
       <TodoList
         todoList={todoList}
-        onClickDone={onClickDone}
+        onClick={onClickDone}
       />
     </div>
   );

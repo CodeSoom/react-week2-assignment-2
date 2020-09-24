@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Todo({ content, onClickDone }) {
+function Todo({ content, onClick }) {
   return (
     <li key={content}>
       {content}
-      <button type="button" onClick={() => onClickDone(content)}>완료</button>
+      <button type="button" onClick={() => onClick(content)}>완료</button>
     </li>
   );
 }

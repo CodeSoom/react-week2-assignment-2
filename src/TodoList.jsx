@@ -2,7 +2,7 @@ import React from 'react';
 
 import Todo from './Todo';
 
-function TodoList({ todoList, onClickDone }) {
+function TodoList({ todoList, onClick }) {
   if (todoList.length === 0) {
     return (
       <>
@@ -17,7 +17,7 @@ function TodoList({ todoList, onClickDone }) {
         {todoList.map((content) => (
           <Todo
             content={content}
-            onClickDone={onClickDone}
+            onClick={onClick}
           />
         ))}
       </ol>
