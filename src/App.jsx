@@ -25,10 +25,13 @@ function App() {
     setState({
       id: id + 1,
       input: '',
-      todoList: todoList.concat({
-        id,
-        text: input,
-      }),
+      todoList: [
+        ...todoList,
+        {
+          id,
+          text: input,
+        },
+      ],
     });
   };
 
