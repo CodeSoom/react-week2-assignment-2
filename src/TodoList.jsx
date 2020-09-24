@@ -4,14 +4,15 @@ import TodoItem from './TodoItem';
 function TodoList({ todoList, onClickRemove }) {
   return (
     <div>
-      {(todoList.map(({ id, todo }) => (
-        <TodoItem
-          key={id}
-          id={id}
-          text={todo}
-          onClickRemove={onClickRemove}
-        />
-      )))}
+      {todoList.length
+        ? (todoList.map(({ id, todo }) => (
+          <TodoItem
+            key={id}
+            id={id}
+            text={todo}
+            onClickRemove={onClickRemove}
+          />
+        ))) : <p> 할 일이 없어요!</p>}
     </div>
   );
 }
