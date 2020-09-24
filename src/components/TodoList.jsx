@@ -2,17 +2,23 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
+const isEmpty = (arr) => arr.length === 0;
+
 function TodoList({ todos, onRemove }) {
+  if (isEmpty(todos)) {
+    return <div>할 일이 없어요!</div>;
+  }
+
   return (
     <div>
-      {todos.length ? todos.map((value, index) => (
+      {todos.map((todo, index) => (
         <TodoItem
-          key={value.id}
-          todo={value.item}
+          key={todo.id}
+          todo={todo.value}
           count={index}
-          onRemove={() => onRemove(value.id)}
+          onRemove={() => onRemove(todo.id)}
         />
-      )) : (<div>할 일이 없어요!</div>)}
+      ))}
     </div>
   );
 }

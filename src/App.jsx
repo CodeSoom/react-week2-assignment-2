@@ -1,30 +1,41 @@
 import React, { useState } from 'react';
 
 import TodoList from './components/TodoList';
-import TodoInsertContainer from './containers/TodoInsertContainer';
+import TodoInsert from './components/TodoInsert';
+import TodoTemplate from './components/TodoTemplate';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [todo, setTodo] = useState('');
 
-  const onInsert = (item) => {
-    const todo = {
-      id: !todos.length ? 1 : todos[todos.length - 1].id + 1,
-      item,
-    };
-
-    setTodos(todos.concat(todo));
+  const handleOnChange = (e) => {
+    setTodo(e.target.value);
   };
 
-  const onRemoveTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const onInsert = (value) => {
+    const item = {
+      id: todos.length ? todos[todos.length - 1].id + 1 : 1,
+      value,
+    };
+
+    setTodos([...todos, item]);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onInsert(todo);
+    setTodo('');
+  };
+
+  const handleRemoveTodo = (id) => {
+    setTodos(todos.filter((item) => item.id !== id));
   };
 
   return (
-    <>
-      <div>To-do</div>
-      <TodoInsertContainer onInsert={onInsert} />
-      <TodoList todos={todos} onRemove={onRemoveTodo} />
-    </>
+    <TodoTemplate>
+      <TodoInsert onChange={handleOnChange} onSubmit={onSubmit} todo={todo} />
+      <TodoList todos={todos} onRemove={handleRemoveTodo} />
+    </TodoTemplate>
   );
 }
 
