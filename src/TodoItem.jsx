@@ -1,11 +1,11 @@
 import React from 'react';
 
-function TodoItem({ id, item, onClickRemove }) {
+function TodoItem({ id, text, onClickRemove }) {
   return (
     <p>
       {id}
       .
-      {item}
+      {text}
       <button type="button" onClick={() => onClickRemove(id)}>
         완료
       </button>
