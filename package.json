@@ -34,5 +34,16 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comejtome508/week2-assignment-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/comejtome508/week2-assignment-2/issues"
+  },
+  "homepage": "https://github.com/comejtome508/week2-assignment-2#readme"
 }
