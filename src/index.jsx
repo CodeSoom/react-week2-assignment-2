@@ -26,18 +26,16 @@ function App() {
   function handleInsertClick() {
     if (isEmpty(todoInput)) return;
 
-    todoList.push(todoInput);
     setState({
       todoInput: '',
-      todoList,
+      todoList: [...todoList, todoInput],
     });
   }
 
   function handleDeleteClick(pos) {
-    todoList.splice(pos, 1);
     setState({
       todoInput,
-      todoList,
+      todoList: [...todoList.slice(0, pos), ...todoList.slice(pos + 1)],
     });
   }
 
