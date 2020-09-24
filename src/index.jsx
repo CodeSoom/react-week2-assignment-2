@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
+import InputHandler from './InputHandler';
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -31,10 +32,7 @@ function App() {
     <div>
       <h1>To-do</h1>
       <div>
-        <input placeholder="할 일을 입력해 주세요" value={todo || ''} onChange={onChange} />
-        <button type="button" onClick={onCreate}>
-          추가
-        </button>
+        <InputHandler todo={todo} onCreate={onCreate} onChange={onChange} />
         <TodoList todoList={todoList} onClickRemove={onClickRemove} />
       </div>
     </div>
