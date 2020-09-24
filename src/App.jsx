@@ -44,10 +44,10 @@ export default function App() {
   return (
     <TodoPage
       todos={todos}
-      onTodosAdd={handleTodosAdd}
-      onTodosDelete={handleTodosDelete}
+      onFormSubmit={handleTodosAdd}
+      onListItemClick={handleTodosDelete}
       newTodo={newTodo}
-      onNewTodoChange={handleNewTodoChange}
+      onInputChange={handleNewTodoChange}
     />
   );
 }
