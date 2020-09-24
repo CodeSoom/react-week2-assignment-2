@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
-export const initialState = {
-  inputValue: ""
-}
+export const initialInputState = {
+  inputValue: '',
+};
 
-export const InputContext = createContext(initialState);
+export const InputContext = createContext(initialInputState);

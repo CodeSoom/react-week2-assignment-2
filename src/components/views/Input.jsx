@@ -4,7 +4,7 @@ const Input = ({ placeholder, value, onChange }) => (
   <input
     placeholder={placeholder}
     value={value}
-    onChange={(event) => { onChange(event) }}
+    onChange={(event) => { onChange(event); }}
   />
 );
 
