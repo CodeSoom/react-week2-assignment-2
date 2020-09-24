@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 
 import InputForm from './InputForm';
-import UnOrderList from './UnOrderList';
+import ToDoList from './ToDoList';
 
 function App() {
   const [state, setState] = useState({
     toDos: [],
   });
-
   const { toDos } = state;
 
-  function handleClick(e) {
-    const input = document.getElementById('input');
-    const { value } = input;
-    input.value = '';
+  const [value, setValue] = useState('');
 
-    e.preventDefault();
+  function handleInputValue(e) {
+    setValue(e.target.value);
+  }
 
+  function handleClick() {
     setState({
       toDos: [...toDos, { toDo: value, id: toDos.length + 1 }],
     });
+    setValue('');
   }
 
   function handleClickCompleteList(toDoId) {
@@ -31,8 +31,12 @@ function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <InputForm onClick={handleClick} />
-      <UnOrderList
+      <InputForm
+        onClick={handleClick}
+        onChange={handleInputValue}
+        value={value}
+      />
+      <ToDoList
         onClick={handleClickCompleteList}
         toDos={toDos}
       />

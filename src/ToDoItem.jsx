@@ -1,9 +1,10 @@
 import React from 'react';
 
-function List({ onClick, toDos }) {
+function ToDoItem({ onClick, toDos }) {
   const listStyle = {
     listStyle: 'none',
   };
+
   return (
     <>
       {toDos.map(({ toDo, id }) => (
@@ -19,4 +20,4 @@ function List({ onClick, toDos }) {
   );
 }
 
-export default List;
+export default ToDoItem;
