@@ -3,7 +3,7 @@ import React from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
-function Todo({
+function Page({
   value, todoItems, onInputSubmit, onInputChange, onDoneButtonClick,
 }) {
   return (
@@ -14,4 +14,4 @@ function Todo({
     </div>
   );
 }
-export default Todo;
+export default Page;

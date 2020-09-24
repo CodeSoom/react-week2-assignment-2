@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Todo from './Todo';
+import Page from './Page';
 
 function App() {
   const [state, setState] = useState({
@@ -27,7 +27,7 @@ function App() {
   }
 
   return (
-    <Todo
+    <Page
       todoItems={todoItems}
       value={inputValue}
       onInputSubmit={handleInputSubmit}
