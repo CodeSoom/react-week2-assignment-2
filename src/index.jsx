@@ -23,7 +23,7 @@ function App() {
     setTodo('');
   }
 
-  function onRemove(key) {
+  function onClickRemove(key) {
     setTodoList(todoList.filter((todoItem) => todoItem.id !== key));
     setId(id - 1);
   }
@@ -37,7 +37,7 @@ function App() {
           추가
         </button>
         {todoList.length
-          ? <TodoList todoList={todoList} onRemove={onRemove} />
+          ? <TodoList todoList={todoList} onClickRemove={onClickRemove} />
           : <p>할 일이 없어요!</p>}
       </div>
     </div>

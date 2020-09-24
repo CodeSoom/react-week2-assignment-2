@@ -1,11 +1,11 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-function TodoList({ todoList, onRemove }) {
+function TodoList({ todoList, onClickRemove }) {
   return (
     <div>
       {(todoList.map(({ id, todo }) => (
-        <TodoItem key={id} id={id} item={todo} onRemove={onRemove} />
+        <TodoItem key={id} id={id} item={todo} onClickRemove={onClickRemove} />
       )))}
     </div>
   );

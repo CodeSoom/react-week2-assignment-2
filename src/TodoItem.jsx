@@ -1,12 +1,12 @@
 import React from 'react';
 
-function TodoItem({ id, item, onRemove }) {
+function TodoItem({ id, item, onClickRemove }) {
   return (
     <p>
       {id}
       .
       {item}
-      <button type="button" onClick={() => onRemove(id)}>
+      <button type="button" onClick={() => onClickRemove(id)}>
         완료
       </button>
     </p>
