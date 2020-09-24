@@ -19,7 +19,9 @@ function App() {
 
   function handleClickTodoAdd() {
     setState({
-      todoList: todoList.indexOf(todoInputValue) === -1 ? [...todoList, todoInputValue] : todoList,
+      todoList: todoList.includes(todoInputValue)
+        ? [...todoList, todoInputValue]
+        : todoList,
       todoInputValue: '',
     });
   }
