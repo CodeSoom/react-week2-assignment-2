@@ -3,7 +3,7 @@ import CreateTodo from './CreateTodo';
 import TodoList from './TodoList';
 
 const initialState = {
-  number: 0,
+  id: 0,
   input: '',
   todoList: [],
 };
@@ -11,11 +11,11 @@ const initialState = {
 function App() {
   const [state, setState] = useState(initialState);
 
-  const { number, input, todoList } = state;
+  const { id, input, todoList } = state;
 
   const handleChange = (e) => {
     setState({
-      number,
+      id,
       input: e.target.value,
       todoList,
     });
@@ -23,10 +23,10 @@ function App() {
 
   const handleClickInsert = () => {
     setState({
-      number: number + 1,
+      id: id + 1,
       input: '',
       todoList: todoList.concat({
-        id: number,
+        id,
         text: input,
       }),
     });
@@ -34,7 +34,7 @@ function App() {
 
   const handleClickComplete = (value) => {
     setState({
-      number,
+      id,
       input,
       todoList: todoList.filter((todo) => todo.id !== value),
     });
