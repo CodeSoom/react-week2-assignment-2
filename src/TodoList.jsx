@@ -1,11 +1,11 @@
 import React from 'react';
 
-import TodoItem from './TodoItem';
+import TodoListItem from './TodoListItem';
 
 export default function TodoList({ todos, onClick }) {
   return (
     todos.map(({ id, name }, index) => (
-      <TodoItem
+      <TodoListItem
         key={id}
         index={index}
         name={name}

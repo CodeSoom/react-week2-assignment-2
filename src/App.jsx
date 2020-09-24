@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import UpdatableTodoList from './UpdatableTodoList';
+import TodoPage from './TodoPage';
 
 export default function App() {
   const [state, setState] = useState({
@@ -36,7 +36,7 @@ export default function App() {
   };
 
   return (
-    <UpdatableTodoList
+    <TodoPage
       todos={todos}
       onTodosAdd={handleTodosAdd}
       onTodosDelete={handleTodosDelete}

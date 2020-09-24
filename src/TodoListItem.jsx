@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodoItem({ index, name, onClick }) {
+export default function TodoListItem({ index, name, onClick }) {
   return (
     <p>
       {index + 1}

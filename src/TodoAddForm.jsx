@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Form({ newTodo, onSubmit, onChange }) {
+export default function TodoAddForm({ newTodo, onSubmit, onChange }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit();

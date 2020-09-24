@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Form from './Form';
+import TodoAddForm from './TodoAddForm';
 import TodoList from './TodoList';
 
-export default function UpdatableTodoList({
+export default function TodoPage({
   todos,
   onTodosAdd,
   onTodosDelete,
@@ -15,7 +15,7 @@ export default function UpdatableTodoList({
   return (
     <div>
       <h1>To-do</h1>
-      <Form newTodo={newTodo} onSubmit={onTodosAdd} onChange={onNewTodoChange} />
+      <TodoAddForm newTodo={newTodo} onSubmit={onTodosAdd} onChange={onNewTodoChange} />
       {isTodoListNotEmpty
         ? <TodoList todos={todos} onClick={onTodosDelete} />
         : <p>할 일이 없어요!</p>}
