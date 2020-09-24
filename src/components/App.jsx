@@ -30,8 +30,6 @@ export default function App() {
         onChange={(e) => handleWorkTextChange(e)}
       />
 
-      {works.length <= 0 && <p>할 일이 없어요!</p>}
-
       <WorkList works={works} onClick={handleCompleteWorkButtonClick} />
 
     </div>
