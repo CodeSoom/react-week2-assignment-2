@@ -16,7 +16,7 @@ export default function App() {
       newTodo: '',
       todos: [...todos, {
         id: new Date().toISOString(),
-        name: newTodo,
+        title: newTodo,
       }],
     });
   };

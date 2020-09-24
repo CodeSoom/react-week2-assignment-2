@@ -8,11 +8,11 @@ export default function TodoList({ todos, onClick }) {
   }
 
   return (
-    todos.map(({ id, name }, index) => (
+    todos.map(({ id, title }, index) => (
       <TodoListItem
         key={id}
         index={index}
-        name={name}
+        title={title}
         onClick={() => onClick(id)}
       />
     ))
