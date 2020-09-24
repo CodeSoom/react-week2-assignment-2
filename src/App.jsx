@@ -10,10 +10,10 @@ function App() {
   });
   const { input, list } = state;
 
-  function handleChange(e) {
+  function handleChange(value) {
     setState({
       ...state,
-      input: e.target.value,
+      input: value,
     });
   }
 
