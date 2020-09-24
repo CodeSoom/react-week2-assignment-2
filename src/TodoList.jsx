@@ -2,9 +2,9 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-export default function TodoList({ tasks, onClick }) {
+export default function TodoList({ todos, onClick }) {
   return (
-    tasks.map(({ id, name }, index) => (
+    todos.map(({ id, name }, index) => (
       <TodoItem
         key={id}
         index={index}

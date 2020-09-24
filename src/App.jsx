@@ -4,44 +4,44 @@ import UpdatableTodoList from './UpdatableTodoList';
 
 export default function App() {
   const [state, setState] = useState({
-    newTask: '',
-    tasks: [
+    newTodo: '',
+    todos: [
     ],
   });
 
-  const { newTask, tasks } = state;
+  const { newTodo, todos } = state;
 
-  const addTask = () => {
+  const handleTodosAdd = () => {
     setState({
-      newTask: '',
-      tasks: [...tasks, {
+      newTodo: '',
+      todos: [...todos, {
         id: new Date().toISOString(),
-        name: newTask,
+        name: newTodo,
       }],
     });
   };
 
-  const deleteTask = (id) => {
+  const handleTodosDelete = (id) => {
     setState({
       ...state,
-      tasks: tasks.filter(({ id: taskId }) => taskId !== id),
+      todos: todos.filter(({ id: todoId }) => todoId !== id),
     });
   };
 
-  const changeNewTask = (source) => {
+  const handleNewTodoChange = (source) => {
     setState({
       ...state,
-      newTask: source,
+      newTodo: source,
     });
   };
 
   return (
     <UpdatableTodoList
-      changeNewTask={changeNewTask}
-      addTask={addTask}
-      deleteTask={deleteTask}
-      newTask={newTask}
-      tasks={tasks}
+      todos={todos}
+      onTodosAdd={handleTodosAdd}
+      onTodosDelete={handleTodosDelete}
+      newTodo={newTodo}
+      onNewTodoChange={handleNewTodoChange}
     />
   );
 }
