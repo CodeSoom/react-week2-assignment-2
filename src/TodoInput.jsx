@@ -15,7 +15,9 @@ export default function TodoInput({ onAddTodo }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (todoText === '') return;
+    if (todoText.trim().length === 0) {
+      return;
+    }
 
     onAddTodo(todoText);
     setState({ todoText: '' });
