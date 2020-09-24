@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import MainPage from './MainPage';
 
@@ -11,7 +12,7 @@ function App() {
   };
 
   const handleClickAddTodo = () => {
-    const uuid = new Date().toString();
+    const uuid = uuidv4();
     setTodoList([{ id: uuid, content: todoInput }, ...todoList]);
     setTodoInput('');
   };
