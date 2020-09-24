@@ -36,6 +36,7 @@ function App() {
   function handleDeleteClick(pos) {
     todoList.splice(pos, 1);
     setState({
+      todoInput,
       todoList,
     });
   }
