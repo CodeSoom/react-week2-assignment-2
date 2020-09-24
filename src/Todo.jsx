@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Todo({ todo, onClick }) {
+function Todo({ todo: { text, id }, onClickDelete }) {
   return (
     <li>
-      {todo.text}
-      <button type="button" onClick={() => onClick(todo.id)}>
+      {text}
+      <button type="button" onClick={() => onClickDelete(id)}>
         완료
       </button>
     </li>

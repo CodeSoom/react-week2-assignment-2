@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CreateTodo({ input, onChange, onClick }) {
+function Input({ input, onChange, onClick }) {
   return (
     <div>
       <input
@@ -9,11 +9,11 @@ function CreateTodo({ input, onChange, onClick }) {
         placeholder="할 일을 입력해 주세요."
         onChange={onChange}
       />
-      <button type="button" onClick={() => onClick()}>
+      <button type="button" onClick={onClick}>
         추가
       </button>
     </div>
   );
 }
 
-export default CreateTodo;
+export default Input;

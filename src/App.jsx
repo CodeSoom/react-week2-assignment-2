@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CreateTodo from './CreateTodo';
+import Input from './Input';
 import TodoList from './TodoList';
 
 const initialState = {
@@ -46,7 +46,7 @@ function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <CreateTodo
+      <Input
         input={input}
         onChange={handleChange}
         onClick={handleClickInsert}

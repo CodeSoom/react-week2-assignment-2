@@ -7,7 +7,7 @@ function TodoList({ todoList, onClick }) {
       {todoList.length ? (
         <ol>
           {todoList.map((todo) => (
-            <Todo key={todo.id} todo={todo} onClick={onClick} />
+            <Todo key={todo.id} todo={todo} onClickDelete={onClick} />
           ))}
         </ol>
       ) : (
