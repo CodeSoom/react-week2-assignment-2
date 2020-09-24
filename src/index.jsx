@@ -2,48 +2,45 @@
 
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import TodoInput from './TodoInput';
 
 function App() {
   const [state, setState] = useState({
-    todo: [],
+    todoInput: '',
+    todoList: [],
   });
 
-  const { todo } = state;
-  const isEmptyMessage = '할 일이 없어요!';
+  const { todoInput, todoList } = state;
+  const placeholder = '할 일을 입력해주세요';
 
-  function handleAddClick() {
-    const inputElement = document.getElementById('todo');
-    const { value } = inputElement;
-    inputElement.value = '';
-    todo.push(value);
+  function handleChangeInput(text) {
     setState({
-      todo,
+      todoInput: text,
+      todoList,
     });
   }
 
-  function handleCompleteClick(pos) {
-    todo.splice(pos, 1);
+  function handleInsertClick() {
+    todoList.push(todoInput);
     setState({
-      todo,
+      todoInput: '',
+      todoList,
     });
   }
 
   return (
     <div>
       <h3>To-Do App</h3>
-      <input type="text" id="todo" placeholder="할 일을 입력해주세요" />
-      <button type="button" onClick={() => handleAddClick()}>추가</button>
-      <div id="todo-list">
-        {todo.length ? '' : isEmptyMessage}
-        <ol>
-          {todo.map((value, index) => (
-            <li key={index.toString()}>
-              {value}
-              <button type="button" onClick={() => handleCompleteClick(index)}>완료</button>
-            </li>
-          ))}
-        </ol>
-      </div>
+      <TodoInput
+        value={todoInput}
+        placeholder={placeholder}
+        onChange={handleChangeInput}
+        onClick={handleInsertClick}
+      />
+      {/* <TodoList
+        todoList={}
+        onClick={}
+      /> */}
     </div>
   );
 }
