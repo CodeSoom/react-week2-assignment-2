@@ -19,7 +19,7 @@ function App() {
 
   function handleClickTodoAdd() {
     setState({
-      todoList: todoList.includes(todoInputValue)
+      todoList: !todoList.includes(todoInputValue)
         ? [...todoList, todoInputValue]
         : todoList,
       todoInputValue: '',
