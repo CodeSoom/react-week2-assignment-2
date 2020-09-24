@@ -12,8 +12,7 @@ function App() {
   };
 
   const handleClickAddTodo = () => {
-    const uuid = uuidv4();
-    setTodoList([{ id: uuid, content: todoInput }, ...todoList]);
+    setTodoList([{ id: uuidv4(), content: todoInput }, ...todoList]);
     setTodoInput('');
   };
 

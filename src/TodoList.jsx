@@ -16,6 +16,7 @@ function TodoList({ todoList, onClick }) {
       <ol>
         {todoList.map((todo) => (
           <Todo
+            key={todo.id}
             id={todo.id}
             content={todo.content}
             onClick={onClick}
