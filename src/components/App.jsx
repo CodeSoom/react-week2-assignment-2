@@ -8,8 +8,8 @@ export default function App() {
 
   const [work, setWork] = useState('');
 
-  function handleWorkTextChange(event) {
-    setWork(event.target.value);
+  function handleWorkTextChange(value) {
+    setWork(value);
   }
 
   function handleAddWorkButtonClick() {
