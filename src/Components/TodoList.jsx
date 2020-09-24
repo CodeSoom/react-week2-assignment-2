@@ -2,16 +2,10 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-function TodoList({ states }) {
-  const { todos, setTodos } = states;
-
+function TodoList({ todos, onClickDone }) {
   if (todos.length === 0) {
     return <div>할 일이 없어요!</div>;
   }
-
-  const handleClickDone = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
 
   return (
     <ol>
@@ -19,7 +13,7 @@ function TodoList({ states }) {
         <TodoItem
           key={todo.id}
           content={todo.content}
-          onClick={() => handleClickDone(todo.id)}
+          onClick={() => onClickDone(todo.id)}
         />
       ))}
     </ol>
