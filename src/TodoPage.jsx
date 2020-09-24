@@ -10,15 +10,15 @@ export default function TodoPage({
   newTodo,
   onNewTodoChange,
 }) {
-  const isTodoListNotEmpty = todos && todos.length;
-
   return (
     <div>
       <h1>To-do</h1>
-      <TodoAddForm newTodo={newTodo} onSubmit={onTodosAdd} onChange={onNewTodoChange} />
-      {isTodoListNotEmpty
-        ? <TodoList todos={todos} onClick={onTodosDelete} />
-        : <p>할 일이 없어요!</p>}
+      <TodoAddForm
+        newTodo={newTodo}
+        onSubmit={onTodosAdd}
+        onChange={onNewTodoChange}
+      />
+      <TodoList todos={todos} onClick={onTodosDelete} />
     </div>
   );
 }
