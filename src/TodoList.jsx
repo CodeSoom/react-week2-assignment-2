@@ -8,6 +8,7 @@ function TodoList({ todoList, onClickRemove }) {
         ? (todoList.map(({ id, todo }, index) => (
           <TodoItem
             key={id}
+            id={id}
             index={index + 1}
             text={todo}
             onClickRemove={onClickRemove}
