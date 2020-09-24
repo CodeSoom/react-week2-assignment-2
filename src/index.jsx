@@ -5,13 +5,12 @@ import InputHandler from './InputHandler';
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+  const [todoItem, setTodoItem] = useState({ id: 1, todo: '' });
 
-  const [todo, setTodo] = useState('');
-
-  const [id, setId] = useState(1);
+  const { id, todo } = todoItem;
 
   function onChange(e) {
-    setTodo(e.target.value);
+    setTodoItem({ id, todo: e.target.value });
   }
 
   function onCreate() {
@@ -19,13 +18,12 @@ function App() {
       return;
     }
 
-    setTodoList([...todoList, { id, todo }]);
-    setId(id + 1);
-    setTodo('');
+    setTodoList([...todoList, todoItem]);
+    setTodoItem({ id: id + 1, todo: '' });
   }
 
   function onClickRemove(key) {
-    setTodoList(todoList.filter((todoItem) => todoItem.id !== key));
+    setTodoList(todoList.filter((item) => item.id !== key));
   }
 
   return (
