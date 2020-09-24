@@ -11,12 +11,13 @@ function App() {
   };
 
   const handleClickAddTodo = () => {
-    setTodoList([todoInput, ...todoList]);
+    const uuid = new Date().toString();
+    setTodoList([{ id: uuid, content: todoInput }, ...todoList]);
     setTodoInput('');
   };
 
-  const handleClickDone = (content) => {
-    setTodoList(todoList.filter((item) => item !== content));
+  const handleClickDone = (id) => {
+    setTodoList(todoList.filter((item) => item.id !== id));
   };
 
   return (
