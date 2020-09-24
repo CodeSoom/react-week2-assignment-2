@@ -1,16 +1,16 @@
 import React from 'react';
 
-import TodoBox from './TodoBox';
+import Item from './Item';
 
 function List({ todos, onClick }) {
   return (
     <ol>
       {
         todos.map((todo) => (
-          <TodoBox
+          <Item
             key={todo.id}
             todo={todo}
-            onClick={() => onClick(todo.id)}
+            onClick={onClick}
           />
         ))
       }

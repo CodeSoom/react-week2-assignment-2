@@ -1,22 +1,22 @@
 import React from 'react';
 
 import List from './List';
-import AddBox from './AddBox';
-import EmptyBox from './EmptyBox';
+import AddForm from './AddForm';
+import Empty from './Empty';
 
 function TodoPage({
-  todo, todos, onChangeTodo, onClickAdd, onClickFinish,
+  newTodo, todos, onChangeTodo, onClickAdd, onClickFinish,
 }) {
   return (
     <div>
       <h2>To-do</h2>
-      <AddBox
-        todo={todo}
+      <AddForm
+        newTodo={newTodo}
         onChange={onChangeTodo}
         onClick={onClickAdd}
       />
       {
-        (todos.length === 0) ? <EmptyBox /> : (
+        (todos.length === 0) ? <Empty /> : (
           <List
             todos={todos}
             onClick={onClickFinish}

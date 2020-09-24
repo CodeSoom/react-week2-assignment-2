@@ -4,19 +4,19 @@ import TodoPage from './TodoPage';
 
 function App() {
   const [state, setState] = useState({
-    todo: {
+    newTodo: {
       id: 1,
       content: '',
     },
     todos: [],
   });
 
-  const { todo, todos } = state;
+  const { newTodo, todos } = state;
 
   function handleClickAdd() {
     setState({
-      todo: { id: todo.id + 1, content: '' },
-      todos: [...todos, todo],
+      newTodo: { id: newTodo.id + 1, content: '' },
+      todos: [...todos, newTodo],
     });
   }
 
@@ -30,13 +30,13 @@ function App() {
   function handleChangeTodo(e) {
     setState({
       ...state,
-      todo: { ...todo, content: e.target.value },
+      newTodo: { ...newTodo, content: e.target.value },
     });
   }
 
   return (
     <TodoPage
-      todo={todo}
+      newTodo={newTodo}
       todos={todos}
       onChangeTodo={handleChangeTodo}
       onClickAdd={handleClickAdd}

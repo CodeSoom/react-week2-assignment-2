@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EmptyBox() {
+function Empty() {
   return (
     <p>
       할 일이 없어요!
@@ -8,4 +8,4 @@ function EmptyBox() {
   );
 }
 
-export default EmptyBox;
+export default Empty;

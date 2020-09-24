@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Input({ todo, onChange }) {
+function Input({ newTodo, onChange }) {
   return (
-    <input type="text" placeholder="할일을 입력해 주세요" value={todo.content || ''} onChange={onChange} />
+    <input type="text" placeholder="할일을 입력해 주세요" value={newTodo.content || ''} onChange={onChange} />
   );
 }
 
