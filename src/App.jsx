@@ -5,22 +5,22 @@ import TodoList from './components/TodoList';
 
 function App() {
   const [state, setState] = useState({
-    input: '',
+    todoInputValue: '',
     todoList: [],
   });
-  const { input, todoList } = state;
+  const { todoInputValue, todoList } = state;
 
   function handleChange(value) {
     setState({
       ...state,
-      input: value,
+      todoInputValue: value,
     });
   }
 
   function handleClickTodoAdd() {
     setState({
-      todoList: todoList.indexOf(input) === -1 ? [...todoList, input] : todoList,
-      input: '',
+      todoList: todoList.indexOf(todoInputValue) === -1 ? [...todoList, todoInputValue] : todoList,
+      todoInputValue: '',
     });
   }
 
@@ -36,7 +36,7 @@ function App() {
       <h1>To-do</h1>
       <p>
         <TodoInput
-          value={input}
+          value={todoInputValue}
           onChange={handleChange}
           onClick={handleClickTodoAdd}
         />
