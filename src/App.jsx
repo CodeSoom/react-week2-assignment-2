@@ -4,32 +4,32 @@ import Page from './Page';
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const [todoText, setTodoText] = useState('');
-  const [todoArray, setTodoArray] = useState([]);
+  const [text, setText] = useState('');
+  const [tasks, setTasks] = useState([]);
 
-  function handleChangeTodoText(event) {
-    setTodoText(event.target.value);
+  function handleChangeText({ input }) {
+    setText(input);
   }
 
-  function handleClickAddTodo() {
-    if (!todoText) throw new Error('No content!');
+  function handleClickAddTask() {
+    if (!text) throw new Error('No content!');
 
-    setTodoArray([...todoArray, { id: count, text: todoText }]);
+    setTasks([...tasks, { id: count, text }]);
     setCount(count + 1);
-    setTodoText('');
+    setText('');
   }
 
-  function handleClickDeleteTodo({ id }) {
-    setTodoArray(todoArray.filter((todo) => todo.id !== id));
+  function handleClickDeleteTask({ id }) {
+    setTasks(tasks.filter((todo) => todo.id !== id));
   }
 
   return (
     <Page
-      todoText={todoText}
-      onChangeTodoText={handleChangeTodoText}
-      todoArray={todoArray}
-      onClickAddTodo={handleClickAddTodo}
-      onClickDeleteTodo={handleClickDeleteTodo}
+      text={text}
+      onChangeText={handleChangeText}
+      tasks={tasks}
+      onClickAddTask={handleClickAddTask}
+      onClickDeleteTask={handleClickDeleteTask}
     />
   );
 };

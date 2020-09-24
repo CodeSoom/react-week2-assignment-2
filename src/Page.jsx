@@ -1,21 +1,21 @@
 import React from 'react';
 
 import TodoForm from './TodoForm';
-import TodoArray from './TodoArray';
+import Tasks from './Tasks';
 
 const Page = ({
-  todoText, onChangeTodoText, todoArray, onClickAddTodo, onClickDeleteTodo,
+  text, onChangeText, tasks, onClickAddTask, onClickDeleteTask,
 }) => (
   <div>
     <h2>To-do</h2>
     <TodoForm
-      todoText={todoText}
-      onChangeTodoText={onChangeTodoText}
-      onClickAddTodo={onClickAddTodo}
+      text={text}
+      onChangeText={onChangeText}
+      onClickAddTask={onClickAddTask}
     />
-    <TodoArray
-      todoArray={todoArray}
-      onClickDeleteTodo={onClickDeleteTodo}
+    <Tasks
+      tasks={tasks}
+      onClickDeleteTask={onClickDeleteTask}
     />
   </div>
 );
