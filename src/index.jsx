@@ -9,7 +9,7 @@ function App() {
 
   const { id, todo } = todoItem;
 
-  function onChange(e) {
+  function handleChange(e) {
     setTodoItem({ id, todo: e.target.value });
   }
 
@@ -30,7 +30,7 @@ function App() {
     <div>
       <h1>To-do</h1>
       <div>
-        <InputForm todo={todo} onCreate={onCreate} onChange={onChange} />
+        <InputForm todo={todo} onCreate={onCreate} onChange={handleChange} />
         <TodoList todoList={todoList} onClickRemove={onClickRemove} />
       </div>
     </div>
