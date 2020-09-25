@@ -3,15 +3,15 @@ import React from 'react';
 import Input from './Input';
 import Button from './Button';
 
-function AddForm({ newTodo, onChange, onClick }) {
+function Form({ newTodo, onChange, onClick }) {
   return (
     <div>
       <Input newTodo={newTodo} onChange={onChange} />
-      <Button onClick={onClick} disabled={newTodo.content === ''}>
+      <Button onClick={onClick} disabled={!newTodo}>
         추가
       </Button>
     </div>
   );
 }
 
-export default AddForm;
+export default Form;

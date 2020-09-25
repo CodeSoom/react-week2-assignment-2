@@ -2,11 +2,11 @@ import React from 'react';
 
 import Button from './Button';
 
-function Item({ todo, onClick }) {
+function Item({ todo: { id, content }, onClick }) {
   return (
     <li>
-      <span>{todo.content}</span>
-      <Button onClick={() => onClick(todo.id)}>
+      <span>{content}</span>
+      <Button onClick={() => onClick(id)}>
         완료
       </Button>
     </li>

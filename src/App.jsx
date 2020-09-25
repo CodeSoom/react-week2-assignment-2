@@ -4,19 +4,17 @@ import TodoPage from './TodoPage';
 
 function App() {
   const [state, setState] = useState({
-    newTodo: {
-      id: 1,
-      content: '',
-    },
+    newTodo: '',
     todos: [],
   });
 
   const { newTodo, todos } = state;
 
   function handleClickAdd() {
+    const nextId = (todos.length === 0) ? 1 : todos[todos.length - 1].id + 1;
+
     setState({
-      newTodo: { id: newTodo.id + 1, content: '' },
-      todos: [...todos, newTodo],
+      todos: [...todos, { id: nextId, content: newTodo }],
     });
   }
 
@@ -30,7 +28,7 @@ function App() {
   function handleChangeTodo(e) {
     setState({
       ...state,
-      newTodo: { ...newTodo, content: e.target.value },
+      newTodo: e.target.value,
     });
   }
 

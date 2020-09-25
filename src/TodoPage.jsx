@@ -1,7 +1,7 @@
 import React from 'react';
 
 import List from './List';
-import AddForm from './AddForm';
+import Form from './Form';
 import Empty from './Empty';
 
 function TodoPage({
@@ -10,7 +10,7 @@ function TodoPage({
   return (
     <div>
       <h2>To-do</h2>
-      <AddForm
+      <Form
         newTodo={newTodo}
         onChange={onChangeTodo}
         onClick={onClickAdd}
