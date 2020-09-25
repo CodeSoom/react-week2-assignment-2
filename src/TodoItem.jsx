@@ -6,7 +6,7 @@ function TodoItem({ item, onDoneButtonClick }) {
   return (
     <li style={{ listStyleType: 'decimal' }}>
       {item.todo}
-      <Button onClick={() => onDoneButtonClick(item)}>
+      <Button onClick={() => onDoneButtonClick(item.id)}>
         완료
       </Button>
     </li>

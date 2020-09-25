@@ -10,8 +10,8 @@ function App() {
 
   const { inputValue, todoItems } = state;
 
-  function handleDoneButtonClick(selectedItem) {
-    const newTodoItems = todoItems.filter((item) => item.id !== selectedItem.id);
+  function handleDoneButtonClick(selectedItemId) {
+    const newTodoItems = todoItems.filter((item) => item.id !== selectedItemId);
     setState({ ...state, todoItems: newTodoItems });
   }
 
