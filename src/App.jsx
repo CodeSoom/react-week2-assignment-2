@@ -6,9 +6,9 @@ import TodoList from './components/TodoList';
 function App() {
   const [state, setState] = useState({
     todoInputValue: '',
-    todoList: [],
+    items: [],
   });
-  const { todoInputValue, todoList } = state;
+  const { todoInputValue, items } = state;
 
   function handleChange(value) {
     setState({
@@ -18,10 +18,10 @@ function App() {
   }
 
   function handleClickTodoAdd() {
-    if (todoList.includes(todoInputValue)) return;
+    if (items.includes(todoInputValue)) return;
 
     setState({
-      todoList: [...todoList, todoInputValue],
+      items: [...items, todoInputValue],
       todoInputValue: '',
     });
   }
@@ -29,7 +29,7 @@ function App() {
   function handleClickTodoComplete(value) {
     setState({
       ...state,
-      todoList: todoList.filter((item) => item !== value),
+      items: items.filter((item) => item !== value),
     });
   }
 
@@ -44,7 +44,7 @@ function App() {
         />
       </p>
       <TodoList
-        items={todoList}
+        items={items}
         onClick={handleClickTodoComplete}
       />
     </div>
