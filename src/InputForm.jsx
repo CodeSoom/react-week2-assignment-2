@@ -1,6 +1,6 @@
 import React from 'react';
 
-function inputHandler({ todo, onChange, onCreate }) {
+function InputForm({ todo, onChange, onCreate }) {
   return (
     <div>
       <input placeholder="할 일을 입력해 주세요" value={todo || ''} onChange={onChange} />
@@ -11,4 +11,4 @@ function inputHandler({ todo, onChange, onCreate }) {
   );
 }
 
-export default inputHandler;
+export default InputForm;

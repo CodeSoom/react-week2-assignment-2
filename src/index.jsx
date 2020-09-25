@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
-import InputHandler from './InputHandler';
+import InputForm from './InputForm';
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -30,7 +30,7 @@ function App() {
     <div>
       <h1>To-do</h1>
       <div>
-        <InputHandler todo={todo} onCreate={onCreate} onChange={onChange} />
+        <InputForm todo={todo} onCreate={onCreate} onChange={onChange} />
         <TodoList todoList={todoList} onClickRemove={onClickRemove} />
       </div>
     </div>
