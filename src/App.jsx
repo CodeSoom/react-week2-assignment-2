@@ -6,14 +6,13 @@ function App() {
   const [state, setState] = useState({
     inputValue: '',
     todoItems: [],
-
   });
 
   const { inputValue, todoItems } = state;
 
   function handleDoneButtonClick(selectedItem) {
     const newTodoItems = todoItems.filter((item) => item.id !== selectedItem.id);
-    setState({ inputValue, todoItems: newTodoItems });
+    setState({ ...state, todoItems: newTodoItems });
   }
 
   function handleInputSubmit(event) {
@@ -23,7 +22,7 @@ function App() {
   }
 
   function handleInputChange(event) {
-    setState({ inputValue: event.target.value, todoItems });
+    setState({ ...state, inputValue: event.target.value });
   }
 
   return (
