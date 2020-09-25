@@ -4,7 +4,7 @@ import TodoItem from './TodoItem';
 
 function TodoList({ todoItems, onDoneButtonClick }) {
   return (
-    <ul>
+    <ol>
       {todoItems.length === 0
         ? <p>할 일이 없어요!</p>
         : (todoItems.map((item) => (
@@ -14,7 +14,7 @@ function TodoList({ todoItems, onDoneButtonClick }) {
             key={item.id}
           />
         )))}
-    </ul>
+    </ol>
   );
 }
 export default TodoList;

@@ -4,7 +4,7 @@ import Button from './Button';
 
 function TodoItem({ item, onDoneButtonClick }) {
   return (
-    <li style={{ listStyleType: 'decimal' }}>
+    <li>
       {item.todo}
       <Button onClick={() => onDoneButtonClick(item.id)}>
         완료
