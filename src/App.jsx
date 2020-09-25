@@ -17,7 +17,6 @@ function App() {
 
   function handleInputSubmit(event) {
     event.preventDefault();
-    if (!inputValue.trim()) return;
     setState({ inputValue: '', todoItems: [...todoItems, { todo: inputValue, id: new Date() }] });
   }
 
