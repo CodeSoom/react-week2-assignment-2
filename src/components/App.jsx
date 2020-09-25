@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import TodoListPage from './TodoListPage';
+import { generateId } from '../common/utils';
 
 export default function App() {
   const [state, setState] = useState({
@@ -8,7 +9,6 @@ export default function App() {
   });
 
   const { todoItems } = state;
-  const generateId = () => Math.random().toString(36).substr(2, 10);
 
   const handleAddTodo = (todoText) => {
     const todoItem = { id: generateId(), todoText };
