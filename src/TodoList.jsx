@@ -2,7 +2,7 @@ import React from 'react';
 
 import Todo from './Todo';
 
-function TodoList({ todoList, onClick }) {
+function TodoList({ todoList, onClickDelete }) {
   if (todoList.length === 0) {
     return (
       <>
@@ -19,7 +19,7 @@ function TodoList({ todoList, onClick }) {
             key={todo.id}
             id={todo.id}
             content={todo.content}
-            onClick={onClick}
+            onClickDelete={onClickDelete}
           />
         ))}
       </ol>

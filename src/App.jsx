@@ -12,11 +12,17 @@ function App() {
   };
 
   const handleClickAddTodo = () => {
-    setTodoList([{ id: uuidv4(), content: todoInput }, ...todoList]);
+    setTodoList([
+      {
+        id: uuidv4(),
+        content: todoInput,
+      },
+      ...todoList,
+    ]);
     setTodoInput('');
   };
 
-  const handleClickDone = (id) => {
+  const handleClickDeleteTodo = (id) => {
     setTodoList(todoList.filter((item) => item.id !== id));
   };
 
@@ -26,7 +32,7 @@ function App() {
       todoInput={todoInput}
       onChange={handleChangeInput}
       onClickAdd={handleClickAddTodo}
-      onClickDone={handleClickDone}
+      onClickDelete={handleClickDeleteTodo}
     />
   );
 }
