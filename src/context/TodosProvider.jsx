@@ -8,9 +8,9 @@ const TodosProvider = ({ children }) => {
 
   const getTodo = (pId) => [...todos].filter((_, id) => id === pId);
 
-  const increaseId = () => Math.max(...todos.map((todo) => todo.id)) + 1;
+  const getNextId = () => Math.max(...todos.map((todo) => todo.id)) + 1;
 
-  const generateId = () => (todos.length === 0 ? 1 : increaseId());
+  const generateId = () => (todos.length === 0 ? 1 : getNextId());
 
   const addTodo = () => {
     setState((prevState) => {
@@ -19,10 +19,7 @@ const TodosProvider = ({ children }) => {
         title: prevState.inputValue,
       };
       return {
-        todos: [
-          ...todos,
-          newTodo,
-        ],
+        todos: [...todos, newTodo],
         inputValue: '',
       };
     });
@@ -35,10 +32,10 @@ const TodosProvider = ({ children }) => {
     });
   };
 
-  const handleChange = (event) => {
+  const handleChange = (pInputValue) => {
     setState({
       todos,
-      inputValue: event.target.value,
+      inputValue: pInputValue,
     });
   };
 

@@ -7,12 +7,17 @@ import Input from './views/Input';
 const InputBar = () => {
   const { addTodo, handleChange, inputValue } = useContext(TodosContext);
 
+  const onChange = (event) => {
+    event.preventDefault();
+    handleChange(event.target.value);
+  };
+
   return (
     <div>
       <Input
         placeholder="할 일을 입력해 주세요"
         value={inputValue}
-        onChange={handleChange}
+        onChange={onChange}
       />
       <Button type="submit" onClick={addTodo}>
         추가
