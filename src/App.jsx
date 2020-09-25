@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 
-import InputForm from './InputForm';
+import ToDoForm from './ToDoForm';
 import ToDoList from './ToDoList';
 
 function App() {
   const [state, setState] = useState({
     toDos: [],
+    toDoText: '',
   });
-  const { toDos } = state;
+  const { toDos, toDoText } = state;
 
-  const [value, setValue] = useState('');
-
-  function handleInputValue(e) {
-    setValue(e.target.value);
+  function handleInputToDoText(toDoTextFromInput) {
+    setState({
+      toDos: [...toDos],
+      toDoText: toDoTextFromInput,
+    });
   }
 
   function handleClick() {
     setState({
-      toDos: [...toDos, { toDo: value, id: toDos.length + 1 }],
+      toDos: [...toDos, { toDo: toDoText, id: toDos.length + 1 }],
+      toDoText: '',
     });
-    setValue('');
   }
 
   function handleClickCompleteList(toDoId) {
@@ -31,10 +33,10 @@ function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <InputForm
+      <ToDoForm
         onClick={handleClick}
-        onChange={handleInputValue}
-        value={value}
+        toDoText={toDoText}
+        onChange={handleInputToDoText}
       />
       <ToDoList
         onClick={handleClickCompleteList}
