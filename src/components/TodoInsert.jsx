@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function TodoInsert({ insert }) {
-  const [todo, setTodo] = useState('');
-
+function TodoInsert({ insert, change, todo }) {
   const handleOnChange = (e) => {
-    setTodo(e.target.value);
+    change(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     insert(todo);
-    setTodo('');
   };
 
   return (

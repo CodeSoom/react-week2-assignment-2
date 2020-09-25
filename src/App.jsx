@@ -5,24 +5,42 @@ import TodoInsert from './components/TodoInsert';
 import TodoTemplate from './components/TodoTemplate';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [myTodos, setMyTodos] = useState({
+    todos: [],
+    todo: '',
+  });
+
+  const { todos, todo } = myTodos;
 
   const onInsert = (value) => {
-    const todo = {
+    const item = {
       id: todos.length ? todos[todos.length - 1].id + 1 : 1,
       value,
     };
 
-    setTodos([...todos, todo]);
+    setMyTodos({
+      todos: [...todos, item],
+      todo: '',
+    });
   };
 
   const handleRemoveTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setMyTodos({
+      todos: todos.filter((item) => item.id !== id),
+      todo: '',
+    });
+  };
+
+  const onChange = (value) => {
+    setMyTodos({
+      ...myTodos,
+      todo: value,
+    });
   };
 
   return (
     <TodoTemplate>
-      <TodoInsert insert={onInsert} />
+      <TodoInsert insert={onInsert} change={onChange} todo={todo} />
       <TodoList todos={todos} onRemove={handleRemoveTodo} />
     </TodoTemplate>
   );
