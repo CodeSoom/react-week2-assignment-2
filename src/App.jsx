@@ -12,17 +12,11 @@ export default function App() {
   const { newTodo, todos } = state;
 
   const handleTodosAdd = () => {
-    const trimmedTodo = newTodo.trim();
-
-    if (!trimmedTodo) {
-      return;
-    }
-
     setState({
       newTodo: '',
       todos: [...todos, {
         id: new Date().toISOString(),
-        title: trimmedTodo,
+        title: newTodo.trim(),
       }],
     });
   };
