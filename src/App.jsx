@@ -4,33 +4,43 @@ import { v4 as uuidv4 } from 'uuid';
 import MainPage from './MainPage';
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [todoInput, setTodoInput] = useState('');
+  const [state, setState] = useState({
+    todoInput: '',
+    todos: [],
+  });
 
-  const handleChangeInput = (event) => {
-    setTodoInput(event.target.value);
+  const { todoInput, todos } = state;
+
+  const handleChangeInput = (content) => {
+    setState({
+      todoInput: content,
+      todos: [...todos],
+    });
   };
 
   const handleClickAddTodo = () => {
-    setTodos([
-      {
+    setState({
+      todoInput: '',
+      todos: [{
         id: uuidv4(),
         content: todoInput,
       },
-      ...todos,
-    ]);
-    setTodoInput('');
+      ...todos],
+    });
   };
 
   const handleClickDeleteTodo = (id) => {
-    setTodos(todos.filter((item) => item.id !== id));
+    setState({
+      todoInput,
+      todos: todos.filter((item) => item.id !== id),
+    });
   };
 
   return (
     <MainPage
       todos={todos}
       todoInput={todoInput}
-      onChange={handleChangeInput}
+      onChangeContent={handleChangeInput}
       onClickAdd={handleClickAddTodo}
       onClickDelete={handleClickDeleteTodo}
     />

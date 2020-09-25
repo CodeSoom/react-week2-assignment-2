@@ -6,7 +6,7 @@ import Todos from './Todos';
 function MainPage({
   todos,
   todoInput,
-  onChange,
+  onChangeContent,
   onClickAdd,
   onClickDelete,
 }) {
@@ -15,7 +15,7 @@ function MainPage({
       <h1>To-do</h1>
       <TodoInput
         todoInput={todoInput}
-        onChange={onChange}
+        onChangeContent={onChangeContent}
         onClickAdd={onClickAdd}
       />
       <Todos
