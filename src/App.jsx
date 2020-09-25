@@ -5,31 +5,31 @@ import TodoList from './components/TodoList';
 
 function App() {
   const [state, setState] = useState({
-    todoInputValue: '',
-    todoList: [],
+    typingValue: '',
+    items: [],
   });
-  const { todoInputValue, todoList } = state;
+  const { typingValue, items } = state;
 
   function handleChange(value) {
     setState({
       ...state,
-      todoInputValue: value,
+      typingValue: value,
     });
   }
 
   function handleClickTodoAdd() {
+    if (items.includes(typingValue)) return;
+
     setState({
-      todoList: !todoList.includes(todoInputValue)
-        ? [...todoList, todoInputValue]
-        : todoList,
-      todoInputValue: '',
+      items: [...items, typingValue],
+      typingValue: '',
     });
   }
 
   function handleClickTodoComplete(value) {
     setState({
       ...state,
-      todoList: todoList.filter((item) => item !== value),
+      items: items.filter((item) => item !== value),
     });
   }
 
@@ -38,13 +38,13 @@ function App() {
       <h1>To-do</h1>
       <p>
         <TodoInput
-          value={todoInputValue}
+          value={typingValue}
           onChange={handleChange}
           onClick={handleClickTodoAdd}
         />
       </p>
       <TodoList
-        list={todoList}
+        items={items}
         onClick={handleClickTodoComplete}
       />
     </div>

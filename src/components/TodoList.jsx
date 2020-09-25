@@ -1,21 +1,24 @@
 import React from 'react';
 
-import TodoItems from './TodoItems';
+import TodoItem from './TodoItem';
 
-function TodoList({ list, onClick }) {
-  const isEmpty = list.length === 0;
+function TodoList({ items, onClick }) {
+  const isEmpty = items.length === 0;
 
   if (isEmpty) {
     return <p>할 일이 없어요!</p>;
   }
 
   return (
-    <>
-      <TodoItems
-        list={list}
-        onClick={onClick}
-      />
-    </>
+    <ol>
+      {items.map((item) => (
+        <TodoItem
+          key={item}
+          value={item}
+          onClick={() => onClick(item)}
+        />
+      ))}
+    </ol>
   );
 }
 
