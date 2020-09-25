@@ -18,10 +18,10 @@ function App() {
   }
 
   function handleClickTodoAdd() {
+    if (todoList.includes(todoInputValue)) return;
+
     setState({
-      todoList: !todoList.includes(todoInputValue)
-        ? [...todoList, todoInputValue]
-        : todoList,
+      todoList: [...todoList, todoInputValue],
       todoInputValue: '',
     });
   }
