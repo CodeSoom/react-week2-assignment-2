@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoItems from './TodoItems';
+import TodoItem from './TodoItem';
 
 function TodoList({ items, onClick }) {
   const isEmpty = items.length === 0;
@@ -10,12 +10,15 @@ function TodoList({ items, onClick }) {
   }
 
   return (
-    <>
-      <TodoItems
-        items={items}
-        onClick={onClick}
-      />
-    </>
+    <ol>
+      {items.map((item) => (
+        <TodoItem
+          key={item}
+          value={item}
+          onClick={() => onClick(item)}
+        />
+      ))}
+    </ol>
   );
 }
 
