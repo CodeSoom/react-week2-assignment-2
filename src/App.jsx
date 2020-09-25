@@ -44,7 +44,7 @@ function App() {
         />
       </p>
       <TodoList
-        list={todoList}
+        items={todoList}
         onClick={handleClickTodoComplete}
       />
     </div>
