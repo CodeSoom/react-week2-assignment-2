@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoInput({ todoInput, onChange, onClick }) {
+function TodoInput({ todoInput, onChange, onClickAdd }) {
   return (
     <>
       <input
@@ -9,7 +9,7 @@ function TodoInput({ todoInput, onChange, onClick }) {
         value={todoInput}
         onChange={onChange}
       />
-      <button type="button" onClick={onClick}>추가</button>
+      <button type="button" onClick={onClickAdd}>추가</button>
     </>
   );
 }

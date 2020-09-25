@@ -2,8 +2,8 @@ import React from 'react';
 
 import Todo from './Todo';
 
-function TodoList({ todoList, onClickDelete }) {
-  if (todoList.length === 0) {
+function Todos({ todos, onClickDelete }) {
+  if (todos.length === 0) {
     return (
       <>
         <p>할 일이 없어요!</p>
@@ -14,7 +14,7 @@ function TodoList({ todoList, onClickDelete }) {
   return (
     <>
       <ol>
-        {todoList.map((todo) => (
+        {todos.map((todo) => (
           <Todo
             key={todo.id}
             id={todo.id}
@@ -27,4 +27,4 @@ function TodoList({ todoList, onClickDelete }) {
   );
 }
 
-export default TodoList;
+export default Todos;

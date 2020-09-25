@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import MainPage from './MainPage';
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
+  const [todos, setTodos] = useState([]);
   const [todoInput, setTodoInput] = useState('');
 
   const handleChangeInput = (event) => {
@@ -12,23 +12,23 @@ function App() {
   };
 
   const handleClickAddTodo = () => {
-    setTodoList([
+    setTodos([
       {
         id: uuidv4(),
         content: todoInput,
       },
-      ...todoList,
+      ...todos,
     ]);
     setTodoInput('');
   };
 
   const handleClickDeleteTodo = (id) => {
-    setTodoList(todoList.filter((item) => item.id !== id));
+    setTodos(todos.filter((item) => item.id !== id));
   };
 
   return (
     <MainPage
-      todoList={todoList}
+      todos={todos}
       todoInput={todoInput}
       onChange={handleChangeInput}
       onClickAdd={handleClickAddTodo}

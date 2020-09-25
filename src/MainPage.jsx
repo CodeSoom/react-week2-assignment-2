@@ -1,14 +1,14 @@
 import React from 'react';
 
 import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import Todos from './Todos';
 
 function MainPage({
-  todoList,
+  todos,
   todoInput,
   onChange,
   onClickAdd,
-  onClickDone,
+  onClickDelete,
 }) {
   return (
     <div>
@@ -16,11 +16,11 @@ function MainPage({
       <TodoInput
         todoInput={todoInput}
         onChange={onChange}
-        onClick={onClickAdd}
+        onClickAdd={onClickAdd}
       />
-      <TodoList
-        todoList={todoList}
-        onClick={onClickDone}
+      <Todos
+        todos={todos}
+        onClickDelete={onClickDelete}
       />
     </div>
   );
