@@ -2,11 +2,11 @@ import React from 'react';
 
 import Button from './Button';
 
-function TodoItem({ item, onDoneButtonClick }) {
+function TodoItem({ item: { todo, id }, onDoneButtonClick }) {
   return (
     <li>
-      {item.todo}
-      <Button onClick={() => onDoneButtonClick(item.id)}>
+      {todo}
+      <Button onClick={() => onDoneButtonClick(id)}>
         완료
       </Button>
     </li>
