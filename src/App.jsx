@@ -3,24 +3,23 @@ import React, { useState } from 'react';
 import Page from './Page';
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const [text, setText] = useState('');
-  const [tasks, setTasks] = useState([]);
+  const [state, setState] = useState({ count: 0, text: '', tasks: [] });
+  const { count, text, tasks } = state;
 
   function handleChangeText({ input }) {
-    setText(input);
+    setState({ ...state, text: input });
   }
 
   function handleClickAddTask() {
     if (!text) throw new Error('No content!');
 
-    setTasks([...tasks, { id: count, text }]);
-    setCount(count + 1);
-    setText('');
+    setState({
+      ...state, count: count + 1, text: '', tasks: [...tasks, { id: count, text }],
+    });
   }
 
   function handleClickDeleteTask({ id }) {
-    setTasks(tasks.filter((todo) => todo.id !== id));
+    setState({ ...state, tasks: tasks.filter((todo) => todo.id !== id) });
   }
 
   return (
