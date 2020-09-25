@@ -1,22 +1,24 @@
 import React, { useContext } from 'react';
 
-import { TodosContext } from '../context';
+import { TodosContext } from '../context/TodosContext';
 import Todo from './views/Todo';
 
 const TodoList = () => {
   const { todos, removeTodo } = useContext(TodosContext);
 
-  const renderTodos = todos.map((todo) => (
-    <Todo
-      key={todo.id}
-      data={todo}
-      handleRemove={removeTodo}
-    />
-  ));
+  if (todos.length === 0) {
+    return <p>할 일이 없어요!</p>;
+  }
 
   return (
     <ul>
-      {renderTodos}
+      {todos.map((todo) => (
+        <Todo
+          key={todo.id.toString()}
+          data={todo}
+          handleRemove={() => removeTodo(todo.id)}
+        />
+      ))}
     </ul>
   );
 };

@@ -1,10 +1,8 @@
 import { createContext } from 'react';
 
 export const initialTodosState = {
-  todos: [{
-    id: 1,
-    title: '',
-  }],
+  todos: [],
+  inputValue: '',
 };
 
 export const TodosContext = createContext(initialTodosState);
