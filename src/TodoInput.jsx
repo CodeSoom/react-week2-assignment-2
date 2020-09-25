@@ -2,14 +2,20 @@ import React from 'react';
 
 function TodoInput({
   value,
-  placeholder,
-  onChange,
-  onClick,
+  onChangeTitle,
+  onClickAdd,
 }) {
   return (
     <div>
-      <input type="text" id="todo" value={value} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} />
-      <button type="button" onClick={() => onClick()}>추가</button>
+      <input
+        type="text"
+        value={value}
+        placeholder="할 일을 입력해주세요"
+        onChange={(e) => onChangeTitle(e.target.value)}
+      />
+      <button type="button" onClick={onClickAdd}>
+        추가
+      </button>
     </div>
   );
 }

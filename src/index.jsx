@@ -9,32 +9,31 @@ const isEmpty = (text) => text.length === 0;
 
 function App() {
   const [state, setState] = useState({
-    todoInput: '',
+    todoTitle: '',
     todoList: [],
   });
 
-  const { todoInput, todoList } = state;
-  const placeholder = '할 일을 입력해주세요';
+  const { todoTitle, todoList } = state;
 
-  function handleChangeInput(text) {
+  function handleChangeTitle(text) {
     setState({
-      todoInput: text,
+      todoTitle: text,
       todoList,
     });
   }
 
-  function handleInsertClick() {
-    if (isEmpty(todoInput)) return;
+  function handleClickAdd() {
+    if (isEmpty(todoTitle)) return;
 
     setState({
-      todoInput: '',
-      todoList: [...todoList, todoInput],
+      todoTitle: '',
+      todoList: [...todoList, todoTitle],
     });
   }
 
-  function handleDeleteClick(pos) {
+  function handleClickDelete(pos) {
     setState({
-      todoInput,
+      todoTitle,
       todoList: [...todoList.slice(0, pos), ...todoList.slice(pos + 1)],
     });
   }
@@ -43,14 +42,13 @@ function App() {
     <div>
       <h3>To-Do App</h3>
       <TodoInput
-        value={todoInput}
-        placeholder={placeholder}
-        onChange={handleChangeInput}
-        onClick={handleInsertClick}
+        value={todoTitle}
+        onChangeTitle={handleChangeTitle}
+        onClickAdd={handleClickAdd}
       />
       <TodoList
         todoList={todoList}
-        onClick={handleDeleteClick}
+        onClickDelete={handleClickDelete}
       />
     </div>
   );
