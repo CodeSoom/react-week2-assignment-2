@@ -28,7 +28,9 @@ export default function App() {
     return todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
   }
 
-  function handleAddClick() {
+  function handleAddClick(e) {
+    e.preventDefault();
+
     const todo = {
       id: getId(),
       content: todoContent,
