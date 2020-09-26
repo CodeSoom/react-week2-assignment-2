@@ -12,6 +12,7 @@ export default function App() {
 
   const handleAddTodo = (todoText) => {
     const todoItem = { id: generateId(), todoText };
+
     setState({ todoItems: [...todoItems, todoItem] });
   };
 
