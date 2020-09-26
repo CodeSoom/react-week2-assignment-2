@@ -1,18 +1,24 @@
 import React from 'react';
 
-function User({ todo }) {
+function User({ todo,onRemove }) {
   return (
     <div>
-      <p>{todo.id} {todo.todolist}</p> 
+      <p>{todo.id} {todo.todolist}
+      <button onClick={() => onRemove(todo.id)}>완료</button></p>
+
     </div>
   );
 }
 
-function TodoList({ todos }) {
+function TodoList({ todos,onRemove }) {
   return (
     <div>
       {todos.map(todo => (
-        <User todo={todo} key={todo.id} />
+        <User 
+         todo={todo}
+         key={todo.id}
+         onRemove={onRemove}
+         />
       ))}
     </div>
   );

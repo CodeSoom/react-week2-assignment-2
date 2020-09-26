@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
-import CreateUser from './CreateUser';
+import CreateTodo from './CreateTodo';
 
 function App() {
   const [inputs, setInputs] = useState({
@@ -30,14 +30,18 @@ function App() {
     });
     nextId.current += 1;
   };
+
+  const onRemove = id => {
+    setTodos(todos.filter(todo => todo.id !==id ));
+  };
   return (
     <>
-      <CreateUser
+      <CreateTodo
         todolist={todolist}
         onChange={onChange}
         onCreate={onCreate}
       />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onRemove={onRemove} />
     </>
   );
 }
