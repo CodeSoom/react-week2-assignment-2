@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function DeleteItem(items) {
-    const delItem = () => {
-        console.log("it is deleted");
+export default function DeleteItem({items}) {
+    const delItem = (it) => {
+       setItems(items.filter(item =>item.id !== it))
     };
     return(
-        <button onClick={() => delItem(items)}>완료</button>
+        <button onClick={() => delItem(items.id)}>완료</button>
     )
 }
