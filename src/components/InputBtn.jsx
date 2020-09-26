@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 
-export default function InputBtn({inputText}){
-    const [listItem, setListItem] = useState
-    ({
-        list: [{
-            id:0,
-            item:'',
-        }],
-    });
-    const addList = (inputText) => {
-        setListItem({
-            list: list.concat({id: id++, item: inputText}),
-        });
-        console.log(list);
+export default function InputBtn({ getText }) {
+    console.log(getText);
+  const [items, setItems] = useState([]);
 
-    }
+  const addItem = (it) => {
+    setItems([...items, {
+      id: items.length,
+      value: it,
+    }]);
+  };
 
-    return (
-        <div>
-        <button onClick={() => addList(inputText)}>추가</button>
-        </div>
-    )
+  return (
+    <div>
+      <button onClick={() => addItem(getText)}>추가</button>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.value}<button>완료</button></li>
+        ))}
+      </ul>
+    </div>
+  );
 }
