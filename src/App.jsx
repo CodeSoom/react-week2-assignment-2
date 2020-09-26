@@ -10,8 +10,8 @@ function App() {
 
   const { inputValue, todoItems } = state;
 
-  function handleDoneButtonClick(selectedItemId) {
-    const newTodoItems = todoItems.filter((item) => item.id !== selectedItemId);
+  function handleDoneClick(selectedId) {
+    const newTodoItems = todoItems.filter((item) => item.id !== selectedId);
     setState({ ...state, todoItems: newTodoItems });
   }
 
@@ -29,7 +29,7 @@ function App() {
       todoItems={todoItems}
       value={inputValue}
       onInputSubmit={handleInputSubmit}
-      onDoneButtonClick={handleDoneButtonClick}
+      onDoneButtonClick={handleDoneClick}
       onInputChange={handleInputChange}
     />
   );
