@@ -10,7 +10,7 @@ export default function App() {
 
   const { todos, todoContent } = state;
 
-  function handleCompletedClick(id) {
+  function handleClickCompleted(id) {
     setState({
       todos: todos.filter((todo) => todo.id !== id),
       todoContent,
@@ -25,20 +25,18 @@ export default function App() {
   }
 
   function getId() {
-    return todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
+    return new Date().getTime();
   }
 
-  function handleAddClick(e) {
+  function handleClickAdd(e) {
     e.preventDefault();
 
-    const todo = {
-      id: getId(),
-      content: todoContent,
-    };
-
     setState({
-      todos: [...todos, todo],
       todoContent: '',
+      todos: [...todos, {
+        id: getId(),
+        content: todoContent,
+      }],
     });
   }
 
@@ -46,9 +44,9 @@ export default function App() {
     <Page
       todos={todos}
       todoContent={todoContent}
-      onCompletedClick={handleCompletedClick}
+      onClickCompleted={handleClickCompleted}
       onChangeContent={handleChangeContent}
-      onAddClick={handleAddClick}
+      onClickAdd={handleClickAdd}
     />
   );
 }

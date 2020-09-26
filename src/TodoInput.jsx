@@ -5,7 +5,12 @@ export default function TodoInput({
 }) {
   return (
     <form onSubmit={onClick}>
-      <input type="text" value={value} onChange={onChange} placeholder="할 일을 입력해 주세요" />
+      <input
+        type="text"
+        value={value}
+        placeholder="할 일을 입력해 주세요"
+        onChange={onChange}
+      />
       <button type="submit">추가</button>
     </form>
   );
