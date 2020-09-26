@@ -4,30 +4,41 @@ import AddWorkForm from './AddWorkForm';
 import WorkList from './WorkList';
 
 export default function App() {
-  const [works, setWorks] = useState([]);
+  const [state, setState] = useState({
+    workInput: '',
+    works: [],
+  });
 
-  const [work, setWork] = useState('');
+  const { workInput, works } = state;
 
-  function handleWorkTextChange(value) {
-    setWork(value);
+  function handleWorkInputChange(value) {
+    setState({
+      ...state,
+      workInput: value,
+    });
   }
 
   function handleAddWorkButtonClick() {
-    setWorks([...works, { key: Date.now(), value: work }]);
-    setWork('');
+    setState({
+      workInput: '',
+      works: [...works, { key: Date.now(), value: workInput }],
+    });
   }
 
   function handleCompleteWorkButtonClick(workKey) {
-    setWorks(works.filter((work) => work.key !== workKey));
+    setState({
+      ...state,
+      works: works.filter((work) => work.key !== workKey),
+    });
   }
 
   return (
     <div>
       <h1>TO-DO</h1>
       <AddWorkForm
-        value={work}
+        value={workInput}
         onClick={handleAddWorkButtonClick}
-        onChange={(e) => handleWorkTextChange(e)}
+        onChange={(e) => handleWorkInputChange(e)}
       />
 
       <WorkList works={works} onClick={handleCompleteWorkButtonClick} />
