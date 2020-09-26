@@ -3,16 +3,16 @@ import React from 'react';
 import TodoListItem from './TodoListItem';
 
 function TodoList({
-  todos,
+  todo,
   onClick,
 }) {
   return (
     <>
-      {todos.length === 0
+      {todo.length === 0
         ? <p>할 일이 없어요!</p>
         : (
           <ol>
-            {todos.map(({ key, value }) => (
+            {todo.map(({ key, value }) => (
               <TodoListItem
                 key={key}
                 todo={value}

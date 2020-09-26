@@ -5,7 +5,7 @@ import TodoList from './TodoList';
 
 function Page({
   inputValue,
-  todos,
+  todo,
   onChangeInput,
   onClickAdd,
   onClickComplete,
@@ -19,7 +19,7 @@ function Page({
         onClick={onClickAdd}
       />
       <TodoList
-        todos={todos}
+        todo={todo}
         onClick={onClickComplete}
       />
     </>
