@@ -1,13 +1,13 @@
 import React from 'react';
 
 export default function Button({ children, onClick }) {
-  function preventDefaultEvent(e) {
+  function handleClick(e) {
     e.preventDefault();
     onClick();
   }
 
   return (
-    <button type="submit" onClick={(e) => preventDefaultEvent(e)}>
+    <button type="submit" onClick={(e) => handleClick(e)}>
       {children}
     </button>
   );
