@@ -1,4 +1,5 @@
 import React from 'react';
+import Todo from './Todo';
 
 const isEmpty = (array) => array.length === 0;
 
@@ -10,12 +11,12 @@ function TodoList({ todoList, onClickDelete }) {
   return (
     <div>
       <ol>
-        {todoList.map((todo, index) => (
-          <li key={index.toString()}>
-            {todo}
-            <button type="button" onClick={() => onClickDelete(index)}>
-              완료
-            </button>
+        {todoList.map((todo) => (
+          <li key={todo.id}>
+            <Todo
+              todo={todo}
+              onClickDelete={onClickDelete}
+            />
           </li>
         ))}
       </ol>

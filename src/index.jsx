@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import TodoPage from './TodoPage';
 
 const isEmpty = (text) => text.length === 0;
 
@@ -27,28 +26,25 @@ function App() {
 
     setState({
       todoTitle: '',
-      todoList: [...todoList, todoTitle],
+      todoList: [...todoList, { id: new Date().getTime(), title: todoTitle }],
     });
   }
 
-  function handleClickDelete(pos) {
+  function handleClickDelete(todoItem) {
     setState({
       todoTitle,
-      todoList: [...todoList.slice(0, pos), ...todoList.slice(pos + 1)],
+      todoList: todoList.filter((todo) => todo.id !== todoItem.id),
     });
   }
 
   return (
     <div>
-      <h3>To-Do App</h3>
-      <TodoInput
-        value={todoTitle}
-        onChangeTitle={handleChangeTitle}
-        onClickAdd={handleClickAdd}
-      />
-      <TodoList
+      <TodoPage
+        todoTitle={todoTitle}
         todoList={todoList}
-        onClickDelete={handleClickDelete}
+        handleChangeTitle={handleChangeTitle}
+        handleClickAdd={handleClickAdd}
+        handleClickDelete={handleClickDelete}
       />
     </div>
   );
