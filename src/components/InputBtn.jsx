@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import DeleteItem from './DeleteItem';
 
 export default function InputBtn({ getText }) {
-    console.log(getText);
   const [items, setItems] = useState([]);
 
   const addItem = (it) => {
@@ -16,7 +16,7 @@ export default function InputBtn({ getText }) {
       <button onClick={() => addItem(getText)}>추가</button>
       <ul>
         {items.map((item) => (
-          <li key={item.id}>{item.value}<button>완료</button></li>
+          <li key={item.id}>{item.value}<DeleteItem items = {items}/></li>
         ))}
       </ul>
     </div>
