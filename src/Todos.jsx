@@ -3,9 +3,9 @@ import React from 'react';
 import Todo from './Todo';
 
 function Todos({ todos, onClickDelete }) {
-  const isEmpty = todos.length === 0;
+  const isEmpty = (arr) => arr.length === 0;
 
-  if (isEmpty) {
+  if (isEmpty(todos)) {
     return (
       <>
         <p>할 일이 없어요!</p>
