@@ -26,7 +26,7 @@ function App() {
 
     setState({
       todoTitle: '',
-      todoList: [...todoList, { id: new Date().getTime(), title: todoTitle }],
+      todoList: [...todoList, { id: Date.now(), title: todoTitle }],
     });
   }
 
