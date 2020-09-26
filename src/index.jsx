@@ -41,7 +41,11 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <TodoList todos={todos} onRemove={onRemove} />
+      <TodoList 
+      todos={todos} 
+      onRemove={onRemove} 
+      
+      />
     </>
   );
 }

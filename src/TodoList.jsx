@@ -3,9 +3,10 @@ import React from 'react';
 function User({ todo,onRemove }) {
   return (
     <div>
+      <p>할일이 없어요</p>
       <p>{todo.id} {todo.todolist}
       <button onClick={() => onRemove(todo.id)}>완료</button></p>
-
+      
     </div>
   );
 }
