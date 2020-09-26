@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-function TodoList({ todoItems, onDoneButtonClick }) {
+function TodoList({ todoItems, onDoneClick }) {
   return (
     <ol>
       {todoItems.length === 0
@@ -10,7 +10,7 @@ function TodoList({ todoItems, onDoneButtonClick }) {
         : (todoItems.map((item) => (
           <TodoItem
             item={item}
-            onDoneButtonClick={onDoneButtonClick}
+            onDoneClick={onDoneClick}
             key={item.id}
           />
         )))}

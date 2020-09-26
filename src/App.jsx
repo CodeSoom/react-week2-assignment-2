@@ -29,7 +29,7 @@ function App() {
       todoItems={todoItems}
       value={inputValue}
       onInputSubmit={handleInputSubmit}
-      onDoneButtonClick={handleDoneClick}
+      onDoneClick={handleDoneClick}
       onInputChange={handleInputChange}
     />
   );
