@@ -11,9 +11,9 @@ function App() {
 
   const { todoInput, todos } = state;
 
-  const handleChangeInput = (content) => {
+  const handleChangeInput = (e) => {
     setState({
-      todoInput: content,
+      todoInput: e.target.value,
       todos: [...todos],
     });
   };
@@ -21,11 +21,13 @@ function App() {
   const handleClickAddTodo = () => {
     setState({
       todoInput: '',
-      todos: [{
-        id: uuidv4(),
-        content: todoInput,
-      },
-      ...todos],
+      todos: [
+        ...todos,
+        {
+          id: uuidv4(),
+          content: todoInput,
+        },
+      ],
     });
   };
 

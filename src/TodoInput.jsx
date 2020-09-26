@@ -7,7 +7,7 @@ function TodoInput({ todoInput, onChangeContent, onClickAdd }) {
         type="text"
         placeholder="할 일을 입력해 주세요"
         value={todoInput}
-        onChange={(event) => onChangeContent(event.target.value)}
+        onChange={onChangeContent}
       />
       <button type="button" onClick={onClickAdd}>추가</button>
     </>
