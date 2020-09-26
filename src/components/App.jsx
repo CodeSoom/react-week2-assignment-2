@@ -17,8 +17,8 @@ export default function App() {
     setWork('');
   }
 
-  function handleCompleteWorkButtonClick(todoKey) {
-    setWorks(works.filter(({ key }) => key !== todoKey));
+  function handleCompleteWorkButtonClick(workKey) {
+    setWorks(works.filter((work) => work.key !== workKey));
   }
 
   return (
