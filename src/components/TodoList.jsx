@@ -16,7 +16,7 @@ function TodoList({ todos, onRemove }) {
           key={todo.id}
           todo={todo.value}
           count={index}
-          onRemove={() => onRemove(todo.id)}
+          onClick={() => onRemove(todo.id)}
         />
       ))}
     </div>

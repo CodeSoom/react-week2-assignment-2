@@ -1,13 +1,13 @@
 import React from 'react';
 
-function TodoInsert({ insert, change, todo }) {
+function TodoInsert({ onInsert, change, todo }) {
   const handleOnChange = (e) => {
     change(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    insert(todo);
+    onInsert(todo);
   };
 
   return (

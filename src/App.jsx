@@ -12,9 +12,11 @@ function App() {
 
   const { todos, todo } = myTodos;
 
-  const onInsert = (value) => {
+  const last = (arr) => arr.length && arr[arr.length - 1].id;
+
+  const handlensert = (value) => {
     const item = {
-      id: todos.length ? todos[todos.length - 1].id + 1 : 1,
+      id: last(todos) + 1,
       value,
     };
 
@@ -40,7 +42,7 @@ function App() {
 
   return (
     <TodoTemplate>
-      <TodoInsert insert={onInsert} change={onChange} todo={todo} />
+      <TodoInsert onInsert={handlensert} change={onChange} todo={todo} />
       <TodoList todos={todos} onRemove={handleRemoveTodo} />
     </TodoTemplate>
   );
