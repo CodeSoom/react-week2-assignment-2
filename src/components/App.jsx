@@ -31,7 +31,6 @@ export default function App() {
       />
 
       <WorkList works={works} onClick={handleCompleteWorkButtonClick} />
-
     </div>
   );
 }
