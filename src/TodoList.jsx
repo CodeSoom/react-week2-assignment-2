@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoListItem from './TodoListItem';
+import TodoItem from './TodoItem';
 
 function TodoList({
   todo,
@@ -13,7 +13,7 @@ function TodoList({
         : (
           <ol>
             {todo.map(({ key, value }) => (
-              <TodoListItem
+              <TodoItem
                 key={key}
                 todo={value}
                 onClick={() => onClick(key)}

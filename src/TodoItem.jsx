@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoListItem({
+function TodoItem({
   todo,
   onClick,
 }) {
@@ -17,4 +17,4 @@ function TodoListItem({
   );
 }
 
-export default TodoListItem;
+export default TodoItem;
