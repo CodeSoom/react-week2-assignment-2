@@ -30,10 +30,10 @@ function App() {
     });
   }
 
-  function handleClickDelete(todoItem) {
+  function handleClickDelete(id) {
     setState({
       todoTitle,
-      todoList: todoList.filter((todo) => todo.id !== todoItem.id),
+      todoList: todoList.filter((todo) => id !== todo.id),
     });
   }
 
