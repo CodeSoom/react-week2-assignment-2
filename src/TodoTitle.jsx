@@ -1,5 +1,5 @@
 import React from 'react';
-import User from './User';
+import AddTodo from './AddTodo';
 
 function TodoTitle({ todos, onRemove }) {
   return (
@@ -15,7 +15,7 @@ function TodoTitle({ todos, onRemove }) {
 
       <div>
         {todos.map((todo) => (
-          <User
+          <AddTodo
             todo={todo}
             key={todo.id}
             onRemove={onRemove}

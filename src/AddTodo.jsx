@@ -1,6 +1,6 @@
 import React from 'react';
 
-function User({ todo, onRemove }) {
+function AddTodo({ todo, onRemove }) {
   return (
     <>
 
@@ -21,4 +21,4 @@ function User({ todo, onRemove }) {
   );
 }
 
-export default User;
+export default AddTodo;
