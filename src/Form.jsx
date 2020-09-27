@@ -3,11 +3,11 @@ import React from 'react';
 import Input from './Input';
 import Button from './Button';
 
-function Form({ newTodo, onChange, onClick }) {
+function Form({ todoContent, onChange, onClick }) {
   return (
     <div>
-      <Input newTodo={newTodo} onChange={onChange} />
-      <Button onClick={onClick} disabled={!newTodo}>
+      <Input todoContent={todoContent} onChange={onChange} />
+      <Button onClick={onClick} disabled={!todoContent}>
         추가
       </Button>
     </div>

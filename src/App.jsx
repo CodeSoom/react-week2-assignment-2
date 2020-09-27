@@ -5,40 +5,40 @@ import TodoPage from './TodoPage';
 function App() {
   const [state, setState] = useState({
     newId: 1,
-    newTodo: '',
+    todoContent: '',
     todos: [],
   });
 
-  const { newId, newTodo, todos } = state;
+  const { newId, todoContent, todos } = state;
 
   function handleClickAdd() {
     setState({
       newId: newId + 1,
-      todos: [...todos, { id: newId, content: newTodo }],
+      todos: [...todos, { id: newId, content: todoContent }],
     });
   }
 
-  function handleClickFinish(id) {
+  function handleClickDelete(id) {
     setState({
       ...state,
-      todos: todos.filter((item) => item.id !== id),
+      todos: todos.filter((todo) => todo.id !== id),
     });
   }
 
   function handleChangeTodo(e) {
     setState({
       ...state,
-      newTodo: e.target.value,
+      todoContent: e.target.value,
     });
   }
 
   return (
     <TodoPage
-      newTodo={newTodo}
+      todoContent={todoContent}
       todos={todos}
       onChangeTodo={handleChangeTodo}
       onClickAdd={handleClickAdd}
-      onClickFinish={handleClickFinish}
+      onClickFinish={handleClickDelete}
     />
   );
 }

@@ -5,13 +5,13 @@ import Form from './Form';
 import Empty from './Empty';
 
 function TodoPage({
-  newTodo, todos, onChangeTodo, onClickAdd, onClickFinish,
+  todoContent, todos, onChangeTodo, onClickAdd, onClickFinish,
 }) {
   return (
     <div>
       <h2>To-do</h2>
       <Form
-        newTodo={newTodo}
+        todoContent={todoContent}
         onChange={onChangeTodo}
         onClick={onClickAdd}
       />
