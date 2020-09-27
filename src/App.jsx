@@ -25,7 +25,7 @@ export default function App() {
   }
 
   function getId() {
-    return new Date().getTime();
+    return Date.now();
   }
 
   function handleClickAdd(e) {

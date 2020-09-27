@@ -1,10 +1,12 @@
 import React from 'react';
 
-export default function Todo({ id, content, onClick }) {
+export default function Todo({ content, onClick }) {
   return (
-    <li key={id}>
-      <span>{content}</span>
-      <button type="button" onClick={onClick}>완료</button>
+    <li>
+      {content}
+      <button type="button" onClick={onClick}>
+        완료
+      </button>
     </li>
   );
 }
