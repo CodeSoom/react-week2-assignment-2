@@ -19,7 +19,7 @@ function App() {
 
   function handleClick() {
     setState({
-      toDos: [...toDos, { toDo: toDoText, id: toDos.length + 1 }],
+      toDos: [...toDos, { toDo: toDoText, id: Date.now() }],
       toDoText: '',
     });
   }
