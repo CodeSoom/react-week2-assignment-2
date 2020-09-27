@@ -10,10 +10,10 @@ function App() {
   });
   const { toDos, toDoText } = state;
 
-  function handleInputToDoText(toDoTextFromInput) {
+  function handleInputToDoText(toDoTextValue) {
     setState({
       toDos: [...toDos],
-      toDoText: toDoTextFromInput,
+      toDoText: toDoTextValue,
     });
   }
 
