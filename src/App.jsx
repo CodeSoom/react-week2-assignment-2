@@ -10,7 +10,7 @@ function App() {
 
   const { todoTitle, todoItems } = state;
 
-  function handleDoneClick(id) {
+  function handleClickDeleteTodo(id) {
     const newTodoItems = todoItems.filter((item) => item.id !== id);
     setState({
       ...state,
@@ -18,7 +18,7 @@ function App() {
     });
   }
 
-  function handleTodoTitleSubmit(event) {
+  function handleSubmitAddTodo(event) {
     event.preventDefault();
     setState({
       todoTitle: '',
@@ -26,7 +26,7 @@ function App() {
     });
   }
 
-  function handleTodotitleChange(event) {
+  function handleChangeTodoTitle(event) {
     setState({
       ...state,
       todoTitle: event.target.value,
@@ -37,9 +37,9 @@ function App() {
     <Page
       todoItems={todoItems}
       todoTitle={todoTitle}
-      onTodoTitleSubmit={handleTodoTitleSubmit}
-      onDoneClick={handleDoneClick}
-      onTodoTitleChange={handleTodotitleChange}
+      onSubmitAddTodo={handleSubmitAddTodo}
+      onClickDeleteTodo={handleClickDeleteTodo}
+      onChangeTodoTitle={handleChangeTodoTitle}
     />
   );
 }

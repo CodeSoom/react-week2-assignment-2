@@ -6,21 +6,21 @@ import TodoList from './TodoList';
 function Page({
   todoTitle,
   todoItems,
-  onTodoTitleSubmit,
-  onTodoTitleChange,
-  onDoneClick,
+  onSubmitAddTodo,
+  onChangeTodoTitle,
+  onClickDeleteTodo,
 }) {
   return (
     <div>
       <h1>To-do</h1>
       <TodoForm
         todoTitle={todoTitle}
-        onTodoTitleSubmit={onTodoTitleSubmit}
-        onTodoTitleChange={onTodoTitleChange}
+        onSubmitAddTodo={onSubmitAddTodo}
+        onChangeTodoTitle={onChangeTodoTitle}
       />
       <TodoList
         todoItems={todoItems}
-        onDoneClick={onDoneClick}
+        onClickDeleteTodo={onClickDeleteTodo}
       />
     </div>
   );
