@@ -16,8 +16,8 @@ function App() {
 
   function handleChangeTitle(text) {
     setState({
+      ...state,
       todoTitle: text,
-      todoList,
     });
   }
 
