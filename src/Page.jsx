@@ -4,19 +4,19 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 function Page({
-  value,
+  todoTitle,
   todoItems,
-  onInputSubmit,
-  onInputChange,
+  onTodoTitleSubmit,
+  onTodoTitleChange,
   onDoneClick,
 }) {
   return (
     <div>
       <h1>To-do</h1>
       <TodoForm
-        value={value}
-        onInputSubmit={onInputSubmit}
-        onInputChange={onInputChange}
+        todoTitle={todoTitle}
+        onTodoTitleSubmit={onTodoTitleSubmit}
+        onTodoTitleChange={onTodoTitleChange}
       />
       <TodoList
         todoItems={todoItems}

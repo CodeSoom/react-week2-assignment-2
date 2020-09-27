@@ -4,42 +4,42 @@ import Page from './Page';
 
 function App() {
   const [state, setState] = useState({
-    inputValue: '',
+    todoTitle: '',
     todoItems: [],
   });
 
-  const { inputValue, todoItems } = state;
+  const { todoTitle, todoItems } = state;
 
-  function handleDoneClick(selectedId) {
-    const newTodoItems = todoItems.filter((item) => item.id !== selectedId);
+  function handleDoneClick(id) {
+    const newTodoItems = todoItems.filter((item) => item.id !== id);
     setState({
       ...state,
       todoItems: newTodoItems,
     });
   }
 
-  function handleInputSubmit(event) {
+  function handleTodoTitleSubmit(event) {
     event.preventDefault();
     setState({
-      inputValue: '',
-      todoItems: [...todoItems, { todo: inputValue, id: new Date() }],
+      todoTitle: '',
+      todoItems: [...todoItems, { todo: todoTitle, id: new Date() }],
     });
   }
 
-  function handleInputChange(event) {
+  function handleTodotitleChange(event) {
     setState({
       ...state,
-      inputValue: event.target.value,
+      todoTitle: event.target.value,
     });
   }
 
   return (
     <Page
       todoItems={todoItems}
-      value={inputValue}
-      onInputSubmit={handleInputSubmit}
+      todoTitle={todoTitle}
+      onTodoTitleSubmit={handleTodoTitleSubmit}
       onDoneClick={handleDoneClick}
-      onInputChange={handleInputChange}
+      onTodoTitleChange={handleTodotitleChange}
     />
   );
 }

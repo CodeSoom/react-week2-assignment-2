@@ -2,15 +2,15 @@ import React from 'react';
 
 import Input from './Input';
 
-function TodoForm({ value, onInputSubmit, onInputChange }) {
+function TodoForm({ todoTitle, onTodoTitleSubmit, onTodoTitleChange }) {
   return (
-    <form onSubmit={onInputSubmit}>
+    <form onSubmit={onTodoTitleSubmit}>
       <Input
         placeholder="할 일을 입력해 주세요"
-        value={value}
-        onChange={onInputChange}
+        value={todoTitle}
+        onChange={onTodoTitleChange}
       />
-      <button type="submit" disabled={!value.trim()}>추가</button>
+      <button type="submit" disabled={!todoTitle.trim()}>추가</button>
     </form>
   );
 }
