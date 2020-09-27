@@ -1,6 +1,9 @@
 import React from 'react';
 
-function Todo({ todo: { id, title }, onClickDelete }) {
+function Todo({
+  todo: { id, title },
+  onClickDelete,
+}) {
   return (
     <div>
       {title}
