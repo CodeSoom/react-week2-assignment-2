@@ -2,7 +2,7 @@ import React from 'react';
 
 const isBlank = (string) => string.trim().length === 0;
 
-export default function TodoAddForm({ newTodo, onSubmit, onChange }) {
+export default function TodoAddForm({ todoTitle, onSubmit, onChange }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit();
@@ -13,10 +13,10 @@ export default function TodoAddForm({ newTodo, onSubmit, onChange }) {
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
-        value={newTodo}
+        value={todoTitle}
         onChange={(e) => onChange(e.target.value)}
       />
-      <button type="submit" disabled={isBlank(newTodo)}>추가</button>
+      <button type="submit" disabled={isBlank(todoTitle)}>추가</button>
     </form>
   );
 }

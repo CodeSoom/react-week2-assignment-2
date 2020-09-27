@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoListItem from './TodoListItem';
+import TodoItem from './TodoItem';
 
 const isEmpty = (array) => array.length === 0;
 
@@ -10,13 +10,14 @@ export default function TodoList({ todos, onClick }) {
   }
 
   return (
-    todos.map(({ id, title }, index) => (
-      <TodoListItem
-        key={id}
-        index={index}
-        title={title}
-        onClick={() => onClick(id)}
-      />
-    ))
+    <ol>
+      {todos.map(({ id, title }) => (
+        <TodoItem
+          key={id}
+          title={title}
+          onClick={() => onClick(id)}
+        />
+      ))}
+    </ol>
   );
 }

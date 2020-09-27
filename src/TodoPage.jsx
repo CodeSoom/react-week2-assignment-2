@@ -7,14 +7,14 @@ export default function TodoPage({
   todos,
   onFormSubmit,
   onListItemClick,
-  newTodo,
+  todoTitle,
   onInputChange,
 }) {
   return (
     <div>
       <h1>To-do</h1>
       <TodoAddForm
-        newTodo={newTodo}
+        todoTitle={todoTitle}
         onSubmit={onFormSubmit}
         onChange={onInputChange}
       />

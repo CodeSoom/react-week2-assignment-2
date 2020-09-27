@@ -4,44 +4,44 @@ import TodoPage from './TodoPage';
 
 export default function App() {
   const [state, setState] = useState({
-    newTodo: '',
+    todoTitle: '',
     todos: [
     ],
   });
 
-  const { newTodo, todos } = state;
+  const { todoTitle, todos } = state;
 
-  const handleTodosAdd = () => {
+  const handleTodoAdd = () => {
     setState({
-      newTodo: '',
+      todoTitle: '',
       todos: [...todos, {
         id: new Date().toISOString(),
-        title: newTodo.trim(),
+        title: todoTitle.trim(),
       }],
     });
   };
 
-  const handleTodosDelete = (id) => {
+  const handleTodoDelete = (id) => {
     setState({
       ...state,
       todos: todos.filter(({ id: todoId }) => todoId !== id),
     });
   };
 
-  const handleNewTodoChange = (source) => {
+  const handleTodoChange = (title) => {
     setState({
       ...state,
-      newTodo: source,
+      todoTitle: title,
     });
   };
 
   return (
     <TodoPage
       todos={todos}
-      onFormSubmit={handleTodosAdd}
-      onListItemClick={handleTodosDelete}
-      newTodo={newTodo}
-      onInputChange={handleNewTodoChange}
+      onFormSubmit={handleTodoAdd}
+      onListItemClick={handleTodoDelete}
+      todoTitle={todoTitle}
+      onInputChange={handleTodoChange}
     />
   );
 }
