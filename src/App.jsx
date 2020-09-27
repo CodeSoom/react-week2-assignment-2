@@ -12,16 +12,25 @@ function App() {
 
   function handleDoneClick(selectedId) {
     const newTodoItems = todoItems.filter((item) => item.id !== selectedId);
-    setState({ ...state, todoItems: newTodoItems });
+    setState({
+      ...state,
+      todoItems: newTodoItems,
+    });
   }
 
   function handleInputSubmit(event) {
     event.preventDefault();
-    setState({ inputValue: '', todoItems: [...todoItems, { todo: inputValue, id: new Date() }] });
+    setState({
+      inputValue: '',
+      todoItems: [...todoItems, { todo: inputValue, id: new Date() }],
+    });
   }
 
   function handleInputChange(event) {
-    setState({ ...state, inputValue: event.target.value });
+    setState({
+      ...state,
+      inputValue: event.target.value,
+    });
   }
 
   return (
