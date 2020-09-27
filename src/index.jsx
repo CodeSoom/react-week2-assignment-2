@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import TodoPage from './TodoPage';
 
-const isEmpty = (text) => text.length === 0;
-
 function App() {
   const [state, setState] = useState({
     todoTitle: '',
@@ -22,7 +20,9 @@ function App() {
   }
 
   function handleClickAdd() {
-    if (isEmpty(todoTitle)) return;
+    if (todoTitle.trim() === '') {
+      return;
+    }
 
     setState({
       todoTitle: '',
@@ -32,7 +32,7 @@ function App() {
 
   function handleClickDelete(id) {
     setState({
-      todoTitle,
+      ...state,
       todoList: todoList.filter((todo) => id !== todo.id),
     });
   }
@@ -42,9 +42,9 @@ function App() {
       <TodoPage
         todoTitle={todoTitle}
         todoList={todoList}
-        handleChangeTitle={handleChangeTitle}
-        handleClickAdd={handleClickAdd}
-        handleClickDelete={handleClickDelete}
+        onChangeTitle={handleChangeTitle}
+        onClickAdd={handleClickAdd}
+        onClickDelete={handleClickDelete}
       />
     </div>
   );

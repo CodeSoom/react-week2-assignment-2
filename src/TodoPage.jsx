@@ -5,21 +5,21 @@ import TodoList from './TodoList';
 function TodoPage({
   todoTitle,
   todoList,
-  handleChangeTitle,
-  handleClickAdd,
-  handleClickDelete,
+  onChangeTitle,
+  onClickAdd,
+  onClickDelete,
 }) {
   return (
     <div>
       <h3>To-Do App</h3>
       <TodoInput
         value={todoTitle}
-        onChangeTitle={handleChangeTitle}
-        onClickAdd={handleClickAdd}
+        onChangeTitle={onChangeTitle}
+        onClickAdd={onClickAdd}
       />
       <TodoList
         todoList={todoList}
-        onClickDelete={handleClickDelete}
+        onClickDelete={onClickDelete}
       />
     </div>
   );
