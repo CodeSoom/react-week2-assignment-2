@@ -19,7 +19,7 @@ const InputBar = () => {
         value={inputValue}
         onChange={onChange}
       />
-      <Button type="submit" onClick={addTodo}>
+      <Button type="submit" onClick={() => addTodo(inputValue)}>
         추가
       </Button>
     </div>

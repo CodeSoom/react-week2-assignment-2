@@ -6,22 +6,21 @@ const TodosProvider = ({ children }) => {
   const [state, setState] = useState(initialTodosState);
   const { todos, inputValue } = state;
 
-  const getTodo = (pId) => [...todos].filter((_, id) => id === pId);
+  const getTodo = (pId) => [...todos].filter((todo) => todo.id === pId);
 
   const getNextId = () => Math.max(...todos.map((todo) => todo.id)) + 1;
 
   const generateId = () => (todos.length === 0 ? 1 : getNextId());
 
-  const addTodo = () => {
-    setState((prevState) => {
-      const newTodo = {
-        id: generateId(),
-        title: prevState.inputValue,
-      };
-      return {
-        todos: [...todos, newTodo],
-        inputValue: '',
-      };
+  const addTodo = (pTitle) => {
+    const newTodo = {
+      id: generateId(),
+      title: pTitle,
+    };
+
+    setState({
+      todos: [...todos, newTodo],
+      inputValue: '',
     });
   };
 

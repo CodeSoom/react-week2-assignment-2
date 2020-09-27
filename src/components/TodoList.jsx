@@ -15,8 +15,8 @@ const TodoList = () => {
       {todos.map((todo) => (
         <Todo
           key={todo.id.toString()}
-          data={todo}
-          handleRemove={() => removeTodo(todo.id)}
+          todo={todo}
+          onClick={() => removeTodo(todo.id)}
         />
       ))}
     </ul>
