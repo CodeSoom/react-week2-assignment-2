@@ -3,10 +3,8 @@ import React from 'react';
 function AddTodo({ todo, onRemove }) {
   return (
     <>
-
       <div>
-        <p>
-          {todo.id}
+        <li>
           {' '}
           {todo.todoTitle}
           <button
@@ -15,7 +13,7 @@ function AddTodo({ todo, onRemove }) {
           >
             완료
           </button>
-        </p>
+        </li>
       </div>
     </>
   );
