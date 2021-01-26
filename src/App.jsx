@@ -8,7 +8,7 @@ export default function App() {
   const [todos, setTodos] = useState([]);
   const [todoId, setTodoId] = useState(0);
 
-  const handleChange = (e) => {
+  const handleChangeInput = (e) => {
     setUserInput(e.target.value);
   };
 
@@ -34,7 +34,7 @@ export default function App() {
       <h1>To-do</h1>
       <TodoInsert
         userInput={userInput}
-        onChange={handleChange}
+        onChange={handleChangeInput}
         onSubmit={handleSubmit}
       />
       {todos.length === 0
