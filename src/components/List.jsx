@@ -1,8 +1,12 @@
 import React from 'react';
 
+import Task from './Task';
+
 function List() {
   return (
-    <ul />
+    <ul>
+      <Task />
+    </ul>
   );
 }
 
