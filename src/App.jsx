@@ -22,8 +22,8 @@ export default function App() {
   };
 
   const handleClickDoneButton = (id) => {
-    setTodos(todos.map((todo) => (
-      todo.id === id ? { ...todo, done: !todo.done } : todo
+    setTodos(todos.filter((todo) => (
+      todo.id !== id
     )));
   };
 
