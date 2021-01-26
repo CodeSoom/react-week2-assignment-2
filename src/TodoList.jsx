@@ -12,7 +12,6 @@ export default function TodoList({ todos, onClick }) {
             key={todo.id}
             id={todo.id}
             text={todo.text}
-            done={todo.done}
             onClick={onClick}
           />
         ))}
