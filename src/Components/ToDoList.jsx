@@ -13,7 +13,7 @@ function ToDoList({ text, list, setToDo }) {
     (todo) => (
       <li key={todo}>
         {todo}
-        <button type="button" name={todo} onClick={deleteItem}>삭제</button>
+        <button type="button" name={todo} onClick={deleteItem}>완료</button>
       </li>
     ),
   );
