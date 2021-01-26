@@ -4,22 +4,28 @@ import ReactDOM from 'react-dom';
 import TodoInput from './todoInput';
 import AddButton from './addButton';
 import NothingToDo from './nothingToDo';
+import List from './list';
 
 function App() {
   const [state, setState] = useState({
-    thing: '',
+    todoInput: '',
+    todoList: [],
   });
+
+  const { todoInput, todoList } = state;
 
   function setInput(e) {
     setState({
-      thing: e.target.value,
+      ...state,
+      todoInput: e.target.value,
     });
   }
 
   function getInput() {
-    const { thing } = state;
-
-    console.log(thing);
+    setState({
+      todoInput: '',
+      todoList: [...todoList, todoInput],
+    });
   }
 
   return (
@@ -28,6 +34,7 @@ function App() {
       <TodoInput onChange={setInput} />
       <AddButton onClick={getInput} />
       <NothingToDo />
+      <List todoList={todoList} />
     </div>
   );
 }
