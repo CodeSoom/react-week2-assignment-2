@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 import TodoInsert from './TodoInsert';
+import TodoList from './TodoList';
 
 export default function App() {
   const [userInput, setUserInput] = useState('');
+  const [todos, setTodos] = useState([]);
 
   const handleChange = (e) => {
     setUserInput(e.target.value);
@@ -11,6 +13,10 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTodos(todos.concat({
+      id: +new Date(),
+      text: userInput,
+    }));
   };
 
   return (
@@ -21,7 +27,7 @@ export default function App() {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-      {userInput}
+      <TodoList todos={todos} />
     </>
   );
 }
