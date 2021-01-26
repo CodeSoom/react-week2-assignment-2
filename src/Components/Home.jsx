@@ -6,13 +6,18 @@ import ToDoList from './ToDoList';
 import './Home.css';
 
 function Home() {
-  const [toDo, setTodo] = useState('');
+  const [toDo, setToDo] = useState({
+    text: '',
+    list: [],
+  });
+
+  const { text, list } = toDo;
 
   return (
     <div>
       <h1 className="title">To-do App</h1>
-      <AddToDo onClick={setTodo} />
-      <ToDoList toDo={toDo} />
+      <AddToDo text={text} list={list} setToDo={setToDo} />
+      <ToDoList list={list} setToDo={setToDo} />
     </div>
   );
 }

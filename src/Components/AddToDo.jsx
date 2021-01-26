@@ -1,20 +1,24 @@
 import React from 'react';
 
-function AddToDo({ onClick }) {
+function AddToDo({ text, list, setToDo }) {
   const handleOnChange = (e) => {
-    console.log(`${e.target.value}: changed`);
-    e.target.name = e.target.value;
-    console.log(`${e.target.name}: name`);
-    onClick(e.target.value);
+    setToDo({
+      text: e.target.value,
+      list: [...list],
+    });
   };
 
-  // const handleAddButton = (e) => {
-  // };
+  const handleAddButton = () => {
+    setToDo({
+      text: '',
+      list: [...list, text],
+    });
+  };
 
   return (
     <p>
-      <input type="text" name="toDo" placeholder="할 일을 입력해 주세요!" onChange={handleOnChange} />
-      <button type="button">
+      <input type="text" value={text} placeholder="할 일을 입력해 주세요!" onChange={handleOnChange} />
+      <button type="button" onClick={handleAddButton}>
         추가
       </button>
     </p>
