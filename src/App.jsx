@@ -6,6 +6,7 @@ import TodoList from './TodoList';
 export default function App() {
   const [userInput, setUserInput] = useState('');
   const [todos, setTodos] = useState([]);
+  const [todoId, setTodoId] = useState(0);
 
   const handleChange = (e) => {
     setUserInput(e.target.value);
@@ -14,11 +15,12 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setTodos(todos.concat({
-      id: +new Date(),
+      id: todoId,
       text: userInput,
       done: false,
     }));
     setUserInput('');
+    setTodoId(todoId + 1);
   };
 
   const handleClickDoneButton = (id) => {
