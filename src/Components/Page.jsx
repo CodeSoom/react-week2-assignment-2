@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import AddToDo from './AddToDo';
 import ToDoList from './ToDoList';
 
-import './Home.css';
+import './Page.css';
 
-function Home() {
+function Page() {
   const [toDo, setToDo] = useState({
     text: '',
     list: [],
@@ -22,4 +22,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Page;
