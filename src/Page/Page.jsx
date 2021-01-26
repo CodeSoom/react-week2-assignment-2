@@ -1,14 +1,13 @@
 import React from 'react';
-import Button from '../commons/Button';
-import Input from '../commons/Input';
+
+import Form from '../commons/Form';
 import List from '../components/List';
 
 function Page() {
   return (
     <div>
       <h1>To-do</h1>
-      <Input />
-      <Button>추가</Button>
+      <Form />
       <List />
     </div>
   );
