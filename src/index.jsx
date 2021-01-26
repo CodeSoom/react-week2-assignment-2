@@ -26,20 +26,20 @@ function Page({ onClick }) {
 }
 
 function App() {
-  const [state, setState] = useState({
-    todo: [{
+  const [state, setState] = useState(
+    [{
       key: 0,
       title: '',
       completed: false,
     }],
-  });
+  );
 
-  const { todoList } = state;
+  const { todo } = state;
 
   function handleSubmit({ title }) {
     setState(
-      ...todoList.todo,
-      { key: todoList.length + 1, title, completed: false },
+      [...todo,
+        { key: todo.length + 1, title, completed: false }],
     );
   }
 
