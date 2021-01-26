@@ -37,14 +37,10 @@ export default function App() {
         onChange={handleChangeInput}
         onSubmit={handleSubmit}
       />
-      {todos.length === 0
-        ? '할 일이 없어요!'
-        : (
-          <TodoList
-            todos={todos}
-            onClick={handleClickDoneButton}
-          />
-        )}
+      <TodoList
+        todos={todos}
+        onClick={handleClickDoneButton}
+      />
     </>
   );
 }
