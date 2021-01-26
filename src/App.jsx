@@ -16,8 +16,15 @@ export default function App() {
     setTodos(todos.concat({
       id: +new Date(),
       text: userInput,
+      done: false,
     }));
     setUserInput('');
+  };
+
+  const handleClickDoneButton = (id) => {
+    setTodos(todos.map((todo) => (
+      todo.id === id ? { ...todo, done: !todo.done } : todo
+    )));
   };
 
   return (
@@ -28,7 +35,14 @@ export default function App() {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-      <TodoList todos={todos} />
+      {todos.length === 0
+        ? '할 일이 없어요!'
+        : (
+          <TodoList
+            todos={todos}
+            onClick={handleClickDoneButton}
+          />
+        )}
     </>
   );
 }
