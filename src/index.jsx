@@ -22,19 +22,33 @@ function App() {
   }
 
   function getInput() {
+    if (todoInput === '') return;
+    if (todoList.includes(todoInput)) return;
+
     setState({
       todoInput: '',
       todoList: [...todoList, todoInput],
     });
   }
 
+  function onClickComplete(index) {
+    setState({
+      ...state,
+      todoList: [...todoList.slice(0, index), ...todoList.slice(index + 1)],
+    });
+  }
+
   return (
     <div>
       <h1>To-do</h1>
-      <TodoInput onChange={setInput} />
+      <TodoInput value={todoInput} onChange={setInput} />
       <AddButton onClick={getInput} />
-      <NothingToDo />
-      <List todoList={todoList} />
+      {todoList.length === 0 ? <NothingToDo /> : (
+        <List
+          todoList={todoList}
+          onClickComplete={onClickComplete}
+        />
+      )}
     </div>
   );
 }

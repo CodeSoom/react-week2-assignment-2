@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default function List({ todoList }) {
+export default function List({ todoList, onClickComplete }) {
   return (
     <ol>
-      {todoList.map((i) => (
-        <li>
+      {todoList.map((i, index) => (
+        <li key={i}>
           {i}
-          <button key={String(i)} type="button">완료</button>
+          <button type="button" onClick={() => onClickComplete(index)}>완료</button>
         </li>
       ))}
     </ol>
