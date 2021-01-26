@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Input() {
+function Input({ onChange }) {
   return (
-    <input type="text" />
+    <input type="text" onChange={onChange} />
   );
 }
 

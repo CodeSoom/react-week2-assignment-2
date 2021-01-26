@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import Button from './Button';
 import Input from './Input';
 
-function Form() {
+function Form({ appendTask }) {
+  const [input, setInput] = useState();
+
+  function updateValue(event) {
+    setInput(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    appendTask({ message: input });
+  }
+
   return (
-    <form>
-      <Input />
-      <Button>추가</Button>
+    <form onSubmit={handleSubmit}>
+      <Input onChange={updateValue} />
+      <button type="submit">추가</button>
     </form>
   );
 }
