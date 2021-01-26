@@ -2,24 +2,49 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) => <li>{number}</li>);
+function Todo({ todoList }) {
+  return (
+    numbers.map((todo) => <li>{todo}</li>)
+  );
+}
 
-function Page({ onClick }) {
+function TodoList({ todoList }) {
+  return (
+    <Todo
+      todoList={todoList}
+    />
+  );
+}
+
+function Button({ onClick }) {
+  return (
+    <button
+      type="submit"
+      onClick={(event) => onClick(event)}
+    >
+      제출
+    </button>
+  );
+}
+
+function Page({ todo, onClick }) {
   return (
     <div>
       <h1>To-do</h1>
-      <input
-        type="text"
-        placeholder="할 일을 입력해 주세요"
-      />
-      <button
-        type="submit"
-        onClick={onClick}
-      >
-        제출
-      </button>
+      <form>
+        <input
+          type="text"
+          placeholder="할 일을 입력해 주세요"
+          value={todo}
+        />
+        <Button
+          onClick={onClick}
+        />
+      </form>
       <ul>
-        {listItems}
+        <TodoList
+          todo={todo}
+        />
       </ul>
     </div>
   );
@@ -34,12 +59,12 @@ function App() {
     }],
   );
 
-  const { todo } = state;
+  const { todoList } = state;
 
-  function handleSubmit({ title }) {
+  function handleSubmit(event) {
     setState(
-      [...todo,
-        { key: todo.length + 1, title, completed: false }],
+      [...todoList,
+        { key: todoList.length + 1, title: event.target.value, completed: false }],
     );
   }
 
