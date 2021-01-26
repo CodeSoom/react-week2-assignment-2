@@ -17,6 +17,7 @@ export default function App() {
       id: +new Date(),
       text: userInput,
     }));
+    setUserInput('');
   };
 
   return (
