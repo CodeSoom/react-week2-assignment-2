@@ -4,7 +4,12 @@ function TodoListItem({ todo, handleDeleteTodo }) {
   return (
     <li>
       <span>{todo.content}</span>
-      <button type="button" onClick={() => handleDeleteTodo(todo.id)}>완료</button>
+      <button
+        type="button"
+        onClick={() => handleDeleteTodo(todo.id)}
+      >
+        완료
+      </button>
     </li>
   );
 }

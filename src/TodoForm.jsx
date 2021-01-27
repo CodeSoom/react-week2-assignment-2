@@ -15,17 +15,22 @@ function TodoForm({ handleAddTodo }) {
     e.preventDefault();
 
     handleAddTodo(value);
+
     clearInput();
   }
 
   return (
     <form onSubmit={onSubmit}>
-      <input type="text" value={value} onChange={handleInput} placeholder="할 일을 입력해 주세요" />
+      <input
+        type="text"
+        value={value}
+        onChange={handleInput}
+        placeholder="할 일을 입력해 주세요"
+      />
       <button
         type="submit"
       >
         추가
-
       </button>
     </form>
   );

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import TodoForm from './TodoForm';
-import TodoList from './TodoList';
+
+import Page from './Page';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -12,8 +12,9 @@ function App() {
       content: todo,
     };
 
-    setTodos((prevTodos) => (
-      [...prevTodos, newTodo]
+    // eslint-disable-next-line no-shadow
+    setTodos((todos) => (
+      [...todos, newTodo]
     ));
 
     nextId.current += 1;
@@ -24,11 +25,7 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>To-do</h1>
-      <TodoForm handleAddTodo={handleAddTodo} />
-      <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
-    </div>
+    <Page todos={todos} handleAddTodo={handleAddTodo} handleDeleteTodo={handleDeleteTodo} />
   );
 }
 
