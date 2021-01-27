@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Task() {
+function Task({ message }) {
   return (
-    <li />
+    <li>{message}</li>
   );
 }
 

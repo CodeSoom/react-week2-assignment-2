@@ -2,10 +2,14 @@ import React from 'react';
 
 import Task from './Task';
 
-function List() {
+function List({ list }) {
   return (
     <ul>
-      <Task />
+      {
+        list.map((task) => (
+          <Task key={task.message} message={task.message} />
+        ))
+      }
     </ul>
   );
 }

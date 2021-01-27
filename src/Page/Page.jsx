@@ -4,7 +4,7 @@ import Form from '../commons/Form';
 import List from '../components/List';
 
 function Page() {
-  const [list, setList] = useState([{ message: '' }]);
+  const [list, setList] = useState([]);
 
   function appendTask(value) {
     setList([...list, value]);
@@ -13,7 +13,7 @@ function Page() {
     <div>
       <h1>To-do</h1>
       <Form appendTask={appendTask} />
-      <List />
+      <List list={list} />
     </div>
   );
 }
