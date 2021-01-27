@@ -5,13 +5,27 @@ import TodoList from './todoList';
 
 export default function app() {
   const [state, setState] = useState({
-    todoList: [
-      { id: 1, contents: '11' },
-      { id: 2, contents: '22' },
-    ],
+    input: '',
+    todoList: [],
   });
 
-  const { todoList } = state;
+  const { todoList, input } = state;
+
+  function handleChange(event) {
+    event.preventDefault();
+    setState({ todoList, input: event.target.value });
+  }
+
+  function handleAdd(contents) {
+    if (!contents) return;
+
+    setState(
+      {
+        todoList: [...todoList, { id: Date.now(), contents }],
+        input: '',
+      },
+    );
+  }
 
   function handleDelete(todoItem) {
     setState({ todoList: todoList.filter((item) => item.id !== todoItem.id) });
@@ -20,7 +34,11 @@ export default function app() {
   return (
     <div>
       <h1>To-do</h1>
-      <AddForm />
+      <AddForm
+        input={input}
+        handleChange={handleChange}
+        handleAdd={handleAdd}
+      />
       <TodoList
         todoList={todoList}
         handleDelete={handleDelete}
