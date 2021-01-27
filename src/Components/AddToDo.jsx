@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AddToDo({ todoText, todoList, setTodo }) {
+function AddTodo({ todoText, todoList, setTodo }) {
   const handleOnChange = (e) => {
     setTodo({
       todoText: e.target.value,
@@ -25,4 +25,4 @@ function AddToDo({ todoText, todoList, setTodo }) {
   );
 }
 
-export default AddToDo;
+export default AddTodo;
