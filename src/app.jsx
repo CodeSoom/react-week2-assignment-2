@@ -10,14 +10,14 @@ export default function App() {
 
   const { todoInput, todoList } = state;
 
-  function setInput(e) {
+  function updateInput(e) {
     setState({
       ...state,
       todoInput: e.target.value,
     });
   }
 
-  function getInput() {
+  function appendTodoList() {
     if (todoInput === '') return;
     if (todoList.includes(todoInput)) return;
 
@@ -36,10 +36,10 @@ export default function App() {
 
   return (
     <Main
-      setInput={setInput}
-      getInput={getInput}
-      todoList={todoList}
+      updateInput={updateInput}
+      appendTodoList={appendTodoList}
       todoInput={todoInput}
+      todoList={todoList}
       onClickComplete={onClickComplete}
     />
   );

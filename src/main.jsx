@@ -1,28 +1,27 @@
 import React from 'react';
 
 import TodoInput from './todoInput';
-import AddButton from './addButton';
-import NothingToDo from './nothingToDo';
-import List from './list';
+import TodoList from './todolist';
 
 export default function Main({
   todoInput,
-  setInput,
-  getInput,
+  updateInput,
+  appendTodoList,
   todoList,
   onClickComplete,
 }) {
   return (
     <div>
       <h1>To-do</h1>
-      <TodoInput value={todoInput} onChange={setInput} />
-      <AddButton onClick={getInput} />
-      {todoList.length === 0 ? <NothingToDo /> : (
-        <List
-          todoList={todoList}
-          onClickComplete={onClickComplete}
-        />
-      )}
+      <TodoInput
+        value={todoInput}
+        onChange={updateInput}
+        onClick={appendTodoList}
+      />
+      <TodoList
+        todoList={todoList}
+        onClickComplete={onClickComplete}
+      />
     </div>
   );
 }
