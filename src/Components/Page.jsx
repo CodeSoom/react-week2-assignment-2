@@ -9,8 +9,8 @@ function Page({ todoText, todoList, setTodo }) {
   return (
     <div>
       <h1 className="title">To-do App</h1>
-      <AddToDo text={todoText} list={todoList} setToDo={setTodo} />
-      <ToDoList list={todoList} setToDo={setTodo} />
+      <AddToDo todoText={todoText} todoList={todoList} setTodo={setTodo} />
+      <ToDoList todoList={todoList} setTodo={setTodo} />
     </div>
   );
 }

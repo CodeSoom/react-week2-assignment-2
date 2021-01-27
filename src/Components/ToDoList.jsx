@@ -1,15 +1,15 @@
 import React from 'react';
 
-function ToDoList({ text, list, setToDo }) {
+function ToDoList({ todoText, todoList, setTodo }) {
   function deleteItem(e) {
-    list.splice(list.indexOf(e.target.name), 1);
-    setToDo({
-      text,
-      list,
+    todoList.splice(todoList.indexOf(e.target.name), 1);
+    setTodo({
+      todoText,
+      todoList,
     });
   }
 
-  const listItems = list.map(
+  const listItems = todoList.map(
     (todo) => (
       <li key={todo}>
         {todo}
@@ -18,6 +18,6 @@ function ToDoList({ text, list, setToDo }) {
     ),
   );
 
-  return (list.length ? (<ol>{listItems}</ol>) : (<p>할 일이 없어요!</p>));
+  return (todoList.length ? (<ol>{listItems}</ol>) : (<p>할 일이 없어요!</p>));
 }
 export default ToDoList;
