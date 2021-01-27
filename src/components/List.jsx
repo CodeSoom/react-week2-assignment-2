@@ -5,13 +5,20 @@ import Task from './Task';
 
 function List({ list, onClick }) {
   return (
-    <ul>
-      {
-        list.map(({ id, message }) => (
-          <Task key={uuid()} id={id} message={message} onClick={onClick} />
-        ))
-      }
-    </ul>
+    <div>
+      { list.length < 1 ? (
+        <p>할 일이 없어요!</p>
+      )
+        : (
+          <ul>
+            {
+              list.map(({ id, message }) => (
+                <Task key={uuid()} id={id} message={message} onClick={onClick} />
+              ))
+            }
+          </ul>
+        )}
+    </div>
   );
 }
 
