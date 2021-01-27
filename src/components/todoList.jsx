@@ -2,16 +2,14 @@ import React from 'react';
 
 import TodoItem from './todoItem';
 
-export default function TodoList() {
+export default function TodoList({ todoList, handleDelete }) {
   return (
     <ol>
-      {[
-        { contents: '할일 1', id: 1 },
-        { contents: '할일 2', id: 2 },
-      ].map((todoItem) => (
+      {todoList.map((todoItem) => (
         <TodoItem
-          todoItem={todoItem}
           key={todoItem.id}
+          todoItem={todoItem}
+          handleDelete={handleDelete}
         />
       ))}
     </ol>
