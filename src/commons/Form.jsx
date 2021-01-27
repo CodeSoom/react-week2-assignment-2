@@ -18,7 +18,7 @@ function Form({ appendTask }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input value={input} onChange={updateValue} />
+      <Input value={input} placholder="할 일을 입력해 주세요" onChange={updateValue} />
       <button type="submit">추가</button>
     </form>
   );
