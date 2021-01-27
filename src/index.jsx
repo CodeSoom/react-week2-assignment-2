@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const numbers = [1, 2, 3, 4, 5];
-function Todo({ todoList }) {
+function Todo({ emptyMsg, todos }) {
   return (
-    numbers.map((todo) => <li>{todo}</li>)
+    todos.map((todo) => <li>{todo || emptyMsg}</li>)
   );
 }
 
-function TodoList({ todoList }) {
+function Todos({ emptyMsg, todoList }) {
   return (
     <Todo
+      emptyMsg={emptyMsg}
       todoList={todoList}
     />
   );
@@ -27,7 +27,7 @@ function Button({ onClick }) {
   );
 }
 
-function Page({ todo, onClick }) {
+function Page({ emptyMsg, todo, onClick }) {
   return (
     <div>
       <h1>To-do</h1>
@@ -41,8 +41,9 @@ function Page({ todo, onClick }) {
           onClick={onClick}
         />
       </form>
-      <ul>
-        <TodoList
+      <ul style={{ listStyleType: 'none' }}>
+        <Todos
+          emptyMsg={emptyMsg}
           todo={todo}
         />
       </ul>
@@ -50,27 +51,34 @@ function Page({ todo, onClick }) {
   );
 }
 
+function update() {
+
+}
+
 function App() {
   const [state, setState] = useState(
     [{
-      key: 0,
-      title: '',
+      key: 1,
+      title: 'title1',
       completed: false,
     }],
   );
 
-  const { todoList } = state;
+  const { todos } = state;
+  const emptyMsg = '할일이 없어요!';
 
   function handleSubmit(event) {
     setState(
-      [...todoList,
-        { key: todoList.length + 1, title: event.target.value, completed: false }],
+      [...todos,
+        { key: todos.length + 1, title: event.target.value, completed: false }],
     );
+    update({ todos });
   }
 
   return (
     <Page
-      todoList={todoList}
+      emptyMsg={emptyMsg}
+      todoList={todos}
       onClick={handleSubmit}
     />
   );
