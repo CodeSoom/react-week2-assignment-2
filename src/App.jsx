@@ -14,11 +14,11 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTodos(todos.concat({
+    setTodos([...todos, {
       id: todoId,
       text: userInput,
       done: false,
-    }));
+    }]);
     setUserInput('');
     setTodoId(todoId + 1);
   };
