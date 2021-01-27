@@ -10,13 +10,13 @@ function List({ list, onClick }) {
         <p>할 일이 없어요!</p>
       )
         : (
-          <ul>
+          <ol>
             {
               list.map(({ id, message }) => (
                 <Task key={uuid()} id={id} message={message} onClick={onClick} />
               ))
             }
-          </ul>
+          </ol>
         )}
     </div>
   );
