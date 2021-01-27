@@ -1,19 +1,13 @@
 import React from 'react';
 
-function ViewTodoList({ todoText, todoList, setTodo }) {
-  function deleteItem(e) {
-    todoList.splice(todoList.indexOf(e.target.name), 1);
-    setTodo({
-      todoText,
-      todoList,
-    });
-  }
+import DeleteTodo from './DeleteTodo';
 
+function ViewTodoList({ todoText, todoList, setTodo }) {
   const listItems = todoList.map(
     (todo) => (
       <li key={todo}>
         {todo}
-        <button type="button" name={todo} onClick={deleteItem}>완료</button>
+        <DeleteTodo todo={todo} todoText={todoText} todoList={todoList} setTodo={setTodo} />
       </li>
     ),
   );
