@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ToDoList({ todoText, todoList, setTodo }) {
+function ViewTodoList({ todoText, todoList, setTodo }) {
   function deleteItem(e) {
     todoList.splice(todoList.indexOf(e.target.name), 1);
     setTodo({
@@ -20,4 +20,4 @@ function ToDoList({ todoText, todoList, setTodo }) {
 
   return (todoList.length ? (<ol>{listItems}</ol>) : (<p>할 일이 없어요!</p>));
 }
-export default ToDoList;
+export default ViewTodoList;
