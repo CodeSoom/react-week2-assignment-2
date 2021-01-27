@@ -1,13 +1,14 @@
 import React from 'react';
+import uuid from 'react-uuid';
 
 import Task from './Task';
 
-function List({ list }) {
+function List({ list, onClick }) {
   return (
     <ul>
       {
-        list.map((task) => (
-          <Task key={task.message} message={task.message} />
+        list.map(({ id, message }) => (
+          <Task key={uuid()} id={id} message={message} onClick={onClick} />
         ))
       }
     </ul>

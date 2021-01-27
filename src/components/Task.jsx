@@ -1,8 +1,12 @@
 import React from 'react';
 
-function Task({ message }) {
+function Task({ id, message, onClick }) {
   return (
-    <li>{message}</li>
+    <li>
+      {message}
+      <button type="button" onClick={() => onClick(id)}>완료</button>
+    </li>
+
   );
 }
 

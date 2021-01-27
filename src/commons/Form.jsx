@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import uuid from 'react-uuid';
 
 import Input from './Input';
 
@@ -11,7 +12,7 @@ function Form({ appendTask }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    appendTask({ message: input });
+    appendTask({ message: input, id: uuid() });
   }
 
   return (
