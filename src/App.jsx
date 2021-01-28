@@ -17,8 +17,8 @@ function App() {
     nextId.current += 1;
   }
 
-  function handleDeleteTodo(deleteTodoId) {
-    setTodos(todos.filter((todo) => todo.id !== deleteTodoId));
+  function handleDeleteTodo(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
   }
 
   return (
