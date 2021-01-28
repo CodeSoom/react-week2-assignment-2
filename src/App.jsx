@@ -33,7 +33,7 @@ export default function App() {
     <>
       <h1>To-do</h1>
       <TodoForm
-        userInput={userForm}
+        userForm={userForm}
         onChange={handleChangeInput}
         onSubmit={handleSubmit}
       />
