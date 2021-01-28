@@ -1,9 +1,5 @@
 const storage = {
   todos: [
-    { key: 1, title: 'title1', completed: false },
-    { key: 2, title: 'title2', completed: false },
-    { key: 3, title: 'title3', completed: false },
-    { key: 4, title: 'title4', completed: false },
   ],
 };
 
@@ -18,20 +14,27 @@ function createLi(todo) {
   return li;
 }
 
+const form = document.getElementById('todo-input');
 const ol = document.getElementById('todo-list');
+const h4 = document.querySelector('h4');
+const emptyMsg = '할일이 없어요!';
 
 function update() {
   ol.textContent = '';
+  h4.textContent = '';
+  if (storage.todos.length === 0) {
+    h4.textContent = emptyMsg;
+  }
   storage.todos.map((todo) => ol.appendChild(createLi(todo)));
 }
 
-const form = document.getElementById('todo-input');
 const input = document.getElementById('todo-input-title');
 
 form.addEventListener('submit', (submitEvent) => {
   submitEvent.preventDefault();
 
   const title = input.value;
+  input.value = '';
   storage.todos = [
     ...storage.todos,
     { key: storage.todos.length + 1, title, complted: false },
