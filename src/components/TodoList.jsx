@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoItem from './todoItem';
+import TodoItem from './TodoItem';
 
 export default function TodoList({ todoList, handleDelete }) {
   return (

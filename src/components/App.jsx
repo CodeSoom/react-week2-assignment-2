@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import AddForm from './addForm';
-import TodoList from './todoList';
+import AddForm from './AddForm';
+import TodoList from './TodoList';
 
 export default function app() {
   const [state, setState] = useState({
