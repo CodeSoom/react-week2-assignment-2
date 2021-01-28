@@ -3,7 +3,7 @@ const storage = {
   ],
 };
 
-function createLi(todo) {
+const createLi = (todo) => {
   const li = document.createElement('li');
   const button = document.createElement('Button');
 
@@ -12,21 +12,21 @@ function createLi(todo) {
   button.textContent = '완료';
   li.appendChild(button);
   return li;
-}
+};
 
 const form = document.getElementById('todo-input');
 const ol = document.getElementById('todo-list');
 const h4 = document.querySelector('h4');
 const emptyMsg = '할일이 없어요!';
 
-function update() {
+const update = () => {
   ol.textContent = '';
   h4.textContent = '';
   if (storage.todos.length === 0) {
     h4.textContent = emptyMsg;
   }
   storage.todos.map((todo) => ol.appendChild(createLi(todo)));
-}
+};
 
 const input = document.getElementById('todo-input-title');
 
