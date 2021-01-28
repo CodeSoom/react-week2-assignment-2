@@ -3,8 +3,8 @@ import React from 'react';
 function DeleteTodo({
   todo, todoText, todoList, setTodo,
 }) {
-  function deleteItem(e) {
-    todoList.splice(todoList.indexOf(e.target.name), 1);
+  function deleteItem(event) {
+    todoList.splice(todoList.indexOf(event.target.name), 1);
     setTodo({
       todoText,
       todoList,

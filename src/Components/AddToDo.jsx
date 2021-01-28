@@ -1,9 +1,9 @@
 import React from 'react';
 
 function AddTodo({ todoText, todoList, setTodo }) {
-  const handleOnChange = (e) => {
+  const handleOnChange = (event) => {
     setTodo({
-      todoText: e.target.value,
+      todoText: event.target.value,
       todoList: [...todoList],
     });
   };
