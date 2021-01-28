@@ -48,12 +48,7 @@ function Page({ todos, onSubmit, onChange }) {
 }
 
 function App() {
-  const [todos, setTodos] = useState([{
-    key: 1, title: 'title1', completed: false,
-  },
-  {
-    key: 2, title: 'title2', completed: false,
-  }]);
+  const [todos, setTodos] = useState([]);
   const [content, setContent] = useState('');
   const handleChange = (event) => {
     setContent(event.target.value);
