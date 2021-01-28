@@ -1,20 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import Page from './Page';
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const nextId = useRef(todos.length + 1);
+  const initialState = [];
+  const [todos, setTodos] = useState(initialState);
 
   function handleAddTodo(todo) {
     const newTodo = {
-      id: nextId.current,
+      id: todos.length + 1,
       content: todo,
     };
 
     setTodos([...todos, newTodo]);
-
-    nextId.current += 1;
   }
 
   function handleDeleteTodo(id) {
