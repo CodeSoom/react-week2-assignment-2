@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import AddInput from './AddInput';
+
 function TodoForm({ handleAddTodo }) {
   const [value, setValue] = useState('');
 
@@ -21,17 +23,7 @@ function TodoForm({ handleAddTodo }) {
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        value={value}
-        onChange={handleInput}
-        placeholder="할 일을 입력해 주세요"
-      />
-      <button
-        type="submit"
-      >
-        추가
-      </button>
+      <AddInput value={value} handleInput={handleInput} />
     </form>
   );
 }
