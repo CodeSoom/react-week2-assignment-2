@@ -1,13 +1,9 @@
 import React from 'react';
 
 export default function AddForm({ input, handleChange, handleAdd }) {
-  function onSubmit(event) {
-    event.preventDefault();
-    handleAdd(input);
-  }
   return (
     <form
-      onSubmit={onSubmit}
+      onSubmit={handleAdd}
     >
       <input
         type="text"

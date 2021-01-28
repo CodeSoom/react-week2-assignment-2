@@ -5,7 +5,7 @@ import TodoItem from './TodoItem';
 export default function TodoList({ todoList, handleDelete }) {
   return (
     <ol>
-      {!!todoList.length && todoList.map((todoItem) => (
+      {todoList.map((todoItem) => (
         <TodoItem
           key={todoItem.id}
           todoItem={todoItem}

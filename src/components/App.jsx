@@ -13,22 +13,30 @@ export default function app() {
 
   function handleChange(event) {
     event.preventDefault();
-    setState({ todoList, input: event.target.value });
+    setState({
+      ...state,
+      input: event.target.value,
+    });
   }
 
-  function handleAdd(contents) {
-    if (!contents) return;
+  function handleAdd(event) {
+    event.preventDefault();
+    if (!input) {
+      return;
+    }
 
-    setState(
-      {
-        todoList: [...todoList, { id: Date.now(), contents }],
-        input: '',
-      },
-    );
+    setState({
+      ...state,
+      todoList: [...todoList, { id: Date.now(), contents: input }],
+      input: '',
+    });
   }
 
   function handleDelete(todoItem) {
-    setState({ todoList: todoList.filter((item) => item.id !== todoItem.id) });
+    setState({
+      ...state,
+      todoList: todoList.filter((item) => item.id !== todoItem.id),
+    });
   }
 
   return (
