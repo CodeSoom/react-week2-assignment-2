@@ -18,5 +18,9 @@ function createLi(todo) {
   return li;
 }
 
-const ol = document.getElementById('todo-list');
-storage.todos.map((todo) => ol.appendChild(createLi(todo)));
+function update() {
+  const ol = document.getElementById('todo-list');
+  storage.todos.map((todo) => ol.appendChild(createLi(todo)));
+}
+
+update();
