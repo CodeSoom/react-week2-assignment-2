@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import TodoInsert from './TodoInsert';
+import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 export default function App() {
@@ -32,7 +32,7 @@ export default function App() {
   return (
     <>
       <h1>To-do</h1>
-      <TodoInsert
+      <TodoForm
         userInput={userInput}
         onChange={handleChangeInput}
         onSubmit={handleSubmit}

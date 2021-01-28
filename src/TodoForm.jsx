@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodoInsert({ userInput, onChange, onSubmit }) {
+export default function TodoForm({ userInput, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
       <input
