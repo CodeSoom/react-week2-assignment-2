@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const TodoList = ({ submitItem }) => {
-  const deleteTodo = (item, idx) => {
-  }
+const TodoList = ({ itemList, setItemList }) => {
+  const deleteTodo = (index) => {
+    setItemList((previousItem) => previousItem.filter((item, idx) => index !== idx));
+  };
 
   return (
     <>
       <div>
-        {submitItem.map((item, index) => (
+        {itemList.length === 0 && <div>할 일이 없어요!</div>}
+        {itemList.map((item, index) => (
           <>
             <div>
-              {index !== 0 ? `${index} . ` : ''}
+              {`${index + 1} . `}
               {item.todo}
-              {() => setList(item.todo, index)}
-              {index !== 0 && <button type="button" onClick={() => deleteTodo(item, index)}>완료</button>}
+              <button type="button" onClick={() => deleteTodo(index)}>완료</button>
             </div>
           </>
         ))}
