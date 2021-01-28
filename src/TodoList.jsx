@@ -13,18 +13,15 @@ export default function TodoList({ todos, onClick }) {
   return (
     <ol>
       {todos
-        .filter((todo) => !todo.done)
-        .map((todo) => {
-          const { id, text } = todo;
-          return (
-            <TodoItem
-              key={id}
-              id={id}
-              text={text}
-              onClick={onClick}
-            />
-          );
-        })}
+        .filter(({ done }) => !done)
+        .map(({ id, text }) => (
+          <TodoItem
+            key={id}
+            id={id}
+            text={text}
+            onClick={onClick}
+          />
+        ))}
     </ol>
   );
 }
