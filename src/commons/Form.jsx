@@ -1,22 +1,9 @@
-import React, { useState } from 'react';
-import uuid from 'react-uuid';
+import React from 'react';
 
-function Form({ appendTask }) {
-  const [input, setInput] = useState('');
-
-  function updateValue(event) {
-    setInput(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    appendTask({ message: input, id: uuid() });
-    setInput('');
-  }
-
+function Form({ updateValue, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
-      <input value={input} placholder="할 일을 입력해 주세요" onChange={updateValue} />
+      <input placholder="할 일을 입력해 주세요" onChange={updateValue} />
       <button type="submit">추가</button>
     </form>
   );
