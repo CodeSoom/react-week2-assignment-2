@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-function Todo({ todos }) {
+function Todo({ todos, onClick }) {
   return (
     todos.map((todo) => (
       <li key={todo.key.toString()}>
         {todo.title}
-        <button type="button">완료</button>
+        <button type="button" onClick={onClick}>완료</button>
       </li>
     ))
   );
 }
 
-function Todos({ todos }) {
+function Todos({ todos, onClick }) {
   return (
-    <Todo todos={todos} />
+    <Todo
+      todos={todos}
+      onClick={onClick}
+    />
   );
 }
 
@@ -28,7 +31,9 @@ function Button() {
   );
 }
 
-function Page({ todos, onSubmit, onChange }) {
+function Page({
+  todos, onSubmit, onChange, onClick,
+}) {
   return (
     <div>
       <h1>To-do</h1>
@@ -41,7 +46,10 @@ function Page({ todos, onSubmit, onChange }) {
         <Button />
       </form>
       <ol>
-        <Todos todos={todos} />
+        <Todos
+          todos={todos}
+          onClick={onClick}
+        />
       </ol>
     </div>
   );
@@ -50,21 +58,36 @@ function Page({ todos, onSubmit, onChange }) {
 function App() {
   const [todos, setTodos] = useState([]);
   const [content, setContent] = useState('');
-  const handleChange = (event) => {
+
+  const saveTitle = (event) => {
     setContent(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const addTodo = (event) => {
     event.preventDefault();
-    setTodos([...todos, { key: todos.length + 1, title: content, completed: false }]);
+    setTodos([...todos, { key: todos.length + 1, title: content }]);
     setContent('');
+  };
+
+  const removeCompletedTodo = (todoKey) => {
+    const incompletedTodos = todos.filter((todo) => todo.key !== todoKey);
+    setTodos(incompletedTodos);
+    return (
+      <Page
+        todos={todos}
+        onChange={saveTitle}
+        onSubmit={addTodo}
+        onClick={removeCompletedTodo}
+      />
+    );
   };
 
   return (
     <Page
       todos={todos}
-      onChange={handleChange}
-      onSubmit={handleSubmit}
+      onChange={saveTitle}
+      onSubmit={addTodo}
+      onClick={removeCompletedTodo}
     />
   );
 }
