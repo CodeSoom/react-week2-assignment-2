@@ -31,6 +31,13 @@ function Button() {
   );
 }
 
+function EmptyTodo({ todos }) {
+  if (todos.length === 0) {
+    return (<h5>할 일이 없어요!</h5>);
+  }
+  return '';
+}
+
 function Page({
   todos, onSubmit, onChange, onClick,
 }) {
@@ -45,6 +52,7 @@ function Page({
         />
         <Button />
       </form>
+      <EmptyTodo todos={todos} />
       <ol>
         <Todos
           todos={todos}
