@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
 
-import Input from './Input';
-
 function Form({ appendTask }) {
   const [input, setInput] = useState('');
 
@@ -18,7 +16,7 @@ function Form({ appendTask }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input value={input} placholder="할 일을 입력해 주세요" onChange={updateValue} />
+      <input value={input} placholder="할 일을 입력해 주세요" onChange={updateValue} />
       <button type="submit">추가</button>
     </form>
   );
