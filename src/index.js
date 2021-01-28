@@ -18,9 +18,26 @@ function createLi(todo) {
   return li;
 }
 
+const ol = document.getElementById('todo-list');
+
 function update() {
-  const ol = document.getElementById('todo-list');
+  ol.textContent = '';
   storage.todos.map((todo) => ol.appendChild(createLi(todo)));
 }
+
+const form = document.getElementById('todo-input');
+const input = document.getElementById('todo-input-title');
+
+form.addEventListener('submit', (submitEvent) => {
+  submitEvent.preventDefault();
+
+  const title = input.value;
+  storage.todos = [
+    ...storage.todos,
+    { key: storage.todos.length + 1, title, complted: false },
+  ];
+
+  update();
+});
 
 update();
