@@ -25,7 +25,7 @@ function ToDo() {
   return (
     <div>
       <h1>To-do</h1>
-      <Form updateValue={updateValue} handleSubmit={handleSubmit} />
+      <Form value={input} updateValue={updateValue} handleSubmit={handleSubmit} />
       <List list={list} onClick={detachTask} />
     </div>
   );
