@@ -14,39 +14,34 @@ function Todo({ todos }) {
 
 function Todos({ todos }) {
   return (
-    <Todo
-      todos={todos}
-    />
+    <Todo todos={todos} />
   );
 }
 
-function Button({ onClick }) {
+function Button() {
   return (
     <button
       type="submit"
-      onClick={onClick}
     >
       추가
     </button>
   );
 }
 
-function Page({ todos, onClick }) {
+function Page({ todos, onSubmit, onChange }) {
   return (
     <div>
       <h1>To-do</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <input
           type="text"
           placeholder="할 일을 입력해 주세요"
-          // value={todos}
+          onChange={onChange}
         />
-        <Button onClick={onClick} />
+        <Button />
       </form>
       <ol>
-        <Todos
-          todos={todos}
-        />
+        <Todos todos={todos} />
       </ol>
     </div>
   );
@@ -54,20 +49,27 @@ function Page({ todos, onClick }) {
 
 function App() {
   const [todos, setTodos] = useState([{
-    key: 1, title: 'title1',
+    key: 1, title: 'title1', completed: false,
   },
   {
-    key: 2, title: 'title2',
+    key: 2, title: 'title2', completed: false,
   }]);
+  const [content, setContent] = useState('');
+  const handleChange = (event) => {
+    setContent(event.target.value);
+  };
 
-  function handleSubmit() {
-    setTodos([...todos, { key: todos.length + 1, title: 'title3' }]);
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setTodos([...todos, { key: todos.length + 1, title: content, completed: false }]);
+    setContent('');
+  };
 
   return (
     <Page
       todos={todos}
-      onClick={handleSubmit}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
     />
   );
 }
