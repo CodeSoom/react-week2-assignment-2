@@ -6,7 +6,7 @@ import Task from './Task';
 function List({ list, onClick }) {
   return (
     <div>
-      { list?.length === 0 ? (
+      { list.length === 0 ? (
         <p>할 일이 없어요!</p>
       )
         : (
