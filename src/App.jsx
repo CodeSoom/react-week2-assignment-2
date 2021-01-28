@@ -12,16 +12,13 @@ function App() {
       content: todo,
     };
 
-    // eslint-disable-next-line no-shadow
-    setTodos((todos) => (
-      [...todos, newTodo]
-    ));
+    setTodos([...todos, newTodo]);
 
     nextId.current += 1;
   }
 
   function handleDeleteTodo(deleteTodoId) {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== deleteTodoId));
+    setTodos(todos.filter((todo) => todo.id !== deleteTodoId));
   }
 
   return (
