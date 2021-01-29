@@ -6,9 +6,10 @@ function ToDoPresenter({
   todoState,
 }) {
   const {
-    taskInput, taskLists, handleTaskInputChange, handleTaskFormSubmit, handleClickComplete,
+    taskState, handleTaskInputChange, handleTaskFormSubmit, handleClickComplete,
   } = todoState;
 
+  const { taskInput, taskLists } = taskState;
   return (
     <div>
       <h1>To-do</h1>

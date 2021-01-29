@@ -4,26 +4,41 @@ import uuid from 'react-uuid';
 import ToDoWrapper from './ToDoPresenter';
 
 function ToDo() {
-  const [taskLists, setTaskList] = useState([]);
-  const [taskInput, setTaskInput] = useState('');
+  const [taskState, setTaskState] = useState({
+    taskInput: '',
+    taskLists: [],
+  });
+
+  const { taskLists, taskInput } = taskState;
 
   function handleTaskInputChange(event) {
-    setTaskInput(event.target.value);
+    setTaskState({
+      ...taskState,
+      taskInput: event.target.value,
+    });
   }
 
   function handleTaskFormSubmit(event) {
     event.preventDefault();
-    setTaskList([...taskLists, { message: taskInput, id: uuid() }]);
-    setTaskInput('');
+    setTaskState(
+      {
+        taskInput: '',
+        taskLists: [...taskLists, { message: taskInput, id: uuid() }],
+      },
+    );
   }
 
   function handleClickComplete(id) {
-    setTaskList(taskLists.filter((task) => task.id !== id));
+    setTaskState(
+      {
+        ...taskState,
+        taskLists: taskLists.filter((task) => task.id !== id),
+      },
+    );
   }
 
   const todoState = {
-    taskInput,
-    taskLists,
+    taskState,
     handleTaskInputChange,
     handleTaskFormSubmit,
     handleClickComplete,
