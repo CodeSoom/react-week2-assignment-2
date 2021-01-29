@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
 
-import ToDoWrapper from './ToDoPresenter';
+import ToDoPresenter from './ToDoPresenter';
 
 function ToDo() {
   const [taskState, setTaskState] = useState({
@@ -45,7 +45,7 @@ function ToDo() {
   };
 
   return (
-    <ToDoWrapper todoState={todoState} />
+    <ToDoPresenter todoState={todoState} />
   );
 }
 
