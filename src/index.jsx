@@ -58,35 +58,37 @@ function Page({
         todos={todos}
         onClick={onClick}
       />
-
     </div>
   );
 }
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [content, setContent] = useState('');
+  const [state, setState] = useState({
+    todos: [],
+    input: '',
+  });
+
+  const { todos, input } = state;
   const handleChange = (event) => {
-    setContent(event.target.value);
+    const title = event.target.value;
+    setState({ todos, input: title });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTodos([...todos, { id: todos.length + 1, title: content }]);
-    setContent('');
+    setState({ todos: [...todos, { id: todos.length + 1, title: input }], input });
   };
 
   const handleClick = (todoId) => {
     const incompletedTodos = todos.filter((todo) => (todo.id !== todoId));
-    setTodos(incompletedTodos);
+    setState({ todos: incompletedTodos }, input);
   };
 
   return (
     <Page
       todos={todos}
-      title={content}
+      title={input}
       onChange={handleChange}
-      // onSubmit={handleSubmit}
       onClickAddTodo={handleSubmit}
       onClick={handleClick}
     />
