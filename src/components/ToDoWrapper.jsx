@@ -15,10 +15,10 @@ function ToDoWrapper({
       <h1>To-do</h1>
       <TaskForm
         taskInput={taskInput}
-        onChange={handleTaskInputChange}
-        onFormSubmit={handleTaskFormSubmit}
+        onTaskInputChange={handleTaskInputChange}
+        onTaskFormSubmit={handleTaskFormSubmit}
       />
-      <TaskList taskLists={taskLists} onClick={handleCompleteButton} />
+      <TaskList taskLists={taskLists} onCompleteButton={handleCompleteButton} />
     </div>
   );
 }

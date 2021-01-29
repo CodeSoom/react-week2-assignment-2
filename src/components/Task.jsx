@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Task({ id, message, onClick }) {
+function Task({ id, message, onCompleteButton }) {
   return (
     <li>
       {message}
-      <button type="button" onClick={() => onClick(id)}>완료</button>
+      <button type="button" onClick={() => onCompleteButton(id)}>완료</button>
     </li>
 
   );
