@@ -4,22 +4,22 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 export default function App() {
-  const [userForm, setUserForm] = useState('');
+  const [userText, setUserText] = useState('');
   const [todos, setTodos] = useState([]);
   const [todoId, setTodoId] = useState(0);
 
   const handleChangeInput = (e) => {
-    setUserForm(e.target.value);
+    setUserText(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setTodos([...todos, {
       id: todoId,
-      text: userForm,
+      text: userText,
       done: false,
     }]);
-    setUserForm('');
+    setUserText('');
     setTodoId(todoId + 1);
   };
 
@@ -33,7 +33,7 @@ export default function App() {
     <>
       <h1>To-do</h1>
       <TodoForm
-        userForm={userForm}
+        userText={userText}
         onChange={handleChangeInput}
         onSubmit={handleSubmit}
       />
