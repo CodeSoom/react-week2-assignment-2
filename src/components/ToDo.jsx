@@ -5,16 +5,16 @@ import ToDoWrapper from './ToDoWrapper';
 
 function ToDo() {
   const [taskLists, setTaskList] = useState([]);
-  const [input, setInput] = useState('');
+  const [taskInput, setTaskInput] = useState('');
 
   function handleTaskInputChange(event) {
-    setInput(event.target.value);
+    setTaskInput(event.target.value);
   }
 
   function handleTaskFormSubmit(event) {
     event.preventDefault();
-    setTaskList([...taskLists, { message: input, id: uuid() }]);
-    setInput('');
+    setTaskList([...taskLists, { message: taskInput, id: uuid() }]);
+    setTaskInput('');
   }
 
   function handleCompleteButton(id) {
@@ -22,7 +22,7 @@ function ToDo() {
   }
 
   const todoState = {
-    input,
+    taskInput,
     taskLists,
     handleTaskInputChange,
     handleTaskFormSubmit,

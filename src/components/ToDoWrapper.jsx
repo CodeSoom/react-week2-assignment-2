@@ -7,14 +7,14 @@ function ToDoWrapper({
   todoState,
 }) {
   const {
-    input, taskLists, handleTaskInputChange, handleTaskFormSubmit, handleCompleteButton,
+    taskInput, taskLists, handleTaskInputChange, handleTaskFormSubmit, handleCompleteButton,
   } = todoState;
 
   return (
     <div>
       <h1>To-do</h1>
       <TaskForm
-        value={input}
+        taskInput={taskInput}
         onChange={handleTaskInputChange}
         onFormSubmit={handleTaskFormSubmit}
       />
