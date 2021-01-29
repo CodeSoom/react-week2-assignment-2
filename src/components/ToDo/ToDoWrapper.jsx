@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TaskForm, TaskList } from './Tasks';
+import { TaskForm, TaskList } from '../Tasks';
 
 function ToDoWrapper({
   todoState,
