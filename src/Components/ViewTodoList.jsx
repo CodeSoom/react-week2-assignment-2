@@ -4,12 +4,7 @@ import DeleteTodo from './DeleteTodo';
 
 function ViewTodoList({ todoList, deleteButton }) {
   const listItems = todoList.map(
-    (todo) => (
-      <li key={todo}>
-        {todo}
-        <DeleteTodo todo={todo} deleteButton={deleteButton} />
-      </li>
-    ),
+    (todo) => <DeleteTodo key={todo} todo={todo} deleteButton={deleteButton} />,
   );
 
   return (todoList.length ? (<ol>{listItems}</ol>) : (<p>할 일이 없어요!</p>));
