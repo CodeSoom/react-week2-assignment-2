@@ -4,7 +4,7 @@ import uuid from 'react-uuid';
 import ToDoWrapper from './ToDoWrapper';
 
 function ToDo() {
-  const [list, setList] = useState([]);
+  const [taskLists, setTaskList] = useState([]);
   const [input, setInput] = useState('');
 
   function handleTaskInputChange(event) {
@@ -13,17 +13,17 @@ function ToDo() {
 
   function handleTaskFormSubmit(event) {
     event.preventDefault();
-    setList([...list, { message: input, id: uuid() }]);
+    setTaskList([...taskLists, { message: input, id: uuid() }]);
     setInput('');
   }
 
   function handleCompleteButton(id) {
-    setList(list.filter((task) => task.id !== id));
+    setTaskList(taskLists.filter((task) => task.id !== id));
   }
 
   const todoState = {
     input,
-    list,
+    taskLists,
     handleTaskInputChange,
     handleTaskFormSubmit,
     handleCompleteButton,

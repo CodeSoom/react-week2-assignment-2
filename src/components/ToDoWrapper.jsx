@@ -7,7 +7,7 @@ function ToDoWrapper({
   todoState,
 }) {
   const {
-    input, list, handleTaskInputChange, handleTaskFormSubmit, handleCompleteButton,
+    input, taskLists, handleTaskInputChange, handleTaskFormSubmit, handleCompleteButton,
   } = todoState;
 
   return (
@@ -18,7 +18,7 @@ function ToDoWrapper({
         onChange={handleTaskInputChange}
         onFormSubmit={handleTaskFormSubmit}
       />
-      <TaskList list={list} onClick={handleCompleteButton} />
+      <TaskList taskLists={taskLists} onClick={handleCompleteButton} />
     </div>
   );
 }
