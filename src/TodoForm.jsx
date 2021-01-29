@@ -9,8 +9,8 @@ function TodoForm({ handleAddTodo }) {
 
   const [value, setValue] = useState('');
 
-  function handleInput(e) {
-    setValue(e.target.value);
+  function handleInput(event) {
+    setValue(event.target.value);
   }
 
   function clearInput() {
