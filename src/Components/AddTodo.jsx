@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoAdd({ todoText, textChange, addButton }) {
+function AddTodo({ todoText, textChange, addButton }) {
   return (
     <p>
       <input type="text" value={todoText} placeholder="할 일을 입력해 주세요!" onChange={textChange} />
@@ -11,4 +11,4 @@ function TodoAdd({ todoText, textChange, addButton }) {
   );
 }
 
-export default TodoAdd;
+export default AddTodo;
