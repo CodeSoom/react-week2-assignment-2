@@ -47,10 +47,10 @@ function Page({
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
+        value={title}
         onChange={onChange}
       />
       <Button
-        title={title}
         onClickAddTodo={onClickAddTodo}
       />
 
@@ -76,7 +76,7 @@ function App() {
 
   const handleClickAddTodo = (event) => {
     event.preventDefault();
-    setState({ todos: [...todos, { id: todos.length + 1, title: input }], input });
+    setState({ todos: [...todos, { id: todos.length + 1, title: input }], input: '' });
   };
 
   const handleClickCompleted = (todoId) => {
