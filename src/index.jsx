@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-function Button() {
+function Button({ onClickAddTodo }) {
   return (
     <button
       type="submit"
+      onClick={onClickAddTodo}
     >
       추가
     </button>
@@ -37,19 +38,21 @@ function Todos({ todos, onClick }) {
 }
 
 function Page({
-  todos, onSubmit, onChange, onClick,
+  todos, onClickAddTodo, onChange, onClick, title,
 }) {
   return (
     <div>
       <h1>To-do</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="할 일을 입력해 주세요"
-          onChange={onChange}
-        />
-        <Button />
-      </form>
+
+      <input
+        type="text"
+        placeholder="할 일을 입력해 주세요"
+        onChange={onChange}
+      />
+      <Button
+        title={title}
+        onClickAddTodo={onClickAddTodo}
+      />
 
       <Todos
         todos={todos}
@@ -81,8 +84,10 @@ function App() {
   return (
     <Page
       todos={todos}
+      title={content}
       onChange={handleChange}
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
+      onClickAddTodo={handleSubmit}
       onClick={handleClick}
     />
   );
