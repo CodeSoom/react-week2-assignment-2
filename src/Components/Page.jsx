@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddTodo from './AddTodo';
+import TodoAdd from './TodoAdd';
 import ViewTodoList from './ViewTodoList';
 
 import './Page.css';
@@ -11,7 +11,7 @@ function Page({
   return (
     <div>
       <h1 className="title">To-do App</h1>
-      <AddTodo
+      <TodoAdd
         todoText={todoText}
         textChange={textChange}
         addButton={addButton}
