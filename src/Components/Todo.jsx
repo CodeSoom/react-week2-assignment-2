@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Item({
+function Todo({
   value, deleteButton,
 }) {
   return (
@@ -11,4 +11,4 @@ function Item({
   );
 }
 
-export default Item;
+export default Todo;

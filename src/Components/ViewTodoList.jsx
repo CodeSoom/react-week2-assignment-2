@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Item from './Item';
+import Todo from './Todo';
 
 function ViewTodoList({ todos, deleteButton }) {
   const todoList = todos.map(
-    (todo) => <Item key={todo} value={todo} deleteButton={deleteButton} />,
+    (item) => <Todo key={item} value={item} deleteButton={deleteButton} />,
   );
 
   return (todos.length ? (<ol>{todoList}</ol>) : (<p>할 일이 없어요!</p>));
