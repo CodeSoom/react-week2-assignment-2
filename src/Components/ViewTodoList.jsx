@@ -1,10 +1,10 @@
 import React from 'react';
 
-import DeleteTodo from './DeleteTodo';
+import Item from './Item';
 
 function ViewTodoList({ todoList, deleteButton }) {
   const listItems = todoList.map(
-    (todo) => <DeleteTodo key={todo} value={todo} deleteButton={deleteButton} />,
+    (todo) => <Item key={todo} value={todo} deleteButton={deleteButton} />,
   );
 
   return (todoList.length ? (<ol>{listItems}</ol>) : (<p>할 일이 없어요!</p>));

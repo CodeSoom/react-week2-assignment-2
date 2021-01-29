@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DeleteTodo({
+function Item({
   value, deleteButton,
 }) {
   return (
@@ -11,4 +11,4 @@ function DeleteTodo({
   );
 }
 
-export default DeleteTodo;
+export default Item;
