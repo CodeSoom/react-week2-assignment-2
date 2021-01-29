@@ -4,17 +4,17 @@ import Form from '../commons/Form';
 import List from './List';
 
 function ToDoWrapper({
-  state,
+  todoState,
 }) {
   const {
-    input, list, updateValue, handleSubmit, detachTask,
-  } = state;
+    input, list, handleTaskInputChange, handleTaskFormSubmit, handleCompleteButton,
+  } = todoState;
 
   return (
     <div>
       <h1>To-do</h1>
-      <Form value={input} updateValue={updateValue} handleSubmit={handleSubmit} />
-      <List list={list} onClick={detachTask} />
+      <Form value={input} onChange={handleTaskInputChange} onFormSubmit={handleTaskFormSubmit} />
+      <List list={list} onClick={handleCompleteButton} />
     </div>
   );
 }

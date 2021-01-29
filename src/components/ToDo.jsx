@@ -7,30 +7,30 @@ function ToDo() {
   const [list, setList] = useState([]);
   const [input, setInput] = useState('');
 
-  function updateValue(event) {
+  function handleTaskInputChange(event) {
     setInput(event.target.value);
   }
 
-  function handleSubmit(event) {
+  function handleTaskFormSubmit(event) {
     event.preventDefault();
     setList([...list, { message: input, id: uuid() }]);
     setInput('');
   }
 
-  function detachTask(id) {
+  function handleCompleteButton(id) {
     setList(list.filter((task) => task.id !== id));
   }
 
-  const state = {
+  const todoState = {
     input,
     list,
-    updateValue,
-    handleSubmit,
-    detachTask,
+    handleTaskInputChange,
+    handleTaskFormSubmit,
+    handleCompleteButton,
   };
 
   return (
-    <ToDoWrapper state={state} />
+    <ToDoWrapper todoState={todoState} />
   );
 }
 
