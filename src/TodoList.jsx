@@ -13,7 +13,7 @@ function TodoList({ todos, handleDeleteTodo }) {
         <TodoListItem
           key={todo.id}
           todo={todo}
-          handleDeleteTodo={handleDeleteTodo}
+          handleDeleteTodo={() => handleDeleteTodo(todo.id)}
         />
       ))}
     </ol>
