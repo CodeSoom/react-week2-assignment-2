@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default function Task({ element, index, onClickComplete }) {
+export default function Task({ element, onClickComplete }) {
   return (
     <li>
       {element}
       <button
         type="button"
-        onClick={() => onClickComplete(index)}
+        onClick={onClickComplete}
       >
         완료
       </button>
