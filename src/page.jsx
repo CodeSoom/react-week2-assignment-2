@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Input from './input'
-import AddButton from './AddButton'
+import AddButton from './addButton'
 import CompleteButton from './completeButton'
 
 export default function Page({ inputText, onChange, addClick, todo, clickComplete }){
