@@ -12,20 +12,11 @@ function Button({ onClickAddTodo }) {
   );
 }
 
-function CompletedButton({ id, onClick }) {
-  return (
-    <button type="button" onClick={() => onClick(id)}>완료</button>
-  );
-}
-
 function Todo({ title, id, onClick }) {
   return (
     <li key={id.toString()}>
       {title}
-      <CompletedButton
-        id={id}
-        onClick={onClick}
-      />
+      <button type="button" onClick={() => onClick(id)}>완료</button>
     </li>
   );
 }
