@@ -18,6 +18,18 @@ function CompletedButton({ id, onClick }) {
   );
 }
 
+function Todo({ title, id, onClick }) {
+  return (
+    <li key={id.toString()}>
+      {title}
+      <CompletedButton
+        id={id}
+        onClick={onClick}
+      />
+    </li>
+  );
+}
+
 function Todos({ todos, onClick }) {
   if (todos.length === 0) {
     return (<h5>할 일이 없어요!</h5>);
@@ -25,13 +37,12 @@ function Todos({ todos, onClick }) {
   return (
     <ol>
       {todos.map((todo) => (
-        <li key={todo.id.toString()}>
-          {todo.title}
-          <CompletedButton
-            id={todo.id}
-            onClick={onClick}
-          />
-        </li>
+        <Todo
+          key={todo.id.toString()}
+          title={todo.title}
+          id={todo.id}
+          onClick={onClick}
+        />
       ))}
     </ol>
   );
