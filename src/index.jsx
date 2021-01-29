@@ -1,26 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-function Todo({ todos, onClick }) {
-  return (
-    todos.map((todo) => (
-      <li key={todo.key.toString()}>
-        {todo.title}
-        <button type="button" onClick={onClick}>완료</button>
-      </li>
-    ))
-  );
-}
-
-function Todos({ todos, onClick }) {
-  return (
-    <Todo
-      todos={todos}
-      onClick={onClick}
-    />
-  );
-}
-
 function Button() {
   return (
     <button
@@ -31,11 +11,20 @@ function Button() {
   );
 }
 
-function EmptyTodo({ todos }) {
+function Todos({ todos, onClick }) {
   if (todos.length === 0) {
     return (<h5>할 일이 없어요!</h5>);
   }
-  return '';
+  return (
+    <ol>
+      {todos.map((todo) => (
+        <li key={todo.key.toString()}>
+          {todo.title}
+          <button type="button" onClick={onClick}>완료</button>
+        </li>
+      ))}
+    </ol>
+  );
 }
 
 function Page({
@@ -52,13 +41,12 @@ function Page({
         />
         <Button />
       </form>
-      <EmptyTodo todos={todos} />
-      <ol>
-        <Todos
-          todos={todos}
-          onClick={onClick}
-        />
-      </ol>
+
+      <Todos
+        todos={todos}
+        onClick={onClick}
+      />
+
     </div>
   );
 }
@@ -66,7 +54,10 @@ function Page({
 function App() {
   const [todos, setTodos] = useState([]);
   const [content, setContent] = useState('');
-
+  // const [state, setState] = useState({
+  //   input: '',
+  //   todos: [],fd
+  // });
   const saveTitle = (event) => {
     setContent(event.target.value);
   };
@@ -80,14 +71,6 @@ function App() {
   const removeCompletedTodo = (todoKey) => {
     const incompletedTodos = todos.filter((todo) => todo.key !== todoKey);
     setTodos(incompletedTodos);
-    return (
-      <Page
-        todos={todos}
-        onChange={saveTitle}
-        onSubmit={addTodo}
-        onClick={removeCompletedTodo}
-      />
-    );
   };
 
   return (
