@@ -11,6 +11,12 @@ function Button() {
   );
 }
 
+function CompletedButton({ id, onClick }) {
+  return (
+    <button type="button" onClick={() => onClick(id)}>완료</button>
+  );
+}
+
 function Todos({ todos, onClick }) {
   if (todos.length === 0) {
     return (<h5>할 일이 없어요!</h5>);
@@ -18,9 +24,12 @@ function Todos({ todos, onClick }) {
   return (
     <ol>
       {todos.map((todo) => (
-        <li key={todo.key.toString()}>
+        <li key={todo.id.toString()}>
           {todo.title}
-          <button type="button" onClick={onClick}>완료</button>
+          <CompletedButton
+            id={todo.id}
+            onClick={onClick}
+          />
         </li>
       ))}
     </ol>
@@ -54,31 +63,27 @@ function Page({
 function App() {
   const [todos, setTodos] = useState([]);
   const [content, setContent] = useState('');
-  // const [state, setState] = useState({
-  //   input: '',
-  //   todos: [],fd
-  // });
-  const saveTitle = (event) => {
+  const handleChange = (event) => {
     setContent(event.target.value);
   };
 
-  const addTodo = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    setTodos([...todos, { key: todos.length + 1, title: content }]);
+    setTodos([...todos, { id: todos.length + 1, title: content }]);
     setContent('');
   };
 
-  const removeCompletedTodo = (todoKey) => {
-    const incompletedTodos = todos.filter((todo) => todo.key !== todoKey);
+  const handleClick = (todoId) => {
+    const incompletedTodos = todos.filter((todo) => (todo.id !== todoId));
     setTodos(incompletedTodos);
   };
 
   return (
     <Page
       todos={todos}
-      onChange={saveTitle}
-      onSubmit={addTodo}
-      onClick={removeCompletedTodo}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
+      onClick={handleClick}
     />
   );
 }
