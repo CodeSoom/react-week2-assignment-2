@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from '../commons/Form';
+import TaskForm from '../commons/TaskForm';
 import List from './List';
 
 function ToDoWrapper({
@@ -13,7 +13,11 @@ function ToDoWrapper({
   return (
     <div>
       <h1>To-do</h1>
-      <Form value={input} onChange={handleTaskInputChange} onFormSubmit={handleTaskFormSubmit} />
+      <TaskForm
+        value={input}
+        onChange={handleTaskInputChange}
+        onFormSubmit={handleTaskFormSubmit}
+      />
       <List list={list} onClick={handleCompleteButton} />
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Form({ value, onChange, onFormSubmit }) {
+function TaskForm({ value, onChange, onFormSubmit }) {
   return (
     <form onSubmit={onFormSubmit}>
       <input value={value} placholder="할 일을 입력해 주세요" onChange={onChange} />
@@ -9,4 +9,4 @@ function Form({ value, onChange, onFormSubmit }) {
   );
 }
 
-export default Form;
+export default TaskForm;
