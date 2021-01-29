@@ -1,12 +1,12 @@
 import React from 'react';
 
-function TodoListItem({ todo: { id, content }, handleDeleteTodo }) {
+function TodoListItem({ todo: { content }, handleDeleteTodo }) {
   return (
     <li>
       <span>{content}</span>
       <button
         type="button"
-        onClick={() => handleDeleteTodo(id)}
+        onClick={handleDeleteTodo}
       >
         완료
       </button>

@@ -2,12 +2,16 @@ import React from 'react';
 
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import TodoTemplete from './TodoTemplete';
 
-function Page({ todos, handleAddTodo, handleDeleteTodo }) {
+function Page({
+  todos, templetes, templete, handleAddTodo, handleDeleteTodo, onClickTemplte,
+}) {
   return (
     <div>
       <h1>To-do</h1>
-      <TodoForm handleAddTodo={handleAddTodo} />
+      <TodoTemplete templetes={templetes} onClickTemplte={onClickTemplte} />
+      <TodoForm handleAddTodo={handleAddTodo} templete={templete} />
       <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
     </div>
   );
