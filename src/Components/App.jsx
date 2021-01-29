@@ -5,37 +5,37 @@ import Page from './Page';
 function App() {
   const [todo, setTodo] = useState({
     todoText: '',
-    todoList: [],
+    todos: [],
   });
 
-  const { todoText, todoList } = todo;
+  const { todoText, todos } = todo;
 
   const handleTextChange = (event) => {
     setTodo({
       todoText: event.target.value,
-      todoList: [...todoList],
+      todos: [...todos],
     });
   };
 
   const handleAddButton = () => {
     setTodo({
       todoText: '',
-      todoList: [...todoList, todoText],
+      todos: [...todos, todoText],
     });
   };
 
   function handleDeleteButton(event) {
-    todoList.splice(todoList.indexOf(event.target.name), 1);
+    todos.splice(todos.indexOf(event.target.name), 1);
     setTodo({
       todoText,
-      todoList,
+      todos,
     });
   }
 
   return (
     <Page
       todoText={todoText}
-      todoList={todoList}
+      todos={todos}
       textChange={handleTextChange}
       addButton={handleAddButton}
       deleteButton={handleDeleteButton}
