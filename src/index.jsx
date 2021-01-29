@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-function Button({ onClickAddTodo }) {
+function AddButton({ onClickAddTodo }) {
   return (
     <button
       type="submit"
@@ -52,7 +52,7 @@ function Page({
         value={title}
         onChange={onChange}
       />
-      <Button
+      <AddButton
         onClickAddTodo={onClickAddTodo}
       />
 
@@ -71,9 +71,10 @@ function App() {
   });
 
   const { todos, input } = state;
+
   const handleChangeInput = (event) => {
-    const title = event.target.value;
-    setState({ todos, input: title });
+    const currentInput = event.target.value;
+    setState({ todos, input: currentInput });
   };
 
   const handleClickAddTodo = (event) => {
