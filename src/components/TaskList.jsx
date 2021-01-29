@@ -3,7 +3,7 @@ import uuid from 'react-uuid';
 
 import Task from './Task';
 
-function TaskList({ taskLists, onCompleteButton }) {
+function TaskList({ taskLists, onClickComplete }) {
   return (
     <div>
       { taskLists.length === 0 ? (
@@ -13,7 +13,7 @@ function TaskList({ taskLists, onCompleteButton }) {
           <ol>
             {
               taskLists.map(({ id, message }) => (
-                <Task key={uuid()} id={id} message={message} onCompleteButton={onCompleteButton} />
+                <Task key={uuid()} id={id} message={message} onClickComplete={onClickComplete} />
               ))
             }
           </ol>

@@ -17,7 +17,7 @@ function ToDo() {
     setTaskInput('');
   }
 
-  function handleCompleteButton(id) {
+  function handleClickComplete(id) {
     setTaskList(taskLists.filter((task) => task.id !== id));
   }
 
@@ -26,7 +26,7 @@ function ToDo() {
     taskLists,
     handleTaskInputChange,
     handleTaskFormSubmit,
-    handleCompleteButton,
+    handleClickComplete,
   };
 
   return (
