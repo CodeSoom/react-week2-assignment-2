@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TaskForm from '../commons/TaskForm';
-import List from './List';
+import TaskList from './TaskList';
 
 function ToDoWrapper({
   todoState,
@@ -18,7 +18,7 @@ function ToDoWrapper({
         onChange={handleTaskInputChange}
         onFormSubmit={handleTaskFormSubmit}
       />
-      <List list={list} onClick={handleCompleteButton} />
+      <TaskList list={list} onClick={handleCompleteButton} />
     </div>
   );
 }

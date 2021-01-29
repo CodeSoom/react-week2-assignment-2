@@ -3,7 +3,7 @@ import uuid from 'react-uuid';
 
 import Task from './Task';
 
-function List({ list, onClick }) {
+function TaskList({ list, onClick }) {
   return (
     <div>
       { list.length === 0 ? (
@@ -22,4 +22,4 @@ function List({ list, onClick }) {
   );
 }
 
-export default List;
+export default TaskList;
