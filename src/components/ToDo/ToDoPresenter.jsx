@@ -2,7 +2,7 @@ import React from 'react';
 
 import { TaskForm, TaskList } from '../Tasks';
 
-function ToDoWrapper({
+function ToDoPresenter({
   todoState,
 }) {
   const {
@@ -22,4 +22,4 @@ function ToDoWrapper({
   );
 }
 
-export default ToDoWrapper;
+export default ToDoPresenter;

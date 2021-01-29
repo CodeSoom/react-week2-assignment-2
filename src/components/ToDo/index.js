@@ -1,4 +1,4 @@
 import ToDo from './ToDo';
-import ToDoWrapper from './ToDoWrapper';
+import ToDoPresenter from './ToDoPresenter';
 
-export { ToDo, ToDoWrapper };
+export { ToDo, ToDoPresenter };
