@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
 
-import Form from '../commons/Form';
-import List from './List';
+import ToDoWrapper from './ToDoWrapper';
 
 function ToDo() {
   const [list, setList] = useState([]);
@@ -22,12 +21,16 @@ function ToDo() {
     setList(list.filter((task) => task.id !== id));
   }
 
+  const state = {
+    input,
+    list,
+    updateValue,
+    handleSubmit,
+    detachTask,
+  };
+
   return (
-    <div>
-      <h1>To-do</h1>
-      <Form value={input} updateValue={updateValue} handleSubmit={handleSubmit} />
-      <List list={list} onClick={detachTask} />
-    </div>
+    <ToDoWrapper state={state} />
   );
 }
 
