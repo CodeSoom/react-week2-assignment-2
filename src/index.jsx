@@ -69,17 +69,17 @@ function App() {
   });
 
   const { todos, input } = state;
-  const handleChange = (event) => {
+  const handleChangeInput = (event) => {
     const title = event.target.value;
     setState({ todos, input: title });
   };
 
-  const handleSubmit = (event) => {
+  const handleClickAddTodo = (event) => {
     event.preventDefault();
     setState({ todos: [...todos, { id: todos.length + 1, title: input }], input });
   };
 
-  const handleClick = (todoId) => {
+  const handleClickCompleted = (todoId) => {
     const incompletedTodos = todos.filter((todo) => (todo.id !== todoId));
     setState({ todos: incompletedTodos }, input);
   };
@@ -88,9 +88,9 @@ function App() {
     <Page
       todos={todos}
       title={input}
-      onChange={handleChange}
-      onClickAddTodo={handleSubmit}
-      onClick={handleClick}
+      onChange={handleChangeInput}
+      onClickAddTodo={handleClickAddTodo}
+      onClick={handleClickCompleted}
     />
   );
 }
