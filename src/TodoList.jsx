@@ -19,7 +19,7 @@ export default function TodoList({ todos, onClick }) {
             key={id}
             id={id}
             text={text}
-            onClick={onClick}
+            onClick={() => onClick(id)}
           />
         ))}
     </ol>

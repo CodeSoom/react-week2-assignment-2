@@ -1,14 +1,13 @@
 import React from 'react';
 
 export default function TodoItem({
-  id,
   text,
   onClick,
 }) {
   return (
     <li>
       {text}
-      <button type="button" onClick={() => onClick(id)}>완료</button>
+      <button type="button" onClick={onClick}>완료</button>
     </li>
   );
 }
