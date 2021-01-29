@@ -3,7 +3,10 @@ import React, { useState } from 'react';
 import Page from './Page';
 
 function App() {
-  const initialState = [];
+  const initialState = [{
+    id: 0,
+    content: '',
+  }];
   const [todos, setTodos] = useState(initialState);
 
   function handleAddTodo(todo) {
