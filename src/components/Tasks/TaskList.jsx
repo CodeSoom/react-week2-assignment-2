@@ -6,7 +6,7 @@ import Task from './Task';
 function TaskList({ taskLists, onClickComplete }) {
   return (
     <div>
-      { taskLists.length === 0 ? (
+      { taskLists?.length === 0 ? (
         <p>할 일이 없어요!</p>
       )
         : (
