@@ -4,29 +4,39 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 export default function App() {
-  const [userText, setUserText] = useState('');
-  const [todos, setTodos] = useState([]);
-  const [todoId, setTodoId] = useState(0);
+  const [state, setState] = useState({
+    userText: '',
+    todos: [],
+    todoId: 0,
+  });
+
+  const { userText, todos, todoId } = state;
 
   const handleChangeInput = (e) => {
-    setUserText(e.target.value);
+    setState({
+      ...state,
+      userText: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTodos([...todos, {
-      id: todoId,
-      text: userText,
-      done: false,
-    }]);
-    setUserText('');
-    setTodoId(todoId + 1);
+    setState({
+      userText: '',
+      todos: [...todos, {
+        id: todoId,
+        text: userText,
+        done: false,
+      }],
+      todoId: todoId + 1,
+    });
   };
 
   const handleClickDoneButton = (id) => {
-    setTodos(todos.filter((todo) => (
-      todo.id !== id
-    )));
+    setState({
+      ...state,
+      todos: todos.filter((todo) => todo.id !== id),
+    });
   };
 
   return (
