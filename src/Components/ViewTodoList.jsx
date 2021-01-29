@@ -2,12 +2,12 @@ import React from 'react';
 
 import DeleteTodo from './DeleteTodo';
 
-function ViewTodoList({ todoText, todoList, setTodo }) {
+function ViewTodoList({ todoList, deleteButton }) {
   const listItems = todoList.map(
     (todo) => (
       <li key={todo}>
         {todo}
-        <DeleteTodo todo={todo} todoText={todoText} todoList={todoList} setTodo={setTodo} />
+        <DeleteTodo todo={todo} deleteButton={deleteButton} />
       </li>
     ),
   );

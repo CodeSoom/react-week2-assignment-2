@@ -10,8 +10,36 @@ function App() {
 
   const { todoText, todoList } = todo;
 
+  const handleTextChange = (event) => {
+    setTodo({
+      todoText: event.target.value,
+      todoList: [...todoList],
+    });
+  };
+
+  const handleAddButton = () => {
+    setTodo({
+      todoText: '',
+      todoList: [...todoList, todoText],
+    });
+  };
+
+  function handleDeleteButton(event) {
+    todoList.splice(todoList.indexOf(event.target.name), 1);
+    setTodo({
+      todoText,
+      todoList,
+    });
+  }
+
   return (
-    <Page todoText={todoText} todoList={todoList} setTodo={setTodo} />
+    <Page
+      todoText={todoText}
+      todoList={todoList}
+      textChange={handleTextChange}
+      addButton={handleAddButton}
+      deleteButton={handleDeleteButton}
+    />
   );
 }
 
