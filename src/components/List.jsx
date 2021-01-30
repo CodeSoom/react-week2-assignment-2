@@ -3,15 +3,17 @@ import React from 'react';
 import Item from './Item';
 
 export default function List({ tasks, onClickDelete }) {
-    if (tasks.length == 0) {
+    return tasks.length ? getToDoPage() : getToDoEmptyPage();
+    
+    function getToDoEmptyPage() {
         return (
             <p>
                 할 일이 없어요!
             </p>
         );
     }
-    
-    if (tasks.length > 0) {
+
+    function getToDoPage() {
         return (
             <ol>
                 {tasks.map((task) => (
