@@ -12,8 +12,8 @@ function App() {
 
   const handleTextChange = (event) => {
     setTodo({
+      ...todo,
       todoText: event.target.value,
-      todos: [...todos],
     });
   };
 
@@ -36,9 +36,9 @@ function App() {
     <Page
       todoText={todoText}
       todos={todos}
-      textChange={handleTextChange}
-      addButton={handleAddButton}
-      deleteButton={handleDeleteButton}
+      onTextChange={handleTextChange}
+      onAddButton={handleAddButton}
+      onDeleteButton={handleDeleteButton}
     />
   );
 }

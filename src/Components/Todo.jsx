@@ -1,14 +1,14 @@
 import React from 'react';
 
 function Todo({
-  value, deleteButton,
+  value, onDeleteButton,
 }) {
   return (
     <li>
       {value}
       <button
         type="button"
-        onClick={() => deleteButton(value)}
+        onClick={() => onDeleteButton(value)}
       >
         완료
       </button>

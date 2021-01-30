@@ -6,19 +6,19 @@ import AddTodo from './AddTodo';
 import './Page.css';
 
 function Page({
-  todoText, todos, textChange, addButton, deleteButton,
+  todoText, todos, onTextChange, onAddButton, onDeleteButton,
 }) {
   return (
     <div>
       <h1 className="title">To-do App</h1>
       <AddTodo
         todoText={todoText}
-        textChange={textChange}
-        addButton={addButton}
+        onTextChange={onTextChange}
+        onAddButton={onAddButton}
       />
       <ViewTodoList
         todos={todos}
-        deleteButton={deleteButton}
+        onDeleteButton={onDeleteButton}
       />
     </div>
   );
