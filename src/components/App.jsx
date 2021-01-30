@@ -5,31 +5,35 @@ import Page from './Page';
 export default function App() {
   const [state, setState] = useState({
     todos: [],
-    input: '',
+    userTitle: '',
   });
 
-  const { todos, input } = state;
+  const { todos, userTitle } = state;
 
-  const handleChangeInput = (event) => {
-    const currentInput = event.target.value;
-    setState({ todos, input: currentInput });
+  const handleChangeUserTitle = (event) => {
+    const currentUserTitle = event.target.value;
+    setState({ todos, userTitle: currentUserTitle });
   };
 
   const handleClickAddTodo = (event) => {
     event.preventDefault();
-    setState({ todos: [...todos, { id: todos.length + 1, title: input }], input: '' });
+    setState({
+      todos: [...todos,
+        { id: todos.length + 1, title: userTitle }],
+      userTitle: '',
+    });
   };
 
   const handleClickCompleted = (todoId) => {
     const incompletedTodos = todos.filter((todo) => (todo.id !== todoId));
-    setState({ todos: incompletedTodos }, input);
+    setState({ todos: incompletedTodos, userTitle });
   };
 
   return (
     <Page
       todos={todos}
-      title={input}
-      onChange={handleChangeInput}
+      title={userTitle}
+      onChange={handleChangeUserTitle}
       onClickAddTodo={handleClickAddTodo}
       onClick={handleClickCompleted}
     />
