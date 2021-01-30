@@ -4,7 +4,7 @@ import AddButton from './AddButton';
 import Todos from './Todos';
 
 export default function Page({
-  todos, onClickAddTodo, onChange, onClick, title,
+  title, onChange, onClickAddTodo, todos, onClick,
 }) {
   return (
     <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Todo({ title, id, onClick }) {
+export default function Todo({ title, onClick, id }) {
   return (
     <li key={id.toString()}>
       {title}
