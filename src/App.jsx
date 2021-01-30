@@ -1,21 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import Text from './Text';
+import Page from './Page';
 
 function App() {
-  function handleClick() {}
+  const [state, setState] = useState({
+    newId: 100,
+    taskTitle: '',
+    tasks: [
+      { id: 1, title: '아무것도 하지 않기' },
+      { id: 2, title: '아무것도 하지 않기 #2' },
+    ],
+  });
+
+  const { newId, taskTitle, tasks } = state;
+
+  function handleChangeTitle(event) {
+    setState({
+      ...state,
+      taskTitle: event.target.value,
+    });
+  }
+
+  function handleClickAddTask() {
+    setState({
+      ...state,
+      newId: newId + 1,
+      taskTitle: '',
+      tasks: [...tasks, { id: newId, title: taskTitle }],
+    });
+  }
+
+  function handleClickDeleteTask(id) {
+    setState({
+      ...state,
+      tasks: tasks.filter((task) => task.id !== id),
+    });
+  }
+
   return (
-    <>
-      <p>
-        TO-DO
-      </p>
-      <p>
-        <Text />
-        <button type="button" onClick={handleClick}>
-          추가
-        </button>
-      </p>
-    </>
+    <Page
+      taskTitle={taskTitle}
+      onChangeTitle={handleChangeTitle}
+      onclickAddTask={handleClickAddTask}
+      tasks={tasks}
+      onClickDeleteTask={handleClickDeleteTask}
+    />
   );
 }
 
