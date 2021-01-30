@@ -2,14 +2,14 @@ import React from 'react';
 
 export default function TodoItem({
   todoItem: { id, contents },
-  handleClickDelete,
+  onClickDelete,
 }) {
   return (
     <li>
-      <p>{ contents }</p>
+      { contents }
       <button
         type="button"
-        onClick={() => handleClickDelete(id)}
+        onClick={() => onClickDelete(id)}
       >
         완료
       </button>

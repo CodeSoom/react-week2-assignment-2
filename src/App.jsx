@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Input from './Input';
+import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 export default function App() {
@@ -35,10 +35,10 @@ export default function App() {
   return (
     <div>
       <p>To do list</p>
-      <Input
-        value={todoTitle}
-        onChange={handleChangeTodo}
-        onClcik={handleClickAddTodo}
+      <TodoForm
+        todoTitle={todoTitle}
+        onChangeTodo={handleChangeTodo}
+        onClickAddTodo={handleClickAddTodo}
       />
       <TodoList
         todoItems={todoItems}
