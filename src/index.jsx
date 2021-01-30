@@ -8,8 +8,7 @@ function App() {
   const [inputState, setInputState] = useState({ inputText: '' });
   const { inputText } = inputState;
   const { todo } = toDoState;
-  function addClick() {
-    // const { inputText } = inputState;
+  function handleAddClick() {
     const { index } = toDoState;
     setInputState({ ...inputState.inputText, inputText: '' });
     setToDoState({
@@ -18,7 +17,7 @@ function App() {
       todo: [...toDoState.todo, { index: index + 1, title: inputText }],
     });
   }
-  function onChange(e) {
+  function handleChange(e) {
     setInputState({ ...inputState, inputText: e.target.value });
   }
   function clickComplete(index) {
@@ -28,8 +27,8 @@ function App() {
   return (
     <Page
       inputText={inputText}
-      onChange={onChange}
-      addClick={addClick}
+      onChange={handleChange}
+      addClick={handleAddClick}
       todo={todo}
       clickComplete={clickComplete}
     />
