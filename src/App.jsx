@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Input from './Input';
-import Button from './Button';
+import TodoList from './TodoList';
 
 export default function App() {
   const [state, setState] = useState({
@@ -19,10 +19,17 @@ export default function App() {
   }
 
   function handleClickAddTodo() {
+    setState({
+      todoTitle: '',
+      todoItems: [...todoItems, { id: new Date(), contents: todoTitle }],
+    });
   }
 
-  function handleClickDelete() {
-    // Todo: 완료 버튼 구현하기
+  function handleClickDelete(id) {
+    setState({
+      ...state,
+      todoItems: todoItems.filter((todoItem) => todoItem.id !== id),
+    });
   }
 
   return (
@@ -33,8 +40,9 @@ export default function App() {
         onChange={handleChangeTodo}
         onClcik={handleClickAddTodo}
       />
-      <Button
-        onClick={handleClickDelete}
+      <TodoList
+        todoItems={todoItems}
+        onClickDelete={handleClickDelete}
       />
     </div>
   );
