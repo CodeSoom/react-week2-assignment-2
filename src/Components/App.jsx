@@ -24,11 +24,11 @@ function App() {
     });
   };
 
-  function handleDeleteButton(event) {
-    todos.splice(todos.indexOf(event.target.name), 1);
+  function handleDeleteButton(value) {
+    const newTodos = todos.filter((item) => item !== value);
     setTodo({
       todoText,
-      todos,
+      todos: newTodos,
     });
   }
 

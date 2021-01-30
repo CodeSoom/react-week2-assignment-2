@@ -6,7 +6,12 @@ function Todo({
   return (
     <li>
       {value}
-      <button type="button" name={value} onClick={deleteButton}>완료</button>
+      <button
+        type="button"
+        onClick={() => deleteButton(value)}
+      >
+        완료
+      </button>
     </li>
   );
 }
