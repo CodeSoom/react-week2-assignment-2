@@ -1,15 +1,15 @@
 import React from 'react';
 
-function TodoTemplete({ templetes, onClickTemplte }) {
+function TodoTemplete({ templetes, onClickTemplete }) {
   return (
     <div>
-      <p>Templte</p>
+      <p>Templete</p>
       <p>
         {templetes.map((templete) => (
           <button
             type="button"
             key={templete}
-            onClick={() => onClickTemplte(templete)}
+            onClick={() => onClickTemplete(templete)}
           >
             {templete}
           </button>
