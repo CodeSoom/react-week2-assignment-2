@@ -6,7 +6,7 @@ import AddTodo from './AddTodo';
 import './Page.css';
 
 function Page({
-  todoText, todos, onTextChange, onAddButton, onDeleteButton,
+  todoText, todos, onTextChange, onAddTodo, onDeleteButton,
 }) {
   return (
     <div>
@@ -14,7 +14,7 @@ function Page({
       <AddTodo
         todoText={todoText}
         onTextChange={onTextChange}
-        onAddButton={onAddButton}
+        onAddTodo={onAddTodo}
       />
       <ViewTodoList
         todos={todos}

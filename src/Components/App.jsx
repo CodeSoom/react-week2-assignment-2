@@ -17,7 +17,7 @@ function App() {
     });
   };
 
-  const handleAddButton = () => {
+  const handleAddTodo = () => {
     setTodo({
       todoText: '',
       todos: [...todos, todoText],
@@ -37,7 +37,7 @@ function App() {
       todoText={todoText}
       todos={todos}
       onTextChange={handleTextChange}
-      onAddButton={handleAddButton}
+      onAddTodo={handleAddTodo}
       onDeleteButton={handleDeleteButton}
     />
   );
