@@ -1,11 +1,10 @@
 import React from 'react';
 
 import Input from './input';
-import AddButton from './addButton';
-import CompleteButton from './completeButton';
+import Button from './button';
 
 export default function Page({
-  inputText, onChange, addClick, todo, clickComplete,
+  inputText, onChange, onAddClick, todos, onCompleteClick,
 }) {
   return (
     <div>
@@ -13,30 +12,26 @@ export default function Page({
         text={inputText}
         onChange={onChange}
       />
-      <AddButton
+      <Button
         text="추가"
-        onClick={addClick}
+        onClick={onAddClick}
       />
-      <ul>
-        <li>
-          {
-            !todo.length
-              ? <div>할 일이 없어요!</div>
-              : todo.map(({ title, index }, i) => (
-                <div key={index} Style="margin-top:10px">
-                  {i + 1}
-                  .
-                  {title}
-                  <CompleteButton
-                    index={index}
-                    text="완료"
-                    onClick={clickComplete}
-                  />
-                </div>
-              ))
-          }
-        </li>
-      </ul>
+      <ol>
+        {
+          !todos.length
+            ? <div>할 일이 없어요!</div>
+            : todos.map(({ title, index }) => (
+              <li key={index} Style="margin-top:10px">
+                .
+                {title}
+                <Button
+                  text="완료"
+                  onClick={() => onCompleteClick(index)}
+                />
+              </li>
+            ))
+        }
+      </ol>
     </div>
   );
 }
