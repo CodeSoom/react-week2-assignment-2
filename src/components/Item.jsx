@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function Item({ task, onClickDelete }) {
-  const {id, title} = task;
-  
+  const { id, title } = task;
+
   return (
     <li>
       {title}
