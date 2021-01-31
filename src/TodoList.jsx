@@ -8,8 +8,7 @@ const TodoList = ({ itemList, setItemList }) => {
   return (
     <>
       <div>
-        {itemList.length === 0 && <div>할 일이 없어요!</div>}
-        {itemList.map((item, index) => (
+        {itemList && itemList.length ? itemList.map((item, index) => (
           <>
             <div>
               {`${index + 1} . `}
@@ -17,7 +16,7 @@ const TodoList = ({ itemList, setItemList }) => {
               <button type="button" onClick={() => deleteTodo(index)}>완료</button>
             </div>
           </>
-        ))}
+        )) : <div>할 일이 없어요!</div>}
       </div>
     </>
   );

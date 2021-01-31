@@ -5,7 +5,7 @@ const Page = () => {
   const [inputItem, setInputItem] = useState('');
   const [itemList, setItemList] = useState([]);
 
-  const addList = (e) => {
+  const handleChange = (e) => {
     e.preventDefault();
     setInputItem(e.target.value);
   };
@@ -19,7 +19,7 @@ const Page = () => {
   return (
     <>
       <h2>Todo List</h2>
-      <input placeholder="할 일을 추가하세요" value={inputItem} onChange={(e) => addList(e)} />
+      <input placeholder="할 일을 추가하세요" value={inputItem} onChange={handleChange} />
       <button type="button" onClick={handleClick}>추가</button>
       <TodoList itemList={itemList} setItemList={setItemList} />
     </>
