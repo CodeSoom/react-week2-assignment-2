@@ -41,7 +41,7 @@ function App() {
     <Page
       taskTitle={taskTitle}
       onChangeTitle={handleChangeTitle}
-      onclickAddTask={handleClickAddTask}
+      onClickAddTask={handleClickAddTask}
       tasks={tasks}
       onClickDeleteTask={handleClickDeleteTask}
     />

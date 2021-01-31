@@ -4,7 +4,7 @@ function Item({ task: { id, title }, onClickDelete }) {
   return (
     <li>
       {title}
-      <button type="button" onClickDelete={() => onClickDelete(id)}>
+      <button type="button" onClick={() => onClickDelete(id)}>
         Done
       </button>
     </li>
