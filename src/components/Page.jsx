@@ -1,11 +1,14 @@
 import React from 'react';
 
 import Input from './Input';
-import List from './List';
+import ListController from './ListController.jsx';
 
 export default function Page({
   taskTitle, onChangeTitle, tasks, onClickAddTask, onClickDeleteTask
 }) {
+
+  const isEmptyList = tasks.length ? false:true;
+
   return (
     <div>
       <h1>To-do</h1>
@@ -14,9 +17,10 @@ export default function Page({
         onChange={onChangeTitle}
         onClick={onClickAddTask}
       />
-      <List
+      <ListController 
+        isEmptyList={isEmptyList}
         tasks={tasks}
-        onClickDelete={onClickDeleteTask}
+        onClickDeleteTask={onClickDeleteTask}
       />
     </div>
   );
