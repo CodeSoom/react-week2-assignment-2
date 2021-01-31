@@ -1,22 +1,24 @@
 import React from 'react';
 
-import TextBox from './TextBox';
-import AppendButton from './AppendButton';
-import ToDoList from './ToDoList';
+import Input from './Input';
+import List from './List';
 
-function Page() {
+export default function Page({ 
+    taskTitle, onChangeTitle, onClickAddTask,
+    tasks, onClickDeleteTask,
+ }) {
   return (
     <div>
       <h1>To-do</h1>
-
-      <TextBox />
-
-      <AppendButton />
-
-      <ToDoList />
-
-    </div>
+      <Input 
+        value={taskTitle}
+        onChange={onChangeTitle}
+        onClick={onClickAddTask}
+        />
+      <List 
+        tasks={tasks}
+        onClickDelete={onClickDeleteTask}
+        />
+      </div>
   );
 }
-
-export default Page;
