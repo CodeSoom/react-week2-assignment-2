@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ButtonDone from './ButtonDone';
+import ButtonComplete from './ButtonComplete';
 
 function Task({ dataKey, value, onClick }) {
   return (
     <li>
       {value}
-      <ButtonDone onClick={() => onClick(dataKey)} />
+      <ButtonComplete onClick={() => onClick(dataKey)} />
     </li>
   );
 }
