@@ -1,20 +1,16 @@
 import React from 'react';
 
-function ListItem({content:{id,content}, onComplete}) {
+function ListItem({ item, onClickComplete }) {
+  const { id, content } = item;
 
   return (
-    
-    <li>
-    {content}
-
-    <button type="button" onClick={()=>onComplete(id)}>
-      완료
-    </button>
-
-    </li>
-    
-  )
+    <div>
+      {content}
+      <button type="button" onClick={() => onClickComplete(id)}>
+        완료
+      </button>
+    </div>
+  );
 }
-
 
 export default ListItem;
