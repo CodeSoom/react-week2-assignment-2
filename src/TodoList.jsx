@@ -1,11 +1,11 @@
 import React from 'react';
 import Task from './Task';
-import Default from './Default';
+import Empty from './Empty';
 
 function TodoList({ values, onClick }) {
   return (
     values.length === 0
-      ? (<Default />)
+      ? (<Empty />)
       : (
         <ol>
           {
