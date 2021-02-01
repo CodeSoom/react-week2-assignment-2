@@ -5,12 +5,13 @@ import Input from './Input';
 import TodoList from './TodoList';
 
 export default function Page({
-  handleChange, handleSubmit, todoList, handleClickDone,
+  value, handleChange, handleSubmit,
+  todoList, handleClickDone,
 }) {
   return (
     <div>
       <Title />
-      <Input onChange={handleChange} onSubmit={handleSubmit} />
+      <Input value={value} onChange={handleChange} onSubmit={handleSubmit} />
       <TodoList values={[...todoList]} onClick={handleClickDone} />
     </div>
   );

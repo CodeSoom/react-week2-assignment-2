@@ -3,19 +3,28 @@ import React, { useState } from 'react';
 import Page from './Page';
 
 function App() {
-  const [task, setTodo] = useState({ value: '' });
+  const [state, setState] = useState({
+    value: '',
+    tasks: [{
+      id: 1,
+      title: '',
+    }],
+  });
+
   function handleChange(event) {
-    setTodo({ value: event.target.value });
+    setState({
+      ...state,
+      value: event.target.value,
+    });
   }
 
   const [todoList, setTodoList] = useState([]);
   function handleSubmit(event) {
     event.preventDefault();
-    if (task.value === '') return;
+    if (state.value === '') return;
 
-    setTodoList([...todoList, { value: task.value }]);
-    setTodo({ value: '' });
-    document.getElementById('todoinput').value = '';
+    setTodoList([...todoList, { value: state.value }]);
+    setState({ value: '' });
   }
 
   function handleClickDone(index) {
@@ -26,6 +35,7 @@ function App() {
 
   return (
     <Page
+      value={state.value}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       todoList={todoList}
