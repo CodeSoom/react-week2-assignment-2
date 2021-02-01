@@ -6,13 +6,13 @@ import TodoList from './TodoList';
 
 export default function Page({
   value, handleChange, handleSubmit,
-  todoList, handleClickDone,
+  tasks, handleClickDone,
 }) {
   return (
     <div>
       <Title />
       <Input value={value} onChange={handleChange} onSubmit={handleSubmit} />
-      <TodoList values={[...todoList]} onClick={handleClickDone} />
+      <TodoList tasks={tasks} onClick={handleClickDone} />
     </div>
   );
 }

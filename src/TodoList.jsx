@@ -3,15 +3,15 @@ import React from 'react';
 import Task from './Task';
 import Empty from './Empty';
 
-function TodoList({ values, onClick }) {
+function TodoList({ tasks, onClick }) {
   return (
-    values.length === 0
+    tasks.length === 0
       ? (<Empty />)
       : (
         <ol>
           {
-            values.map((a, i) => (
-              <Task key={i.toString()} dataKey={i} value={a.value} onClick={onClick} />
+            tasks.map((task) => (
+              <Task key={task.id} dataKey={task.id} value={task.title} onClick={onClick} />
             ))
           }
         </ol>

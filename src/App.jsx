@@ -5,11 +5,11 @@ import Page from './Page';
 function App() {
   const [state, setState] = useState({
     value: '',
-    tasks: [{
-      id: 1,
-      title: '',
-    }],
+    newID: 1,
+    tasks: [],
   });
+
+  const { value, newID, tasks } = state;
 
   function handleChange(event) {
     setState({
@@ -18,27 +18,30 @@ function App() {
     });
   }
 
-  const [todoList, setTodoList] = useState([]);
   function handleSubmit(event) {
     event.preventDefault();
-    if (state.value === '') return;
+    if (value === '') return;
 
-    setTodoList([...todoList, { value: state.value }]);
-    setState({ value: '' });
+    setState({
+      newID: newID + 1,
+      tasks: [...tasks, { id: newID, title: value }],
+      value: '',
+    });
   }
 
   function handleClickDone(index) {
-    return setTodoList(
-      [...todoList.slice(0, index), ...todoList.slice(index + 1, todoList.length)],
-    );
+    setState({
+      ...state,
+      tasks: tasks.filter((task) => task.id !== index),
+    });
   }
 
   return (
     <Page
-      value={state.value}
+      value={value}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
-      todoList={todoList}
+      tasks={tasks}
       handleClickDone={handleClickDone}
     />
   );
