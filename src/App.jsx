@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-import Title from './Title';
-import Form from './Form';
-import TodoList from './TodoList';
+import Page from './Page';
 
 function App() {
   const [task, setTodo] = useState({ value: '' });
@@ -27,11 +25,12 @@ function App() {
   }
 
   return (
-    <div>
-      <Title />
-      <Form onChange={handleChange} onSubmit={handleSubmit} />
-      <TodoList values={[...todoList]} onClick={handleClickDone} />
-    </div>
+    <Page
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      todoList={todoList}
+      handleClickDone={handleClickDone}
+    />
   );
 }
 
