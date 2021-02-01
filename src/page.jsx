@@ -2,6 +2,7 @@ import React from 'react';
 
 import Input from './input';
 import Button from './button';
+import Todoilst from './todolist';
 
 export default function Page({
   inputText, onChange, onAddClick, todos, onCompleteClick,
@@ -16,7 +17,11 @@ export default function Page({
         text="추가"
         onClick={onAddClick}
       />
-      <ol>
+      <Todoilst
+        todos={todos}
+        onCompleteClick={onCompleteClick}
+      />
+      {/* <ol>
         {
           !todos.length
             ? <div>할 일이 없어요!</div>
@@ -31,7 +36,7 @@ export default function Page({
               </li>
             ))
         }
-      </ol>
+      </ol> */}
     </div>
   );
 }
