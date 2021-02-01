@@ -5,23 +5,23 @@ import TodoList from './TodoList';
 
 export default function App() {
   const [state, setState] = useState({
-    todoTitle: '',
+    title: '',
     todoItems: [],
   });
 
-  const { todoTitle, todoItems } = state;
+  const { title, todoItems } = state;
 
-  function handleChangeTodo(event) {
+  function handleChangeTitle(value) {
     setState({
       ...state,
-      todoTitle: event.target.value,
+      title: value,
     });
   }
 
   function handleClickAddTodo() {
     setState({
-      todoTitle: '',
-      todoItems: [...todoItems, { id: new Date(), contents: todoTitle }],
+      title: '',
+      todoItems: [...todoItems, { id: new Date(), content: title }],
     });
   }
 
@@ -36,8 +36,8 @@ export default function App() {
     <div>
       <p>To do list</p>
       <TodoForm
-        todoTitle={todoTitle}
-        onChangeTodo={handleChangeTodo}
+        title={title}
+        onChangeTitle={handleChangeTitle}
         onClickAddTodo={handleClickAddTodo}
       />
       <TodoList

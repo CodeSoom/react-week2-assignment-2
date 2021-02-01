@@ -1,14 +1,20 @@
 import React from 'react';
 
-import Input from './Input';
-
-export default function TodoForm({ todoTitle, onChangeTodo, onClickAddTodo }) {
+export default function TodoForm({ title, onChangeTitle, onClickAddTodo }) {
   return (
-    <Input
-      placeholder="할 일을 입력해 주세요"
-      value={todoTitle}
-      onChange={onChangeTodo}
-      onClick={onClickAddTodo}
-    />
+    <div>
+      <input
+        type="text"
+        placeholder="할 일을 입력해 주세요"
+        value={title}
+        onChange={(event) => onChangeTitle(event.target.value)}
+      />
+      <button
+        type="button"
+        onClick={onClickAddTodo}
+      >
+        추가
+      </button>
+    </div>
   );
 }
