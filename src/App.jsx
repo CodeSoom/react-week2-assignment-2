@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Title from './Title';
 import Default from './Default';
 import Form from './Form';
-import List from './List';
+import TodoList from './TodoList';
 
 function App() {
   const [task, setTodo] = useState({ value: '' });
@@ -32,7 +32,7 @@ function App() {
       <Form onChange={handleChange} onSubmit={handleSubmit} />
       {todoList.length === 0
         ? (<Default />)
-        : (<List values={[...todoList]} onClick={handleClickDone} />)}
+        : (<TodoList values={[...todoList]} onClick={handleClickDone} />)}
     </div>
   );
 }

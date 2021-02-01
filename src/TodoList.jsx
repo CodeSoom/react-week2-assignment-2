@@ -1,7 +1,7 @@
 import React from 'react';
 import Task from './Task';
 
-function List({ values, onClick }) {
+function TodoList({ values, onClick }) {
   return (
     <ol>
       {
@@ -13,4 +13,4 @@ function List({ values, onClick }) {
   );
 }
 
-export default List;
+export default TodoList;
