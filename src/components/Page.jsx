@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Input from './Input';
-import ListController from './ListController';
+import List from './List';
 
 export default function Page({
   taskTitle, onChangeTitle, tasks, onClickAddTask, onClickDeleteTask,
@@ -16,7 +16,7 @@ export default function Page({
         onChange={onChangeTitle}
         onClick={onClickAddTask}
       />
-      <ListController
+      <List
         isEmptyList={isEmptyList}
         tasks={tasks}
         onClickDeleteTask={onClickDeleteTask}
