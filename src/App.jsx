@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Title from './Title';
-import Default from './Default';
 import Form from './Form';
 import TodoList from './TodoList';
 
@@ -30,9 +29,7 @@ function App() {
     <div>
       <Title />
       <Form onChange={handleChange} onSubmit={handleSubmit} />
-      {todoList.length === 0
-        ? (<Default />)
-        : (<TodoList values={[...todoList]} onClick={handleClickDone} />)}
+      <TodoList values={[...todoList]} onClick={handleClickDone} />
     </div>
   );
 }
