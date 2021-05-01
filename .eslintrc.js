@@ -1,11 +1,21 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es2021: true,
   },
   extends: [
     'plugin:react/recommended',
     'airbnb',
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: [
+    'react',
   ],
   globals: {
     Atomics: 'readonly',
@@ -14,16 +24,6 @@ module.exports = {
     Feature: 'readonly',
     Scenario: 'readonly',
   },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 11,
-    sourceType: 'module',
-  },
-  plugins: [
-    'react',
-  ],
   rules: {
     indent: ['error', 2],
     'no-trailing-spaces': 'error',
@@ -45,11 +45,5 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { mode: 'strict' }],
     'arrow-spacing': ['error', { before: true, after: true }],
-    'react/prop-types': 'off',
-    'linebreak-style': 'off',
-    'import/no-extraneous-dependencies': [
-      'error',
-      { devDependencies: ['codecept.conf.js'] },
-    ],
   },
 };
