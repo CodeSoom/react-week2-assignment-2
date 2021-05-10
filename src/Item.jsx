@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Item({ content, onClick }) {
   return (
@@ -8,3 +9,8 @@ export default function Item({ content, onClick }) {
     </li>
   );
 }
+
+Item.propTypes = {
+  content: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
