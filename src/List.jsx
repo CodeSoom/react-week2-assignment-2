@@ -1,19 +1,19 @@
 import React from 'react';
+import Item from './Item';
 
 export default function List({ items, onClick }) {
   const element = (items.length)
     ? (
       <ul>
         {items.map((item) => (
-          <li key={item.id}>
-            {item.content}
-            <button type="button" onClick={() => onClick(item.id)}>완료</button>
-          </li>
-
+          <Item
+            content={item.content}
+            onClick={() => onClick(item.id)}
+          />
         ))}
       </ul>
     )
-    : '아무 일도 하기 싫다';
+    : <p>할 일이 없어요!</p>;
 
   return element;
 }
