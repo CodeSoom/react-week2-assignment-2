@@ -7,7 +7,7 @@ export default function Todo() {
   const [userInput, setUserInput] = useState('');
   const [tasks, setTasks] = useState([]);
 
-  function updateInput(e) {
+  function updatInputText(e) {
     setUserInput(e.target.value);
   }
 
@@ -29,7 +29,7 @@ export default function Todo() {
   return (
     <p>
       <h1>To-do</h1>
-      <Input updater={updateInput} submitter={addTask} />
+      <Input updater={updatInputText} submitter={addTask} />
       <List items={tasks} onClick={deleteTask} />
     </p>
   );
