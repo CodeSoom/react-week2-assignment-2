@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import Page from "./Page";
 
 function App() {
   const [state, setState] = useState({
@@ -11,7 +12,7 @@ function App() {
 
   function handleClick() {
     setState({
-      todoList: [...todoList, <li>{todo}</li>],
+      todoList: [...todoList, <li>{todo}<button type="button">완료</button></li>],
       todo,
     });
   }
@@ -24,18 +25,11 @@ function App() {
   }
 
   return (
-    <div>
-      <p>To-do</p>
-      <input
-        type="text"
-        placeholder="할 일을 입력해 주세요"
-        onChange={handleChange}
-      />
-      <button type="button" onClick={handleClick}>추가</button>
-      <ol>
-        {todoList}
-      </ol>
-    </div>
+    <Page
+      onChange={handleChange}
+      onClick={handleClick}
+      todoList={todoList}
+    />
   )
 }
 
