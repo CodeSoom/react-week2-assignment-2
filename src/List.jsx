@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function List({ items }) {
+export default function List({ items, onClick }) {
   const element = (items.length)
     ? (
       <ul>
         {items.map((item) => (
-          <li>
-            {item}
-            <button type="button">완료</button>
+          <li key={item.id}>
+            {item.content}
+            <button type="button" onClick={() => onClick(item.id)}>완료</button>
           </li>
 
         ))}
