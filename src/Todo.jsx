@@ -23,12 +23,13 @@ export default function Todo() {
         items: [...items, { id: newId, content: newContent }],
       };
     });
+    document.getElementById('inputBox').value = '';
   }
 
   return (
     <p>
       <h1>To-do</h1>
-      <input type="text" onChange={handleChange} />
+      <input id="inputBox" type="text" onChange={handleChange} />
       <button type="button" onClick={addItem}>
         추가
       </button>
