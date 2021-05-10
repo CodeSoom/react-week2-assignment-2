@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import List from './List';
 
 export default function Todo() {
   const [userInput, setUserInput] = useState({
@@ -16,6 +17,7 @@ export default function Todo() {
       <button type="button">
         추가
       </button>
+      <List items={[1, 2, 3, 4]} />
     </p>
   );
 }
