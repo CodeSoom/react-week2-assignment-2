@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import Page from "./Page";
+import Page from './Page';
+import Todo from './Todo';
 
 function App() {
   const [state, setState] = useState({
@@ -12,7 +13,7 @@ function App() {
 
   function handleClick() {
     setState({
-      todoList: [...todoList, <li>{todo}<button type="button">완료</button></li>],
+      todoList: [...todoList,<Todo todo={todo} />],
       todo,
     });
   }

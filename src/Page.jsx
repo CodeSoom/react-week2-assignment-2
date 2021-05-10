@@ -1,18 +1,21 @@
 import React from 'react';
+import Input from './Input';
+import InputButton from './InputButton';
+import TodoList from './TodoList';
 
 function Page({onChange, onClick, todoList}) {
   return (
     <div>
       <p>To-do</p>
-      <input
-        type="text"
-        placeholder="할 일을 입력해 주세요"
+      <Input
         onChange={onChange}
       />
-      <button type="button" onClick={onClick}>추가</button>
-      <ol>
-        {todoList}
-      </ol>
+      <InputButton
+        onClick={onClick}
+      />
+      <TodoList
+        todoList={todoList}
+      />
     </div>
   )
 }
