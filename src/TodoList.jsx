@@ -1,10 +1,14 @@
 import React from 'react';
+import NotingTodo from './NothingTodo';
 
-function TodoList({ todoList }) {
+function TodoList({todoList}) {
   return (
-    <ol>
-      {todoList}
-    </ol>
+    <div>
+      {todoList.length > 0
+        ? <ol>{todoList}</ol>
+        : <NotingTodo />
+      }
+    </div>
   )
 }
 
