@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as R from 'ramda';
 import List from './List';
+import Input from './Input';
 
 export default function Todo() {
   const [userInput, setUserInput] = useState('');
@@ -28,10 +29,7 @@ export default function Todo() {
   return (
     <p>
       <h1>To-do</h1>
-      <input id="inputBox" type="text" onChange={updateInput} />
-      <button type="button" onClick={addTask}>
-        추가
-      </button>
+      <Input updater={updateInput} submitter={addTask} />
       <List items={tasks} onClick={deleteTask} />
     </p>
   );
