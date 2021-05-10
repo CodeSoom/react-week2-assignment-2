@@ -1,39 +1,38 @@
 import React, { useState } from 'react';
+import * as R from 'ramda';
 import List from './List';
 
 export default function Todo() {
-  const [userInput, setUserInput] = useState({ text: '' });
-  const [todoItems, setTodoItems] = useState({ items: [] });
+  const [userInput, setUserInput] = useState('');
+  const [tasks, setTasks] = useState([]);
 
-  function handleChange(e) {
-    setUserInput({ text: e.target.value });
+  function updateInput(e) {
+    setUserInput(e.target.value);
   }
 
-  function deleteItem(id) {
-    setTodoItems(({ items }) => ({
-      items: items.filter((item) => item.id !== id),
-    }));
+  function deleteTask(target) {
+    const isTaskToRemain = R.pipe(R.prop('id'), R.equals(target), R.not);
+    setTasks((oldTasks) => (R.filter(isTaskToRemain, oldTasks)));
   }
 
-  function addItem() {
-    setTodoItems(({ items }) => {
-      const newId = items.length ? items[items.length - 1].id + 1 : 0;
-      const newContent = userInput.text;
-      return {
-        items: [...items, { id: newId, content: newContent }],
-      };
-    });
+  function addTask() {
+    const newId = R.last(R.map(R.prop('id'), tasks)) + 1 || 0;
+    const newContent = userInput;
+
+    setTasks((oldTasks) => (
+      [...oldTasks, { id: newId, content: newContent }]
+    ));
     document.getElementById('inputBox').value = '';
   }
 
   return (
     <p>
       <h1>To-do</h1>
-      <input id="inputBox" type="text" onChange={handleChange} />
-      <button type="button" onClick={addItem}>
+      <input id="inputBox" type="text" onChange={updateInput} />
+      <button type="button" onClick={addTask}>
         추가
       </button>
-      <List items={todoItems.items} onClick={deleteItem} />
+      <List items={tasks} onClick={deleteTask} />
     </p>
   );
 }
