@@ -3,7 +3,7 @@ import List from './List';
 
 export default function Todo() {
   const [userInput, setUserInput] = useState({ text: '' });
-  const [todoItems, setTodoItems] = useState({ items: [{ id: 1, content: 'dqdq' }] });
+  const [todoItems, setTodoItems] = useState({ items: [] });
 
   function handleChange(e) {
     setUserInput({ text: e.target.value });
@@ -15,11 +15,21 @@ export default function Todo() {
     }));
   }
 
+  function addItem() {
+    setTodoItems(({ items }) => {
+      const newId = items.length ? items[items.length - 1].id + 1 : 0;
+      const newContent = userInput.text;
+      return {
+        items: [...items, { id: newId, content: newContent }],
+      };
+    });
+  }
+
   return (
     <p>
       <h1>To-do</h1>
       <input type="text" onChange={handleChange} />
-      <button type="button">
+      <button type="button" onClick={addItem}>
         추가
       </button>
       <List items={todoItems.items} onClick={deleteItem} />
