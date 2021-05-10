@@ -3,11 +3,12 @@ import Input from './Input';
 import InputButton from './InputButton';
 import TodoList from './TodoList';
 
-function Page({onChange, onClick, todoList}) {
+function Page({ todo, todoList, onChange, onClick }) {
   return (
     <div>
       <p>To-do</p>
       <Input
+        todo={todo}
         onChange={onChange}
       />
       <InputButton

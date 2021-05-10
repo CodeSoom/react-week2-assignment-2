@@ -14,7 +14,7 @@ function App() {
   function handleClick() {
     setState({
       todoList: [...todoList,<Todo todo={todo} />],
-      todo,
+      todo: '',
     });
   }
 
@@ -27,9 +27,10 @@ function App() {
 
   return (
     <Page
+      todo={todo}
+      todoList={todoList}
       onChange={handleChange}
       onClick={handleClick}
-      todoList={todoList}
     />
   )
 }
