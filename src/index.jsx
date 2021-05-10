@@ -11,9 +11,17 @@ function App() {
 
   const { todo, todoList } = state;
 
+  function handleClickRemove(key) {
+    setState({
+      todoList: todoList.filter((todo) => {
+        return todo.key !== key
+      })
+    })
+  }
+
   function handleClick() {
     setState({
-      todoList: [...todoList,<Todo todo={todo} />],
+      todoList: [...todoList, <Todo key={todo} todo={todo} onClickRemove={handleClickRemove} />],
       todo: '',
     });
   }

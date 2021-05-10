@@ -1,8 +1,8 @@
 import React from 'react';
 
-function TodoButton() {
+function TodoButton({todo, onClickRemove }) {
   return (
-    <button type="button">완료</button>
+    <button type="button" onClick={() => onClickRemove(todo)}>완료</button>
   )
 }
 
