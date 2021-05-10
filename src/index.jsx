@@ -4,13 +4,22 @@ import ReactDOM from 'react-dom';
 function App() {
   const [state, setState] = useState({
     todoList: [],
+    todo: '',
   });
 
-  const { todoList } = state;
+  const { todo, todoList } = state;
 
   function handleClick() {
     setState({
-      todoList: [...todoList, <li>할일</li>],
+      todoList: [...todoList, <li>{todo}</li>],
+      todo,
+    });
+  }
+
+  function handleChange(event) {
+    setState({
+      todoList,
+      todo: event.target.value,
     });
   }
 
@@ -20,6 +29,7 @@ function App() {
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
+        onChange={handleChange}
       />
       <button type="button" onClick={handleClick}>추가</button>
       <ol>
