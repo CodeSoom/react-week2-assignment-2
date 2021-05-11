@@ -5,24 +5,36 @@ import List from './List';
 import Input from './Input';
 
 export default function Todo() {
-  const [userInput, setUserInput] = useState('');
-  const [tasks, setTasks] = useState([]);
+  const [state, setState] = useState({
+    userInput: '',
+    tasks: [],
+  });
+
+  const { userInput, tasks } = state;
 
   function handleChangeInput(e) {
-    setUserInput(e.target.value);
+    setState({
+      userInput: e.target.value,
+      tasks,
+    });
   }
 
   function handleDeleteTask(target) {
     const isTaskToRemain = R.pipe(R.prop('id'), R.equals(target), R.not);
-    setTasks((oldTasks) => (R.filter(isTaskToRemain, oldTasks)));
+    setState({
+      userInput,
+      tasks: (R.filter(isTaskToRemain, tasks)),
+    });
   }
 
   function handleAddTask() {
     const newId = R.last(R.map(R.prop('id'), tasks)) + 1 || 0;
 
-    setTasks((oldTasks) => (
-      [...oldTasks, { id: newId, content: userInput }]
-    ));
+    setState({
+      userInput,
+      tasks: [...tasks, { id: newId, content: userInput }],
+    });
+
     document.getElementById('inputBox').value = '';
   }
 
