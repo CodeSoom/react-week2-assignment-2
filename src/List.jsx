@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Item from './Item';
 
-export default function List({ items, handleDeleteTask }) {
+export default function List({ items, onClick }) {
   if (R.isEmpty(items)) {
     return <p>할 일이 없어요!</p>;
   }
@@ -14,7 +14,7 @@ export default function List({ items, handleDeleteTask }) {
       {items.map((item) => (
         <Item
           content={item.content}
-          onClick={() => handleDeleteTask(item.id)}
+          onClick={() => onClick(item.id)}
         />
       ))}
     </ol>
@@ -23,5 +23,5 @@ export default function List({ items, handleDeleteTask }) {
 
 List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleDeleteTask: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
