@@ -1,22 +1,16 @@
 import React from 'react';
 
+import Input from './Input.jsx';
+
+
 function Page({ description, todoList, onAdd, onChange, onDelete }) {
   return (
     <div>
-      <p>To-do</p>
-      <p>
-        <input
-          type='text'
-          placeholder='할 일을 입력해 주세요'
-          value={description}
-          onChange={(e) => onChange(e)} >
-        </input>
-        <button
-          type='button'
-          onClick={() => onAdd()}>
-          추가
-        </button>
-      </p>
+      <h1>To-do</h1>
+      <Input
+        description={description}
+        onAdd={onAdd}
+        onChange={onChange} />
       <p>
         <ul>
           {

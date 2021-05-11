@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Page from './Page.jsx';
 
+
 function App() {
   const [description, setDescription] = useState('');
   const [currentId, setCurrentId] = useState(1);
@@ -25,12 +26,12 @@ function App() {
   }
 
   return (
-    <Page 
-    description={description}
-    todoList={todoList}
-    onAdd={onAdd}
-    onChange={onChange}
-    onDelete={onDelete}/>
+    <Page
+      description={description}
+      todoList={todoList}
+      onAdd={onAdd}
+      onChange={onChange}
+      onDelete={onDelete} />
   );
 }
 
