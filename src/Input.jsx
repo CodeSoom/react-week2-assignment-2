@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Input({ updater, submitter }) {
+export default function Input({ onChangeInput, onSubmit }) {
   return (
     <p>
-      <input id="inputBox" type="text" onChange={updater} />
-      <button type="button" onClick={submitter}>
+      <input id="inputBox" type="text" onChange={onChangeInput} />
+      <button type="button" onClick={onSubmit}>
         추가
       </button>
     </p>
@@ -13,6 +13,6 @@ export default function Input({ updater, submitter }) {
 }
 
 Input.propTypes = {
-  updater: PropTypes.func.isRequired,
-  submitter: PropTypes.func.isRequired,
+  onChangeInput: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };

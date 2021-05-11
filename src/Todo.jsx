@@ -8,16 +8,16 @@ export default function Todo() {
   const [userInput, setUserInput] = useState('');
   const [tasks, setTasks] = useState([]);
 
-  function updatInputText(e) {
+  function handleChangeInput(e) {
     setUserInput(e.target.value);
   }
 
-  function deleteTask(target) {
+  function handleDeleteTask(target) {
     const isTaskToRemain = R.pipe(R.prop('id'), R.equals(target), R.not);
     setTasks((oldTasks) => (R.filter(isTaskToRemain, oldTasks)));
   }
 
-  function addTask() {
+  function handleAddTask() {
     const newId = R.last(R.map(R.prop('id'), tasks)) + 1 || 0;
 
     setTasks((oldTasks) => (
@@ -29,8 +29,8 @@ export default function Todo() {
   return (
     <p>
       <h1>To-do</h1>
-      <Input updater={updatInputText} submitter={addTask} />
-      <List items={tasks} onClick={deleteTask} />
+      <Input onChangeInput={handleChangeInput} onSubmit={handleAddTask} />
+      <List items={tasks} onClick={handleDeleteTask} />
     </p>
   );
 }
