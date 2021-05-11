@@ -31,18 +31,23 @@ export default function Todo() {
     const newId = R.last(R.map(R.prop('id'), tasks)) + 1 || 0;
 
     setState({
-      userInput,
+      userInput: '',
       tasks: [...tasks, { id: newId, content: userInput }],
     });
-
-    document.getElementById('inputBox').value = '';
   }
 
   return (
     <p>
       <h1>To-do</h1>
-      <Input onChangeInput={handleChangeInput} onSubmit={handleAddTask} />
-      <List items={tasks} onClick={handleDeleteTask} />
+      <Input
+        value={userInput}
+        onChangeInput={handleChangeInput}
+        onSubmit={handleAddTask}
+      />
+      <List
+        items={tasks}
+        onClick={handleDeleteTask}
+      />
     </p>
   );
 }
