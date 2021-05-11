@@ -1,37 +1,35 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Page from './Page';
-import Todo from './Todo';
 
 function App() {
   const [state, setState] = useState({
-    todoList: [],
     todo: '',
+    todoList: [],
   });
 
   const { todo, todoList } = state;
 
-  function handleClickRemove(key) {
-    setState({
-      todoList: todoList.filter((todo) => {
-        return todo.key !== key
-      })
-    })
-  }
-
   function handleClick() {
     setState({
-      todoList: [...todoList, <Todo key={todo} todo={todo} onClickRemove={handleClickRemove} />],
       todo: '',
+      todoList: [...todoList, todo],
     });
   }
 
   function handleChange(event) {
     setState({
-      todoList,
       todo: event.target.value,
+      todoList,
     });
   }
+
+  const handleClickRemove = (key) => {
+    setState({
+      todoList: todoList.filter((todoItem) => todoItem !== key),
+      todo,
+    });
+  };
 
   return (
     <Page
@@ -39,13 +37,12 @@ function App() {
       todoList={todoList}
       onChange={handleChange}
       onClick={handleClick}
+      onClickRemove={handleClickRemove}
     />
-  )
+  );
 }
 
 ReactDOM.render(
   <App />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
-
-
