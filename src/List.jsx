@@ -1,5 +1,6 @@
 import React from 'react';
 import * as R from 'ramda';
+
 import Item from './Item';
 
 export default function List({ items, onClick }) {
