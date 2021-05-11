@@ -19,10 +19,9 @@ export default function Todo() {
 
   function addTask() {
     const newId = R.last(R.map(R.prop('id'), tasks)) + 1 || 0;
-    const newContent = userInput;
 
     setTasks((oldTasks) => (
-      [...oldTasks, { id: newId, content: newContent }]
+      [...oldTasks, { id: newId, content: userInput }]
     ));
     document.getElementById('inputBox').value = '';
   }
