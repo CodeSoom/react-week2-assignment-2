@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Todo from './Todo';
+import TodoContainer from './TodoContainer';
 
 export default function App() {
   return (
-    <Todo />
+    <TodoContainer />
   );
 }

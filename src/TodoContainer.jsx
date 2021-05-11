@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import * as R from 'ramda';
 
-import List from './List';
-import Input from './Input';
+import TodoPresentational from './TodoPresentational ';
 
-export default function Todo() {
+export default function TodoContainer() {
   const [state, setState] = useState({
     userInput: '',
     tasks: [],
@@ -37,17 +36,12 @@ export default function Todo() {
   }
 
   return (
-    <p>
-      <h1>To-do</h1>
-      <Input
-        value={userInput}
-        onChangeInput={handleChangeInput}
-        onSubmit={handleAddTask}
-      />
-      <List
-        items={tasks}
-        onClick={handleDeleteTask}
-      />
-    </p>
+    <TodoPresentational
+      userInput={userInput}
+      tasks={tasks}
+      handleChangeInput={handleChangeInput}
+      handleAddTask={handleAddTask}
+      handleDeleteTask={handleDeleteTask}
+    />
   );
 }
