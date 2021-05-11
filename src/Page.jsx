@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Input from './Input.jsx';
+import TodoList from './TodoList.jsx';
 
 
 function Page({ description, todoList, onAdd, onChange, onDelete }) {
@@ -11,20 +12,15 @@ function Page({ description, todoList, onAdd, onChange, onDelete }) {
         description={description}
         onAdd={onAdd}
         onChange={onChange} />
-      <p>
-        <ul>
-          {
-            todoList.map((todo) => (
-              <li key={todo.id} type='1'>
-                <span>{todo.description}</span>
-                <button data-id={todo.id} onClick={(e) => onDelete(e)}>완료</button>
-              </li>
-            ))
-          }
-        </ul>
-      </p>
+      {
+        todoList.length === 0
+        ? <p>할 일이 없어요!</p>
+        : <TodoList
+        todoList={todoList}
+        onDelete={onDelete} />
+      }
     </div>
-  )
+  );
 }
 
 export default Page;

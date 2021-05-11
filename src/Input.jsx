@@ -16,7 +16,7 @@ function Input({ description, onChange, onAdd }) {
         추가
         </button>
     </p>
-  )
+  );
 }
 
 export default Input;
