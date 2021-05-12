@@ -11,10 +11,11 @@ export default function List({ items, onClick }) {
 
   return (
     <ol>
-      {items.map((item) => (
+      {items.map(({ content, id }) => (
         <Item
-          content={item.content}
-          onClick={() => onClick(item.id)}
+          key={id}
+          content={content}
+          onClick={() => onClick(id)}
         />
       ))}
     </ol>
