@@ -13,7 +13,6 @@ export default function List({ items, onClick }) {
     <ol>
       {items.map(({ content, id }) => (
         <Item
-          key={id}
           content={content}
           onClick={() => onClick(id)}
         />

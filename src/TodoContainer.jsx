@@ -11,9 +11,9 @@ export default function TodoContainer() {
 
   const { userInput, tasks } = state;
 
-  function handleChangeInput(e) {
+  function handleChangeInput(newInput) {
     setState({
-      userInput: e.target.value,
+      userInput: newInput,
       tasks,
     });
   }
@@ -39,7 +39,7 @@ export default function TodoContainer() {
     <TodoPresentational
       userInput={userInput}
       tasks={tasks}
-      handleChangeInput={handleChangeInput}
+      handleChangeInput={(e) => handleChangeInput(e.target.value)}
       handleAddTask={handleAddTask}
       handleDeleteTask={handleDeleteTask}
     />
