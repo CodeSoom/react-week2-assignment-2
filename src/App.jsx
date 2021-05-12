@@ -30,8 +30,12 @@ export default function App() {
     return R.last(R.map(R.prop('id'), array));
   }
 
+  function getNewId(array) {
+    return lastIdOf(array) + 1 || 0;
+  }
+
   function handleAddTask() {
-    const newId = lastIdOf(tasks) + 1 || 0;
+    const newId = getNewId(tasks);
 
     setState({
       userInput: '',
