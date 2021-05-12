@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 function InputButton({ onClick }) {
   return (
-    <button type="button" onClick={onClick}>
+    <button
+      type="button"
+      onClick={onClick}
+    >
       추가
     </button>
   );

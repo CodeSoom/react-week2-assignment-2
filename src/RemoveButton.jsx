@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 function RemoveButton({ todo, onClickRemove }) {
   return (
-    <button type="button" onClick={() => onClickRemove(todo)}>완료</button>
+    <button
+      type="button"
+      onClick={() => onClickRemove(todo)}
+    >
+      완료
+    </button>
   );
 }
 
