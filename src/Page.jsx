@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Input from './Input.jsx';
-import TodoList from './TodoList.jsx';
+import Input from './Input';
+import TodoList from './TodoList';
 
 
 function Page({ description, todoList, onAdd, onChange, onDelete }) {
