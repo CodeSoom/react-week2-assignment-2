@@ -31,7 +31,7 @@ export default function App() {
   }
 
   function getNewId(array) {
-    return lastIdOf(array) + 1 || 0;
+    return R.isEmpty(array) ? 0 : lastIdOf(array) + 1;
   }
 
   function handleAddTask() {
