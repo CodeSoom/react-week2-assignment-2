@@ -35,11 +35,9 @@ export default function App() {
   }
 
   function handleAddTask() {
-    const newId = getNewId(tasks);
-
     setState({
       userInput: '',
-      tasks: [...tasks, { id: newId, content: userInput }],
+      tasks: [...tasks, { id: getNewId(tasks), content: userInput }],
     });
   }
 
