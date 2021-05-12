@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import List from './List';
 
-export default function TodoPresentational({
+export default function Todo({
   userInput,
   tasks,
   handleChangeInput,
@@ -27,7 +27,7 @@ export default function TodoPresentational({
   );
 }
 
-TodoPresentational.propTypes = {
+Todo.propTypes = {
   userInput: PropTypes.string.isRequired,
   tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleChangeInput: PropTypes.func.isRequired,
