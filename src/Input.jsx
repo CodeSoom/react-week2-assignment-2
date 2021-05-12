@@ -8,7 +8,7 @@ function Input({ description, handleChange, handleAdd }) {
         type='text'
         placeholder='할 일을 입력해 주세요'
         value={description}
-        onChange={handleChange} >
+        onChange={(e) => handleChange(e.target.value)}>
       </input>
       <button
         type='button'

@@ -5,24 +5,24 @@ import Page from './Page';
 
 function App() {
   const [state, setState] = useState({
-    todo: {id: 1, description: ''},
+    todo: { id: 1, description: '' },
     todos: []
   });
-  
+
   const { todo, todos } = state;
   const { id, description } = todo;
 
 
   const onAdd = () => {
     setState({
-      todo: {id: id + 1, description : ''},
+      todo: { id: id + 1, description: '' },
       todos: [...todos, todo]
     });
   }
 
-  const onChange = (e) => {
+  const onChange = (value) => {
     setState({
-      todo: {id, description: e.target.value},
+      todo: { id, description: value },
       todos
     });
   }
