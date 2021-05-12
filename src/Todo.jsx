@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import TodoButton from './TodoButton';
 
 function Todo({ todo, onClickRemove }) {
