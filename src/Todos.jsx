@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-function TodoList({ todoList, onDelete }) {
+function Todos({ todos, onDelete }) {
   return (
     <p>
       <ul>
         {
-          todoList.map((todo) => (
+          todos.map((todo) => (
             <li key={todo.id} type='1'>
               <span>{todo.description}</span>
               <button data-id={todo.id} onClick={(e) => onDelete(e)}>완료</button>
@@ -18,4 +18,4 @@ function TodoList({ todoList, onDelete }) {
   );
 }
 
-export default TodoList;
+export default Todos;

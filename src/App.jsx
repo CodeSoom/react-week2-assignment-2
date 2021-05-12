@@ -1,34 +1,45 @@
 import React, { useState } from 'react';
 
-import Page from './Page.jsx';
+import Page from './Page';
 
 
 function App() {
-  const [description, setDescription] = useState('');
-  const [currentId, setCurrentId] = useState(1);
-  const [todoList, setTodoList] = useState([]);
+  const [state, setState] = useState({
+    todo: {id: 1, description: ''},
+    todos: []
+  });
+  
+  const { todo, todos } = state;
+  const { id, description } = todo;
+
 
   const onAdd = () => {
-    const todo = { id: currentId, description };
-    setCurrentId(currentId + 1);
-    setTodoList([...todoList, todo]);
-    setDescription('');
+    setState({
+      todo: {id: id + 1, description : ''},
+      todos: [...todos, todo]
+    });
   }
 
   const onChange = (e) => {
-    setDescription(e.target.value)
+    setState({
+      todo: {id, description: e.target.value},
+      todos
+    });
   }
 
   const onDelete = (e) => {
     const id = Number(e.target.dataset.id);
-    const newTodoList = todoList.filter(todo => todo.id !== id);
-    setTodoList(newTodoList);
+    const deletedTodos = todos.filter(todo => todo.id !== id);
+    setState({
+      todo,
+      todos: deletedTodos
+    });
   }
 
   return (
     <Page
       description={description}
-      todoList={todoList}
+      todos={todos}
       onAdd={onAdd}
       onChange={onChange}
       onDelete={onDelete} />
