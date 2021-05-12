@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Todos({ todos, onDelete }) {
+function Todos({ todos, handleDelete }) {
   return (
     <p>
       <ul>
@@ -9,7 +9,7 @@ function Todos({ todos, onDelete }) {
           todos.map((todo) => (
             <li key={todo.id} type='1'>
               <span>{todo.description}</span>
-              <button data-id={todo.id} onClick={(e) => onDelete(e)}>완료</button>
+              <button data-id={todo.id} onClick={handleDelete}>완료</button>
             </li>
           ))
         }

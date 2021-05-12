@@ -4,20 +4,20 @@ import Input from './Input';
 import Todos from './Todos';
 
 
-function Page({ description, todos, onAdd, onChange, onDelete }) {
+function Page({ description, todos, handleAdd, handleChange, handleDelete }) {
   return (
     <div>
       <h1>To-do</h1>
       <Input
         description={description}
-        onAdd={onAdd}
-        onChange={onChange} />
+        handleAdd={handleAdd}
+        handleChange={handleChange} />
       {
         todos.length === 0
         ? <p>할 일이 없어요!</p>
         : <Todos
         todos={todos}
-        onDelete={onDelete} />
+        handleDelete={handleDelete} />
       }
     </div>
   );

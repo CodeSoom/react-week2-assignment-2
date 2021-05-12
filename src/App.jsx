@@ -40,9 +40,9 @@ function App() {
     <Page
       description={description}
       todos={todos}
-      onAdd={onAdd}
-      onChange={onChange}
-      onDelete={onDelete} />
+      handleAdd={onAdd}
+      handleChange={onChange}
+      handleDelete={onDelete} />
   );
 }
 
