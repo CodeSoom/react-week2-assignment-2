@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import TodoButton from './TodoButton';
+import RemoveButton from './RemoveButton';
 
 function Todo({ todo, onClickRemove }) {
   return (
     <li>
       {todo}
-      <TodoButton
+      <RemoveButton
         todo={todo}
         onClickRemove={onClickRemove}
       />
