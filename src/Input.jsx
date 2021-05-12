@@ -11,7 +11,7 @@ function Input({ todo, onChange, onClick }) {
         name="todo"
         value={todo}
         placeholder="할 일을 입력해 주세요"
-        onChange={onChange}
+        onChange={(event) => onChange(event.target.value)}
       />
       <InputButton
         onClick={onClick}

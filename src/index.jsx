@@ -18,9 +18,9 @@ function App() {
     });
   }
 
-  function handleChange(event) {
+  function handleChange(value) {
     setState({
-      todo: event.target.value,
+      todo: value,
       todoList,
     });
   }
