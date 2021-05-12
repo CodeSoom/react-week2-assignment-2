@@ -26,8 +26,12 @@ export default function App() {
     });
   }
 
+  function lastIdOf(array) {
+    return R.last(R.map(R.prop('id'), array));
+  }
+
   function handleAddTask() {
-    const newId = R.last(R.map(R.prop('id'), tasks)) + 1 || 0;
+    const newId = lastIdOf(tasks) + 1 || 0;
 
     setState({
       userInput: '',
