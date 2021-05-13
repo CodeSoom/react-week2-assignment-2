@@ -46,7 +46,7 @@ export default function App() {
     <Todo
       userInput={task}
       tasks={tasks}
-      handleChangeInput={(e) => handleChangeInput(e.target.value)}
+      handleChangeInput={handleChangeInput}
       handleAddTask={handleAddTask}
       handleDeleteTask={handleDeleteTask}
     />
