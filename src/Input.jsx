@@ -1,20 +1,20 @@
 import React from 'react';
 
-
-function Input({ description, handleChange, handleAdd }) {
+function Input({ description, onChange, onAdd }) {
   return (
     <p>
       <input
-        type='text'
-        placeholder='할 일을 입력해 주세요'
+        type="text"
+        placeholder="할 일을 입력해 주세요"
         value={description}
-        onChange={(e) => handleChange(e.target.value)}>
-      </input>
+        onChange={(e) => onChange(e.target.value)}
+      />
       <button
-        type='button'
-        onClick={handleAdd}>
+        type="button"
+        onClick={onAdd}
+      >
         추가
-        </button>
+      </button>
     </p>
   );
 }
