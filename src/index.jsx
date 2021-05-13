@@ -26,7 +26,7 @@ const App = () => {
     if (e.key && e.key !== 'Enter') return;
 
     setTodos([...todos, {
-      id: new Date(),
+      id: +(new Date()),
       content: value,
       done: false,
     }]);
