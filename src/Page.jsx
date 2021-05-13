@@ -12,6 +12,7 @@ const Page = ({
   addTodoList,
   deleteTodoList,
   inputRef,
+  checkTodo,
 }) => (
   <Container>
     <Title>Todo</Title>
@@ -23,7 +24,7 @@ const Page = ({
       onKeyPress={addTodoList}
     />
     <Button onClick={addTodoList}>추가</Button>
-    <Todos todos={todos} deleteTodoList={deleteTodoList} />
+    <Todos todos={todos} deleteTodoList={deleteTodoList} checkTodo={checkTodo} />
   </Container>
 );
 

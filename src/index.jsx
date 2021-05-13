@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Page from './Page';
-import './style.css';
+// import './style.css';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -11,6 +11,11 @@ const App = () => {
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  const checkTodo = (id) => {
+    todos.find((todo) => todo.id === id).done = !todos.find((todo) => todo.id === id).done;
+    setTodos([...todos]);
+  };
 
   const onChangeValue = (e) => {
     setValue(e.target.value);
@@ -23,6 +28,7 @@ const App = () => {
     setTodos([...todos, {
       id: new Date(),
       content: value,
+      done: false,
     }]);
 
     setValue('');
@@ -43,6 +49,7 @@ const App = () => {
       addTodoList={addTodoList}
       deleteTodoList={deleteTodoList}
       inputRef={inputRef}
+      checkTodo={checkTodo}
     />
   );
 };

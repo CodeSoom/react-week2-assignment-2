@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from './Button';
 
-const TodoList = ({ todo, deleteTodoList }) => {
+const TodoList = ({ todo, deleteTodoList, checkTodo }) => {
   const onDeleteTodoList = (id) => () => deleteTodoList(id);
-  const [isTodoDone, setIsTodoDone] = useState(false);
+  const onCheckTodo = (id) => () => checkTodo(id);
 
   return (
     <li
-      onClick={() => {
-        setIsTodoDone(!isTodoDone);
-      }}
-      className={isTodoDone ? 'done' : ''}
+      onClick={onCheckTodo(todo.id)}
+      className={todo.done ? 'done' : ''}
       aria-hidden="true"
     >
       <p>{todo?.content}</p>

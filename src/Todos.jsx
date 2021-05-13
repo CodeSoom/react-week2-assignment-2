@@ -1,10 +1,10 @@
 import React from 'react';
 import TodoList from './TodoList';
 
-const Buttons = ({ todos, deleteTodoList }) => (
+const Buttons = ({ todos, deleteTodoList, checkTodo }) => (
   <ol>
     {todos.map((todo) => (
-      <TodoList key={todo.id} todo={todo} deleteTodoList={deleteTodoList} />
+      <TodoList key={todo.id} todo={todo} deleteTodoList={deleteTodoList} checkTodo={checkTodo} />
     ))}
   </ol>
 );
