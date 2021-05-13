@@ -4,7 +4,7 @@ import TodoList from './TodoList';
 const Buttons = ({ todos, deleteTodoList }) => (
   <ol>
     {todos.map((todo) => (
-      <TodoList key={todo.id} todo={todo.content} deleteTodoList={deleteTodoList} />
+      <TodoList key={todo.id} todo={todo} deleteTodoList={deleteTodoList} />
     ))}
   </ol>
 );
