@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Input = ({
-  value, onChangeValue, ...props
+  value, onChangeValue, inputRef, ...props
 }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <input onChange={onChangeValue} value={value} {...props} />
+  <input ref={inputRef} value={value} onChange={onChangeValue} {...props} />
 );
 
 export default Input;

@@ -10,10 +10,11 @@ const Page = ({
   onChangeValue,
   addTodoList,
   deleteTodoList,
+  inputRef,
 }) => (
   <div>
     <Title>Todo</Title>
-    <Input type="text" onChange={onChangeValue} value={value} />
+    <Input type="text" inputRef={inputRef} onChange={onChangeValue} value={value} />
     <Button addTodoList={addTodoList}>추가</Button>
     <Buttons todos={todos} deleteTodoList={deleteTodoList} />
   </div>

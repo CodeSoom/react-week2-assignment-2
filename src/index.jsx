@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Page from './Page';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [value, setValue] = useState('');
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const onChangeValue = (e) => {
     setValue(e.target.value);
@@ -15,10 +20,14 @@ const App = () => {
       id: new Date(),
       content: value,
     }]);
+
+    inputRef.current.focus();
   };
 
   const deleteTodoList = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+
+    inputRef.current.focus();
   };
 
   return (
@@ -28,6 +37,7 @@ const App = () => {
       onChangeValue={onChangeValue}
       addTodoList={addTodoList}
       deleteTodoList={deleteTodoList}
+      inputRef={inputRef}
     />
   );
 };
