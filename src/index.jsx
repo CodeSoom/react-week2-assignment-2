@@ -16,6 +16,10 @@ const App = () => {
     }]);
   };
 
+  const deleteTodoList = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div>
       <h2>Todo</h2>
@@ -25,7 +29,7 @@ const App = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             <p>{todo?.content}</p>
-            <button type="button">완료</button>
+            <button type="button" onClick={() => deleteTodoList(todo.id)}>완료</button>
           </li>
         ))}
       </ol>
