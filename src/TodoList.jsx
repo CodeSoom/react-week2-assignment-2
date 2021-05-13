@@ -1,22 +1,12 @@
 import React from 'react';
-import Button from './Button';
+import TodoItem from './TodoItem';
 
-const TodoList = ({ todo, deleteTodoList, checkTodo }) => {
-  const onDeleteTodoList = (id) => () => deleteTodoList(id);
-  const onCheckTodo = (id) => () => checkTodo(id);
-
-  return (
-    <li className="todo">
-      <p
-        onClick={onCheckTodo(todo.id)}
-        className={todo.done ? 'done' : ''}
-        aria-hidden="true"
-      >
-        {todo?.content}
-      </p>
-      <Button type="button" onClick={onDeleteTodoList(todo.id)}>완료</Button>
-    </li>
-  );
-};
+const TodoList = ({ todos, deleteTodoList, checkTodo }) => (
+  <ol>
+    {todos.map((todo) => (
+      <TodoItem key={todo.id} todo={todo} deleteTodoList={deleteTodoList} checkTodo={checkTodo} />
+    ))}
+  </ol>
+);
 
 export default TodoList;

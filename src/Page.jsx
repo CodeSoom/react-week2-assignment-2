@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import Todos from './Todos';
+import TodoList from './TodoList';
 import Input from './Input';
 import Title from './Title';
 import Container from './Container';
@@ -27,7 +27,7 @@ const Page = ({
     {todos.length === 0
       ? (<p>할 일이 없어요!</p>)
       : (
-        <Todos
+        <TodoList
           todos={todos}
           deleteTodoList={deleteTodoList}
           checkTodo={checkTodo}
