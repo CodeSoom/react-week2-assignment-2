@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 import Buttons from './Buttons';
 
 const Page = ({
@@ -11,7 +12,7 @@ const Page = ({
   <div>
     <h2>Todo</h2>
     <input type="text" onChange={onChangeValue} value={value} />
-    <button type="button" onClick={addTodoList}>추가</button>
+    <Button addTodoList={addTodoList}>추가</Button>
     <Buttons todos={todos} deleteTodoList={deleteTodoList} />
   </div>
 );
