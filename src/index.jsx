@@ -16,7 +16,6 @@ const App = () => {
   };
 
   const addTodoList = (e) => {
-    console.log(e.key);
     if (!value.trim()) return;
     if (e.key && e.key !== 'Enter') return;
 
