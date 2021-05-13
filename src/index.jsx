@@ -23,6 +23,7 @@ const App = () => {
       content: value,
     }]);
 
+    setValue('');
     inputRef.current.focus();
   };
 
