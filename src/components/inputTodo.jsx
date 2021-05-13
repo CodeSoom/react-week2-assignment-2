@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function InputTodo({ onClick }) {
+function InputToDo({ onClick }) {
   return (
     <p>
       <input
@@ -17,4 +17,8 @@ function InputTodo({ onClick }) {
   );
 }
 
-export default InputTodo;
+InputToDo.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+export default InputToDo;
