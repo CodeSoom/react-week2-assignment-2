@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import InputWithButton from './components/InputWithButton';
+import TodoList from './components/TodoList';
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -12,10 +13,6 @@ function App() {
     if (todoInput === '') { return; }
     setTodoList([...todoList, todoInput]);
     setTodoInput('');
-  }
-
-  function handleClickComplete(completeIndex) {
-    setTodoList(todoList.filter((todo, index) => index !== completeIndex));
   }
 
   return (
@@ -30,21 +27,7 @@ function App() {
       {todoList.length === 0 ? (
         <p>할 일이 없어요!</p>
       ) : (
-        <ol>
-          {todoList.map((todo, index) => (
-            <li key={`todo-${index}}`}>
-              {todo}
-              <button
-                type="button"
-                key={`button-${index}}`}
-                onClick={() => handleClickComplete(index)}
-              >
-                완료
-                {index}
-              </button>
-            </li>
-          ))}
-        </ol>
+        <TodoList todoList={todoList} setTodoList={setTodoList} />
       )}
     </div>
   );
