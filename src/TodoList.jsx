@@ -6,12 +6,14 @@ const TodoList = ({ todo, deleteTodoList, checkTodo }) => {
   const onCheckTodo = (id) => () => checkTodo(id);
 
   return (
-    <li
-      onClick={onCheckTodo(todo.id)}
-      className={todo.done ? 'done' : ''}
-      aria-hidden="true"
-    >
-      <p>{todo?.content}</p>
+    <li className="todo">
+      <p
+        onClick={onCheckTodo(todo.id)}
+        className={todo.done ? 'done' : ''}
+        aria-hidden="true"
+      >
+        {todo?.content}
+      </p>
       <Button type="button" onClick={onDeleteTodoList(todo.id)}>완료</Button>
     </li>
   );

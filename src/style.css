@@ -1,3 +1,13 @@
+.todo p {
+  display: inline-block;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.todo button {
+  display: inline-block;
+}
+
 .done {
   cursor: pointer;
   text-decoration: line-through;
