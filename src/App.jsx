@@ -46,9 +46,9 @@ export default function App() {
     <Todo
       userInput={task}
       tasks={tasks}
-      handleChangeInput={handleChangeInput}
-      handleAddTask={handleAddTask}
-      handleDeleteTask={handleDeleteTask}
+      onChangeInput={handleChangeInput}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
     />
   );
 }

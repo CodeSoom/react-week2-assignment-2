@@ -7,9 +7,9 @@ import List from './List';
 export default function Todo({
   userInput,
   tasks,
-  handleChangeInput,
-  handleAddTask,
-  handleDeleteTask,
+  onChangeInput: handleChangeInput,
+  onAddTask: handleAddTask,
+  onDeleteTask: handleDeleteTask,
 }) {
   return (
     <p>
@@ -30,7 +30,7 @@ export default function Todo({
 Todo.propTypes = {
   userInput: PropTypes.string.isRequired,
   tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleChangeInput: PropTypes.func.isRequired,
-  handleAddTask: PropTypes.func.isRequired,
-  handleDeleteTask: PropTypes.func.isRequired,
+  onChangeInput: PropTypes.func.isRequired,
+  onAddTask: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
 };
