@@ -1,11 +1,12 @@
 import React from 'react';
 import EmptyTodoList from './EmptyTodoList';
+import List from './List';
 import TodoItem from './TodoItem';
 
 const TodoList = ({ todos, deleteTodo, checkTodo }) => {
   if (todos.length === 0) return <EmptyTodoList>할 일이 없어요!</EmptyTodoList>;
   return (
-    <ol>
+    <List tagName="ol">
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
@@ -14,7 +15,7 @@ const TodoList = ({ todos, deleteTodo, checkTodo }) => {
           checkTodo={checkTodo}
         />
       ))}
-    </ol>
+    </List>
   );
 };
 
