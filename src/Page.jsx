@@ -24,15 +24,11 @@ const Page = ({
       onKeyPress={addTodo}
     />
     <Button onClick={addTodo}>추가</Button>
-    {todos.length === 0
-      ? (<p>할 일이 없어요!</p>)
-      : (
-        <TodoList
-          todos={todos}
-          deleteTodo={deleteTodo}
-          checkTodo={checkTodo}
-        />
-      )}
+    <TodoList
+      todos={todos}
+      deleteTodo={deleteTodo}
+      checkTodo={checkTodo}
+    />
   </Container>
 );
 
