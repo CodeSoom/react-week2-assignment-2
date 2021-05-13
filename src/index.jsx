@@ -20,8 +20,8 @@ function App() {
 
   function handleChange(value) {
     setState({
+      ...state,
       todo: value,
-      todoList,
     });
   }
 
