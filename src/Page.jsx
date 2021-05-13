@@ -14,7 +14,13 @@ const Page = ({
 }) => (
   <div>
     <Title>Todo</Title>
-    <Input type="text" inputRef={inputRef} onChange={onChangeValue} value={value} />
+    <Input
+      type="text"
+      inputRef={inputRef}
+      onChange={onChangeValue}
+      value={value}
+      onKeyPress={addTodoList}
+    />
     <Button addTodoList={addTodoList}>추가</Button>
     <Buttons todos={todos} deleteTodoList={deleteTodoList} />
   </div>

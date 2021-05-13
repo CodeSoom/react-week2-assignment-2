@@ -15,8 +15,10 @@ const App = () => {
     setValue(e.target.value);
   };
 
-  const addTodoList = () => {
+  const addTodoList = (e) => {
+    console.log(e.key);
     if (!value.trim()) return;
+    if (e.key && e.key !== 'Enter') return;
 
     setTodos([...todos, {
       id: new Date(),
