@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 
 const App = () => (
   <div>
-    App
+    <h2>Todo</h2>
+    <input type="text" />
+    <button type="button">추가</button>
+    <ul />
   </div>
 );
 
