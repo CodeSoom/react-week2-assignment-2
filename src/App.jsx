@@ -36,6 +36,7 @@ export default function App() {
 
   function handleAddTask() {
     setState({
+      ...state,
       task: '',
       tasks: [...tasks, { id: getNewId(tasks), content: task }],
     });
