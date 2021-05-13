@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Page from './Page';
 import './style.css';
 
-const App = () => {
+export default function App() {
   const [todos, setTodos] = useState([]);
   const [value, setValue] = useState('');
   const inputRef = useRef();
@@ -52,8 +52,6 @@ const App = () => {
       checkTodo={checkTodo}
     />
   );
-};
-
-export default App;
+}
 
 ReactDOM.render(<App />, document.querySelector('#app'));

@@ -5,7 +5,7 @@ import Input from './Input';
 import Title from './Title';
 import Container from './Container';
 
-const Page = ({
+export default function Page({
   todos,
   value,
   onChangeValue,
@@ -13,23 +13,23 @@ const Page = ({
   deleteTodo,
   inputRef,
   checkTodo,
-}) => (
-  <Container>
-    <Title>Todo</Title>
-    <Input
-      type="text"
-      inputRef={inputRef}
-      onChange={onChangeValue}
-      value={value}
-      onKeyPress={addTodo}
-    />
-    <Button onClick={addTodo}>추가</Button>
-    <TodoList
-      todos={todos}
-      deleteTodo={deleteTodo}
-      checkTodo={checkTodo}
-    />
-  </Container>
-);
-
-export default Page;
+}) {
+  return (
+    <Container>
+      <Title>Todo</Title>
+      <Input
+        type="text"
+        inputRef={inputRef}
+        onChange={onChangeValue}
+        value={value}
+        onKeyPress={addTodo}
+      />
+      <Button onClick={addTodo}>추가</Button>
+      <TodoList
+        todos={todos}
+        deleteTodo={deleteTodo}
+        checkTodo={checkTodo}
+      />
+    </Container>
+  );
+}

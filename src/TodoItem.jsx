@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 
-const TodoItem = ({ todo, deleteTodo, checkTodo }) => {
+export default function TodoItem({ todo, deleteTodo, checkTodo }) {
   const onDeleteTodo = (id) => () => deleteTodo(id);
   const onCheckTodo = (id) => () => checkTodo(id);
 
@@ -17,6 +17,4 @@ const TodoItem = ({ todo, deleteTodo, checkTodo }) => {
       <Button type="button" onClick={onDeleteTodo(todo.id)}>완료</Button>
     </li>
   );
-};
-
-export default TodoItem;
+}

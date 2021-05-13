@@ -1,6 +1,6 @@
 import React, { Children, isValidElement, cloneElement } from 'react';
 
-const List = ({ tagName, children }) => {
+export default function List({ tagName, children }) {
   const CustomTag = tagName;
 
   return (
@@ -13,6 +13,4 @@ const List = ({ tagName, children }) => {
       }
     </CustomTag>
   );
-};
-
-export default List;
+}

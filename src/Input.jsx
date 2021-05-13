@@ -1,10 +1,13 @@
 import React from 'react';
 
-const Input = ({
-  value, onChangeValue, inputRef, ...props
-}) => (
+export default function Input({
+  value,
+  onChangeValue,
+  inputRef,
+  ...props
+}) {
+  return (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <input ref={inputRef} value={value} onChange={onChangeValue} {...props} />
-);
-
-export default Input;
+    <input ref={inputRef} value={value} onChange={onChangeValue} {...props} />
+  );
+}
