@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import Buttons from './Buttons';
+import Todos from './Todos';
 import Input from './Input';
 import Title from './Title';
 
@@ -22,7 +22,7 @@ const Page = ({
       onKeyPress={addTodoList}
     />
     <Button addTodoList={addTodoList}>추가</Button>
-    <Buttons todos={todos} deleteTodoList={deleteTodoList} />
+    <Todos todos={todos} deleteTodoList={deleteTodoList} />
   </div>
 );
 
