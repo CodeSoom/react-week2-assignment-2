@@ -3,6 +3,7 @@ import Button from './Button';
 import Todos from './Todos';
 import Input from './Input';
 import Title from './Title';
+import Container from './Container';
 
 const Page = ({
   todos,
@@ -12,7 +13,7 @@ const Page = ({
   deleteTodoList,
   inputRef,
 }) => (
-  <div>
+  <Container>
     <Title>Todo</Title>
     <Input
       type="text"
@@ -23,7 +24,7 @@ const Page = ({
     />
     <Button onClick={addTodoList}>추가</Button>
     <Todos todos={todos} deleteTodoList={deleteTodoList} />
-  </div>
+  </Container>
 );
 
 export default Page;
