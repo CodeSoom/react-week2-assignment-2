@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Page from './Page';
+import './style.css';
 
 const App = () => {
   const [todos, setTodos] = useState([]);

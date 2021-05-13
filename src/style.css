@@ -1,0 +1,5 @@
+.done {
+  cursor: pointer;
+  text-decoration: line-through;
+  color: gray;
+}
