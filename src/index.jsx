@@ -16,6 +16,8 @@ const App = () => {
   };
 
   const addTodoList = () => {
+    if (!value.trim()) return;
+
     setTodos([...todos, {
       id: new Date(),
       content: value,
