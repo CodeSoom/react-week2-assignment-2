@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from './Button';
 
-const TodoItem = ({ todo, deleteTodoList, checkTodo }) => {
-  const onDeleteTodoList = (id) => () => deleteTodoList(id);
+const TodoItem = ({ todo, deleteTodo, checkTodo }) => {
+  const onDeleteTodo = (id) => () => deleteTodo(id);
   const onCheckTodo = (id) => () => checkTodo(id);
 
   return (
@@ -14,7 +14,7 @@ const TodoItem = ({ todo, deleteTodoList, checkTodo }) => {
       >
         {todo?.content}
       </p>
-      <Button type="button" onClick={onDeleteTodoList(todo.id)}>완료</Button>
+      <Button type="button" onClick={onDeleteTodo(todo.id)}>완료</Button>
     </li>
   );
 };

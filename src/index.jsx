@@ -21,7 +21,7 @@ const App = () => {
     setValue(e.target.value);
   };
 
-  const addTodoList = (e) => {
+  const addTodo = (e) => {
     if (!value.trim()) return;
     if (e.key && e.key !== 'Enter') return;
 
@@ -35,7 +35,7 @@ const App = () => {
     inputRef.current.focus();
   };
 
-  const deleteTodoList = (id) => {
+  const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
 
     inputRef.current.focus();
@@ -46,8 +46,8 @@ const App = () => {
       todos={todos}
       value={value}
       onChangeValue={onChangeValue}
-      addTodoList={addTodoList}
-      deleteTodoList={deleteTodoList}
+      addTodo={addTodo}
+      deleteTodo={deleteTodo}
       inputRef={inputRef}
       checkTodo={checkTodo}
     />

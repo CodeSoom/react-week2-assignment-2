@@ -9,8 +9,8 @@ const Page = ({
   todos,
   value,
   onChangeValue,
-  addTodoList,
-  deleteTodoList,
+  addTodo,
+  deleteTodo,
   inputRef,
   checkTodo,
 }) => (
@@ -21,15 +21,15 @@ const Page = ({
       inputRef={inputRef}
       onChange={onChangeValue}
       value={value}
-      onKeyPress={addTodoList}
+      onKeyPress={addTodo}
     />
-    <Button onClick={addTodoList}>추가</Button>
+    <Button onClick={addTodo}>추가</Button>
     {todos.length === 0
       ? (<p>할 일이 없어요!</p>)
       : (
         <TodoList
           todos={todos}
-          deleteTodoList={deleteTodoList}
+          deleteTodo={deleteTodo}
           checkTodo={checkTodo}
         />
       )}
