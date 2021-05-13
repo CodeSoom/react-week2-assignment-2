@@ -5,16 +5,16 @@ import Todo from './Todo';
 
 export default function App() {
   const [state, setState] = useState({
-    userInput: '',
+    task: '',
     tasks: [],
   });
 
-  const { userInput, tasks } = state;
+  const { task, tasks } = state;
 
   function handleChangeInput(newInput) {
     setState({
       ...state,
-      userInput: newInput,
+      task: newInput,
     });
   }
 
@@ -36,14 +36,14 @@ export default function App() {
 
   function handleAddTask() {
     setState({
-      userInput: '',
-      tasks: [...tasks, { id: getNewId(tasks), content: userInput }],
+      task: '',
+      tasks: [...tasks, { id: getNewId(tasks), content: task }],
     });
   }
 
   return (
     <Todo
-      userInput={userInput}
+      userInput={task}
       tasks={tasks}
       handleChangeInput={(e) => handleChangeInput(e.target.value)}
       handleAddTask={handleAddTask}
