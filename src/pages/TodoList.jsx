@@ -1,16 +1,23 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-import InputTodo from '../components/inputTodo';
-import ToDoItems from '../components/todoItems';
+import PropTypes from 'prop-types';
 
-function ToDoList({ toDoList, onClickAdd, onClickDone }) {
+import InputTodo from '../components/InputToDo';
+import ToDoItems from '../components/ToDoItems';
+
+function ToDoList({ toDos, onClickAdd, onClickDone }) {
   return (
     <div>
       <h1>To-do</h1>
       <InputTodo onClick={onClickAdd} />
-      <ToDoItems toDoList={toDoList} onClick={onClickDone} />
+      <ToDoItems toDos={toDos} onClick={onClickDone} />
     </div>
   );
 }
+
+ToDoList.propTypes = {
+  toDos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClickAdd: PropTypes.func.isRequired,
+  onClickDone: PropTypes.func.isRequired,
+};
 
 export default ToDoList;

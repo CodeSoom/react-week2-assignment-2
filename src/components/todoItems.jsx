@@ -1,18 +1,16 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function ToDoItems({ toDoList, onClick }) {
+function ToDoItems({ toDos, onClick }) {
   return (
     <ol type="1">
-      {toDoList.length > 0 ? (
-        toDoList.map((i) => (
+      {toDos.length > 0 ? (
+        toDos.map((i) => (
           <li>
             {i}
             <button
               type="button"
-              onClick={() => {
-                onClick(i);
-              }}
+              onClick={() => { onClick(i); }}
             >
               완료
             </button>
@@ -24,5 +22,10 @@ function ToDoItems({ toDoList, onClick }) {
     </ol>
   );
 }
+
+ToDoItems.propTypes = {
+  toDos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default ToDoItems;

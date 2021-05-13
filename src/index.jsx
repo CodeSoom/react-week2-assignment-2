@@ -1,27 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import ToDoList from './pages/TodoList';
+
+import App from './App';
+
 // 리액트 2-2 과제 : 컴포넌트 분리
-
-function App() {
-  const [state, setState] = useState({
-    toDoList: [],
-  });
-  const { toDoList } = state;
-
-  function handleClickAdd() {
-    const input = document.getElementById('input').value;
-    document.getElementById('input').value = '';
-    setState({ toDoList: toDoList.concat(input) });
-  }
-
-  function handleClickDone(done) {
-    setState({ toDoList: toDoList.filter(((todo) => (todo !== done))) });
-  }
-
-  return (
-    <ToDoList toDoList={toDoList} onClickAdd={handleClickAdd} onClickDone={handleClickDone} />
-  );
-}
-
+/**
+ * 1) 2-1과 중복된 부분 수정
+ *  - import 라이브러리/로컬컴포넌트 분리,
+ *  - app 컴포넌트 분리
+ *  - propTypes 적용
+ *  - 인라인 함수로 변경 (읽기 좋게 만들기)
+ */
 ReactDOM.render(<App />, document.getElementById('app'));
