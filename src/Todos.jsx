@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './TodoList';
 
-const Buttons = ({ todos, deleteTodoList, checkTodo }) => (
+const Todos = ({ todos, deleteTodoList, checkTodo }) => (
   <ol>
     {todos.map((todo) => (
       <TodoList key={todo.id} todo={todo} deleteTodoList={deleteTodoList} checkTodo={checkTodo} />
@@ -9,4 +9,4 @@ const Buttons = ({ todos, deleteTodoList, checkTodo }) => (
   </ol>
 );
 
-export default Buttons;
+export default Todos;
