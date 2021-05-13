@@ -1,19 +1,12 @@
 import React from 'react';
-import Button from './Button';
+import TodoList from './TodoList';
 
-const Buttons = ({ todos, deleteTodoList }) => {
-  const onDeleteTodoList = (id) => () => deleteTodoList(id);
-
-  return (
-    <ol>
-      {todos.map((todo) => (
-        <li key={todo.id}>
-          <p>{todo?.content}</p>
-          <Button type="button" onClick={onDeleteTodoList(todo.id)}>완료</Button>
-        </li>
-      ))}
-    </ol>
-  );
-};
+const Buttons = ({ todos, deleteTodoList }) => (
+  <ol>
+    {todos.map((todo) => (
+      <TodoList key={todo.id} todo={todo.content} deleteTodoList={deleteTodoList} />
+    ))}
+  </ol>
+);
 
 export default Buttons;
