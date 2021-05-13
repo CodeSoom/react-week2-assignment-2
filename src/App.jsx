@@ -13,15 +13,15 @@ export default function App() {
 
   function handleChangeInput(newInput) {
     setState({
+      ...state,
       userInput: newInput,
-      tasks,
     });
   }
 
   function handleDeleteTask(target) {
     const isTaskToRemain = R.pipe(R.prop('id'), R.equals(target), R.not);
     setState({
-      userInput,
+      ...state,
       tasks: (R.filter(isTaskToRemain, tasks)),
     });
   }
