@@ -21,7 +21,7 @@ const Page = ({
       value={value}
       onKeyPress={addTodoList}
     />
-    <Button addTodoList={addTodoList}>추가</Button>
+    <Button onClick={addTodoList}>추가</Button>
     <Todos todos={todos} deleteTodoList={deleteTodoList} />
   </div>
 );
