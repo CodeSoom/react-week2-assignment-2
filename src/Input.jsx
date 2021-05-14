@@ -2,12 +2,18 @@ import React from 'react';
 
 export default function Input({
   value,
-  onChangeValue,
+  onChange,
   inputRef,
-  ...props
+  onKeyPress,
+  type,
 }) {
   return (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-    <input ref={inputRef} value={value} onChange={onChangeValue} {...props} />
+    <input
+      type={type}
+      ref={inputRef}
+      value={value}
+      onChange={onChange}
+      onKeyPress={onKeyPress}
+    />
   );
 }
