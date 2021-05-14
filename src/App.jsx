@@ -25,7 +25,7 @@ export default function App() {
     });
   }
 
-  const handleClickRemove = (key) => {
+  const handleClickRemoveTodo = (key) => {
     setState({
       ...state,
       todoList: todoList.filter((todoItem) => todoItem !== key),
@@ -42,7 +42,7 @@ export default function App() {
       />
       <TodoList
         todoList={todoList}
-        onClickRemove={handleClickRemove}
+        onClickRemoveTodo={handleClickRemoveTodo}
       />
     </div>
   );
