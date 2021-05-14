@@ -13,7 +13,7 @@ export default function App() {
 
   function handleClickAddTodo() {
     if (todo === '') {
-      return
+      return;
     }
 
     setState({
@@ -32,7 +32,7 @@ export default function App() {
   const handleClickRemoveTodo = (key) => {
     setState({
       ...state,
-      todoList: todoList.filter((todoItem) => todoItem !== key),
+      todoList: todoList.filter((todoItem, i) => (`${todoItem}_${i}` !== key)),
     });
   };
 

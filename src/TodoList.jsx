@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Todo from "./Todo";
+import Todo from './Todo';
 
 export default function TodoList({ todoList, onClickRemoveTodo }) {
   if (todoList.length === 0) {
@@ -14,6 +14,7 @@ export default function TodoList({ todoList, onClickRemoveTodo }) {
           <Todo
             key={`${todo}_${index}`}
             todo={todo}
+            index={index}
             onClickRemoveTodo={onClickRemoveTodo}
           />
         ))}
