@@ -5,12 +5,8 @@ import Input from './Input';
 import Title from './Title';
 
 export default function Page({
-  todos,
-  value,
-  onChangeValue,
-  onClickAddTodo,
-  onClickDeleteTodo,
-  onClickCheckTodo,
+  todos, value,
+  onChangeValue, onClickAddTodo, onClickDeleteTodo, onClickCheckTodo,
 }) {
   return (
     <div>

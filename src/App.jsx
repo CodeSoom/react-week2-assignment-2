@@ -23,11 +23,14 @@ export default function App() {
       return;
     }
 
-    setTodos([...todos, {
-      id: +(new Date()),
-      content: value,
-      done: false,
-    }]);
+    setTodos([
+      ...todos,
+      {
+        id: +(new Date()),
+        content: value,
+        done: false,
+      },
+    ]);
 
     setValue('');
   };
