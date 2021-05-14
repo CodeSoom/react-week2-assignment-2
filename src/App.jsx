@@ -10,8 +10,8 @@ export default function App() {
     setTodos([...todos]);
   };
 
-  const handleChangeValue = (e) => {
-    setValue(e.target.value);
+  const handleChangeValue = (targetValue) => {
+    setValue(targetValue);
   };
 
   const handleClickAddTodo = (e) => {

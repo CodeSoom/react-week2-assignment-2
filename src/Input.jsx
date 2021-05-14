@@ -7,6 +7,7 @@ export default function Input({
   type,
   todos,
 }) {
+  const handleChangeValue = (e) => onChangeValue(e.target.value);
   const inputRef = useRef();
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function Input({
       ref={inputRef}
       type={type}
       value={value}
-      onChange={onChangeValue}
+      onChange={handleChangeValue}
       onKeyPress={onKeyPress}
     />
   );
