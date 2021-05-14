@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Input from './Input';
-import List from './List';
+import TodoInput from './TodoInput';
+import TodoList from './ToDoList';
 
 export default function Todo({
   userInput,
@@ -14,12 +14,12 @@ export default function Todo({
   return (
     <p>
       <h1>To-do</h1>
-      <Input
+      <TodoInput
         value={userInput}
         onChangeInput={handleChangeInput}
         onSubmit={handleAddTask}
       />
-      <List
+      <TodoList
         items={tasks}
         onClick={handleDeleteTask}
       />

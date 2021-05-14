@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Input({ value, onChangeInput, onSubmit }) {
+export default function TodoInput({ value, onChangeInput, onSubmit }) {
   return (
     <p>
       <input
@@ -19,7 +19,7 @@ export default function Input({ value, onChangeInput, onSubmit }) {
   );
 }
 
-Input.propTypes = {
+TodoInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChangeInput: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
