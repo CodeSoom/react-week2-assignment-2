@@ -13,7 +13,7 @@ function App() {
 
   function handleClick() {
     setState({
-      todo: '',
+      ...state,
       todoList: [...todoList, todo],
     });
   }
@@ -27,8 +27,8 @@ function App() {
 
   const handleClickRemove = (key) => {
     setState({
+      ...state,
       todoList: todoList.filter((todoItem) => todoItem !== key),
-      todo,
     });
   };
 
