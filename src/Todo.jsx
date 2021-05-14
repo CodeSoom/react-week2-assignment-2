@@ -7,21 +7,21 @@ import TodoList from './ToDoList';
 export default function Todo({
   userInput,
   tasks,
-  onChangeInput: handleChangeInput,
-  onAddTask: handleAddTask,
-  onDeleteTask: handleDeleteTask,
+  onChangeInput,
+  onAddTask,
+  onDeleteTask,
 }) {
   return (
     <p>
       <h1>To-do</h1>
       <TodoInput
         value={userInput}
-        onChangeInput={handleChangeInput}
-        onSubmit={handleAddTask}
+        onChangeInput={onChangeInput}
+        onSubmit={onAddTask}
       />
       <TodoList
         items={tasks}
-        onClick={handleDeleteTask}
+        onClick={onDeleteTask}
       />
     </p>
   );
