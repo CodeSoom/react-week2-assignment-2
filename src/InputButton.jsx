@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function InputButton({ onClick }) {
   return (
@@ -11,9 +10,5 @@ function InputButton({ onClick }) {
     </button>
   );
 }
-
-InputButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default InputButton;
