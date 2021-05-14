@@ -9,10 +9,7 @@ function Input({ description, onChange, onAdd }) {
         value={description}
         onChange={(e) => onChange(e.target.value)}
       />
-      <button
-        type="button"
-        onClick={onAdd}
-      >
+      <button type="button" onClick={onAdd}>
         추가
       </button>
     </p>

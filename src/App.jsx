@@ -25,8 +25,7 @@ function App() {
     });
   };
 
-  const handleDelete = (e) => {
-    const id = Number(e.target.dataset.id);
+  const handleDelete = (id) => {
     const deletedTodos = todos.filter(todo => todo.id !== id);
     setState({
       todo,
