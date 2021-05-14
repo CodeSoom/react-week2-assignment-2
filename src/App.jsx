@@ -11,14 +11,14 @@ export default function App() {
 
   const { todo, todoList } = state;
 
-  function handleClick() {
+  function handleClickAddTodo() {
     setState({
       ...state,
       todoList: [...todoList, todo],
     });
   }
 
-  function handleChange(value) {
+  function handleChangeText(value) {
     setState({
       ...state,
       todo: value,
@@ -37,8 +37,8 @@ export default function App() {
       <p>To-do</p>
       <Input
         todo={todo}
-        onChange={handleChange}
-        onClick={handleClick}
+        onChangeText={handleChangeText}
+        onClickAddTodo={handleClickAddTodo}
       />
       <TodoList
         todoList={todoList}

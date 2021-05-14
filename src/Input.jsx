@@ -2,7 +2,7 @@ import React from 'react';
 
 import InputButton from './InputButton';
 
-export default function Input({ todo, onChange, onClick }) {
+export default function Input({ todo, onChangeText, onClickAddTodo }) {
   return (
     <div>
       <input
@@ -10,13 +10,11 @@ export default function Input({ todo, onChange, onClick }) {
         name="todo"
         value={todo}
         placeholder="할 일을 입력해 주세요"
-        onChange={(event) => onChange(event.target.value)}
+        onChange={(event) => onChangeText(event.target.value)}
       />
       <InputButton
-        onClick={onClick}
+        onClick={onClickAddTodo}
       />
     </div>
   );
 }
-
-export default Input;
