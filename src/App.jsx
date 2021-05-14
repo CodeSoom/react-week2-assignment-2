@@ -13,7 +13,7 @@ export default function App() {
 
   function handleClickAddTodo() {
     setState({
-      ...state,
+      todo: '',
       todoList: [...todoList, todo],
     });
   }
