@@ -7,22 +7,20 @@ function ToDoItems({ toDos, onClick }) {
       return <p>할 일이 없어요!</p>;
     }
     return (
-      toDos.map((todo) => (
-        <li>
-          {todo}
-          <button type="button" key={todo} onClick={() => { onClick(todo); }}>
-            완료
-          </button>
-        </li>
-      ))
+      <ol type="1">
+        { toDos.map((todo) => (
+          <li>
+            {todo}
+            <button type="button" key={todo} onClick={() => { onClick(todo); }}>
+              완료
+            </button>
+          </li>
+        ))}
+      </ol>
     );
   }
 
-  return (
-    <ol type="1">
-      {getToDoListView()}
-    </ol>
-  );
+  return getToDoListView();
 }
 
 ToDoItems.propTypes = {
