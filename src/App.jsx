@@ -15,8 +15,13 @@ export default function App() {
   };
 
   const handleClickAddTodo = (e) => {
-    if (!value.trim()) return;
-    if (e.key && e.key !== 'Enter') return;
+    if (!value.trim()) {
+      return;
+    }
+
+    if (e.key && e.key !== 'Enter') {
+      return;
+    }
 
     setTodos([...todos, {
       id: +(new Date()),
