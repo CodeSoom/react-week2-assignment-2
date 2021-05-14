@@ -10,7 +10,6 @@ export default function Page({
   onChangeValue,
   addTodo,
   deleteTodo,
-  inputRef,
   checkTodo,
 }) {
   return (
@@ -18,10 +17,10 @@ export default function Page({
       <Title>Todo</Title>
       <Input
         type="text"
-        inputRef={inputRef}
         onChange={onChangeValue}
         value={value}
         onKeyPress={addTodo}
+        todos={todos}
       />
       <Button onClick={addTodo}>추가</Button>
       <TodoList

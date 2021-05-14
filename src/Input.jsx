@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export default function Input({
   value,
   onChange,
-  inputRef,
   onKeyPress,
   type,
+  todos,
 }) {
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [todos]);
+
   return (
     <input
-      type={type}
       ref={inputRef}
+      type={type}
       value={value}
       onChange={onChange}
       onKeyPress={onKeyPress}
