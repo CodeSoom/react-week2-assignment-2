@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Input({ todo, onChangeText, onClickAddTodo }) {
+export default function TodoInput({ todo, onChangeText, onClickAddTodo }) {
   return (
     <div>
       <input

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Input from './Input';
+import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
 export default function App() {
@@ -35,7 +35,7 @@ export default function App() {
   return (
     <div>
       <p>To-do</p>
-      <Input
+      <TodoInput
         todo={todo}
         onChangeText={handleChangeText}
         onClickAddTodo={handleClickAddTodo}
