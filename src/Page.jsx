@@ -3,7 +3,9 @@ import React from 'react';
 import Input from './Input';
 import Todos from './Todos';
 
-function Page({ description, todos, onAdd, onChange, onDelete }) {
+function Page({
+  description, todos, onAdd, onChange, onDelete,
+}) {
   return (
     <div>
       <h1>To-do</h1>

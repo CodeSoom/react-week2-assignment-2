@@ -8,7 +8,7 @@ function Todos({ todos, onDelete }) {
       ) : (
         <p>
           <ul>
-            {todos.map( ({ id, description }) => (
+            {todos.map(({ id, description }) => (
               <li key={id} type="1">
                 <span>{description}</span>
                 <button type="button" onClick={() => onDelete(id)}>

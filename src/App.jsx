@@ -25,8 +25,8 @@ function App() {
     });
   };
 
-  const handleDelete = (id) => {
-    const deletedTodos = todos.filter(todo => todo.id !== id);
+  const handleDelete = (checkedId) => {
+    const deletedTodos = todos.filter((activeTodo) => activeTodo.id !== checkedId);
     setState({
       todo,
       todos: deletedTodos,
