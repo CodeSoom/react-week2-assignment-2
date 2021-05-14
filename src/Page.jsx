@@ -3,7 +3,6 @@ import Button from './Button';
 import TodoList from './TodoList';
 import Input from './Input';
 import Title from './Title';
-import Container from './Container';
 
 export default function Page({
   todos,
@@ -15,7 +14,7 @@ export default function Page({
   checkTodo,
 }) {
   return (
-    <Container>
+    <div>
       <Title>Todo</Title>
       <Input
         type="text"
@@ -30,6 +29,6 @@ export default function Page({
         deleteTodo={deleteTodo}
         checkTodo={checkTodo}
       />
-    </Container>
+    </div>
   );
 }
