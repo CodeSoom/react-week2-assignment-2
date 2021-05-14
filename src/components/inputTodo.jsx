@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function InputToDo({ onClick, value, onChanged }) {
+function InputToDo({ onClick }) {
   return (
     <p>
       <input
@@ -9,8 +9,6 @@ function InputToDo({ onClick, value, onChanged }) {
         id="input"
         name="input"
         placeholder="할 일을 입력해 주세요"
-        value={value}
-        onChange={(e) => { onChanged(e.target.value); }}
       />
       <button type="submit" onClick={onClick}>
         추가
@@ -21,8 +19,6 @@ function InputToDo({ onClick, value, onChanged }) {
 
 InputToDo.propTypes = {
   onClick: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-  onChanged: PropTypes.func.isRequired,
 };
 
 export default InputToDo;

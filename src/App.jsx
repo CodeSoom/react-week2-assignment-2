@@ -3,15 +3,13 @@ import React, { useState } from 'react';
 import ToDoList from './pages/TodoList';
 
 function App() {
-  const [state, setState] = useState({ toDos: [], inputValue: '' });
-  const { toDos, inputValue } = state;
-
-  function handleInputOnChanged(value) {
-    setState({ ...state, inputValue: value });
-  }
+  const [state, setState] = useState({ toDos: [] });
+  const { toDos } = state;
 
   function handleClickAdd() {
-    setState({ toDos: toDos.concat(inputValue), inputValue: '' });
+    const input = document.getElementById('input').value;
+    document.getElementById('input').value = '';
+    setState({ toDos: toDos.concat(input) });
   }
 
   function handleClickDone(done) {
@@ -21,8 +19,6 @@ function App() {
   return (
     <ToDoList
       toDos={toDos}
-      inputValue={inputValue}
-      inputOnChanged={handleInputOnChanged}
       onClickAdd={handleClickAdd}
       onClickDone={handleClickDone}
     />
