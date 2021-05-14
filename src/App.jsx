@@ -12,6 +12,10 @@ export default function App() {
   const { todo, todoList } = state;
 
   function handleClickAddTodo() {
+    if (todo === '') {
+      return
+    }
+
     setState({
       todo: '',
       todoList: [...todoList, todo],
