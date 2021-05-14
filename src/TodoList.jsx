@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todos, deleteTodo, checkTodo }) {
+export default function TodoList({ todos, onClickDeleteTodo, onClickCheckTodo }) {
   if (todos.length === 0) return <p>할 일이 없어요!</p>;
   return (
     <ol>
@@ -9,8 +9,8 @@ export default function TodoList({ todos, deleteTodo, checkTodo }) {
         <TodoItem
           key={todo.id}
           todo={todo}
-          deleteTodo={deleteTodo}
-          checkTodo={checkTodo}
+          onClickDeleteTodo={onClickDeleteTodo}
+          onClickCheckTodo={onClickCheckTodo}
         />
       ))}
     </ol>

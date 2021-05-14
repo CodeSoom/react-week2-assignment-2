@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 export default function Input({
   value,
-  onChange,
+  onChangeValue,
   onKeyPress,
   type,
   todos,
@@ -18,7 +18,7 @@ export default function Input({
       ref={inputRef}
       type={type}
       value={value}
-      onChange={onChange}
+      onChange={onChangeValue}
       onKeyPress={onKeyPress}
     />
   );

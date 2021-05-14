@@ -8,25 +8,25 @@ export default function Page({
   todos,
   value,
   onChangeValue,
-  addTodo,
-  deleteTodo,
-  checkTodo,
+  onClickAddTodo,
+  onClickDeleteTodo,
+  onClickCheckTodo,
 }) {
   return (
     <div>
       <Title>Todo</Title>
       <Input
         type="text"
-        onChange={onChangeValue}
         value={value}
-        onKeyPress={addTodo}
+        onChangeValue={onChangeValue}
+        onKeyPress={onClickAddTodo}
         todos={todos}
       />
-      <Button onClick={addTodo}>추가</Button>
+      <Button onClick={onClickAddTodo}>추가</Button>
       <TodoList
         todos={todos}
-        deleteTodo={deleteTodo}
-        checkTodo={checkTodo}
+        onClickDeleteTodo={onClickDeleteTodo}
+        onClickCheckTodo={onClickCheckTodo}
       />
     </div>
   );

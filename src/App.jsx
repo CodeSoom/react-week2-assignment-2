@@ -5,16 +5,16 @@ export default function App() {
   const [todos, setTodos] = useState([]);
   const [value, setValue] = useState('');
 
-  const checkTodo = (id) => {
+  const handleClickCheckTodo = (id) => {
     todos.find((todo) => todo.id === id).done = !todos.find((todo) => todo.id === id).done;
     setTodos([...todos]);
   };
 
-  const onChangeValue = (e) => {
+  const handleChangeValue = (e) => {
     setValue(e.target.value);
   };
 
-  const addTodo = (e) => {
+  const handleClickAddTodo = (e) => {
     if (!value.trim()) return;
     if (e.key && e.key !== 'Enter') return;
 
@@ -27,7 +27,7 @@ export default function App() {
     setValue('');
   };
 
-  const deleteTodo = (id) => {
+  const handleClickDeleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
@@ -35,10 +35,10 @@ export default function App() {
     <Page
       todos={todos}
       value={value}
-      onChangeValue={onChangeValue}
-      addTodo={addTodo}
-      deleteTodo={deleteTodo}
-      checkTodo={checkTodo}
+      onChangeValue={handleChangeValue}
+      onClickAddTodo={handleClickAddTodo}
+      onClickDeleteTodo={handleClickDeleteTodo}
+      onClickCheckTodo={handleClickCheckTodo}
     />
   );
 }
