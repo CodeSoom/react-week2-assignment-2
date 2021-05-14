@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoRemoveButton from './TodoRemoveButton';
+import Button from './common/Button';
 
 export default function TodoList({ todoList, onClickRemove }) {
   if (todoList.length === 0) {
@@ -13,9 +13,9 @@ export default function TodoList({ todoList, onClickRemove }) {
         {todoList.map((todo) => (
           <li>
             {todo}
-            <TodoRemoveButton
-              todo={todo}
-              onClickRemove={onClickRemove}
+            <Button
+              title="완료"
+              onPress={() => onClickRemove(todo)}
             />
           </li>
         ))}

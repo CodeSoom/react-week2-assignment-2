@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoAddButton from './TodoAddButton';
+import Button from './common/Button';
 
 export default function TodoInput({ todo, onChangeText, onClickAddTodo }) {
   return (
@@ -12,7 +12,10 @@ export default function TodoInput({ todo, onChangeText, onClickAddTodo }) {
         placeholder="할 일을 입력해 주세요"
         onChange={(event) => onChangeText(event.target.value)}
       />
-      <TodoAddButton onClickAddTodo={onClickAddTodo} />
+      <Button
+        title="추가"
+        onPress={onClickAddTodo}
+      />
     </div>
   );
 }
