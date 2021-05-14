@@ -1,6 +1,6 @@
 import React from 'react';
 
-function InputButton({ onClick }) {
+export default function InputButton({ onClick }) {
   return (
     <button
       type="button"
@@ -10,5 +10,3 @@ function InputButton({ onClick }) {
     </button>
   );
 }
-
-export default InputButton;

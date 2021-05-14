@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RemoveButton({ todo, onClickRemove }) {
+export default function RemoveButton({ todo, onClickRemove }) {
   return (
     <button
       type="button"
@@ -10,5 +10,3 @@ function RemoveButton({ todo, onClickRemove }) {
     </button>
   );
 }
-
-export default RemoveButton;

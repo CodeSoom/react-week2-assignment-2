@@ -2,7 +2,7 @@ import React from 'react';
 
 import Todo from './Todo';
 
-function TodoList({ todoList, onClickRemove }) {
+export default function TodoList({ todoList, onClickRemove }) {
   if (todoList.length === 0) {
     return <p>할 일이 없어요!</p>;
   }
@@ -17,5 +17,3 @@ function TodoList({ todoList, onClickRemove }) {
     </div>
   );
 }
-
-export default TodoList;

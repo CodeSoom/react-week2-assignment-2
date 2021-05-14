@@ -2,7 +2,7 @@ import React from 'react';
 
 import RemoveButton from './RemoveButton';
 
-function Todo({ todo, onClickRemove }) {
+export default function Todo({ todo, onClickRemove }) {
   return (
     <li>
       {todo}
@@ -13,5 +13,3 @@ function Todo({ todo, onClickRemove }) {
     </li>
   );
 }
-
-export default Todo;

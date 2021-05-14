@@ -2,7 +2,7 @@ import React from 'react';
 
 import InputButton from './InputButton';
 
-function Input({ todo, onChange, onClick }) {
+export default function Input({ todo, onChange, onClick }) {
   return (
     <div>
       <input
