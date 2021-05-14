@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function RemoveButton({ todo, onClickRemove }) {
+export default function TodoRemoveButton({ todo, onClickRemove }) {
   return (
     <button
       type="button"

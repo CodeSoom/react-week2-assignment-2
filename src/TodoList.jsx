@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RemoveButton from './RemoveButton';
+import TodoRemoveButton from './TodoRemoveButton';
 
 export default function TodoList({ todoList, onClickRemove }) {
   if (todoList.length === 0) {
@@ -13,7 +13,7 @@ export default function TodoList({ todoList, onClickRemove }) {
         {todoList.map((todo) => (
           <li>
             {todo}
-            <RemoveButton
+            <TodoRemoveButton
               todo={todo}
               onClickRemove={onClickRemove}
             />
