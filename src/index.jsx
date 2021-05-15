@@ -22,5 +22,9 @@ import App from './App';
  *    (src/components/toDoItems.jsx ) 할일 목록 그리는 컴포넌트 수정됨.
  *
  * 5) map()으로 반복하여 컴포넌트 그릴 때, key값 입력하기
+ *
+ * 6) input value값 얻는 방법변경 (onChange 사용)
+ *
+ * 7) ToDoItmes.jsx에서 ToDoList 그릴때, 구조분해 할당 응용해보기.
  */
 ReactDOM.render(<App />, document.getElementById('app'));
