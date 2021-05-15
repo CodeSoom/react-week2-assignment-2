@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InputTodo from '../components/InputToDo';
-import ToDoItems from '../components/ToDoItems';
+import ToDoListView from '../components/ToDoListView';
 
 function ToDoList({
   toDos, onClickAdd, onClickDone, inputValue, inputOnChanged,
@@ -11,7 +11,7 @@ function ToDoList({
     <div>
       <h1>To-do</h1>
       <InputTodo onClick={onClickAdd} value={inputValue} onChanged={inputOnChanged} />
-      <ToDoItems toDos={toDos} onClick={onClickDone} />
+      <ToDoListView toDos={toDos} onClick={onClickDone} />
     </div>
   );
 }

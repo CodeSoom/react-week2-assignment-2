@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // 구조 분해 할당 응용하기 : 필요한 컴포넌트를 props로 만들어 받기.
-function ToDoItems({
+function ToDoListView({
   onClick,
   toDos,
   toDoListView = toDos.map((todo) => (
@@ -30,9 +30,9 @@ function ToDoItems({
   return getToDoListView();
 }
 
-ToDoItems.propTypes = {
+ToDoListView.propTypes = {
   toDos: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
-export default ToDoItems;
+export default ToDoListView;
