@@ -11,7 +11,7 @@ export default function Page({
 }) {
   return (
     <div>
-      <Title>Todo</Title>
+      <Title title="Todo App" />
       <Input
         type="text"
         value={value}

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function Title({ children }) {
-  return <h2>{children}</h2>;
+export default function Title({ title }) {
+  return <h2>{title}</h2>;
 }
