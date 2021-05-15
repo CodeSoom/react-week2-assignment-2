@@ -2,32 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // 구조 분해 할당 응용하기 : 필요한 컴포넌트를 props로 만들어 받기.
+
+function createToDoListView({ toDos, onClick, defaultView }) {
+  if (toDos.length <= 0) {
+    return defaultView;
+  }
+  return (
+    <ol type="1">
+      {toDos.map((todo) => (
+        <li>
+          {todo}
+          <button
+            type="button"
+            key={todo}
+            onClick={() => {
+              onClick(todo);
+            }}
+          >
+            완료
+          </button>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 function ToDoListView({
   onClick,
   toDos,
-  toDoListView = toDos.map((todo) => (
-    <li>
-      {todo}
-      <button
-        type="button"
-        key={todo}
-        onClick={() => {
-          onClick(todo);
-        }}
-      >
-        완료
-      </button>
-    </li>
-  )),
+  defaultView = <p>할 일이 없어요!</p>,
+  toDoListView = createToDoListView({ toDos, onClick, defaultView }),
 }) {
-  function getToDoListView() {
-    if (toDos.length <= 0) {
-      return <p>할 일이 없어요!</p>;
-    }
-    return <ol type="1">{toDoListView}</ol>;
-  }
-
-  return getToDoListView();
+  return toDoListView;
 }
 
 ToDoListView.propTypes = {
