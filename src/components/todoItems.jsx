@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function ToDoItems({
   onClick,
   toDos,
-  toDoList = toDos.map((todo) => (
+  toDoListView = toDos.map((todo) => (
     <li>
       {todo}
       <button
@@ -24,11 +24,7 @@ function ToDoItems({
     if (toDos.length <= 0) {
       return <p>할 일이 없어요!</p>;
     }
-    return (
-      <ol type="1">
-        {toDoList}
-      </ol>
-    );
+    return <ol type="1">{toDoListView}</ol>;
   }
 
   return getToDoListView();
