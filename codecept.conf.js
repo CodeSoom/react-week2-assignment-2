@@ -15,18 +15,12 @@ exports.config = {
       windowSize: '1200x900',
     },
   },
-<<<<<<< HEAD
   include: {
     I: './steps_file.js',
   },
   bootstrap: null,
   mocha: {},
   name: 'assignment-1-1',
-=======
-  bootstrap: null,
-  mocha: {},
-  name: 'assignment-1-2',
->>>>>>> e2cf02a46d2ef9a266926e68b6a8f6da19c8aa71
   plugins: {
     retryFailedStep: {
       enabled: true,
