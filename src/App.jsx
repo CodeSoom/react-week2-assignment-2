@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import Page from './Page';
 
 export default function App() {
   const [state, setState] = useState({
@@ -38,17 +37,12 @@ export default function App() {
   };
 
   return (
-    <div>
-      <p>To-do</p>
-      <TodoInput
-        todo={todo}
-        onChangeText={handleChangeText}
-        onClickAddTodo={handleClickAddTodo}
-      />
-      <TodoList
-        todoList={todoList}
-        onClickRemoveTodo={handleClickRemoveTodo}
-      />
-    </div>
+    <Page
+      todo={todo}
+      todoList={todoList}
+      onChangeText={handleChangeText}
+      onClickAddTodo={handleClickAddTodo}
+      onClickRemoveTodo={handleClickRemoveTodo}
+    />
   );
 }
