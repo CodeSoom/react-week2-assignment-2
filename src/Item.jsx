@@ -7,7 +7,6 @@ export default function Item({ task: { id, title }, onClickDeleteTask }) {
     task: PropTypes.string.isRequired,
     onClickDeleteTask: PropTypes.string.isRequired,
   };
-
   return (
     <li>
       {title}
