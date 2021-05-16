@@ -8,6 +8,7 @@ export default function List({ tasks, onClickDeleteTask }) {
     tasks: PropTypes.string.isRequired,
     onClickDeleteTask: PropTypes.string.isRequired,
   };
+
   return (
     <ol>
       {tasks.map((task) => (
