@@ -17,6 +17,7 @@ export default function App() {
     }
 
     setState({
+      ...state,
       todo: '',
       todoList: [...todoList, todo],
     });
