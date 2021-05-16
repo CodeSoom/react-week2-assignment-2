@@ -12,7 +12,7 @@ export default function Item({ task: { id, title }, onClickDeleteTask }) {
     <li>
       {title}
       <button type="button" onClick={() => onClickDeleteTask(id)}>
-        Done
+        완료
       </button>
     </li>
   );

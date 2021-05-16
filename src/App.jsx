@@ -7,8 +7,6 @@ export default function App() {
     newId: 100,
     taskTitle: '',
     tasks: [
-      { id: 1, title: '아무것도 하지않기' },
-      { id: 2, title: '아무것도 하지않기22' },
     ],
   });
   // 디스턱쳐링?
