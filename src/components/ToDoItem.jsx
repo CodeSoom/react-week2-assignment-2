@@ -1,7 +1,8 @@
 import React from 'react';
 import PropType from 'prop-types';
 
-export default function ToDoItem({ todo: { id, title }, onClick }) {
+// 린트 오류 디버그중 : todo 객체 처리
+function ToDoItem({ todo: { id, title }, onClick }) {
   return (
     <li>
       {title}
@@ -18,10 +19,12 @@ export default function ToDoItem({ todo: { id, title }, onClick }) {
   );
 }
 
-ToDoItem.propType = {
-  todo: PropType.shape({
+ToDoItem.propTypes = {
+  todo: PropType.exact({
     id: PropType.number.isRequired,
     title: PropType.string.isRequired,
-  }),
+  }).isRequired,
   onClick: PropType.func.isRequired,
 };
+
+export default ToDoItem;
