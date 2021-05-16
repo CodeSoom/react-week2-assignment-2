@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import InputWithButton from './components/InputWithButton';
+import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 
 function App() {
@@ -15,13 +15,16 @@ function App() {
     setTodoInput('');
   }
 
+  function onChangeTodoInput(input) {
+    setTodoInput(input);
+  }
+
   return (
     <div>
       <h1>To-do</h1>
-
-      <InputWithButton
-        inputValue={todoInput}
-        setInputValue={setTodoInput}
+      <TodoInput
+        todoInput={todoInput}
+        onChangeTodoInput={onChangeTodoInput}
         handleClick={handleClickAdd}
       />
       {todoList.length === 0 ? (

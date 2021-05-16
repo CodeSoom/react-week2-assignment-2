@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function InputWithButton({
-  inputValue,
-  setInputValue,
+export default function TodoInput({
+  todoInput,
+  onChangeTodoInput,
   handleClick,
 }) {
   function handleKeyPressInput(event) {
@@ -10,14 +10,14 @@ export default function InputWithButton({
   }
 
   function handleChangeInput(event) {
-    setInputValue(event.target.value);
+    onChangeTodoInput(event.target.value);
   }
 
   return (
     <div>
       <input
         type="text"
-        value={inputValue}
+        value={todoInput}
         onChange={handleChangeInput}
         onKeyPress={handleKeyPressInput}
       />
