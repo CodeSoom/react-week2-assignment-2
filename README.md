@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 간단 To-do 리스트 만들기
 
 ![todo mov](https://user-images.githubusercontent.com/14071105/83856356-5e55e380-a754-11ea-8330-ae466addda9e.gif)
@@ -22,29 +23,64 @@
 depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 됩니다.
 
 ## 설치하기
+=======
+# 간단 계산기 만들기
+
+웹으로 간단한 계산기를 만들어 봅니다.
+
+![demo](https://user-images.githubusercontent.com/14071105/83361577-0cfccb80-a3c5-11ea-8313-8b9aaf2de4e5.gif)
+
+## 요구 사항
+
+* 모든 인수테스트를 통과시켜야 합니다.
+
+## 구현할 기능들
+
+* 숫자를 누르면 누른 숫자가 출력되어야 합니다.
+* 숫자를 연속해서 누르면 숫자가 더해져서 출력되어야 합니다.
+* 숫자와 연산자를 입력한 후 `=`를 클릭하면 계산 결과가 출력되어야 합니다.
+* 연속해서 숫자와 연산자를 입력하면 중간에 계산 결과가 출력되어야 합니다.
+
+## Install dependencies
+>>>>>>> e2cf02a46d2ef9a266926e68b6a8f6da19c8aa71
 
 ```bash
 npm install
 ```
 
+<<<<<<< HEAD
 ## 실행하기
+=======
+## Run web server
+>>>>>>> e2cf02a46d2ef9a266926e68b6a8f6da19c8aa71
 
 ```bash
 npm start
 ```
 
+<<<<<<< HEAD
 자동으로 브라우저가 켜지지는 않으니 브라우저에 `http://localhost:8080`을 입력하여 접속해 주세요.  
 
 만약 현재 컴퓨터에서 이미 `8080`이라는 포트를 사용하고 있다면 `8081`으로 실행이 될 수도 있어요. 만약 `8081`도 사용하고 있으면 `8082`, `8083` ... 순서대로 찾아서 만들어집니다.
 
 ## 린트 실행하기
+=======
+## Lint
+>>>>>>> e2cf02a46d2ef9a266926e68b6a8f6da19c8aa71
 
 ```bash
 npm run lint
 ```
 
+<<<<<<< HEAD
 ## 테스트 실행하기
 
 ```bash
+=======
+## Run tests
+
+```bash
+# Run tests
+>>>>>>> e2cf02a46d2ef9a266926e68b6a8f6da19c8aa71
 npm test
 ```
