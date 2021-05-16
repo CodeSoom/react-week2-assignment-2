@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function TodoList({ todoList, setTodoList }) {
+export default function TodoList({ todoList, OnCompleteTodo }) {
   function handleClickComplete(completeIndex) {
-    setTodoList(todoList.filter((todo, index) => index !== completeIndex));
+    OnCompleteTodo(completeIndex);
   }
 
   return (

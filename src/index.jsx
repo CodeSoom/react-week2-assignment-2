@@ -19,6 +19,10 @@ function App() {
     setTodoInput(input);
   }
 
+  function OnCompleteTodo(completeIndex) {
+    setTodoList(todoList.filter((_, index) => index !== completeIndex));
+  }
+
   return (
     <div>
       <h1>To-do</h1>
@@ -30,7 +34,7 @@ function App() {
       {todoList.length === 0 ? (
         <p>할 일이 없어요!</p>
       ) : (
-        <TodoList todoList={todoList} setTodoList={setTodoList} />
+        <TodoList todoList={todoList} OnCompleteTodo={OnCompleteTodo} />
       )}
     </div>
   );
