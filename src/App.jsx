@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ToDoList from './pages/TodoList';
 
 function App() {
-  const [state, setState] = useState({ toDos: [{ id: 1, title: '샘플 할일' }], inputValue: '', newIdIndex: 0 });
+  const [state, setState] = useState({ toDos: [], inputValue: '', newIdIndex: 0 });
   const { toDos, inputValue, newIdIndex } = state;
 
   function handleChangeInputTitle(value) {
@@ -15,8 +15,8 @@ function App() {
     setState({ toDos: toDos.concat({ id: newId, title: inputValue }), inputValue: '', newIdIndex: newId });
   }
 
-  function handleClickDoneToDo(done) {
-    setState({ toDos: toDos.filter((todo) => todo !== done) });
+  function handleClickDoneToDo(id) {
+    setState({ ...state, toDos: toDos.filter((todo) => todo.id !== id) });
   }
 
   return (

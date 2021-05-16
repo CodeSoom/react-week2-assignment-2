@@ -1,43 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// 구조 분해 할당 응용하기 : 필요한 컴포넌트를 props로 만들어 받기.
-
-function createToDoListView({ toDos, onClick, defaultView }) {
-  if (toDos.length <= 0) {
-    return defaultView;
+import ToDoItem from './ToDoItem';
+// 1) todo obj를 처리하기
+// 2) todo Item 컴포넌트를 사용하기.
+function ToDoListView({ onClick, toDos }) {
+  function createToDoListView() {
+    if (toDos.length <= 0) {
+      return <p>할 일이 없어요!</p>;
+    }
+    return (
+      <ol type="1">
+        {toDos.map((todo) => (<ToDoItem todo={todo} onClick={onClick} />))}
+      </ol>
+    );
   }
-  return (
-    <ol type="1">
-      {toDos.map((todo) => (
-        <li>
-          {todo}
-          <button
-            type="button"
-            key={todo}
-            onClick={() => {
-              onClick(todo);
-            }}
-          >
-            완료
-          </button>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-function ToDoListView({
-  onClick,
-  toDos,
-  defaultView = <p>할 일이 없어요!</p>,
-  toDoListView = createToDoListView({ toDos, onClick, defaultView }),
-}) {
-  return toDoListView;
+  return createToDoListView();
 }
 
 ToDoListView.propTypes = {
-  toDos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  toDos: PropTypes.arrayOf(PropTypes.object).isRequired,
   onClick: PropTypes.func.isRequired,
 };
 

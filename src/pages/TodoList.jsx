@@ -17,7 +17,7 @@ function ToDoList({
 }
 
 ToDoList.propTypes = {
-  toDos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  toDos: PropTypes.arrayOf(PropTypes.object).isRequired,
   onClickAdd: PropTypes.func.isRequired,
   onClickDone: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
