@@ -11,7 +11,7 @@ function ToDoList({
     <div>
       <h1>To-do</h1>
       <InputTodo onClick={onClickAdd} value={inputValue} onChanged={inputOnChanged} />
-      <ToDoListView toDos={toDos} onClick={onClickDone} />
+      <ToDoListView toDos={toDos} onClickDone={onClickDone} />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropType from 'prop-types';
 
-// 린트 오류 디버그중 : todo 객체 처리
 function ToDoItem({ todo: { id, title }, onClick }) {
   return (
     <li>
