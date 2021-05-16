@@ -29,8 +29,8 @@ import App from './App';
  */
 
 /**  과제 풀이 강의를 보고 리팩토링 할 목록 정리
- * 1) ToDos를 object Array로 변경한다 : todoList의 기능/정보가 추가될 경우, 쉽게 수정 가능하도록 데이터 성질을 바꾼다.
- * 2) ToDo object가 목록에 추가될 경우, id값 부여하는 로직 구현
- * 3) ToDoItem을 추가한다 (ToDoListView에서 사용한다.)
+ * 1) ToDos를 object Array로 변경한다 : 앱의 기능/정보가 추가될 경우, 쉽게 수정 가능하도록 데이터 성질을 바꾼다.
+ * 2) 1)번의 수정에 따라, toDo 객체에 id 값을 추가하고, 그에 맞춰 기존 함수들을 수정하기.
+ * 3) 복잡한 ToDoListView에서 ToDoItem 컴포넌트로 분리한다.
  */
 ReactDOM.render(<App />, document.getElementById('app'));
