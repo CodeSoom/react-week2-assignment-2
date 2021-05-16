@@ -3,18 +3,19 @@ import React, { useState } from 'react';
 import ToDoList from './pages/TodoList';
 
 function App() {
-  const [state, setState] = useState({ toDos: [], inputValue: '' });
-  const { toDos, inputValue } = state;
+  const [state, setState] = useState({ toDos: [{ id: 1, title: '샘플 할일' }], inputValue: '', newIdIndex: 0 });
+  const { toDos, inputValue, newIdIndex } = state;
 
-  function handleInputOnChanged(value) {
+  function handleChangeInputTitle(value) {
     setState({ ...state, inputValue: value });
   }
 
-  function handleClickAdd() {
-    setState({ toDos: toDos.concat(inputValue), inputValue: '' });
+  function handleClickAddTitle() {
+    const newId = newIdIndex + 1;
+    setState({ toDos: toDos.concat({ id: newId, title: inputValue }), inputValue: '', newIdIndex: newId });
   }
 
-  function handleClickDone(done) {
+  function handleClickDoneToDo(done) {
     setState({ toDos: toDos.filter((todo) => todo !== done) });
   }
 
@@ -22,9 +23,9 @@ function App() {
     <ToDoList
       toDos={toDos}
       inputValue={inputValue}
-      inputOnChanged={handleInputOnChanged}
-      onClickAdd={handleClickAdd}
-      onClickDone={handleClickDone}
+      inputOnChanged={handleChangeInputTitle}
+      onClickAdd={handleClickAddTitle}
+      onClickDone={handleClickDoneToDo}
     />
   );
 }

@@ -27,4 +27,10 @@ import App from './App';
  *
  * 7) ToDoItmes.jsx에서 ToDoList 그릴때, 구조분해 할당 응용해보기.
  */
+
+/**  과제 풀이 강의를 보고 리팩토링 할 목록 정리
+ * 1) ToDos를 object Array로 변경한다 : todoList의 기능/정보가 추가될 경우, 쉽게 수정 가능하도록 데이터 성질을 바꾼다.
+ * 2) ToDo object가 목록에 추가될 경우, id값 부여하는 로직 구현
+ * 3) ToDoItem을 추가한다 (ToDoListView에서 사용한다.)
+ */
 ReactDOM.render(<App />, document.getElementById('app'));
