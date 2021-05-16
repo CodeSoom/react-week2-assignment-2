@@ -2,13 +2,13 @@ import React from 'react';
 
 import Button from './common/Button';
 
-export default function Todo({ todo, index, onClickRemoveTodo }) {
+export default function Todo({ title, onClickRemoveTodo }) {
   return (
     <li>
-      {todo}
+      {title}
       <Button
         title="완료"
-        onPress={() => onClickRemoveTodo(`${todo}_${index}`)}
+        onPress={onClickRemoveTodo}
       />
     </li>
   );

@@ -4,41 +4,43 @@ import Page from './Page';
 
 export default function App() {
   const [state, setState] = useState({
-    todo: '',
+    newId: 100,
+    inputtedTodo: '',
     todoList: [],
   });
 
-  const { todo, todoList } = state;
+  const { newId, inputtedTodo, todoList } = state;
 
   function handleClickAddTodo() {
-    if (todo === '') {
+    if (inputtedTodo === '') {
       return;
     }
 
     setState({
       ...state,
-      todo: '',
-      todoList: [...todoList, todo],
+      newId: newId + 1,
+      inputtedTodo: '',
+      todoList: [...todoList, { id: newId, title: inputtedTodo }],
     });
   }
 
   function handleChangeText(value) {
     setState({
       ...state,
-      todo: value,
+      inputtedTodo: value,
     });
   }
 
-  const handleClickRemoveTodo = (key) => {
+  const handleClickRemoveTodo = (id) => {
     setState({
       ...state,
-      todoList: todoList.filter((todoItem, i) => (`${todoItem}_${i}` !== key)),
+      todoList: todoList.filter((todo) => (todo.id !== id)),
     });
   };
 
   return (
     <Page
-      todo={todo}
+      inputtedTodo={inputtedTodo}
       todoList={todoList}
       onChangeText={handleChangeText}
       onClickAddTodo={handleClickAddTodo}

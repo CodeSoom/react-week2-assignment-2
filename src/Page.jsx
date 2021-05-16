@@ -4,14 +4,14 @@ import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
 export default function Page({
-  todo, todoList,
+  inputtedTodo, todoList,
   onChangeText, onClickAddTodo, onClickRemoveTodo,
 }) {
   return (
     <div>
       <p>To-do</p>
       <TodoInput
-        todo={todo}
+        inputtedTodo={inputtedTodo}
         onChangeText={onChangeText}
         onClickAddTodo={onClickAddTodo}
       />

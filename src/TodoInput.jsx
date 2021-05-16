@@ -2,13 +2,13 @@ import React from 'react';
 
 import Button from './common/Button';
 
-export default function TodoInput({ todo, onChangeText, onClickAddTodo }) {
+export default function TodoInput({ inputtedTodo, onChangeText, onClickAddTodo }) {
   return (
     <div>
       <input
         type="text"
         name="todo"
-        value={todo}
+        value={inputtedTodo}
         placeholder="할 일을 입력해 주세요"
         onChange={(event) => onChangeText(event.target.value)}
       />

@@ -10,18 +10,13 @@ export default function TodoList({ todoList, onClickRemoveTodo }) {
   return (
     <div>
       <ol>
-        {todoList.map((todo, index) => {
-          const key = `${todo}_${index}`;
-
-          return (
-            <Todo
-              key={key}
-              todo={todo}
-              index={index}
-              onClickRemoveTodo={onClickRemoveTodo}
-            />
-          );
-        })}
+        {todoList.map((todo) => (
+          <Todo
+            key={todo.id}
+            title={todo.title}
+            onClickRemoveTodo={() => onClickRemoveTodo(todo.id)}
+          />
+        ))}
       </ol>
     </div>
   );
