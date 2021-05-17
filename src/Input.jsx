@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Input({ value, onChange, onClick }) {
+export default function Input({ value, onChange, onClick }) {
   return (
     <p>
       <input
@@ -15,5 +15,3 @@ function Input({ value, onChange, onClick }) {
     </p>
   );
 }
-
-export default Input;

@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 
 import Page from './Page';
 
-function App() {
+export default function App() {
   const [state, setState] = useState({
     newId: 100,
     taskTitle: '',
-    tasks: [],
+    tasks: [
+      { id: 1, title: '아무 것도 하지 않기 #1' },
+      { id: 2, title: '아무 것도 하지 않기 #2' },
+    ],
   });
 
   const { newId, taskTitle, tasks } = state;
@@ -37,12 +40,10 @@ function App() {
   return (
     <Page
       taskTitle={taskTitle}
+      tasks={tasks}
       onChangeTitle={handleChangeTitle}
       onClickAddTask={handleClickAddTask}
-      tasks={tasks}
       onClickDeleteTask={handleClickDeleteTask}
     />
   );
 }
-
-export default App;

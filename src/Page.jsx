@@ -3,13 +3,12 @@ import React from 'react';
 import Input from './Input';
 import List from './List';
 
-function Page({
-  taskTitle, onChangeTitle, onClickAddTask,
-  tasks, onClickDeleteTask,
+export default function Page({
+  taskTitle, onChangeTitle, tasks, onClickAddTask, onClickDeleteTask,
 }) {
   return (
     <div>
-      <h1>TO-DO</h1>
+      <h1>To-do</h1>
       <Input
         value={taskTitle}
         onChange={onChangeTitle}
@@ -22,5 +21,3 @@ function Page({
     </div>
   );
 }
-
-export default Page;

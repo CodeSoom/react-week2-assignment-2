@@ -2,13 +2,7 @@ import React from 'react';
 
 import Item from './Item';
 
-function List({ tasks, onClickDelete }) {
-  if (tasks.length === 0) {
-    return (
-      <p>할 일이 없어요!</p>
-    );
-  }
-
+export default function List({ tasks, onClickDelete }) {
   return (
     <ol>
       {tasks.map((task) => (
@@ -17,5 +11,3 @@ function List({ tasks, onClickDelete }) {
     </ol>
   );
 }
-
-export default List;
