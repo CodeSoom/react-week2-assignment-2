@@ -10,7 +10,7 @@ export default function Page({
         <div>
             <h1>To-do</h1>
             <Input 
-                taskTitle={taskTitle}
+                value={taskTitle}
                 onChange={onChangeTitle}
                 onClick={onClickAddTask}
             />
