@@ -19,10 +19,9 @@ test('renderToDoItem', () => {
   expect(container).toHaveTextContent('계획대로 공부하기');
   expect(container).toHaveTextContent('완료');
 
-  const button = getByText("완료");
+  const button = getByText('완료');
 
   expect(handleClick).not.toBeCalled();
-  //console.log(button);
   fireEvent.click(button);
 
   expect(handleClick).toBeCalledWith(1);
