@@ -1,0 +1,48 @@
+Complete To-do --
+  할 일을 완료하면 할 일이 목록에서 보이지 않는다.
+✖ ｢wds｣:  Error: listen EADDRINUSE: address already in use 127.0.0.1:8080
+    at Server.setupListenHandle [as _listen2] (net.js:1318:16)
+    at listenInCluster (net.js:1366:12)
+    at GetAddrInfoReqWrap.doListen [as callback] (net.js:1503:7)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:69:8) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 8080
+}
+    I am on page "/"
+    I fill field "input", "코드숨 과제하기"
+    I click "추가"
+    I fill field "input", "아무것도 하지 않기"
+    I click "추가"
+    I click "완료"
+    I click "완료"
+    I dont see "코드숨 과제하기"
+    I dont see "아무것도 하지 않기"
+  ✔ OK in 1261ms
+
+Create To-do --
+  할 일을 입력하고 추가를 누르면 할 일 목록에 추가한 목록이 보인다.
+    I am on page "/"
+    I fill field "input", "아무것도 하지 않기"
+    I click "추가"
+    I see "아무것도 하지 않기"
+  ✔ OK in 654ms
+
+  할 일을 입력하고 추가를 누르면 input의 텍스트가 지워진다.
+    I am on page "/"
+    I fill field "input", "아무것도 하지 않기"
+    I click "추가"
+    I see "아무것도 하지 않기"
+    I grab value from "input"
+  ✔ OK in 681ms
+
+To-do --
+  아무런 To-do가 등록되어 있지 않으면 "할 일이 없어요!"라는 메시지가 보인다.
+    I am on page "/"
+    I see "할 일이 없어요!"
+  ✔ OK in 280ms
+
+
+  OK  | 4 passed   // 8s
