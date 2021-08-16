@@ -45,6 +45,10 @@ function App() {
   return (
     <>
       <h1>To-do</h1>
+      <form onSubmit={handleAddTodo}>
+        <input type="text" placeholder="할 일을 입력해주세요" onChange={handledTodoInput} />
+        <input type="submit" value="추가" />
+      </form>
       <ol>
         {state.todos.length ? state.todos.map(({ id, text }) => (
           <li key={id}>
@@ -58,10 +62,6 @@ function App() {
           </li>
         )) : '할 일이 없어요!'}
       </ol>
-      <form onSubmit={handleAddTodo}>
-        <input type="text" placeholder="할 일을 입력해주세요" onChange={handledTodoInput} />
-        <input type="submit" value="추가" />
-      </form>
     </>
   );
 }
