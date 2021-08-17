@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function TodoList({ todos, onClick }) {
   return (
@@ -12,5 +13,10 @@ function TodoList({ todos, onClick }) {
       : <div>할 일이 없어요!</div>
   );
 }
+
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default TodoList;
