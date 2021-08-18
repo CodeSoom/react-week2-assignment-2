@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Title from './Title';
 import InputTodo from './InputTodo';
-import CreateButton from './CreateButton';
+import AddButton from './AddButton';
 import TodoList from './TodoList';
 
 export default function App() {
@@ -12,19 +12,31 @@ export default function App() {
 
   const { inputText, todoList } = state;
 
-  function addTodo(todo = 'todotest') {
+  function handleInputTodo(e) {
     setState({
-      state: 'add!',
-      todoList: ['add!'],
+      ...state,
+      inputText: e.target.value,
     });
-    console.log(todo);
+
+    console.log(inputText);
+  }
+
+  function handleAddTodo() {
+    setState({
+      todoList: [...todoList, {
+        text: inputText,
+      }],
+      inputText: '',
+    });
+
+    console.log(todoList);
   }
 
   return (
     <div>
       <Title />
-      <InputTodo />
-      <CreateButton inputText={inputText} onClick={() => addTodo('todo')} />
+      <InputTodo onChange={(e) => handleInputTodo(e)} />
+      <AddButton todoList={todoList} onClick={() => handleAddTodo()} />
       <TodoList />
     </div>
   );
