@@ -25,6 +25,7 @@ module.exports = {
     Scenario: 'readonly',
   },
   rules: {
+    'react/prop-types': 'off',
     indent: ['error', 2],
     'no-trailing-spaces': 'error',
     curly: 'error',
