@@ -3,7 +3,7 @@ import React, { useState, useCallback } from "react";
 const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState("");
 
-  const handleChange = useCallback(e => {
+  const onChange = useCallback(e => {
     setValue(e.target.value);
   }, []);
 
@@ -23,7 +23,7 @@ const TodoInsert = ({ onInsert }) => {
       <input
         placeholder="할 일을 입력해주세요"
         value={value}
-        handleChange={handleChange}
+        onChange={onChange}
       />
       <button type="submit">추가</button>
     </form>

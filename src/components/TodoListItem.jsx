@@ -1,14 +1,14 @@
 import React from "react";
 
-const TodoListItem = ({ todo }) => {
-  const { text } = todo;
+export default function TodoListItem({ todo, onRemove }) {
+  const { id, text } = todo;
 
   return (
-    <div className="TodoListItem">
-      <div className="text">{text}</div>
-      <div className="remove">완료</div>
-    </div>
+    <form className="TodoListItem">
+      {id} . {text}
+      <button type="button" onClick={() => onRemove(id)}>
+        완료
+      </button>
+    </form>
   );
-};
-
-export default TodoListItem;
+}
