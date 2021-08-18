@@ -10,28 +10,19 @@ function App() {
   };
 
   const handleClick = () => {
-    setTodos([...todos, {
-      id: todos.length,
-      content: todoContent,
-      isDone: false,
-    }]);
+    setTodos([
+      ...todos,
+      {
+        id: todos.length,
+        content: todoContent,
+      },
+    ]);
 
     setTodoContent('');
   };
 
   const handleClickCompleteButton = (id) => {
-    const newTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return {
-          id,
-          content: todo.content,
-          isDone: true,
-        };
-      }
-      return todo;
-    });
-
-    setTodos(newTodos);
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -50,17 +41,19 @@ function App() {
         추가
       </button>
       <ol>
-        {todos.filter((todo) => !todo.isDone).map(({ id, content }) => (
-          <li key={id}>
-            {content}
-            <button
-              type="button"
-              onClick={() => handleClickCompleteButton(id)}
-            >
-              완료
-            </button>
-          </li>
-        ))}
+        {todos.length === 0
+          ? <p>할 일이 없어요!</p>
+          : todos.map(({ id, content }) => (
+            <li key={id}>
+              {content}
+              <button
+                type="button"
+                onClick={() => handleClickCompleteButton(id)}
+              >
+                완료
+              </button>
+            </li>
+          ))}
       </ol>
     </>
   );
