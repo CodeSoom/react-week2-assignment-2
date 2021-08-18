@@ -19,6 +19,21 @@ function App() {
     setTodoContent('');
   };
 
+  const handleClickCompleteButton = (id) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return {
+          id,
+          content: todo.content,
+          isDone: true,
+        };
+      }
+      return todo;
+    });
+
+    setTodos(newTodos);
+  };
+
   return (
     <>
       <h1>To-do</h1>
@@ -35,11 +50,12 @@ function App() {
         추가
       </button>
       <ol>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.content}
+        {todos.filter((todo) => !todo.isDone).map(({ id, content }) => (
+          <li key={id}>
+            {content}
             <button
               type="button"
+              onClick={() => handleClickCompleteButton(id)}
             >
               완료
             </button>
