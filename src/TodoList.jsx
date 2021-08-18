@@ -1,9 +1,23 @@
 import React from 'react';
 
-export default function TodoList() {
+export default function TodoList({ state, setState }) {
+  function handleDeleteTodo() {
+    setState({
+      ...state,
+      todoList: [],
+    });
+  }
+
   return (
     <ol>
-      <li>ddd</li>
+      {state.todoList.map((todo) => (
+        <li key={todo.id}>
+          {todo.contents}
+          <button type="button" onClick={handleDeleteTodo}>
+            완료
+          </button>
+        </li>
+      ))}
     </ol>
   );
 }

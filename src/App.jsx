@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Title from './Title';
 import InputTodo from './InputTodo';
 import AddButton from './AddButton';
 import TodoList from './TodoList';
@@ -7,37 +6,15 @@ import TodoList from './TodoList';
 export default function App() {
   const [state, setState] = useState({
     inputText: '',
-    todoList: [],
+    todoList: [{ id: 0, contents: '아무말' }],
   });
-
-  const { inputText, todoList } = state;
-
-  function handleInputTodo(e) {
-    setState({
-      ...state,
-      inputText: e.target.value,
-    });
-
-    console.log(inputText);
-  }
-
-  function handleAddTodo() {
-    setState({
-      todoList: [...todoList, {
-        text: inputText,
-      }],
-      inputText: '',
-    });
-
-    console.log(todoList);
-  }
 
   return (
     <div>
-      <Title />
-      <InputTodo onChange={(e) => handleInputTodo(e)} />
-      <AddButton todoList={todoList} onClick={() => handleAddTodo()} />
-      <TodoList />
+      <h1>To-do</h1>
+      <InputTodo state={state} setState={setState} />
+      <AddButton state={state} setState={setState} />
+      <TodoList state={state} setState={setState} />
     </div>
   );
 }
