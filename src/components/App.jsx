@@ -1,36 +1,33 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import Form from './Form';
 import List from './List';
 
 export default function App() {
-  const [input, setInput] = useState({
-    inputValue: '',
-  });
+  const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
 
-  const { inputValue } = input;
+  const todoID = useRef(0);
 
   function handleSubmit(e) {
     e.preventDefault();
     setTodos(
-      [...todos, inputValue],
+      [...todos,
+        {
+          id: todoID.current,
+          text: input,
+        }],
     );
-    setInput({
-      inputValue: '',
-    });
+    todoID.current += 1;
+    setInput('');
   }
 
   function handleChange(e) {
-    setInput({
-      inputValue: e.target.value,
-    });
+    setInput(e.target.value);
   }
 
-  function handleDelete(index) {
-    setTodos(
-      [...todos.slice(0, index), ...todos.slice(index + 1)],
-    );
+  function handleDelete(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
   }
 
   return (
@@ -39,7 +36,7 @@ export default function App() {
       <Form
         onSubmit={handleSubmit}
         onChange={handleChange}
-        inputValue={inputValue}
+        input={input}
       />
       <List
         todos={todos}
