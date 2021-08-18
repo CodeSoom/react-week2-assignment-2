@@ -15,6 +15,8 @@ function App() {
       content: todoContent,
       isDone: false,
     }]);
+
+    setTodoContent('');
   };
 
   return (
@@ -24,6 +26,7 @@ function App() {
         type="text"
         placeholder="할 일을 입력해 주세요"
         onChange={handleOnChange}
+        value={todoContent}
       />
       <button
         type="button"
