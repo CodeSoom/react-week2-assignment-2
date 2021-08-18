@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
+import { v4 } from 'uuid';
+
 function App() {
   const [todoContent, setTodoContent] = useState('');
   const [todos, setTodos] = useState([]);
@@ -13,7 +15,7 @@ function App() {
     setTodos([
       ...todos,
       {
-        id: todos.length,
+        id: v4(),
         content: todoContent,
       },
     ]);
