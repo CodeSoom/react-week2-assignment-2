@@ -8,7 +8,7 @@ export default function App() {
     todoList: [],
   });
 
-  function handleChange(value) {
+  function handleInput(value) {
     setState({
       ...state,
       inputText: value,
@@ -16,23 +16,25 @@ export default function App() {
   }
 
   function handleAddButton() {
+    const { inputText, todoList } = state;
     setState({
       ...state,
-      todoList: [...state.todoList, { id: Math.random(), contents: state.inputText }],
+      todoList: [...todoList, { id: Math.random(), contents: inputText }],
     });
   }
 
   function handleDeleteButton(id) {
+    const { todoList } = state;
     setState({
       ...state,
-      todoList: state.todoList.filter((todo) => todo.id !== id),
+      todoList: todoList.filter((todo) => todo.id !== id),
     });
   }
 
   return (
     <div>
       <h1>To-do</h1>
-      <InputTodo state={state} onChange={handleChange} onClick={handleAddButton} />
+      <InputTodo state={state} onChange={handleInput} onClick={handleAddButton} />
       <TodoList state={state} onClick={handleDeleteButton} />
     </div>
   );
