@@ -3,22 +3,27 @@ import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
 function App() {
-  const [todo, setTodo] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [state, setState] = useState({
+    todo: '',
+    todos: [],
+  });
+
+  const { todo, todos } = state;
 
   const handleInput = ({ target }) => {
-    setTodo(target.value);
+    setState({ ...state, todo: target.value });
   };
 
   const handleAddButtonClick = () => {
-    setTodos([...todos, todo]);
-    setTodo('');
+    setState({
+      todo: '',
+      todos: [...todos, todo],
+    });
   };
 
   const handleCompleteButtonClick = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+    todos.splice(index, 1);
+    setState({ todos });
   };
 
   return (
