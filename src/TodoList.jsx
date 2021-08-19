@@ -1,6 +1,4 @@
-import PropTypes from 'prop-types';
-
-function TodoList({ todos, onClick }) {
+export default function TodoList({ todos, onClick }) {
   return (
     todos.length > 0
       ? todos.map((_todo, index) => (
@@ -12,10 +10,3 @@ function TodoList({ todos, onClick }) {
       : <div>할 일이 없어요!</div>
   );
 }
-
-TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onClick: PropTypes.func.isRequired,
-};
-
-export default TodoList;
