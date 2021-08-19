@@ -26,10 +26,10 @@ export default function App() {
     todoID.current += 1;
   }
 
-  function handleChange(e) {
+  function handleChange({ target: { value } }) {
     setState({
       ...state,
-      input: e.target.value,
+      input: value,
     });
   }
 
