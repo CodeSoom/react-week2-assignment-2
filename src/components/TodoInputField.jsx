@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { v4 } from 'uuid';
 
-export default function TodoInput({ todos, setTodos }) {
+export default function TodoInputField({ todos, setTodos }) {
   const [todoContent, setTodoContent] = useState('');
 
   const handleOnChange = (event) => {

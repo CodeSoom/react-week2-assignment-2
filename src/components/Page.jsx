@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import TodoInput from './TodoInput';
+import TodoInputField from './TodoInputField';
 import TodoList from './TodoList';
 
 export default function Page() {
@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <>
       <h1>To-do</h1>
-      <TodoInput
+      <TodoInputField
         todos={todos}
         setTodos={setTodos}
       />
