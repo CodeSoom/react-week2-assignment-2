@@ -1,3 +1,5 @@
+import TodoItem from './TodoItem';
+
 export default function TodoList({ todos, setTodos }) {
   const handleClickCompleteButton = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
@@ -10,15 +12,11 @@ export default function TodoList({ todos, setTodos }) {
   return (
     <ol>
       {todos.map(({ id, content }) => (
-        <li key={id}>
-          {content}
-          <button
-            type="button"
-            onClick={() => handleClickCompleteButton(id)}
-          >
-            완료
-          </button>
-        </li>
+        <TodoItem
+          id={id}
+          content={content}
+          handleClickCompleteButton={handleClickCompleteButton}
+        />
       ))}
     </ol>
   );
