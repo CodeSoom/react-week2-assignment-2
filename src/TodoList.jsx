@@ -10,14 +10,18 @@ export default function TodoList({ state, setState }) {
 
   return (
     <ol>
-      {state.todoList.map((todo) => (
-        <li key={todo.id}>
-          {todo.contents}
-          <button type="button" onClick={handleDeleteTodo}>
-            완료
-          </button>
-        </li>
-      ))}
+      {
+        state.todoList.length > 0
+          ? state.todoList.map((todo) => (
+            <li key={todo.id}>
+              {todo.contents}
+              <button type="button" onClick={handleDeleteTodo}>
+                완료
+              </button>
+            </li>
+          ))
+          : <div>할 일이 없어요!</div>
+      }
     </ol>
   );
 }
