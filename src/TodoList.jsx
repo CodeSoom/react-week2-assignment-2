@@ -4,9 +4,9 @@ export default function TodoList({ todos, onClick }) {
   }
 
   return (
-    todos.map((_todo, index) => (
-      <div key={_todo}>
-        {`${index + 1}. ${_todo}`}
+    todos.map((todo, index) => (
+      <div key={todo}>
+        {`${index + 1}. ${todo}`}
         <button type="button" onClick={onClick}>완료</button>
       </div>
     ))
