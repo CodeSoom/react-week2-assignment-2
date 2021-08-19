@@ -10,8 +10,8 @@ function App() {
 
   const { todo, todos } = state;
 
-  const handleInput = ({ target }) => {
-    setState({ ...state, todo: target.value });
+  const handleInput = (event) => {
+    setState({ ...state, todo: event.target.value });
   };
 
   const handleAddButtonClick = () => {
@@ -32,7 +32,7 @@ function App() {
       <p>
         <TodoInput
           todo={todo}
-          onChange={(event) => handleInput(event)}
+          onChange={handleInput}
           onClick={handleAddButtonClick}
         />
       </p>
