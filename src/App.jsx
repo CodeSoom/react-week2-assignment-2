@@ -16,12 +16,10 @@ export default function App() {
   }
 
   function handleAddButton() {
-    const id = Math.random();
     setState({
       ...state,
-      todoList: [...state.todoList, { id, contents: state.inputText }],
+      todoList: [...state.todoList, { id: Math.random(), contents: state.inputText }],
     });
-    console.log(state);
   }
 
   function handleDeleteButton(id) {
