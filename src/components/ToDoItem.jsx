@@ -1,13 +1,13 @@
-import React from 'react';
+import Button from './Button';
 
-function ToDoItem({ item, onClickComplete }) {
+export default function ToDoItem({ item, onClickCompleteToDo }) {
   const { id, value } = item;
   return (
     <div>
       <span>{value}</span>
-      <button type="button" onClick={() => onClickComplete(id)}>완료</button>
+      <Button onClick={() => onClickCompleteToDo(id)}>
+        완료
+      </Button>
     </div>
   );
 }
-
-export default ToDoItem;

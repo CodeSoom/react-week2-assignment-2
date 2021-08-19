@@ -1,17 +1,21 @@
-import React from 'react';
-import InputContainer from './InputContainer';
+import InputField from './InputField';
 import ToDoItems from './ToDoItems';
 
-function Page({
-  value, onInputChange, onClickAdd, items, onClickComplete,
+export default function Page({
+  toDo, onInputChange, onClickAddToDo, toDoItems, onClickCompleteToDo,
 }) {
   return (
     <div>
       <h1>To-do</h1>
-      <InputContainer value={value} onInputChange={onInputChange} onClickAdd={onClickAdd} />
-      <ToDoItems items={items} onClickComplete={onClickComplete} />
+      <InputField
+        toDo={toDo}
+        onInputChange={onInputChange}
+        onClickAddToDo={onClickAddToDo}
+      />
+      <ToDoItems
+        items={toDoItems}
+        onClickCompleteToDo={onClickCompleteToDo}
+      />
     </div>
   );
 }
-
-export default Page;

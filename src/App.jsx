@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import nextId from 'react-id-generator';
+
 import Page from './components/Page';
 
-let id = 0;
-
-function App() {
+export default function App() {
   const [state, setState] = useState({
-    value: '',
-    items: [],
+    toDo: '',
+    toDoItems: [],
   });
 
-  const { value, items } = state;
+  const { toDo, toDoItems } = state;
 
-  function handleClickAdd() {
-    setState({
-      value: '',
-      items: items.concat({
-        id,
-        value,
-      }),
-    });
-    id += 1;
-  }
-
-  function handleClickComplete(itemId) {
+  function handleClickAddToDo() {
     setState({
       ...state,
-      items: items.filter((item) => item.id !== itemId),
+      toDo: '',
+      toDoItems: toDoItems.concat({
+        id: nextId(),
+        toDo,
+      }),
+    });
+  }
+
+  function onClickCompleteToDo(itemId) {
+    setState({
+      ...state,
+      toDoItems: toDoItems.filter((item) => item.id !== itemId),
     });
   }
 
@@ -38,13 +38,11 @@ function App() {
 
   return (
     <Page
-      value={value}
+      toDo={toDo}
       onInputChange={handleInputChange}
-      onClickAdd={handleClickAdd}
-      items={items}
-      onClickComplete={handleClickComplete}
+      onClickAddToDo={handleClickAddToDo}
+      toDoItems={toDoItems}
+      onClickCompleteToDo={onClickCompleteToDo}
     />
   );
 }
-
-export default App;
