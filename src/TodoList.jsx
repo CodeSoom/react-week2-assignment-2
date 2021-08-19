@@ -7,7 +7,7 @@ export default function TodoList({ state, onClick }) {
       {
         state.todoList.length > 0
           ? state.todoList.map((todo) => (
-            <TodoItem todo={todo} onClick={onClick} />
+            <TodoItem key={todo.id} todo={todo} onClick={onClick} />
           ))
           : <div>할 일이 없어요!</div>
       }

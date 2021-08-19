@@ -1,20 +1,41 @@
 import React, { useState } from 'react';
 import InputTodo from './InputTodo';
-import AddButton from './AddButton';
 import TodoList from './TodoList';
 
 export default function App() {
   const [state, setState] = useState({
     inputText: '',
-    todoList: [{ id: 0, contents: '아무말' }],
+    todoList: [],
   });
+
+  function handleChange(value) {
+    setState({
+      ...state,
+      inputText: value,
+    });
+  }
+
+  function handleAddButton() {
+    const id = Math.random();
+    setState({
+      ...state,
+      todoList: [...state.todoList, { id, contents: state.inputText }],
+    });
+    console.log(state);
+  }
+
+  function handleDeleteButton(id) {
+    setState({
+      ...state,
+      todoList: state.todoList.filter((todo) => todo.id !== id),
+    });
+  }
 
   return (
     <div>
       <h1>To-do</h1>
-      <InputTodo state={state} setState={setState} />
-      <AddButton state={state} setState={setState} />
-      <TodoList state={state} setState={setState} />
+      <InputTodo state={state} onChange={handleChange} onClick={handleAddButton} />
+      <TodoList state={state} onClick={handleDeleteButton} />
     </div>
   );
 }
