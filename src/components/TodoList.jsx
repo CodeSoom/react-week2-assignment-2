@@ -13,6 +13,7 @@ export default function TodoList({ todos, setTodos }) {
     <ol>
       {todos.map(({ id, content }) => (
         <TodoItem
+          key={id}
           id={id}
           content={content}
           handleClickCompleteButton={handleClickCompleteButton}

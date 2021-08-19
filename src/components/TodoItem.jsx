@@ -1,6 +1,6 @@
 export default function TodoItem({ id, content, handleClickCompleteButton }) {
   return (
-    <li key={id}>
+    <li>
       {content}
       <button
         type="button"
