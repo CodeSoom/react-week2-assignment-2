@@ -1,37 +1,19 @@
-import { useState } from 'react';
-
-import { v4 } from 'uuid';
-
-export default function TodoInputField({ todos, setTodos }) {
-  const [todoContent, setTodoContent] = useState('');
-
-  const handleOnChange = (event) => {
-    setTodoContent(event.target.value);
-  };
-
-  const handleClick = () => {
-    setTodos([
-      ...todos,
-      {
-        id: v4(),
-        content: todoContent,
-      },
-    ]);
-
-    setTodoContent('');
-  };
-
+export default function TodoInputField({
+  todoContent,
+  handleChangeInput,
+  handleClickAddButton,
+}) {
   return (
     <>
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
-        onChange={handleOnChange}
+        onChange={handleChangeInput}
         value={todoContent}
       />
       <button
         type="button"
-        onClick={handleClick}
+        onClick={handleClickAddButton}
       >
         추가
       </button>

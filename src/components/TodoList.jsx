@@ -1,10 +1,6 @@
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todos, setTodos }) {
-  const handleClickCompleteButton = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
+export default function TodoList({ todos, handleClickCompleteButton }) {
   if (!todos.length) {
     return <p>할 일이 없어요!</p>;
   }

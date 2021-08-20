@@ -1,21 +1,24 @@
-import { useState } from 'react';
-
 import TodoInputField from './TodoInputField';
 import TodoList from './TodoList';
 
-export default function Page() {
-  const [todos, setTodos] = useState([]);
-
+export default function Page({
+  handleChangeInput,
+  handleClickAddButton,
+  handleClickCompleteButton,
+  todos,
+  todoContent,
+}) {
   return (
     <>
       <h1>To-do</h1>
       <TodoInputField
-        todos={todos}
-        setTodos={setTodos}
+        todoContent={todoContent}
+        handleChangeInput={handleChangeInput}
+        handleClickAddButton={handleClickAddButton}
       />
       <TodoList
         todos={todos}
-        setTodos={setTodos}
+        handleClickCompleteButton={handleClickCompleteButton}
       />
     </>
   );

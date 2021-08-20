@@ -1,4 +1,8 @@
-export default function TodoItem({ id, content, handleClickCompleteButton }) {
+export default function TodoItem({
+  id,
+  content,
+  handleClickCompleteButton,
+}) {
   return (
     <li>
       {content}
