@@ -16,7 +16,7 @@ export default function App() {
     });
   }
 
-  function handleAddButton() {
+  function handleAdooTodo() {
     const { inputText, todoList } = state;
     setState({
       ...state,
@@ -24,7 +24,7 @@ export default function App() {
     });
   }
 
-  function handleDeleteButton(id) {
+  function handleDeleteTodo(id) {
     const { todoList } = state;
     setState({
       ...state,
@@ -35,8 +35,8 @@ export default function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <InputTodo state={state} onChange={handleInput} onClick={handleAddButton} />
-      <TodoList state={state} onClick={handleDeleteButton} />
+      <InputTodo state={state} onChange={handleInput} onClick={handleAdooTodo} />
+      <TodoList state={state} onClick={handleDeleteTodo} />
     </div>
   );
 }
