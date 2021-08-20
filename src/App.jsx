@@ -41,8 +41,8 @@ export default function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <InputTodo state={state} onChange={handleInput} onClick={handleAdooTodo} />
-      <TodoList state={state} onClick={handleDeleteTodo} />
+      <InputTodo onChange={handleInput} onClick={handleAdooTodo} />
+      <TodoList todoList={state.todoList} onClick={handleDeleteTodo} />
     </div>
   );
 }

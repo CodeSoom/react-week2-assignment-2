@@ -4,8 +4,9 @@ export default function InputTodo({ onChange, onClick }) {
   const [inputText, setInputText] = useState('');
 
   function handleChange(e) {
-    setInputText(e.target.value);
-    onChange(e.target.value);
+    const { value } = e.target;
+    setInputText(value);
+    onChange(value);
   }
   function handleClick() {
     onClick();
