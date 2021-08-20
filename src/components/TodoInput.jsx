@@ -9,7 +9,7 @@ export default function TodoInput({ todo, handleInput, handleClickAdd }) {
         value={todo}
         onChange={handleInput}
       />
-      <button type="submit" onClick={handleClickAdd}>
+      <button type="button" onClick={handleClickAdd}>
         추가
       </button>
     </div>

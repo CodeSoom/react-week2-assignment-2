@@ -8,6 +8,7 @@ export default function TodoList({ todos, handleDelete }) {
   if (isEmpty(todos)) {
     return <div>할 일이 없어요!</div>;
   }
+
   return (
     <div>
       {todos.map(todo => (
