@@ -4,16 +4,18 @@ export default function TodoList({ todos, handleCompleteClick }) {
   }
 
   return (
-    todos.map((todo, index) => (
-      <div key={todo}>
-        {`${index + 1}. ${todo}`}
-        <button
-          type="button"
-          onClick={() => handleCompleteClick(index)}
-        >
-          완료
-        </button>
-      </div>
-    ))
+    <ol>
+      {todos.map((todo, index) => (
+        <li key={todo}>
+          {todo}
+          <button
+            type="button"
+            onClick={() => handleCompleteClick(index)}
+          >
+            완료
+          </button>
+        </li>
+      ))}
+    </ol>
   );
 }
