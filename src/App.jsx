@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import InputTodo from './InputTodo';
 import TodoList from './TodoList';
@@ -20,7 +20,13 @@ export default function App() {
     const { inputText, todoList } = state;
     setState({
       ...state,
-      todoList: [...todoList, { id: Math.random(), contents: inputText }],
+      todoList: [
+        ...todoList,
+        {
+          id: Math.random(),
+          contents: inputText,
+        },
+      ],
     });
   }
 
