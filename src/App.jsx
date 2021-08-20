@@ -11,20 +11,32 @@ function App() {
 
   const { todo, todos } = state;
 
-  const handleInput = (event) => {
-    setState({ ...state, todo: event.target.value });
+  const setTodoText = (value) => {
+    setState({ ...state, todo: value });
   };
 
-  const handleAddButtonClick = () => {
+  const addTodo = () => {
     setState({
       todo: '',
       todos: [...todos, todo],
     });
   };
 
-  const handleCompleteButtonClick = (index) => {
+  const removeTodo = (index) => {
     todos.splice(index, 1);
-    setState({ todos });
+    setState({ ...state, todos });
+  };
+
+  const handleInput = (event) => {
+    setTodoText(event.target.value);
+  };
+
+  const handleAddButtonClick = () => {
+    addTodo();
+  };
+
+  const handleCompleteButtonClick = (index) => {
+    removeTodo(index);
   };
 
   return (
