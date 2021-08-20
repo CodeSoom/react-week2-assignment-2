@@ -31,8 +31,8 @@ const initialState = {
 export default function App() {
   const [{ todos, todoContent }, dispatch] = useReducer(reducer, initialState);
 
-  const handleChangeInput = (event) => {
-    dispatch({ type: 'INPUT', payload: event.target.value });
+  const handleChangeInput = (value) => {
+    dispatch({ type: 'INPUT', payload: value });
   };
 
   const handleClickAddButton = () => {

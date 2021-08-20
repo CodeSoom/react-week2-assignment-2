@@ -8,7 +8,7 @@ export default function TodoInputField({
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
-        onChange={handleChangeInput}
+        onChange={(event) => handleChangeInput(event.target.value)}
         value={todoContent}
       />
       <button
