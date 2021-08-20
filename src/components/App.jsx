@@ -26,7 +26,7 @@ export default function App() {
     todoID.current += 1;
   }
 
-  function handleChange({ target: { value } }) {
+  function handleChangTodo(value) {
     setState({
       ...state,
       inputTodo: value,
@@ -45,7 +45,7 @@ export default function App() {
       <p>To-do</p>
       <Form
         onSubmit={handleSubmit}
-        onChange={handleChange}
+        onChange={handleChangTodo}
         inputTodo={inputTodo}
       />
       <List
