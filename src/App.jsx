@@ -35,7 +35,7 @@ function App() {
     addTodo();
   };
 
-  const handleCompleteButtonClick = (index) => {
+  const handleCompleteClick = (index) => {
     removeTodo(index);
   };
 
@@ -50,7 +50,7 @@ function App() {
         />
       </p>
       <p>
-        <TodoList todos={todos} onClick={(index) => handleCompleteButtonClick(index)} />
+        <TodoList todos={todos} handleCompleteClick={handleCompleteClick} />
       </p>
     </div>
   );
