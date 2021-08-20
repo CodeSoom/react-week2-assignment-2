@@ -1,29 +1,28 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 import Form from './Form';
 import List from './List';
 
 export default function App() {
   const [state, setState] = useState({
+    idRef: 0,
     inputTodo: '',
     todos: [],
   });
 
-  const { inputTodo, todos } = state;
-
-  const todoID = useRef(0);
+  const { idRef, inputTodo, todos } = state;
 
   function handleSubmit(e) {
     e.preventDefault();
     setState({
+      idRef: idRef + 1,
       inputTodo: '',
       todos: [...todos,
         {
-          id: todoID.current,
+          id: idRef,
           text: inputTodo,
         }],
     });
-    todoID.current += 1;
   }
 
   function handleChangTodo(value) {
