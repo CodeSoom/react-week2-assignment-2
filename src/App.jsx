@@ -45,8 +45,8 @@ export default function App() {
       <p>
         <TodoInput
           todo={todo}
-          onChange={handleInput}
-          onClick={handleAddClick}
+          handleInput={handleInput}
+          handleAddClick={handleAddClick}
         />
       </p>
       <p>
