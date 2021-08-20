@@ -50,7 +50,10 @@ export default function App() {
         />
       </p>
       <p>
-        <TodoList todos={todos} handleCompleteClick={handleCompleteClick} />
+        <TodoList
+          todos={todos}
+          handleCompleteClick={handleCompleteClick}
+        />
       </p>
     </div>
   );
