@@ -6,6 +6,7 @@ export default function List({ todos, onClick }) {
       <p>할 일이 없어요!</p>
     );
   }
+
   return (
     <ol>
       <Item todos={todos} onClick={onClick} />
