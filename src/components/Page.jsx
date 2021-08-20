@@ -13,13 +13,11 @@ export default function Page({
   return (
     <div>
       <h1>To-do</h1>
-
       <TodoInput
         todo={todo}
         handleInput={handleInput}
         handleClickAdd={handleClickAdd}
       />
-
       <TodoList todos={todos} handleDelete={handleDelete} />
     </div>
   );

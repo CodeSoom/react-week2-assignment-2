@@ -5,9 +5,7 @@ import Todo from "./Todo";
 export default function TodoList({ todos, handleDelete }) {
   const isEmpty = arr => arr.length === 0;
 
-  if (isEmpty(todos)) {
-    return <div>할 일이 없어요!</div>;
-  }
+  if (isEmpty(todos)) return <div>할 일이 없어요!</div>;
 
   return (
     <div>
