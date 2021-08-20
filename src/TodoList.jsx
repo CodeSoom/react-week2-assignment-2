@@ -1,6 +1,6 @@
 export default function TodoList({ todos, handleCompleteClick }) {
-  if (todos.length < 1) {
-    return <div>할 일이 없어요!</div>;
+  if (!todos.length) {
+    return (<div>할 일이 없어요!</div>);
   }
 
   return (
