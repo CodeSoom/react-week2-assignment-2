@@ -1,3 +1,5 @@
+import Item from './Item';
+
 export default function List({ todos, onClick }) {
   if (!todos.length) {
     return (
@@ -6,12 +8,7 @@ export default function List({ todos, onClick }) {
   }
   return (
     <ol>
-      {todos.map((todo) => (
-        <li key={todo.id}>
-          {todo.text}
-          <button type="button" onClick={() => onClick(todo.id)}>완료</button>
-        </li>
-      )) }
+      <Item todos={todos} onClick={onClick} />
     </ol>
   );
 }
