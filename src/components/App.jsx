@@ -5,22 +5,22 @@ import List from './List';
 
 export default function App() {
   const [state, setState] = useState({
-    input: '',
+    inputTodo: '',
     todos: [],
   });
 
-  const { input, todos } = state;
+  const { inputTodo, todos } = state;
 
   const todoID = useRef(0);
 
   function handleSubmit(e) {
     e.preventDefault();
     setState({
-      input: '',
+      inputTodo: '',
       todos: [...todos,
         {
           id: todoID.current,
-          text: input,
+          text: inputTodo,
         }],
     });
     todoID.current += 1;
@@ -29,7 +29,7 @@ export default function App() {
   function handleChange({ target: { value } }) {
     setState({
       ...state,
-      input: value,
+      inputTodo: value,
     });
   }
 
@@ -46,7 +46,7 @@ export default function App() {
       <Form
         onSubmit={handleSubmit}
         onChange={handleChange}
-        input={input}
+        inputTodo={inputTodo}
       />
       <List
         todos={todos}
