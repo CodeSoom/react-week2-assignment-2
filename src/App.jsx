@@ -31,7 +31,7 @@ function App() {
     setTodoText(event.target.value);
   };
 
-  const handleAddButtonClick = () => {
+  const handleAddClick = () => {
     addTodo();
   };
 
@@ -46,7 +46,7 @@ function App() {
         <TodoInput
           todo={todo}
           onChange={handleInput}
-          onClick={handleAddButtonClick}
+          onClick={handleAddClick}
         />
       </p>
       <p>
