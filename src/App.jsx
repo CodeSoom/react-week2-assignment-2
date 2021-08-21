@@ -23,13 +23,9 @@ export default function App() {
     });
   };
 
-  const removeTodo = (index) => {
-    const newTodos = todos.filter((_, i) => i !== index);
+  const removeTodo = (todoIndex) => {
+    const newTodos = todos.filter((_, index) => index !== todoIndex);
     setState({ ...state, todos: newTodos });
-  };
-
-  const handleCompleteClick = (index) => {
-    removeTodo(index);
   };
 
   return (
@@ -45,7 +41,7 @@ export default function App() {
       <p>
         <TodoList
           todos={todos}
-          handleCompleteClick={handleCompleteClick}
+          onCompleteButtonClick={removeTodo}
         />
       </p>
     </div>
