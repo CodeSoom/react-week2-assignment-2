@@ -34,8 +34,8 @@ export default function App() {
       <p>
         <TodoInput
           todo={todo}
-          onChange={setTodoText}
-          onClick={addTodo}
+          onInputChange={setTodoText}
+          onAddButtonClick={addTodo}
         />
       </p>
       <p>

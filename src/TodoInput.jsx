@@ -1,11 +1,11 @@
-export default function TodoInput({ todo, onChange, onClick }) {
-  const handleInput = (event) => {
+export default function TodoInput({ todo, onInputChange, onAddButtonClick }) {
+  const handleInputChange = (event) => {
     const { value } = event.target;
-    onChange(value);
+    onInputChange(value);
   };
 
-  const handleClick = () => {
-    onClick();
+  const handleAddButtonClick = () => {
+    onAddButtonClick();
   };
 
   return (
@@ -14,11 +14,11 @@ export default function TodoInput({ todo, onChange, onClick }) {
         type="text"
         value={todo}
         placeholder="할 일을 입력해 주세요"
-        onChange={handleInput}
+        onChange={handleInputChange}
       />
       <button
         type="button"
-        onClick={handleClick}
+        onClick={handleAddButtonClick}
       >
         추가
       </button>
