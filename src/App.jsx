@@ -17,6 +17,7 @@ export default function App() {
 
   const addTodo = () => {
     setState({
+      ...state,
       todo: '',
       todos: [...todos, todo],
     });
@@ -25,14 +26,6 @@ export default function App() {
   const removeTodo = (index) => {
     todos.splice(index, 1);
     setState({ ...state, todos });
-  };
-
-  const handleInput = (event) => {
-    setTodoText(event.target.value);
-  };
-
-  const handleAddClick = () => {
-    addTodo();
   };
 
   const handleCompleteClick = (index) => {
@@ -45,8 +38,8 @@ export default function App() {
       <p>
         <TodoInput
           todo={todo}
-          handleInput={handleInput}
-          handleAddClick={handleAddClick}
+          onChange={setTodoText}
+          onClick={addTodo}
         />
       </p>
       <p>

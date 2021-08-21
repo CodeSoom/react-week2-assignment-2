@@ -1,4 +1,13 @@
-export default function TodoInput({ todo, handleInput, handleAddClick }) {
+export default function TodoInput({ todo, onChange, onClick }) {
+  const handleInput = (event) => {
+    const { value } = event.target;
+    onChange(value);
+  };
+
+  const handleClick = () => {
+    onClick();
+  };
+
   return (
     <div>
       <input
@@ -9,7 +18,7 @@ export default function TodoInput({ todo, handleInput, handleAddClick }) {
       />
       <button
         type="button"
-        onClick={handleAddClick}
+        onClick={handleClick}
       >
         추가
       </button>
