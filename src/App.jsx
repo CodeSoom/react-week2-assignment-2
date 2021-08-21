@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import uuid from 'react-uuid';
 
 import InputTodo from './InputTodo';
 import TodoList from './TodoList';
@@ -23,7 +24,7 @@ export default function App() {
       todoList: [
         ...todoList,
         {
-          id: Math.random(),
+          id: uuid(),
           contents: inputText,
         },
       ],
