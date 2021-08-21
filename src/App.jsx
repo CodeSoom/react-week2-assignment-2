@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import Input from './Input';
 
-  function App() {
-    return (
-        <div>
-          <p>To-do</p>
-          <p>
-            <input type='text' placeholder='할 일을 입력해 주세요'></input>
-            <button>추가</button>
-          </p>
-        </div>
-       );
+export default function App() {
+  function onClick() {
+    // TODO : 할 일 추가
   }
-
-ReactDOM.render(
-  <App />,   
-  document.getElementById('app'),
-);
+  
+  return (
+    <div>
+      <h1>To-do</h1>
+      <Input onClick={onClick}/>
+    </div>
+  );
+}
