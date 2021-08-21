@@ -1,13 +1,13 @@
 import React from 'react';
 
+import Item from './Item';
+
 export default function List({ tasks }) {
   return (
-    <div>
+    <ol>
       {tasks.map(task => (
-        <p>
-          {JSON.stringify(task)}
-        </p>
+        <Item key={task.id} title={task.title} />
       ))}
-    </div>
+    </ol>
   );
 }

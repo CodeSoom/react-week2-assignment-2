@@ -5,8 +5,8 @@ import List from './List';
 export default function App() {
 
   const tasks = [
-    { title: '커피 마시기' },
-    { title: '밥 먹기' },
+    { id: 1, title: '커피 마시기' },
+    { id: 2, title: '밥 먹기' },
   ];
 
   function onClick() {
