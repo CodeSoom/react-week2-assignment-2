@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState} from 'react';
 
 import Page from './Page';
 
 export default function App() {
-  const tasks = [
-    { id: 1, title: '커피 마시기' },
-    { id: 2, title: '밥 먹기' },
-  ];
+  const [state, setState] = useState({
+    newId: 100,
+    tasks: [
+      { id: 1, title: '커피 마시기' },
+      { id: 2, title: '밥 먹기' },
+    ],
+  });
 
-  function onClick() {
-    // TODO : 할 일 추가
+  const { newId, tasks } = state;
+
+  function handleClick() {
+    setState({
+      newId: newId + 1,
+      tasks: [...tasks, { id: newId, title: 'new task'}],
+    })
   }
   
   return (
