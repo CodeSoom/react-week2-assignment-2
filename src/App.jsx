@@ -24,8 +24,8 @@ export default function App() {
   };
 
   const removeTodo = (index) => {
-    todos.splice(index, 1);
-    setState({ ...state, todos });
+    const newTodos = todos.filter((_, i) => i !== index);
+    setState({ ...state, todos: newTodos });
   };
 
   const handleCompleteClick = (index) => {
