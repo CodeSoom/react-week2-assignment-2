@@ -21,11 +21,12 @@ export default function App() {
     })
   }
 
-  function handleClick() {
+  function handleClickAddTask() {
     setState({
       ...state,
       newId: newId + 1,
-      tasks: [...tasks, { id: newId, title: 'new task'}],
+      taskTitle: '', // 입력창에 값을 입력하면, 입력창에서 사라지도록 처리
+      tasks: [...tasks, { id: newId, title: taskTitle}],
     })
   }
   
@@ -33,7 +34,7 @@ export default function App() {
     <Page
       taskTitle={taskTitle}
       onChangeTitle={handleChangeTitle}
-      onClick={handleClick}
+      onClickAddTask={handleClickAddTask}
       tasks={tasks} 
     />
   );
