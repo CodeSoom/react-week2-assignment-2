@@ -5,7 +5,7 @@ export default function Input({ onClick }) {
     <p>
       <input type="text" placeholder="할 일을 입력해 주세요" />
       <button type="button" onClick={onClick}>
-        추가ㅇㅇ
+        추가
       </button>
     </p>
   )
