@@ -6,7 +6,7 @@ export default function List({ tasks }) {
   return (
     <ol>
       {tasks.map(task => (
-        <Item key={task.id} title={task.title} />
+        <Item key={task.id} task={task} />
       ))}
     </ol>
   );
