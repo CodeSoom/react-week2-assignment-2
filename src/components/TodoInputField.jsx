@@ -3,12 +3,16 @@ export default function TodoInputField({
   handleChangeInput,
   handleClickAddButton,
 }) {
+  const handleChange = (event) => {
+    handleChangeInput(event.target.value);
+  };
+
   return (
     <>
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
-        onChange={(event) => handleChangeInput(event.target.value)}
+        onChange={handleChange}
         value={todoContent}
       />
       <button

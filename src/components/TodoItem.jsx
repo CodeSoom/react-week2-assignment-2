@@ -3,12 +3,16 @@ export default function TodoItem({
   content,
   handleClickCompleteButton,
 }) {
+  const handleClick = () => {
+    handleClickCompleteButton(id);
+  };
+
   return (
     <li>
       {content}
       <button
         type="button"
-        onClick={() => handleClickCompleteButton(id)}
+        onClick={handleClick}
       >
         완료
       </button>
