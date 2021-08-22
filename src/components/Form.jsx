@@ -1,5 +1,6 @@
 export default function Form({ onSubmit, onChange, inputTodo }) {
-  function handleChange({ target: { value } }) {
+  function handleChange(event) {
+    const { value } = event.target;
     onChange(value);
   }
   return (

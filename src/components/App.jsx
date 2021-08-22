@@ -5,21 +5,21 @@ import List from './List';
 
 export default function App() {
   const [state, setState] = useState({
-    idRef: 0,
+    currentId: 0,
     inputTodo: '',
     todos: [],
   });
 
-  const { idRef, inputTodo, todos } = state;
+  const { currentId, inputTodo, todos } = state;
 
   function handleSubmit(e) {
     e.preventDefault();
     setState({
-      idRef: idRef + 1,
+      currentId: currentId + 1,
       inputTodo: '',
       todos: [...todos,
         {
-          id: idRef,
+          id: currentId,
           text: inputTodo,
         }],
     });
