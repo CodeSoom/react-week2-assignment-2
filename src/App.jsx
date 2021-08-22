@@ -31,13 +31,12 @@ export default function App() {
   }
 
   function handleClickDeleteTask(id) {
-    console.log(id);
     setState({
       ...state,
       tasks: tasks.filter((task) => task.id !== id),
     })
   }
-  
+
   return (
     <Page
       taskTitle={taskTitle}
