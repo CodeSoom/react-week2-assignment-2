@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Input from './components/Input';
+import TodoAddForm from './components/TodoAddForm';
 import TodoList from './components/TodoList';
 
 export default function App() {
@@ -40,7 +40,7 @@ export default function App() {
   return (
     <>
       <h1>To-do</h1>
-      <Input
+      <TodoAddForm
         onChange={handleTypeNewTodo}
         value={newTodo.todoName}
         onClick={handleClickAddTodo}

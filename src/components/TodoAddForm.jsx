@@ -1,4 +1,4 @@
-export default function Input({ onChange, value, onClick }) {
+export default function TodoAddForm({ onChange, value, onClick }) {
   return (
     <form>
       <input
