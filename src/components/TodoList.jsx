@@ -6,7 +6,7 @@ export default function TodoList({ todos, onClick }) {
       {(todos.length !== 0)
         ? (
           <ol>
-            {todos.map((todo) => <TodoItem todo={todo} onClick={onClick} />)}
+            {todos.map((todo) => <TodoItem key={todo.id} todo={todo} onClick={onClick} />)}
           </ol>
         )
         : <p>할 일이 없어요!</p>}
