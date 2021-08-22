@@ -43,7 +43,7 @@ export default function App() {
       onChangeTitle={handleChangeTitle}
       onClickAddTask={handleClickAddTask}
       tasks={tasks} 
-      onClickDeleteTask={handleClickDeleteTask}
+      handleClickDeleteTask={handleClickDeleteTask}
     />
   );
 }
