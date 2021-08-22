@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Input from './Input';
+import Form from './Form';
 import List from './List';
 
 export default function Page({ 
@@ -10,7 +10,7 @@ export default function Page({
   return (
     <div>
       <h1>To-do</h1>
-      <Input 
+      <Form 
         value={taskTitle} 
         onChange={onChangeTitle} 
         onClick={onClickAddTask}

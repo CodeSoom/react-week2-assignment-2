@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Input({ value, onChange, onClick }) {
+export default function Form({ value, onChange, onClick }) {
   return (
     <p>
       <input 
