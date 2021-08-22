@@ -1,53 +1,51 @@
 import React, { useState } from "react";
 
-import Page from "./components/Page";
-
-// id를 효율적으로 다루려면 어떻게 하면 될까...
-// 전에 지나가면서 uuid를 본적 잇는데 그걸로 가능한가
+import Page from "./Page";
 
 export default function App() {
   const [state, setState] = useState({
-    todo: "",
-    todos: []
+    newId: 100,
+    taskTitle: "",
+    tasks: [
+      { id: 1, title: "아무것도 하지 않기 #1" },
+      { id: 2, title: "아무것도 하지 않기 #2" },
+    ],
   });
 
-  const { todo, todos } = state;
+  const { newId, taskTitle, tasks } = state;
 
-  const handleInput = e => {
+  function handleClickAddTask() {
     setState({
-      todo: e.target.value,
-      todos: [...todos]
+      ...state,
+      newId: newId + 1,
+      taskTitle: "",
+      tasks: [...tasks, { id: newId, title: taskTitle }],
     });
-  };
+  }
 
-  const handleClickAdd = () => {
+  // 이 표현은 정말 많이 쓰인다. 그냥 외워버려
+  function handleChangeTitle(event) {
     setState({
-      todo: "",
-      todos: [
-        ...todos,
-        {
-          id: Date.now(),
-          content: todo
-        }
-      ]
+      ...state,
+      taskTitle: event.target.value,
     });
-  };
+  }
 
-  const handleDelete = id => {
+  function handleClickDeleteTask(id) {
     setState({
-      todo,
-      todos: todos.filter(text => text.id !== id)
+      ...state,
+      tasks: tasks.filter((task) => task.id !== id),
     });
-  };
+  }
 
   return (
     <div>
       <Page
-        todo={todo}
-        todos={todos}
-        handleInput={handleInput}
-        handleClickAdd={handleClickAdd}
-        handleDelete={handleDelete}
+        taskTitle={taskTitle}
+        onChangeTitle={handleChangeTitle}
+        onClickAddTask={handleClickAddTask}
+        tasks={tasks}
+        onClickDeleteTask={handleClickDeleteTask}
       />
     </div>
   );
