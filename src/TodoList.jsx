@@ -8,6 +8,7 @@ export default function TodoList({ todoList, onClick }) {
       <div>할 일이 없어요!</div>
     );
   }
+
   return (
     <ol>
       {

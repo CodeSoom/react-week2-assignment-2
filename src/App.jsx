@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
 
-import InputTodo from './InputTodo';
-import TodoList from './TodoList';
+import Page from './Page';
 
 export default function App() {
   const [state, setState] = useState({
@@ -10,17 +9,20 @@ export default function App() {
     todoList: [],
   });
 
-  function handleInput(value) {
+  const { inputText, todoList } = state;
+
+  function handleChangeInput(event) {
+    const { value } = event.target;
     setState({
       ...state,
       inputText: value,
     });
   }
 
-  function handleAdooTodo() {
-    const { inputText, todoList } = state;
+  function handleAddTodo() {
     setState({
       ...state,
+      inputText: '',
       todoList: [
         ...todoList,
         {
@@ -32,7 +34,6 @@ export default function App() {
   }
 
   function handleDeleteTodo(id) {
-    const { todoList } = state;
     setState({
       ...state,
       todoList: todoList.filter((todo) => todo.id !== id),
@@ -40,10 +41,12 @@ export default function App() {
   }
 
   return (
-    <div>
-      <h1>To-do</h1>
-      <InputTodo onChange={handleInput} onClick={handleAdooTodo} />
-      <TodoList todoList={state.todoList} onClick={handleDeleteTodo} />
-    </div>
+    <Page
+      inputText={inputText}
+      todoList={todoList}
+      onChangeInput={handleChangeInput}
+      onClickAdd={handleAddTodo}
+      onClickDelete={handleDeleteTodo}
+    />
   );
 }

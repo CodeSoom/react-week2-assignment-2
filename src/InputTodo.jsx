@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function InputTodo({ onChange, onClick }) {
-  const [inputText, setInputText] = useState('');
-
-  function handleChange(e) {
-    const { value } = e.target;
-    setInputText(value);
-    onChange(value);
-  }
-  function handleClick() {
-    onClick();
-    setInputText('');
-  }
-
+export default function InputTodo({
+  inputText,
+  onChange,
+  onClick,
+}) {
   return (
     <div>
-      <input value={inputText} placeholder="할 일을 입력해주세요" onChange={handleChange} />
-      <button type="button" onClick={handleClick}>
+      <input
+        type="text"
+        value={inputText}
+        placeholder="할 일을 입력해주세요"
+        onChange={onChange}
+      />
+      <button type="button" onClick={onClick}>
         추가
       </button>
     </div>
