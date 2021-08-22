@@ -19,10 +19,10 @@ export default function App() {
     });
   }
 
-  function handleTypeNewTodo(event) {
+  function handleTypeNewTodo(typedValue) {
     setState({
       ...state,
-      newTodo: { ...newTodo, todoName: event.target.value },
+      newTodo: { ...newTodo, todoName: typedValue },
     });
   }
 

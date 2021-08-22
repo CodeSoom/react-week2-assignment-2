@@ -4,7 +4,7 @@ export default function Input({ onChange, value, onClick }) {
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
-        onChange={onChange}
+        onChange={(event) => onChange(event.target.value)}
         value={value}
       />
       <button
