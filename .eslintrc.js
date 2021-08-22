@@ -45,5 +45,8 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { mode: 'strict' }],
     'arrow-spacing': ['error', { before: true, after: true }],
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
   },
 };
