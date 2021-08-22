@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function Item({ task : { id, title }, onClickDelete }) {
+export default function Item({ task, onClickDelete }) {
+  const { id ,title } = task;
   return (
     <div>
       <li>
