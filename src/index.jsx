@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 function App() {
+  const [newTodoName, setNewTodoName] = useState('');
+  const [todoList, setTodoList] = useState([]);
+
+  function handleChangeNewTodo({ target: { value } }) {
+    setNewTodoName(value);
+  }
+
+  function handleClickNewTodo() {
+    setTodoList((prevState) => [...prevState, { name: newTodoName, done: false }]);
+    setNewTodoName('');
+  }
+
   return (
     <>
       <h1>To-do</h1>
       <p>
-        <input type="text" />
-        <button type="button">추가</button>
+        <input type="text" value={newTodoName} onChange={handleChangeNewTodo} />
+        <button type="button" onClick={handleClickNewTodo}>추가</button>
       </p>
       <p>
         <ol>
-          <li>
-            할일
-            <button type="button">삭제</button>
-          </li>
-          <li>
-            할일
-            <button type="button">삭제</button>
-          </li>
+          {todoList.map((todo) => (
+            <li>
+              {todo.name}
+              <button type="button">완료</button>
+            </li>
+          ))}
         </ol>
       </p>
     </>
