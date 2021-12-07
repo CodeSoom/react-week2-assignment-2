@@ -14,6 +14,10 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const handleRemoveTodo = (deletedTodoIdx) => {
+    setTodos(todos.filter((todo, todoIdx) => todoIdx !== deletedTodoIdx));
+  };
+
   return (
     <div>
       <h1>TO-DO</h1>
@@ -28,11 +32,12 @@ function App() {
       </div>
       <br />
       {todos.length ? (
-        todos.map((todo) => (
+        todos.map((todo, todoIdx) => (
           <div>
-            <span>{todo}</span>
-            <span>{' '}</span>
-            <button type="button">확인</button>
+            <span>
+              {`${todoIdx + 1}. ${todo} `}
+            </span>
+            <button type="button" onClick={() => handleRemoveTodo(todoIdx)}>확인</button>
           </div>
         ))
       ) : (
