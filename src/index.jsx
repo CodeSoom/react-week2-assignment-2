@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
+import TodoForm from './todoForm';
+import TodoList from './todoList';
+
 function App() {
   const [todo, setTodo] = useState('');
   const [array, setArray] = useState([]);
@@ -23,36 +26,15 @@ function App() {
   return (
     <>
       <h1>To-do</h1>
-      <div>
-        <form>
-          <input
-            type="text"
-            placeholder="할 일을 입력해주세요."
-            value={todo}
-            onChange={handleChange}
-          />
-          <button type="button" onClick={handleClickAdd}>
-            추가
-          </button>
-        </form>
-      </div>
-      {array.length === 0
-        ? <p>할 일이 없어요!</p>
-        : (
-          <ol>
-            {array.map((item) => (
-              <li key={item}>
-                {item}
-                <button
-                  type="button"
-                  onClick={() => handleClickDone(item)}
-                >
-                  완료
-                </button>
-              </li>
-            ))}
-          </ol>
-        )}
+      <TodoForm
+        todo={todo}
+        handleChange={handleChange}
+        handleClickAdd={handleClickAdd}
+      />
+      <TodoList
+        array={array}
+        handleClickDone={handleClickDone}
+      />
     </>
   );
 }
