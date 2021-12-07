@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Title from './Title';
+import TodoInput from './TodoInput';
 
 function App() {
   const [newTodo, setNewTodo] = useState('');
@@ -22,15 +23,7 @@ function App() {
   return (
     <div>
       <Title title="TODO-List" />
-      <div>
-        <input
-          type="text"
-          placeholder="할 일을 입력해주세요!"
-          value={newTodo}
-          onChange={handleChangeTodo}
-        />
-        <button type="button" onClick={handleAddTodo}>추가</button>
-      </div>
+      <TodoInput todo={newTodo} onChangeTodo={handleChangeTodo} onAddTodo={handleAddTodo} />
       <br />
       {todos.length ? (
         todos.map((todo, todoIdx) => (
