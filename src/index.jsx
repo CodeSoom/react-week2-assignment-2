@@ -6,7 +6,9 @@ function TodoList({text}){
    
     return (
         <ul>
-            {text}
+            {text.map((v) => (                
+                    <li key={v}>{text}</li>                    
+            ))}
         </ul>
         
     )
@@ -24,16 +26,15 @@ function TodoInput({text, onChange, onClick}) {
 }
 
 function App(){
-    const [state, setState] = useState({text : ''})
-    const {text} = state
+    const [text, setText] = useState('')
     function onChangeText(e){
-        setState({text : e.target.value});
+        setText(e.target.value);
     }
 
-    const [submitText, setSubmitText] = useState('');
+    const [submitText, setSubmitText] = useState([]);
     function onClickSubmit(){
-        setSubmitText(text)
-        setState({text: ''})        
+        setSubmitText((prev) => ([...prev, text]))
+        setText('')        
     }
     return (
       <>
