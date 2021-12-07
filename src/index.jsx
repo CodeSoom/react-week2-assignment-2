@@ -6,7 +6,7 @@ const App = () => {
   const [list, setList] = React.useState([]);
 
   const onClickAppendToDo = (text) => {
-    setList([...list, { id: Date.now(), text }]);
+    setList([...list, { id: Date.now() + text, text }]);
   };
 
   const onClickRemoveToDo = (id) => {
