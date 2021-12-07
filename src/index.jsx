@@ -2,11 +2,17 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
 
-function TodoList({text}){
+function TodoList({text, onClick}){
+  
+
     return (
         <ol>
-            {text.map((v) => (                
-                    <li key={v}>{v}</li>                    
+            {text.map((v) => (         
+                <div key={v} onClick={onClick}>       
+                    <li>{v}
+                    <button type="button" >완료</button>                    
+                    </li>
+                </div>
             ))}
         </ol>
         
@@ -32,14 +38,23 @@ function App(){
 
     const [submitText, setSubmitText] = useState([]);
     function onClickSubmit(){
-        setSubmitText((prev) => ([...prev, text]), () => console.log(submitText))
-        console.log(submitText)
+        setSubmitText((prev) => ([...prev, text]))
         setText('')        
     }
+
+    function onClickFinish(e) {
+        console.log(e.currentTarget.innerText)
+        setSubmitText((prev) => 
+             prev.filter((v) => {
+               return (v+'완료') !== e.currentTarget.innerText})
+
+        )
+    }
+
     return (
       <>
         <TodoInput text={text} onChange ={onChangeText} onClick={onClickSubmit}/>
-        <TodoList text={submitText} />
+        <TodoList text={submitText} onClick={onClickFinish} />
       </>
     )
 }
