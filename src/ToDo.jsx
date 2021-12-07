@@ -3,10 +3,12 @@ import ToDoList from './ToDoList';
 
 const ToDo = ({ list, removeHandler, appendHandler }) => {
   const inputRef = useRef(null);
+
   const onClickAppend = () => {
     appendHandler(inputRef.current.value);
     inputRef.current.value = '';
   };
+
   return (
     <>
       <h1>To-do</h1>
