@@ -2,35 +2,49 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 
-function Habit() {
-  const content = "none";
+function Habit({ habit }) {
   return (
     <div>
-      {content}
-      <button type="button"> {content}</button>
+      {habit}
+      <button type="button">삭제</button>
     </div>
   )
 }
 
-function Habits() {
+function Habits({ habits }) {
+  const numberOfHabits = habits.length;
   return (
-    <div>habits</div>
+    <div>
+      {
+        habits.map((habit, key) => (
+          <Habit key={key} habit={habit} />
+        )
+        )}
+    </div>
   )
 }
 
-function Input({ onSubmit }) {
+function Input({ onSubmit, habits }) {
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" name="content" placeholder="할 일을 입력해 주세요" />
-      <input type="submit" value="추가" />
-    </form>
+    <div>
+      <div>
+        <form onSubmit={onSubmit}>
+          <input type="text" name="content" placeholder="할 일을 입력해 주세요" />
+          <input type="submit" value="추가" />
+        </form>
+
+      </div>
+      <div>
+        <Habits habits={habits} />
+      </div>
+    </div>
   )
 }
 
-function Page({ onSubmit }) {
+function Page({ onSubmit, habits }) {
   return (
-    <Input onSubmit={onSubmit} />
+    <Input onSubmit={onSubmit} habits={habits} />
   )
 }
 
@@ -49,7 +63,7 @@ function App() {
 
 
   return (
-    <Page onSubmit={handleSubmit} />
+    <Page onSubmit={handleSubmit} habits={habits} />
   )
 }
 
