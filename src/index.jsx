@@ -6,7 +6,7 @@ function Habit({ onDelete, habit, keyValue }) {
   return (
     <div>
       {habit}
-      <button onClick={() => onDelete(keyValue)} type="button" >삭제</button>
+      <button onClick={() => onDelete(keyValue)} type="button" >완료</button>
     </div>
   )
 }
@@ -53,7 +53,6 @@ function App() {
   const { habits } = state;
 
   function handleDelete(key) {
-    console.log(key + '번이 삭제 버튼을 눌렀다.')
     setState({
       habits: habits.filter((value, index) => index != key)
     }
@@ -65,6 +64,7 @@ function App() {
     setState({
       habits: [e.target[0].value, ...habits]
     })
+    e.target[0].value = "";
   }
 
 
