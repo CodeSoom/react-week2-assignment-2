@@ -34,7 +34,7 @@ function Input({ onSubmit, onDelete, habits }) {
         </form>
       </div>
       <div>
-        <Habits onDelete={onDelete} habits={habits} />
+        {habits.length === 0 ? "할 일이 없어요!" : <Habits onDelete={onDelete} habits={habits} />}
       </div>
     </div>
   )
