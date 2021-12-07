@@ -4,9 +4,9 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'react/jsx-runtime',
-    'plugin:react/recommended',
     'airbnb',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
   ],
   parserOptions: {
     ecmaFeatures: {
