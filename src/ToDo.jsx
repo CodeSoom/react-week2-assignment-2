@@ -18,7 +18,7 @@ const ToDo = ({ list, removeHandler, appendHandler }) => {
           추가
         </button>
       </div>
-      <ToDoList list={list} />
+      <ToDoList list={list} removeHandler={removeHandler} />
     </>
   );
 };
