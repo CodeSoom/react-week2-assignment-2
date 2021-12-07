@@ -37,7 +37,7 @@ function App() {
             <span>
               {`${todoIdx + 1}. ${todo} `}
             </span>
-            <button type="button" onClick={() => handleRemoveTodo(todoIdx)}>확인</button>
+            <button type="button" onClick={() => handleRemoveTodo(todoIdx)}>완료</button>
           </div>
         ))
       ) : (
