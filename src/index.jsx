@@ -2,29 +2,29 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 
-function Habit({ habit }) {
+function Habit({ onDelete, habit }) {
   return (
     <div>
       {habit}
-      <button type="button">삭제</button>
+      <button onClick={onDelete} type="button">삭제</button>
     </div>
   )
 }
 
-function Habits({ habits }) {
+function Habits({ onDelete, habits }) {
   const numberOfHabits = habits.length;
   return (
     <div>
       {
         habits.map((habit, key) => (
-          <Habit key={key} habit={habit} />
+          <Habit key={key} onDelete={onDelete} habit={habit} />
         )
         )}
     </div>
   )
 }
 
-function Input({ onSubmit, habits }) {
+function Input({ onSubmit, onDelete, habits }) {
 
   return (
     <div>
@@ -36,15 +36,15 @@ function Input({ onSubmit, habits }) {
 
       </div>
       <div>
-        <Habits habits={habits} />
+        <Habits onDelete={onDelete} habits={habits} />
       </div>
     </div>
   )
 }
 
-function Page({ onSubmit, habits }) {
+function Page({ onSubmit, onDelete, habits }) {
   return (
-    <Input onSubmit={onSubmit} habits={habits} />
+    <Input onSubmit={onSubmit} onDelete={onDelete} habits={habits} />
   )
 }
 
@@ -53,6 +53,10 @@ function App() {
     habits: []
   })
   const { habits } = state;
+
+  function handleDelete() {
+    console.log('삭제 버튼을 눌렀다.')
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -63,7 +67,7 @@ function App() {
 
 
   return (
-    <Page onSubmit={handleSubmit} habits={habits} />
+    <Page onSubmit={handleSubmit} onDelete={handleDelete} habits={habits} />
   )
 }
 
