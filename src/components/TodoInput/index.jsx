@@ -2,7 +2,10 @@ import { useState } from 'react';
 
 const ToDoInput = ({ addTodo }) => {
   const [inputValue, setInputValue] = useState('');
-
+  const onClick = (text) => {
+    addTodo(text);
+    setInputValue('');
+  };
   return (
     <div>
       <input
@@ -11,7 +14,7 @@ const ToDoInput = ({ addTodo }) => {
         type="text"
         placeholder="할 일을 입력해주세요"
       />
-      <button onClick={() => addTodo(inputValue)} type="button">
+      <button onClick={() => onClick(inputValue)} type="button">
         추가
       </button>
     </div>
