@@ -4,6 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: [
+    'react/jsx-runtime',
     'plugin:react/recommended',
     'airbnb',
   ],
