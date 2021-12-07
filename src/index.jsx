@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 
-function Habit({ onDelete, habit }) {
+function Habit({ onDelete, habit, keyValue }) {
   return (
     <div>
       {habit}
-      <button onClick={onDelete} type="button">삭제</button>
+      <button onClick={() => onDelete(keyValue)} type="button" >삭제</button>
     </div>
   )
 }
@@ -17,7 +17,7 @@ function Habits({ onDelete, habits }) {
     <div>
       {
         habits.map((habit, key) => (
-          <Habit key={key} onDelete={onDelete} habit={habit} />
+          <Habit onDelete={onDelete} habit={habit} key={key} keyValue={key} />
         )
         )}
     </div>
@@ -54,8 +54,8 @@ function App() {
   })
   const { habits } = state;
 
-  function handleDelete() {
-    console.log('삭제 버튼을 눌렀다.')
+  function handleDelete(key) {
+    console.log(key + '번이 삭제 버튼을 눌렀다.')
   }
 
   function handleSubmit(e) {
