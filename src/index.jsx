@@ -35,8 +35,16 @@ function Page({ onSubmit }) {
 }
 
 function App() {
+  const [state, setState] = useState({
+    habits: []
+  })
+  const { habits } = state;
+
   function handleSubmit(e) {
-    console.log(e.target[0].value)
+    e.preventDefault()
+    setState({
+      habits: [e.target[0].value, ...habits]
+    })
   }
 
 
