@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import TodoAppender from './components/todo-appender';
+import Todos from './components/todos';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -18,6 +19,7 @@ function App() {
     <>
       <h1>To-do</h1>
       <TodoAppender onAddTodo={handleAddTodo} />
+      <Todos todos={todos} />
     </>
   );
 }

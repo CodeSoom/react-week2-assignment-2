@@ -1,0 +1,23 @@
+import React from 'react';
+
+import TodoItem from './todo-item';
+
+function Todos({ todos }) {
+  if (todos.length === 0) {
+    return (
+      <p>
+        <b>할 일이 없어요!</b>
+      </p>
+    );
+  }
+
+  return (
+    <ol>
+      {todos.map((todoItem) => (
+        <TodoItem key={todoItem.id} todoItem={todoItem} />
+      ))}
+    </ol>
+  );
+}
+
+export default Todos;
