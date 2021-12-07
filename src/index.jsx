@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import Title from './Title';
 
 function App() {
   const [newTodo, setNewTodo] = useState('');
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <div>
-      <h1>TO-DO</h1>
+      <Title title="TODO-List" />
       <div>
         <input
           type="text"
