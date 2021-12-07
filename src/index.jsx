@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import Title from './Title';
-import TodoInput from './TodoInput';
-import Todos from './Todos';
+import Page from './Page';
 
 function App() {
   const [newTodo, setNewTodo] = useState('');
@@ -22,12 +20,13 @@ function App() {
   };
 
   return (
-    <div>
-      <Title title="TODO-List" />
-      <TodoInput todo={newTodo} onChangeTodo={handleChangeTodo} onAddTodo={handleAddTodo} />
-      <br />
-      <Todos todos={todos} onRemoveTodo={handleRemoveTodo} />
-    </div>
+    <Page
+      todos={todos}
+      todo={newTodo}
+      onChangeTodo={handleChangeTodo}
+      onAddTodo={handleAddTodo}
+      onRemoveTodo={handleRemoveTodo}
+    />
   );
 }
 
