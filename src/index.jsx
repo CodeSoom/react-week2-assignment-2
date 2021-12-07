@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 
 
 function TodoList({text}){
-   
     return (
-        <ul>
+        <ol>
             {text.map((v) => (                
-                    <li key={v}>{text}</li>                    
+                    <li key={v}>{v}</li>                    
             ))}
-        </ul>
+        </ol>
         
     )
 }
@@ -33,7 +32,8 @@ function App(){
 
     const [submitText, setSubmitText] = useState([]);
     function onClickSubmit(){
-        setSubmitText((prev) => ([...prev, text]))
+        setSubmitText((prev) => ([...prev, text]), () => console.log(submitText))
+        console.log(submitText)
         setText('')        
     }
     return (
