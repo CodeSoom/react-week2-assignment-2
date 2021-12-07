@@ -13,31 +13,35 @@ function Habit() {
 }
 
 function Habits() {
-
   return (
     <div>habits</div>
   )
 }
 
-function Input() {
+function Input({ onSubmit }) {
 
   return (
-    <form>
-      <input type="text" placeholder="할 일을 입력해 주세요" />
-      <input type="button" value="추가" id="" />
+    <form onSubmit={onSubmit}>
+      <input type="text" name="content" placeholder="할 일을 입력해 주세요" />
+      <input type="submit" value="추가" />
     </form>
   )
 }
 
-function Page() {
+function Page({ onSubmit }) {
   return (
-    <Input />
+    <Input onSubmit={onSubmit} />
   )
 }
 
 function App() {
+  function handleSubmit(e) {
+    console.log(e.target[0].value)
+  }
+
+
   return (
-    <Page />
+    <Page onSubmit={handleSubmit} />
   )
 }
 
