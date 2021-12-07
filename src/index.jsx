@@ -12,14 +12,13 @@ function Habit({ onDelete, habit, keyValue }) {
 }
 
 function Habits({ onDelete, habits }) {
-  const numberOfHabits = habits.length;
   return (
     <div>
       {
         habits.map((habit, key) => (
           <Habit onDelete={onDelete} habit={habit} key={key} keyValue={key} />
-        )
-        )}
+        ))
+      }
     </div>
   )
 }
@@ -33,7 +32,6 @@ function Input({ onSubmit, onDelete, habits }) {
           <input type="text" name="content" placeholder="할 일을 입력해 주세요" />
           <input type="submit" value="추가" />
         </form>
-
       </div>
       <div>
         <Habits onDelete={onDelete} habits={habits} />
@@ -56,6 +54,10 @@ function App() {
 
   function handleDelete(key) {
     console.log(key + '번이 삭제 버튼을 눌렀다.')
+    setState({
+      habits: habits.filter((value, index) => index != key)
+    }
+    )
   }
 
   function handleSubmit(e) {
