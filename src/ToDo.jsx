@@ -1,27 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { useRef } from 'react';
+import React from 'react';
+import ToDoInput from './ToDoInput';
 import ToDoList from './ToDoList';
 
-const ToDo = ({ list, removeHandler, appendHandler }) => {
-  const inputRef = useRef(null);
-
-  const onClickAppend = () => {
-    appendHandler(inputRef.current.value);
-    inputRef.current.value = '';
-  };
-
-  return (
-    <>
-      <h1>To-do</h1>
-      <div>
-        <input placeholder="할 일을 입력해 주세요" ref={inputRef} />
-        <button type="button" onClick={onClickAppend}>
-          추가
-        </button>
-      </div>
-      <ToDoList list={list} removeHandler={removeHandler} />
-    </>
-  );
-};
+const ToDo = ({ list, removeHandler, appendHandler }) => (
+  <>
+    <h1>To-do</h1>
+    <ToDoInput appendHandler={appendHandler} />
+    <ToDoList list={list} removeHandler={removeHandler} />
+  </>
+);
 
 export default ToDo;
