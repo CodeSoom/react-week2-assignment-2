@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Title from './Title';
 import TodoInput from './TodoInput';
+import Todos from './Todos';
 
 function App() {
   const [newTodo, setNewTodo] = useState('');
@@ -25,18 +26,7 @@ function App() {
       <Title title="TODO-List" />
       <TodoInput todo={newTodo} onChangeTodo={handleChangeTodo} onAddTodo={handleAddTodo} />
       <br />
-      {todos.length ? (
-        todos.map((todo, todoIdx) => (
-          <div>
-            <span>
-              {`${todoIdx + 1}. ${todo} `}
-            </span>
-            <button type="button" onClick={() => handleRemoveTodo(todoIdx)}>완료</button>
-          </div>
-        ))
-      ) : (
-        <div>할 일이 없어요!</div>
-      )}
+      <Todos todos={todos} onRemoveTodo={handleRemoveTodo} />
     </div>
   );
 }
