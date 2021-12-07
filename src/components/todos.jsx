@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './todo-item';
 
-function Todos({ todos }) {
+function Todos({ todos, onDeleteTodo }) {
   if (todos.length === 0) {
     return (
       <p>
@@ -14,7 +14,7 @@ function Todos({ todos }) {
   return (
     <ol>
       {todos.map((todoItem) => (
-        <TodoItem key={todoItem.id} todoItem={todoItem} />
+        <TodoItem key={todoItem.id} todoItem={todoItem} onDeleteTodo={onDeleteTodo} />
       ))}
     </ol>
   );

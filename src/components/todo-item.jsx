@@ -1,10 +1,14 @@
 import React from 'react';
 
-function TodoItem({ todoItem }) {
+function TodoItem({ todoItem, onDeleteTodo }) {
+  function handleDeleteTodoItem() {
+    onDeleteTodo(todoItem.id);
+  }
+
   return (
     <li>
       {todoItem.text}
-      <button type="button">완료</button>
+      <button type="button" onClick={handleDeleteTodoItem}>완료</button>
     </li>
   );
 }
