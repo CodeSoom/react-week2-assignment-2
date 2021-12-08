@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Page from './Page';
+import Page from './Page.jsx';
 
 
 function App() {

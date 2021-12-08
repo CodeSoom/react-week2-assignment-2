@@ -1,5 +1,5 @@
 import React from 'react'
-import Habit from './Habit'
+import Habit from './Habit.jsx'
 
 function Habits({ onDelete, habits }) {
   return (

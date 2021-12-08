@@ -1,5 +1,5 @@
 import React from 'react'
-import Habits from './Habits'
+import Habits from './Habits.jsx'
 
 function Input({ onSubmit, onDelete, habits }) {
 
