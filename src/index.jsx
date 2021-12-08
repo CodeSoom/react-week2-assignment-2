@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom';
+import { v4 as uuid } from 'uuid';
 
 function App() {
   const [newTodoName, setNewTodoName] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   function handleChangeNewTodo({ target: { value } }) {
     setNewTodoName(value);
@@ -11,8 +12,12 @@ function App() {
 
   function handleSubmitNewTodo(e) {
     e.preventDefault();
-    setTodoList((prevState) => [...prevState, { name: newTodoName, done: false }]);
+    setTodos((prevTodos) => [...prevTodos, { id: uuid(), name: newTodoName, done: false }]);
     setNewTodoName('');
+  }
+
+  function handleClickDeleteTodo(id) {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   }
 
   return (
@@ -24,10 +29,10 @@ function App() {
       </form>
       <p>
         <ol>
-          {todoList.map((todo) => (
-            <li>
+          {todos.map((todo) => (
+            <li key={todo.id}>
               {todo.name}
-              <button type="button">완료</button>
+              <button type="button" onClick={() => handleClickDeleteTodo(todo.id)}>완료</button>
             </li>
           ))}
         </ol>
