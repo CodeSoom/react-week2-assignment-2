@@ -2,7 +2,7 @@ import React from 'react';
 
 function TodoTitle() {
   return (
-    <p>To-do</p>
+    <h1>To-do</h1>
   );
 }
 

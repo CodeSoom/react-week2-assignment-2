@@ -1,15 +1,24 @@
 import React from 'react';
-import TodoTitle from './components/TodoTitle';
-import TodoAdd from './components/TodoAdd';
-import TodoList from './components/TodoList';
+import TodoTitle from './TodoTitle';
+import TodoAdd from './TodoAdd';
+import TodoList from './TodoList';
 
-function Page() {
+function Page({
+  todoItem, todoArray, handleChange, addTodo, finishTodo,
+}) {
   return (
-    <div>
+    <>
       <TodoTitle />
-      <TodoAdd />
-      <TodoList />
-    </div>
+      <TodoAdd
+        addTodo={addTodo}
+        handleChange={handleChange}
+        todoItem={todoItem}
+      />
+      <TodoList
+        todoArray={todoArray}
+        finishTodo={finishTodo}
+      />
+    </>
   );
 }
 

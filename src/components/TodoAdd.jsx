@@ -1,16 +1,18 @@
 import React from 'react';
-import Input from './components/Input';
-import Button from './components/Button';
+import Input from './Input';
+import Button from './Button';
 
-function TodoAdd({ onClick }) {
+function TodoAdd({ addTodo, handleChange, todoItem }) {
   return (
     <form>
       <Input
         type="text"
         name="text"
         placeholder="할 일을 입력해 주세요"
+        handleChange={handleChange}
+        todoItem={todoItem}
       />
-      <Button type="submit" onClick={onClick}>
+      <Button onClick={addTodo}>
         추가
       </Button>
     </form>
