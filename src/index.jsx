@@ -28,14 +28,17 @@ function App() {
         <button type="submit">추가</button>
       </form>
       <p>
-        <ol>
-          {todos.map((todo) => (
-            <li key={todo.id}>
-              {todo.name}
-              <button type="button" onClick={() => handleClickDeleteTodo(todo.id)}>완료</button>
-            </li>
-          ))}
-        </ol>
+        {todos.length === 0 ? <>할 일이 없어요!</> : (
+          <ol>
+            {todos.map((todo) => (
+              <li key={todo.id}>
+                {todo.name}
+                <button type="button" onClick={() => handleClickDeleteTodo(todo.id)}>완료</button>
+              </li>
+            ))}
+          </ol>
+        )}
+
       </p>
     </>
   );
