@@ -1,25 +1,5 @@
-import React from "react"
-
-function Habit({ onDelete, habit, keyValue }) {
-  return (
-    <div>
-      {habit}
-      <button onClick={() => onDelete(keyValue)} type="button" >완료</button>
-    </div>
-  )
-}
-
-function Habits({ onDelete, habits }) {
-  return (
-    <div>
-      {
-        habits.map((habit, key) => (
-          <Habit onDelete={onDelete} habit={habit} key={key} keyValue={key} />
-        ))
-      }
-    </div>
-  )
-}
+import React from 'react'
+import Habits from './Habits'
 
 function Input({ onSubmit, onDelete, habits }) {
 
