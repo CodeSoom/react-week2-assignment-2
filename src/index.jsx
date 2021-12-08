@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { v4 as uuid } from 'uuid';
+import EmptyTodos from './EmptyTodos';
+import TodoForm from './Form/TodoForm';
 
 function App() {
   const [newTodoName, setNewTodoName] = useState('');
@@ -23,12 +25,9 @@ function App() {
   return (
     <>
       <h1>To-do</h1>
-      <form onSubmit={handleSubmitNewTodo}>
-        <input type="text" value={newTodoName} onChange={handleChangeNewTodo} />
-        <button type="submit">추가</button>
-      </form>
+      <TodoForm value={newTodoName} onChange={handleChangeNewTodo} onSubmit={handleSubmitNewTodo} />
       <p>
-        {todos.length === 0 ? <>할 일이 없어요!</> : (
+        {todos.length === 0 ? <EmptyTodos /> : (
           <ol>
             {todos.map((todo) => (
               <li key={todo.id}>
