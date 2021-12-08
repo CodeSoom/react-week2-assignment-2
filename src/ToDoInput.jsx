@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-const ToDoInput = ({ appendHandler }) => {
+export default function ToDoInput({ appendHandler }) {
   const inputRef = useRef(null);
 
   const onClickAppend = () => {
@@ -16,6 +16,4 @@ const ToDoInput = ({ appendHandler }) => {
       </button>
     </div>
   );
-};
-
-export default ToDoInput;
+}
