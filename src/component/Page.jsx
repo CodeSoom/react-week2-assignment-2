@@ -7,9 +7,9 @@ function Page() {
   })
   const { habits } = state;
 
-  function handleDelete(key) {
+  function handleDelete(id) {
     setState({
-      habits: habits.filter((value, index) => index != key)
+      habits: habits.filter((value, index) => index != id)
     }
     )
   }
