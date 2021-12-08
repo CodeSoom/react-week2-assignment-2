@@ -15,7 +15,6 @@ function App() {
   }
 
   function finishTodo(item) {
-    // 같은 값 제외한 나머지로 새로운 배열 만들어 todoArray에 저장
     setTodoArray(todoArray.filter((testItem) => item !== testItem));
   }
 
