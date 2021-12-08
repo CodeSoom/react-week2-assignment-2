@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import TodoAppender from './components/todo-appender';
-import Todos from './components/todos';
+import TodoAppender from './components/TodoAppender';
+import Todos from './components/Todos';
 
 function App() {
   const [todos, setTodos] = useState([]);

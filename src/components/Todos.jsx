@@ -1,6 +1,4 @@
-import React from 'react';
-
-import TodoItem from './todo-item';
+import TodoItem from './TodoItem';
 
 function Todos({ todos, onDeleteTodo }) {
   if (todos.length === 0) {

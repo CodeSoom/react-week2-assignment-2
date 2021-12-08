@@ -1,5 +1,3 @@
-import React from 'react';
-
 function TodoItem({ todoItem, onDeleteTodo }) {
   function handleDeleteTodoItem() {
     onDeleteTodo(todoItem.id);
