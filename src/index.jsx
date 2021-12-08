@@ -9,7 +9,8 @@ function App() {
     setNewTodoName(value);
   }
 
-  function handleClickNewTodo() {
+  function handleSubmitNewTodo(e) {
+    e.preventDefault();
     setTodoList((prevState) => [...prevState, { name: newTodoName, done: false }]);
     setNewTodoName('');
   }
@@ -17,10 +18,10 @@ function App() {
   return (
     <>
       <h1>To-do</h1>
-      <p>
+      <form onSubmit={handleSubmitNewTodo}>
         <input type="text" value={newTodoName} onChange={handleChangeNewTodo} />
-        <button type="button" onClick={handleClickNewTodo}>추가</button>
-      </p>
+        <button type="submit">추가</button>
+      </form>
       <p>
         <ol>
           {todoList.map((todo) => (
