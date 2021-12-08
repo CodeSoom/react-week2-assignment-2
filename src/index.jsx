@@ -1,34 +1,7 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
-
-function TodoList({ texts, onClick }) {
-  if (!texts.length) return (<div>할 일이 없어요!</div>);
-  return (
-    <div>
-      <ol>
-        {texts.map((text) => (
-          <div key={text}>
-            <li>
-              {text}
-              <button type="button" onClick={() => onClick(text)}>완료</button>
-            </li>
-          </div>
-        ))}
-      </ol>
-    </div>
-  );
-}
-
-function TodoInput({ text, onChange, onClick }) {
-  return (
-    <>
-      <div>
-        <input type="text" placeholder="할 일을 입력해주세요" value={text} onChange={onChange} />
-        <button type="button" onClick={onClick}>추가</button>
-      </div>
-    </>
-  );
-}
+import TodoInput from './TodoInput';
+import TodoList from './TodoList';
 
 function App() {
   const [text, setText] = useState('');
