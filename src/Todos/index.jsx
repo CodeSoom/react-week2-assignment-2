@@ -4,7 +4,7 @@ function Todos({ todos, onDelete }) {
   return (
     <ol>
       {todos.map((todo) => (
-        <Todo todo={todo} onDelete={onDelete} />
+        <Todo key={todo.id} todo={todo} onDelete={onDelete} />
       ))}
     </ol>
   );
