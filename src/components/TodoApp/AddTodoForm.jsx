@@ -6,7 +6,7 @@ import useInput from '../../hooks/useInput';
  * @return {import('react').ReactElement}
  */
 const AddTodoForm = ({ onAdd }) => {
-  const { value, onChange } = useInput();
+  const { value, setValue, onChange } = useInput();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,10 +14,12 @@ const AddTodoForm = ({ onAdd }) => {
       return;
     }
     onAdd?.(new Todo(value));
+    setValue('');
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2 style={{ display: 'none' }}>Todo 추가</h2>
       <input name="todo" value={value} onChange={onChange} />
       <button type="submit">추가</button>
     </form>

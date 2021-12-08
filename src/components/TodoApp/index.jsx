@@ -1,11 +1,24 @@
 import AddTodoForm from './AddTodoForm';
 import Header from './Header';
+import List from './List';
+import useTodos from './useTodos';
 
-const TodoApp = () => (
-  <section>
-    <Header />
-    <AddTodoForm onAdd={console.log} />
-  </section>
-);
+const TodoApp = () => {
+  const { todos, addTodo, removeTodo } = useTodos([]);
+  const handleAddTodo = (todo) => {
+    addTodo(todo);
+  };
+  const handleCompleteTodo = (id) => {
+    removeTodo(id);
+  };
+
+  return (
+    <section>
+      <Header />
+      <AddTodoForm onAdd={handleAddTodo} />
+      <List todos={todos} onComplete={handleCompleteTodo} />
+    </section>
+  );
+};
 
 export default TodoApp;

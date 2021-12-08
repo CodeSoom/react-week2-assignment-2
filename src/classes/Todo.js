@@ -19,6 +19,10 @@ class Todo {
   get title() {
     return this._title;
   }
+
+  equals(todo) {
+    return this.id === todo.id;
+  }
 }
 
 export default Todo;
