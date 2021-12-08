@@ -1,7 +1,7 @@
 import React from 'react'
 import Habits from './Habits.jsx'
 
-function Input({ onSubmit, onDelete, habits }) {
+function Input({ onSubmit, onClickDelete, habits }) {
 
   return (
     <div>
@@ -12,7 +12,7 @@ function Input({ onSubmit, onDelete, habits }) {
         </form>
       </div>
       <div>
-        {habits.length === 0 ? "할 일이 없어요!" : <Habits onDelete={onDelete} habits={habits} />}
+        {habits.length === 0 ? "할 일이 없어요!" : <Habits onClickDelete={onClickDelete} habits={habits} />}
       </div>
     </div>
   )

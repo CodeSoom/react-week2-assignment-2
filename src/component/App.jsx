@@ -27,7 +27,7 @@ function App() {
 
 
   return (
-    <Page onSubmit={handleSubmit} onDelete={handleDelete} habits={habits} />
+    <Page onSubmit={handleSubmit} onClickDelete={handleDelete} habits={habits} />
   )
 }
 

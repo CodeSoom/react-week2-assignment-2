@@ -1,8 +1,8 @@
 import React from 'react'
 import Input from './Input.jsx'
-function Page({ onSubmit, onDelete, habits }) {
+function Page({ onSubmit, onClickDelete, habits }) {
   return (
-    <Input onSubmit={onSubmit} onDelete={onDelete} habits={habits} />
+    <Input onSubmit={onSubmit} onClickDelete={onClickDelete} habits={habits} />
   )
 }
 
