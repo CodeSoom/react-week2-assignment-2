@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from "react"
 
 function Habit({ onDelete, habit, keyValue }) {
   return (
@@ -44,31 +44,4 @@ function Page({ onSubmit, onDelete, habits }) {
   )
 }
 
-function App() {
-  const [state, setState] = useState({
-    habits: []
-  })
-  const { habits } = state;
-
-  function handleDelete(key) {
-    setState({
-      habits: habits.filter((value, index) => index != key)
-    }
-    )
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    setState({
-      habits: [e.target[0].value, ...habits]
-    })
-    e.target[0].value = "";
-  }
-
-
-  return (
-    <Page onSubmit={handleSubmit} onDelete={handleDelete} habits={habits} />
-  )
-}
-
-export default App
+export default Page
