@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 const ToDoInput = ({ appendHandler }) => {
   const inputRef = useRef(null);

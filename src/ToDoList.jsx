@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
-
 const ToDoList = ({ list, removeHandler }) => {
   if (list.length === 0) return <p>할 일이 없어요!</p>;
   return (
