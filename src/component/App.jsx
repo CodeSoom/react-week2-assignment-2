@@ -4,6 +4,7 @@ import Page from './Page.jsx';
 
 function App() {
   const [state, setState] = useState({
+
     habits: []
   })
   const { habits } = state;
@@ -18,6 +19,7 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault()
     setState({
+      ...state,
       habits: [e.target[0].value, ...habits]
     })
     e.target[0].value = "";
