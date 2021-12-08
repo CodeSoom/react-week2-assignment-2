@@ -3,18 +3,18 @@ import { useState } from 'react';
 import TodoAppender from './components/TodoAppender';
 import Todos from './components/Todos';
 
+function getNextId(todos) {
+  return todos.length
+    ? Math.max(...todos.map((todo) => todo.id)) + 1
+    : 1;
+}
+
 function App() {
   const [todos, setTodos] = useState([]);
 
-  function getNextId() {
-    return todos.length
-      ? Math.max(...todos.map((todo) => todo.id)) + 1
-      : 1;
-  }
-
   function handleAddTodo(todoItemText) {
     const todoItem = {
-      id: getNextId(),
+      id: getNextId(todos),
       text: todoItemText,
     };
 
