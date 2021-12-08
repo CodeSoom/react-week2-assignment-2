@@ -6,7 +6,7 @@ function Habits({ onDelete, habits }) {
     <div>
       {
         habits.map((habit, key) => (
-          <Habit onDelete={onDelete} habit={habit} key={key} keyValue={key} />
+          <Habit onDelete={onDelete} habit={habit} key={key} id={key} />
         ))
       }
     </div>

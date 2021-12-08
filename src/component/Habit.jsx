@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Habit({ onDelete, habit, keyValue }) {
+function Habit({ onDelete, habit, id }) {
   return (
     <div>
       {habit}
-      <button onClick={() => onDelete(keyValue)} type="button" >완료</button>
+      <button onClick={() => onDelete(id)} type="button" >완료</button>
     </div>
   )
 }
