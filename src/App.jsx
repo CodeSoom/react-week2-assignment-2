@@ -24,8 +24,8 @@ function App() {
   return (
     <>
       <h1>To-do</h1>
-      <TodoAppender onAddTodo={handleAddTodo} />
-      <Todos todos={todos} onDeleteTodo={handleDeleteTodo} />
+      <TodoAppender onSubmitAddTodo={handleAddTodo} />
+      <Todos todos={todos} onClickDeleteTodo={handleDeleteTodo} />
     </>
   );
 }

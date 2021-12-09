@@ -1,6 +1,6 @@
-function TodoItem({ todoItem, onDeleteTodo }) {
+function TodoItem({ todoItem, onClickDeleteTodo }) {
   function handleDeleteTodoItem() {
-    onDeleteTodo(todoItem.id);
+    onClickDeleteTodo(todoItem.id);
   }
 
   return (

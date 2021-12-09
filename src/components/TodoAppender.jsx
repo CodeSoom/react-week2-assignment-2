@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function TodoAppender({ onAddTodo }) {
+function TodoAppender({ onSubmitAddTodo }) {
   const [todoText, setTodoText] = useState('');
 
   function handleChange({ target }) {
@@ -14,7 +14,7 @@ function TodoAppender({ onAddTodo }) {
       return;
     }
 
-    onAddTodo(todoText);
+    onSubmitAddTodo(todoText);
     setTodoText('');
   }
 

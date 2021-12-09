@@ -1,6 +1,6 @@
 import TodoItem from './TodoItem';
 
-function Todos({ todos, onDeleteTodo }) {
+function Todos({ todos, onClickDeleteTodo }) {
   if (todos.length === 0) {
     return (
       <p>
@@ -15,7 +15,7 @@ function Todos({ todos, onDeleteTodo }) {
         <TodoItem
           key={todoItem.id}
           todoItem={todoItem}
-          onDeleteTodo={onDeleteTodo}
+          onClickDeleteTodo={onClickDeleteTodo}
         />
       ))}
     </ol>
