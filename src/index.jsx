@@ -1,28 +1,29 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
+
 import Page from './Page';
 
 function App() {
-  const [newTodo, setNewTodo] = useState('');
+  const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState([]);
 
   const handleChangeTodo = (e) => {
-    setNewTodo(e.target.value);
+    setTodo(e.target.value);
   };
 
   const handleAddTodo = () => {
-    setNewTodo('');
-    setTodos([...todos, newTodo]);
+    setTodo('');
+    setTodos([...todos, todo]);
   };
 
-  const handleRemoveTodo = (deletedTodoIdx) => {
-    setTodos(todos.filter((todo, todoIdx) => todoIdx !== deletedTodoIdx));
+  const handleRemoveTodo = (todoIdx) => {
+    setTodos(todos.filter((_, idx) => idx !== todoIdx));
   };
 
   return (
     <Page
       todos={todos}
-      todo={newTodo}
+      todo={todo}
       onChangeTodo={handleChangeTodo}
       onAddTodo={handleAddTodo}
       onRemoveTodo={handleRemoveTodo}
