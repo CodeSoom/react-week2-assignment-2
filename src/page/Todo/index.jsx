@@ -15,8 +15,7 @@ const ToDo = () => {
   };
 
   const completeTodo = (id) => {
-    const newList = todos.filter((item) => item.id !== id);
-    setTodos(newList);
+    setTodos(todos.filter((item) => item.id !== id));
   };
 
   return (
