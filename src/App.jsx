@@ -21,7 +21,7 @@ export default function App() {
   return (
     <>
       <TodoInput text={text} onChange={onChangeText} onClick={onClickSubmit} />
-      <TodoList texts={submitText} onClick={onClickFinish} />
+      <TodoList todoList={submitText} onClick={onClickFinish} />
     </>
   );
 }
