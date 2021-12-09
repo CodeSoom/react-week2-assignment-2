@@ -4,11 +4,8 @@ import TodoForm from './todoForm';
 import TodoList from './todoList';
 
 export default function App() {
-  const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState([]);
 
-  function handleChange(value) {
-    setTodo(value);
   function handleClickAdd(todoItem) {
     setTodos([...todos, todoItem]);
   }
@@ -21,9 +18,7 @@ export default function App() {
     <>
       <h1>To-do</h1>
       <TodoForm
-        todo={todo}
-        onChange={handleChange}
-        handleClickAdd={handleClickAdd}
+        onClickAdd={handleClickAdd}
       />
       <TodoList
         todos={todos}

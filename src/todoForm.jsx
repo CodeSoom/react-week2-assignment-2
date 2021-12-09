@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function TodoForm({ todo, onChange, handleClickAdd }) {
+export default function TodoForm({ onClickAdd }) {
+  const [todo, setTodo] = useState('');
+
   function handleChange(event) {
     const { target: { value } } = event;
 
-    onChange(value);
+    setTodo(value);
+  }
+
+  function handleClickAdd(value) {
+    onClickAdd(value);
+    setTodo('');
   }
 
   return (
@@ -15,7 +22,7 @@ export default function TodoForm({ todo, onChange, handleClickAdd }) {
         value={todo}
         onChange={handleChange}
       />
-      <button type="button" onClick={handleClickAdd}>
+      <button type="button" onClick={() => handleClickAdd(todo)}>
         추가
       </button>
     </form>
