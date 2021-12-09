@@ -22,7 +22,7 @@ const TodoInput = ({ onClick }) => {
     setState({
       todo: '',
     });
-  }
+  };
 
   return (
     <>

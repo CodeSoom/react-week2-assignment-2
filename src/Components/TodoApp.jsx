@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import TodoInput from './TodoInput';
 
 const TodoApp = () => {
