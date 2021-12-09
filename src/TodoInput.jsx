@@ -1,5 +1,3 @@
-import React from 'react';
-
 function TodoInput({ todo, onChangeTodo, onAddTodo }) {
   return (
     <div>

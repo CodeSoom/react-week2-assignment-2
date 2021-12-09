@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Todos({ todos, onRemoveTodo }) {
   return (
     <div>
