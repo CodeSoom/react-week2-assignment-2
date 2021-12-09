@@ -5,19 +5,16 @@ import TodoList from './todoList';
 
 export default function App() {
   const [todo, setTodo] = useState('');
-  const [array, setArray] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   function handleChange(value) {
     setTodo(value);
+  function handleClickAdd(todoItem) {
+    setTodos([...todos, todoItem]);
   }
 
-  function handleClickAdd() {
-    setArray([...array, todo]);
-    setTodo('');
-  }
-
-  function handleClickDone(item) {
-    setArray(array.filter((it) => it !== item));
+  function handleClickDone(todoItem) {
+    setTodos(todos.filter((todo) => todo !== todoItem));
   }
 
   return (
@@ -29,7 +26,7 @@ export default function App() {
         handleClickAdd={handleClickAdd}
       />
       <TodoList
-        array={array}
+        todos={todos}
         handleClickDone={handleClickDone}
       />
     </>
