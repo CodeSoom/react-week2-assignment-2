@@ -22,7 +22,7 @@ export default function Input({ onClick }) {
         onChange={(event) => handleChange(event.target.value)}
       />
 
-      <Button onClick={() => handleClick(todo, onClick)}>
+      <Button onClick={handleClick}>
         추가
       </Button>
     </div>
