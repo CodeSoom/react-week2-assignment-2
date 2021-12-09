@@ -1,6 +1,6 @@
 import AddTodoForm from './AddTodoForm';
 import Header from './Header';
-import List from './List';
+import List from './TodoList';
 
 import useTodos from './useTodos';
 
