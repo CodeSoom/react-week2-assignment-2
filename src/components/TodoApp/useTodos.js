@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function useTodos(initialTodos = []) {
+function useTodos({ todos: initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
 
   const addTodo = (todo) => {
