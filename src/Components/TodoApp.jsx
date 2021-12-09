@@ -15,7 +15,7 @@ const TodoApp = () => {
     setState({
       todoList: [...todoList, {
         todo,
-        id: todoListLength + 1,
+        id: todoListLength,
       }],
     });
   };
