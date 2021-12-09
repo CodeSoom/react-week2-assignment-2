@@ -1,8 +1,9 @@
 import React from 'react';
+import isFunction from '../utils/isFunction';
 
 export default function TodoItem({ children, onComplete }) {
  const handleClick = () => {
-  typeof onComplete === 'function' && onComplete();
+  isFunction(onComplete) && onComplete();
  };
 
  return (

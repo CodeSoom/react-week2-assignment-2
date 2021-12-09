@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import isFunction from '../utils/isFunction';
 import TodoItem from './TodoItem';
 
 export default function TodoList({ todos = [], onComplete }) {
@@ -15,7 +16,7 @@ export default function TodoList({ todos = [], onComplete }) {
        <li key={id.current}>
         <TodoItem
          onComplete={() => {
-          typeof onComplete === 'function' && onComplete(index);
+          isFunction(onComplete) && onComplete(index);
          }}
         >
          {todo}

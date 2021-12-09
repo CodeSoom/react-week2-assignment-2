@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import isFunction from '../utils/isFunction';
 
 export default function TodoAppending({ onAppend }) {
  const $input = useRef();
@@ -8,7 +9,7 @@ export default function TodoAppending({ onAppend }) {
  };
 
  const handleAppend = () => {
-  if (typeof onAppend === 'function') {
+  if (isFunction(onAppend)) {
    onAppend(todo);
    setTodo('');
 
