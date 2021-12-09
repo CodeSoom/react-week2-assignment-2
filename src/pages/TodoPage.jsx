@@ -6,9 +6,7 @@ export default function TodoPage() {
  const [todos, setTodos] = useState([]);
 
  const handleAppend = (todo) => {
-  setTodos((prev) => {
-   return [...prev, todo];
-  });
+  setTodos((prev) => [...prev, todo]);
  };
 
  const handleComplete = (index) => {

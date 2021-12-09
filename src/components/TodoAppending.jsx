@@ -13,7 +13,9 @@ export default function TodoAppending({ onAppend }) {
    onAppend(todo);
    setTodo('');
 
-   $input.current && $input.current.focus();
+   if ($input.current) {
+    $input.current.focus();
+   }
   }
  };
 

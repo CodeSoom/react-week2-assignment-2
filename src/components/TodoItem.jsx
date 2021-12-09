@@ -3,7 +3,9 @@ import isFunction from '../utils/isFunction';
 
 export default function TodoItem({ children, onComplete }) {
  const handleClick = () => {
-  isFunction(onComplete) && onComplete();
+  if (isFunction(onComplete)) {
+   onComplete();
+  }
  };
 
  return (

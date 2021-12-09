@@ -8,24 +8,28 @@ export default function TodoList({ todos = [], onComplete }) {
  return (
   <div>
    {
-    todos.length > 0 ?
-    <ol>
-     {todos.map((todo, index) => {
-      id.current += 1;
-      return (
-       <li key={id.current}>
-        <TodoItem
-         onComplete={() => {
-          isFunction(onComplete) && onComplete(index);
-         }}
-        >
-         {todo}
-        </TodoItem>
-       </li>
-      );
-     })}
-    </ol> :
-    <p>할 일이 없어요!</p>
+    todos.length > 0
+     ? (
+      <ol>
+       {todos.map((todo, index) => {
+        id.current += 1;
+        return (
+         <li key={id.current}>
+          <TodoItem
+           onComplete={() => {
+            if (isFunction(onComplete)) {
+             onComplete(index);
+            }
+           }}
+          >
+           {todo}
+          </TodoItem>
+         </li>
+        );
+       })}
+      </ol>
+     )
+     : <p>할 일이 없어요!</p>
    }
   </div>
  );

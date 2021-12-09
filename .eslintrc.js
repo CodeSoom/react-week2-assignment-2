@@ -48,6 +48,7 @@ module.exports = {
   'react/prop-types': 'off',
   'react/jsx-indent': ['error', 1],
   'react/jsx-indent-props': ['error', 1],
-  'jsx-a11y/label-has-associated-control': 'foo',
+  'jsx-a11y/label-has-associated-control': 'off',
+  'jsx-a11y/no-autofocus': 'off',
  },
 };
