@@ -21,11 +21,13 @@ const ToDo = () => {
   return (
     <div>
       <ToDoInput addTodo={addTodo} />
-      {todos.length ? (
-        <ToDoList list={todos} completeTodo={completeTodo} />
-      ) : (
-        '할 일이 없어요!'
-      )}
+      {() => {
+        if(todos.length > 0) {
+          return <ToDoList list={todos} completeTodo={completeTodo} />
+        }
+
+        return '할 일이 없어요!'
+      }}
     </div>
   );
 };
