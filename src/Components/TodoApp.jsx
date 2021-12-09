@@ -20,11 +20,17 @@ const TodoApp = () => {
     });
   };
 
+  const handleClickRemoveTodo = (id) => {
+    setState({
+      todoList: todoList.filter((todo) => todo.id !== id),
+    });
+  };
+
   return (
     <>
       <h1>To-do</h1>
       <TodoInput onClick={handleClickAddTodo} />
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} onClick={handleClickRemoveTodo} />
     </>
   );
 };
