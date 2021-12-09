@@ -1,8 +1,7 @@
-import React from 'react'
-import Habits from './Habits.jsx'
+import React from 'react';
+import Habits from './Habits';
 
 function Input({ onSubmit, onClickDelete, habits }) {
-
   return (
     <div>
       <div>
@@ -12,10 +11,10 @@ function Input({ onSubmit, onClickDelete, habits }) {
         </form>
       </div>
       <div>
-        {habits.length === 0 ? "할 일이 없어요!" : <Habits onClickDelete={onClickDelete} habits={habits} />}
+        {habits.length === 0 ? '할 일이 없어요!' : <Habits onClickDelete={onClickDelete} habits={habits} />}
       </div>
     </div>
-  )
+  );
 }
 
-export default Input
+export default Input;

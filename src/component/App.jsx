@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-import Page from './Page.jsx';
+import React from 'react';
 
+import Page from './Page';
 
-function App() {
-
+export default function App() {
   return (
     <Page />
-  )
+  );
 }
-
-export default App
