@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function TodoForm({ todo, handleChange, handleClickAdd }) {
+export default function TodoForm({ todo, onChange, handleClickAdd }) {
+  function handleChange(event) {
+    const { target: { value } } = event;
+
+    onChange(value);
+  }
+
   return (
     <form>
       <input

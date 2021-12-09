@@ -7,9 +7,7 @@ export default function App() {
   const [todo, setTodo] = useState('');
   const [array, setArray] = useState([]);
 
-  function handleChange(event) {
-    const { target: { value } } = event;
-
+  function handleChange(value) {
     setTodo(value);
   }
 
@@ -27,7 +25,7 @@ export default function App() {
       <h1>To-do</h1>
       <TodoForm
         todo={todo}
-        handleChange={handleChange}
+        onChange={handleChange}
         handleClickAdd={handleClickAdd}
       />
       <TodoList
