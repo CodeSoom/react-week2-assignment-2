@@ -20,7 +20,12 @@ function TodoAppender({ onAddTodo }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="할 일을 입력해 주세요" value={todoText} onChange={handleChange} />
+      <input
+        type="text"
+        placeholder="할 일을 입력해 주세요"
+        value={todoText}
+        onChange={handleChange}
+      />
       <button type="submit">추가</button>
     </form>
   );

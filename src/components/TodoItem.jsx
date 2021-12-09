@@ -6,7 +6,9 @@ function TodoItem({ todoItem, onDeleteTodo }) {
   return (
     <li>
       {todoItem.text}
-      <button type="button" onClick={handleDeleteTodoItem}>완료</button>
+      <button type="button" onClick={handleDeleteTodoItem}>
+        완료
+      </button>
     </li>
   );
 }

@@ -12,7 +12,11 @@ function Todos({ todos, onDeleteTodo }) {
   return (
     <ol>
       {todos.map((todoItem) => (
-        <TodoItem key={todoItem.id} todoItem={todoItem} onDeleteTodo={onDeleteTodo} />
+        <TodoItem
+          key={todoItem.id}
+          todoItem={todoItem}
+          onDeleteTodo={onDeleteTodo}
+        />
       ))}
     </ol>
   );
