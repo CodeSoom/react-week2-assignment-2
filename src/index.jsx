@@ -25,8 +25,8 @@ function App() {
       todos={todos}
       todo={todo}
       onChangeTodo={handleChangeTodo}
-      onAddTodo={handleAddTodo}
-      onRemoveTodo={handleRemoveTodo}
+      onClickAdd={handleAddTodo}
+      onClickRemove={handleRemoveTodo}
     />
   );
 }

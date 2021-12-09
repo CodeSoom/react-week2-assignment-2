@@ -1,4 +1,4 @@
-function Todos({ todos, onRemoveTodo }) {
+function Todos({ todos, onClickRemove }) {
   const isEmptyTodos = todos.length === 0;
 
   if (isEmptyTodos) {
@@ -14,7 +14,7 @@ function Todos({ todos, onRemoveTodo }) {
           <span>
             {`${todoIdx + 1}. ${todo} `}
           </span>
-          <button type="button" onClick={() => onRemoveTodo(todoIdx)}>완료</button>
+          <button type="button" onClick={() => onClickRemove(todoIdx)}>완료</button>
         </div>
       ))}
     </div>

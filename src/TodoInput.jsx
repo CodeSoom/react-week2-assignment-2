@@ -1,4 +1,4 @@
-function TodoInput({ todo, onChangeTodo, onAddTodo }) {
+function TodoInput({ todo, onChangeTodo, onClickAdd }) {
   return (
     <div>
       <input
@@ -7,7 +7,7 @@ function TodoInput({ todo, onChangeTodo, onAddTodo }) {
         value={todo}
         onChange={onChangeTodo}
       />
-      <button type="button" onClick={onAddTodo}>추가</button>
+      <button type="button" onClick={onClickAdd}>추가</button>
     </div>
   );
 }
