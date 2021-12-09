@@ -9,11 +9,16 @@ function Button({ children, onClick }) {
   );
 }
 
-function Todo({ children, onClick }) {
+function Todo({ children, index, onClick }) {
   return (
     <div>
-      <span>{children}</span>
-      <Button onClick={onClick}>
+      <span>
+        {index + 1}
+        .
+        {children}
+      </span>
+
+      <Button onClick={() => onClick(index)}>
         완료
       </Button>
     </div>
@@ -33,11 +38,10 @@ function Todos({ todos, onClick }) {
     <div>
       {todos.map((todo, index) => (
         <Todo
-          key={todo}
-          onClick={() => onClick(index)}
+          key={todo} // [질문] 이 경우 동일한 todo일 때 문제가 생기는데, 적절한 key값을 어떻게 설정해주어야 할까요?
+          index={index}
+          onClick={onClick}
         >
-          {index + 1}
-          .
           {todo}
         </Todo>
       ))}
@@ -52,19 +56,24 @@ function Input({ onClick }) {
     setTodo(input);
   }
 
+  function handleClick() {
+    onClick(todo);
+    setTodo('');
+  }
+
   return (
     <div>
       <input
         type="text"
         placeholder="할 일을 입력해주세요."
+        value={todo}
         onChange={(event) => handleChange(event.target.value)}
       />
 
-      <Button onClick={() => onClick(todo)}>
+      <Button onClick={() => handleClick(todo, onClick)}>
         추가
       </Button>
     </div>
-
   );
 }
 
