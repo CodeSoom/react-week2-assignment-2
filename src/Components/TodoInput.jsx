@@ -18,10 +18,12 @@ const TodoInput = ({ onClick }) => {
   };
 
   const handleClickAdd = () => {
-    onClick(todo);
-    setState({
-      todo: '',
-    });
+    if (todo !== '') {
+      onClick(todo);
+      setState({
+        todo: '',
+      });
+    }
   };
 
   return (

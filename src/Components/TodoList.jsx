@@ -10,7 +10,7 @@ const TodoList = ({ todoList, onClick }) => (
         ))}
       </ul>
     )
-      : <p>할일이 없어요!</p>}
+      : <p>할 일이 없어요!</p>}
   </>
 );
 
