@@ -6,17 +6,28 @@ import TodoList from './TodoList';
 const TodoApp = () => {
   const [state, setState] = useState({
     todos: [],
+    inputTodo: '',
   });
 
-  const { todos } = state;
+  const { todos, inputTodo } = state;
 
-  const handleClickAddTodo = (todo) => {
+  const handleChangeInput = (e) => {
     setState({
-      todos: [...todos, {
-        todo,
-        id: todos.length,
-      }],
+      ...state,
+      inputTodo: e.target.value,
     });
+  };
+
+  const handleClickAddTodo = () => {
+    if (inputTodo !== '') {
+      setState({
+        todos: [...todos, {
+          todo: inputTodo,
+          id: todos.length,
+        }],
+        inputTodo: '',
+      });
+    }
   };
 
   const handleClickRemoveTodo = (id) => {
@@ -28,7 +39,7 @@ const TodoApp = () => {
   return (
     <>
       <h1>To-do</h1>
-      <TodoInput onClick={handleClickAddTodo} />
+      <TodoInput todo={inputTodo} onClick={handleClickAddTodo} onChange={handleChangeInput} />
       <TodoList todos={todos} onClick={handleClickRemoveTodo} />
     </>
   );
