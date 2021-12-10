@@ -5,7 +5,11 @@ export default function List({ list, deleteList }) {
 
   function renderList() {
     return list.map((v) => (
-      <Item key={v} item={v} deleteList={deleteList} />
+      <Item
+        key={v}
+        item={v}
+        deleteList={() => deleteList(v)}
+      />
     ));
   }
 
