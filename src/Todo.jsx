@@ -6,9 +6,9 @@ export default function Todo({ todo, index, onClick }) {
       <span>
         {index + 1}
         .
-        {todo}
+        {todo.text}
       </span>
-      <Button onClick={() => onClick(index)}>
+      <Button onClick={() => onClick(todo.id)}>
         완료
       </Button>
     </div>

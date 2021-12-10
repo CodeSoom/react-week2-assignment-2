@@ -1,22 +1,30 @@
 import { useState } from 'react';
 
+import { nanoid } from 'nanoid';
+
 import Field from './Field';
 import Todos from './Todos';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
-  const [todo, setTodo] = useState('');
+  const [todo, setTodo] = useState({
+    id: '',
+    text: '',
+  });
 
   function addTodo(newTodo) {
     setTodos([...todos, newTodo]);
   }
 
-  function deleteTodo(index) {
-    setTodos([...todos.slice(0, index), ...todos.slice(index + 1)]);
+  function deleteTodo(id) {
+    setTodos(todos.filter((item) => item.id !== id));
   }
 
   function handleChange(input) {
-    setTodo(input);
+    setTodo({
+      id: nanoid(),
+      text: input,
+    });
   }
 
   return (

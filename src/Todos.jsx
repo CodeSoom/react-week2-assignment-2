@@ -13,7 +13,7 @@ export default function Todos({ todos, onClick }) {
     <div>
       {todos.map((todo, index) => (
         <Todo
-          key={todo}
+          key={todo.id}
           index={index}
           todo={todo}
           onClick={onClick}
@@ -22,6 +22,5 @@ export default function Todos({ todos, onClick }) {
         </Todo>
       ))}
     </div>
-
   );
 }

@@ -11,7 +11,7 @@ export default function Field({ todo, onChange, onClick }) {
       <input
         type="text"
         placeholder="할 일을 입력해주세요."
-        value={todo}
+        value={todo.text}
         onChange={(event) => onChange(event.target.value)}
       />
       <Button onClick={handleClick}>
