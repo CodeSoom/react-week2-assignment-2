@@ -7,12 +7,28 @@ function Input({ onSubmit, onClickDelete, habits }) {
     <div>
       <div>
         <form onSubmit={onSubmit}>
-          <input type="text" name="content" placeholder="할 일을 입력해 주세요" />
-          <input type="submit" value="추가" />
+          <input
+            type="text"
+            name="content"
+            placeholder="할 일을 입력해 주세요"
+          />
+          <input
+            type="submit"
+            value="추가"
+          />
         </form>
       </div>
       <div>
-        {isHabitEmpty ? '할 일이 없어요!' : <Habits onClickDelete={onClickDelete} habits={habits} />}
+        {
+          isHabitEmpty
+            ? '할 일이 없어요!'
+            : (
+              <Habits
+                onClickDelete={onClickDelete}
+                habits={habits}
+              />
+            )
+        }
       </div>
     </div>
   );

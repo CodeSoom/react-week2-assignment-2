@@ -16,13 +16,20 @@ function Page() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setState({
-      habits: [e.target[0].value, ...habits],
+      habits: [
+        e.target[0].value,
+        ...habits,
+      ],
     });
     e.target[0].value = '';
   };
 
   return (
-    <Input onSubmit={handleSubmit} onClickDelete={handleDelete} habits={habits} />
+    <Input
+      onSubmit={handleSubmit}
+      onClickDelete={handleDelete}
+      habits={habits}
+    />
   );
 }
 
