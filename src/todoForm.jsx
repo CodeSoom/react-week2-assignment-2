@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
 export default function TodoForm({ onClickAdd }) {
-  const [todo, setTodo] = useState('');
+  const [inputValue, setValue] = useState('');
 
   function handleChange(event) {
     const { target: { value } } = event;
 
-    setTodo(value);
+    setValue(value);
   }
 
-  function handleClickAdd(value) {
-    onClickAdd(value);
-    setTodo('');
+  function handleClickAdd() {
+    onClickAdd(inputValue);
+    setValue('');
   }
 
   return (
@@ -19,10 +19,10 @@ export default function TodoForm({ onClickAdd }) {
       <input
         type="text"
         placeholder="할 일을 입력해주세요."
-        value={todo}
+        value={inputValue}
         onChange={handleChange}
       />
-      <button type="button" onClick={() => handleClickAdd(todo)}>
+      <button type="button" onClick={handleClickAdd}>
         추가
       </button>
     </form>
