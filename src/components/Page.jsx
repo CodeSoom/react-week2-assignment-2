@@ -3,14 +3,17 @@ import List from './List';
 
 export default function Page({
   list,
-  addList,
-  deleteList,
+  handleAddList,
+  handleDeleteList,
 }) {
   return (
     <div>
       <p>To-do</p>
-      <AddToDo list={list} addList={addList} />
-      <List list={list} deleteList={deleteList} />
+      <AddToDo list={list} handleAddList={handleAddList} />
+      <List
+        list={list}
+        handleDeleteList={handleDeleteList}
+      />
     </div>
   );
 }

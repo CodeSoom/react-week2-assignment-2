@@ -4,11 +4,11 @@ import Page from './Page';
 export default function App() {
   const [toDoList, setToDoList] = useState([]);
 
-  function addList(item) {
+  function handlehandleAddList(item) {
     setToDoList([...toDoList, item]);
   }
 
-  function deleteList(item) {
+  function handlehandleDeleteList(item) {
     const filtered = toDoList.filter((v) => v !== item);
     setToDoList(filtered);
   }
@@ -16,8 +16,8 @@ export default function App() {
   return (
     <Page
       list={toDoList}
-      addList={addList}
-      deleteList={deleteList}
+      handleAddList={handlehandleAddList}
+      handleDeleteList={handlehandleDeleteList}
     />
   );
 }

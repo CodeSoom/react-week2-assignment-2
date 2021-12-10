@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Button from './common/Button';
 import TextInput from './common/TextInput';
 
-export default function AddTodo({ list, addList }) {
+export default function AddTodo({ list, handleAddList }) {
   const [text, setText] = useState('');
 
   function onClickButton() {
@@ -15,7 +15,7 @@ export default function AddTodo({ list, addList }) {
       return;
     }
 
-    addList(text);
+    handleAddList(text);
     setText('');
   }
 

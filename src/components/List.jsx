@@ -1,6 +1,6 @@
 import Item from './Item';
 
-export default function List({ list, deleteList }) {
+export default function List({ list, handleDeleteList }) {
   const hasList = list.length > 0;
 
   function renderList() {
@@ -8,7 +8,7 @@ export default function List({ list, deleteList }) {
       <Item
         key={v}
         item={v}
-        deleteList={() => deleteList(v)}
+        handleDeleteList={() => handleDeleteList(v)}
       />
     ));
   }
