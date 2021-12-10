@@ -4,14 +4,21 @@ import TodoForm from './todoForm';
 import TodoList from './todoList';
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+  const [todo, setTodo] = useState({
+    todos: [],
+  });
+  const { todos } = todo;
 
   function handleClickAdd(todoItem) {
-    setTodos([...todos, todoItem]);
+    setTodo({
+      todos: [...todos, todoItem],
+    });
   }
 
   function handleClickDone(todoItem) {
-    setTodos(todos.filter((todo) => todo !== todoItem));
+    setTodo({
+      todos: todos.filter((it) => it !== todoItem),
+    });
   }
 
   return (
