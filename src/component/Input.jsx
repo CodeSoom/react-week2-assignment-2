@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Habits from './Habits';
 
 function Input({ onSubmit, onClickDelete, habits }) {
