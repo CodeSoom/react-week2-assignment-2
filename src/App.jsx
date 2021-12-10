@@ -15,8 +15,8 @@ function App() {
     setTodos([...todos, todo]);
   };
 
-  const handleRemoveTodo = (todoIdx) => {
-    setTodos(todos.filter((_, idx) => idx !== todoIdx));
+  const handleRemoveTodo = (todoIndex) => {
+    setTodos(todos.filter((_, index) => index !== todoIndex));
   };
 
   return (

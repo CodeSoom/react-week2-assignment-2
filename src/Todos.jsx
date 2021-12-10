@@ -9,12 +9,12 @@ function Todos({ todos, onClickRemove }) {
 
   return (
     <div>
-      {todos.map((todo, todoIdx) => (
+      {todos.map((todo, todoIndex) => (
         <div>
           <span>
-            {`${todoIdx + 1}. ${todo} `}
+            {`${todoIndex + 1}. ${todo} `}
           </span>
-          <button type="button" onClick={() => onClickRemove(todoIdx)}>완료</button>
+          <button type="button" onClick={() => onClickRemove(todoIndex)}>완료</button>
         </div>
       ))}
     </div>
