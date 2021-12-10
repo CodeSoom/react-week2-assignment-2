@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-export default function ToDoInput({ appendHandler }) {
+export default function ToDoInputField({ appendHandler }) {
   const inputRef = useRef(null);
 
   const onClickAppend = () => {

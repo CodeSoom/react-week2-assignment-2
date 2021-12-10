@@ -1,8 +1,10 @@
-export default function ToDoList({ list, removeHandler }) {
-  if (list.length === 0) return <p>할 일이 없어요!</p>;
+export default function ToDoList({ toDos, removeHandler }) {
+  if (toDos.length === 0) {
+    return <p>할 일이 없어요!</p>;
+  }
   return (
     <ol>
-      {list.map(({ id, text }) => (
+      {toDos.map(({ id, text }) => (
         <li key={id}>
           {text}
           <button
