@@ -7,19 +7,19 @@ function Page() {
   });
   const { habits } = state;
 
-  function handleDelete(id) {
+  const handleDelete = (id) => {
     setState({
       habits: habits.filter((value, index) => index !== id),
     });
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setState({
       habits: [e.target[0].value, ...habits],
     });
     e.target[0].value = '';
-  }
+  };
 
   return (
     <Input onSubmit={handleSubmit} onClickDelete={handleDelete} habits={habits} />
