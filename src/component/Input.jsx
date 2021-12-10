@@ -2,6 +2,7 @@ import React from 'react';
 import Habits from './Habits';
 
 function Input({ onSubmit, onClickDelete, habits }) {
+  const isHabitEmpty = habits.length === 0;
   return (
     <div>
       <div>
@@ -11,7 +12,7 @@ function Input({ onSubmit, onClickDelete, habits }) {
         </form>
       </div>
       <div>
-        {habits.length === 0 ? '할 일이 없어요!' : <Habits onClickDelete={onClickDelete} habits={habits} />}
+        {isHabitEmpty ? '할 일이 없어요!' : <Habits onClickDelete={onClickDelete} habits={habits} />}
       </div>
     </div>
   );
