@@ -9,7 +9,7 @@ function Page() {
 
   const handleDelete = (id) => {
     setState({
-      habits: habits.filter((value, index) => index !== id),
+      habits: habits.filter((habit) => habit.id !== id),
     });
   };
 
@@ -17,7 +17,10 @@ function Page() {
     e.preventDefault();
     setState({
       habits: [
-        e.target[0].value,
+        {
+          id: Date.now() + e.target[0].value,
+          text: e.target[0].value,
+        },
         ...habits,
       ],
     });

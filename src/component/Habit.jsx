@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Habit({ onClickDelete, habit, id }) {
+function Habit({ onClickDelete, text, id }) {
   return (
     <div>
-      {habit}
+      {text}
       <button
         onClick={() => onClickDelete(id)}
         type="button"
