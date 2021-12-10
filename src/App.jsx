@@ -3,22 +3,33 @@ import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
 export default function App() {
-  const [todo, setTodo] = useState([]);
+  const [todo, setTodo] = useState('');
+  const [todoList, setTodoList] = useState([]);
+  const [nextId, setNextId] = useState(1);
 
+  function onChangeTodo(e) {
+    setTodo(e.target.value);
+  }
   function onClickSubmit(e) {
     e.preventDefault();
-    setTodo((prev) => ([...prev, e.target[0].value]));
-    // input 초기화();
+    setTodoList([
+      ...todoList,
+      {
+        id: nextId,
+        content: todo,
+      },
+    ]);
+    setNextId(nextId + 1);
+    setTodo('');
   }
-
   function onClickFinish(target) {
-    setTodo((prevTodo) => prevTodo.filter((prev) => prev !== target));
+    setTodoList(todoList.filter((prevTodo) => prevTodo.id !== target));
   }
 
   return (
     <>
-      <TodoInput handleSubmit={onClickSubmit} />
-      <TodoList todoList={todo} onClick={onClickFinish} />
+      <TodoInput todo={todo} onChange={onChangeTodo} handleSubmit={onClickSubmit} />
+      <TodoList todoList={todoList} onClick={onClickFinish} />
     </>
   );
 }
