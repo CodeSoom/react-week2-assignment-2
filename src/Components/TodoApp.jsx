@@ -5,15 +5,15 @@ import TodoList from './TodoList';
 
 const TodoApp = () => {
   const [state, setState] = useState({
-    todoList: [],
+    todos: [],
   });
 
-  const { todoList } = state;
+  const { todos } = state;
 
   const handleClickAddTodo = (todo) => {
-    const todoListLength = todoList.length;
+    const todoListLength = todos.length;
     setState({
-      todoList: [...todoList, {
+      todos: [...todos, {
         todo,
         id: todoListLength,
       }],
@@ -22,7 +22,7 @@ const TodoApp = () => {
 
   const handleClickRemoveTodo = (id) => {
     setState({
-      todoList: todoList.filter((todo) => todo.id !== id),
+      todos: todos.filter((todo) => todo.id !== id),
     });
   };
 
@@ -30,7 +30,7 @@ const TodoApp = () => {
     <>
       <h1>To-do</h1>
       <TodoInput onClick={handleClickAddTodo} />
-      <TodoList todoList={todoList} onClick={handleClickRemoveTodo} />
+      <TodoList todos={todos} onClick={handleClickRemoveTodo} />
     </>
   );
 };
