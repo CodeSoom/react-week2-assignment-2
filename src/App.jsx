@@ -14,8 +14,8 @@ export default function App() {
 
   return (
     <ToDo
-      appendHandler={onClickAppendToDo}
-      removeHandler={onClickRemoveToDo}
+      appendToDoHandler={onClickAppendToDo}
+      removeToDoHandler={onClickRemoveToDo}
       toDos={toDos}
     />
   );
