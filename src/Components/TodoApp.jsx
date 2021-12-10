@@ -11,11 +11,10 @@ const TodoApp = () => {
   const { todos } = state;
 
   const handleClickAddTodo = (todo) => {
-    const todoListLength = todos.length;
     setState({
       todos: [...todos, {
         todo,
-        id: todoListLength,
+        id: todos.length,
       }],
     });
   };
