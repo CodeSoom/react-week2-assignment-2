@@ -13,8 +13,9 @@ export default function Todos({ todos, onClick }) {
     <div>
       {todos.map((todo, index) => (
         <Todo
-          key={todo} // [질문] 이 경우 동일한 todo일 때 문제가 생기는데, 적절한 key값을 어떻게 설정해주어야 할까요?
+          key={todo}
           index={index}
+          todo={todo}
           onClick={onClick}
         >
           {todo}

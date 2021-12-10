@@ -1,16 +1,9 @@
-import { useState } from 'react';
-
 import Button from './Button';
 
-export default function Input({ onClick }) {
-  const [todo, setTodo] = useState('');
-  function handleChange(input) {
-    setTodo(input);
-  }
-
+export default function Field({ todo, onChange, onClick }) {
   function handleClick() {
     onClick(todo);
-    setTodo('');
+    onChange('');
   }
 
   return (
@@ -19,9 +12,8 @@ export default function Input({ onClick }) {
         type="text"
         placeholder="할 일을 입력해주세요."
         value={todo}
-        onChange={(event) => handleChange(event.target.value)}
+        onChange={(event) => onChange(event.target.value)}
       />
-
       <Button onClick={handleClick}>
         추가
       </Button>
