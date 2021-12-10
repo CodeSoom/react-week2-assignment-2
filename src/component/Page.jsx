@@ -13,18 +13,13 @@ function Page() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (habit) => {
     setState({
       habits: [
-        {
-          id: Date.now() + e.target[0].value,
-          text: e.target[0].value,
-        },
+        habit,
         ...habits,
       ],
     });
-    e.target[0].value = '';
   };
 
   return (

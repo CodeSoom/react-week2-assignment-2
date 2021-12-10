@@ -2,11 +2,22 @@ import React from 'react';
 import Habits from './Habits';
 
 function Input({ onSubmit, onClickDelete, habits }) {
+
+  const onClickSubmitHabit = (event) => {
+    event.preventDefault();
+    const habit = {
+      id: Date.now() + event.target[0].value,
+      text: event.target[0].value,
+    }
+    event.target[0].value = '';
+    onSubmit(habit)
+  }
+
   const isHabitEmpty = habits.length === 0;
   return (
     <div>
       <div>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onClickSubmitHabit}>
           <input
             type="text"
             name="content"
