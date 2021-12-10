@@ -10,7 +10,7 @@ function Todos({ todos, onClickRemove }) {
   return (
     <div>
       {todos.map((todo, todoIndex) => (
-        <div>
+        <div key={todo}>
           <span>
             {`${todoIndex + 1}. ${todo} `}
           </span>
