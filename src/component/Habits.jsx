@@ -7,10 +7,9 @@ function Habits({ onClickDelete, habits }) {
       {
         habits.map((habit) => (
           <Habit
-            onClickDelete={onClickDelete}
+            onClickDelete={() => onClickDelete(habit.id)}
             text={habit.text}
             key={habit.id}
-            id={habit.id}
           />
         ))
       }
