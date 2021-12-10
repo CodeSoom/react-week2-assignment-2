@@ -4,6 +4,10 @@ export default function List({ list, handleDeleteList }) {
   const hasList = list.length > 0;
 
   function renderList() {
+    if (!hasList) {
+      return <p>할 일이 없어요!</p>;
+    }
+
     return list.map((v) => (
       <Item
         key={v}
@@ -13,9 +17,5 @@ export default function List({ list, handleDeleteList }) {
     ));
   }
 
-  return (
-    <div>
-      {hasList ? renderList() : <p>할 일이 없어요!</p>}
-    </div>
-  );
+  return <div>{renderList()}</div>;
 }
