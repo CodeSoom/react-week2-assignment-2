@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Habits from './Habits';
 
 function Input({ onSubmit, onClickDelete, habits }) {
+  const [value, setValue] = useState('');
+  const onChanageHandler = (event) => {
+    setValue(event.target.value);
+  };
 
   const onClickSubmitHabit = (event) => {
     event.preventDefault();
     const habit = {
-      id: Date.now() + event.target[0].value,
-      text: event.target[0].value,
-    }
-    event.target[0].value = '';
-    onSubmit(habit)
-  }
+      id: Date.now() + value,
+      text: value,
+    };
+    setValue('');
+    onSubmit(habit);
+  };
 
   const isHabitEmpty = habits.length === 0;
   return (
@@ -21,6 +25,8 @@ function Input({ onSubmit, onClickDelete, habits }) {
           <input
             type="text"
             name="content"
+            value={value}
+            onChange={onChanageHandler}
             placeholder="할 일을 입력해 주세요"
           />
           <input
