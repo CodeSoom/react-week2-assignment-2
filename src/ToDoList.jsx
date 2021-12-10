@@ -1,4 +1,4 @@
-export default function ToDoList({ toDos, removeHandler }) {
+export default function ToDoList({ toDos, removeToDoHandler }) {
   if (toDos.length === 0) {
     return <p>할 일이 없어요!</p>;
   }
@@ -8,7 +8,7 @@ export default function ToDoList({ toDos, removeHandler }) {
         <li key={id}>
           {text}
           <button
-            onClick={() => removeHandler(id)}
+            onClick={() => removeToDoHandler(id)}
             type="button"
             style={{ margin: '0 0 0 5px' }}
           >

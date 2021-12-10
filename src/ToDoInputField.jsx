@@ -1,19 +1,27 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 
-export default function ToDoInputField({ appendHandler }) {
-  const inputRef = useRef(null);
+export default function ToDoInputField({ appendToDoHandler }) {
+  const [newToDoValue, setNewToDoValue] = useState('');
 
-  const onClickAppend = () => {
-    appendHandler(inputRef.current.value);
-    inputRef.current.value = '';
+  const onClickAppendToDo = () => {
+    appendToDoHandler(newToDoValue);
+    setNewToDoValue('');
+  };
+
+  const onChangeInput = ({ target: { value } }) => {
+    setNewToDoValue(value);
+  };
+
+  const onSubmitNewToDo = (event) => {
+    event.preventDefault();
   };
 
   return (
-    <div>
-      <input placeholder="할 일을 입력해 주세요" ref={inputRef} />
-      <button type="button" onClick={onClickAppend}>
+    <form onSubmit={onSubmitNewToDo}>
+      <input value={newToDoValue} placeholder="할 일을 입력해 주세요" onChange={onChangeInput} />
+      <button onClick={onClickAppendToDo} type="submit">
         추가
       </button>
-    </div>
+    </form>
   );
 }

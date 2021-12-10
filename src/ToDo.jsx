@@ -1,12 +1,12 @@
 import ToDoInputField from './ToDoInputField';
 import ToDoList from './ToDoList';
 
-export default function ToDo({ toDos, removeHandler, appendHandler }) {
+export default function ToDo({ toDos, removeToDoHandler, appendToDoHandler }) {
   return (
     <>
       <h1>To-do</h1>
-      <ToDoInputField appendHandler={appendHandler} />
-      <ToDoList toDos={toDos} removeHandler={removeHandler} />
+      <ToDoInputField appendToDoHandler={appendToDoHandler} />
+      <ToDoList toDos={toDos} removeToDoHandler={removeToDoHandler} />
     </>
   );
 }
