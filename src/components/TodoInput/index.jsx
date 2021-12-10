@@ -6,10 +6,15 @@ const ToDoInput = ({ addTodo }) => {
     addTodo(text);
     setInputValue('');
   };
+  
+  const onChange = ({ target: { value } }) => {
+    setInputValue(value);
+  }
+
   return (
     <div>
       <input
-        onChange={({ target: { value } }) => setInputValue(value)}
+        onChange={onChange}
         value={inputValue}
         type="text"
         placeholder="할 일을 입력해주세요"
