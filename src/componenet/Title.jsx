@@ -1,7 +1,7 @@
-export default function Title({ text }) {
+export default function Title({ children }) {
   return (
     <h3>
-      {text}
+      {children}
     </h3>
   );
 }

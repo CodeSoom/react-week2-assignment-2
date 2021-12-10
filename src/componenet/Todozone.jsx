@@ -11,11 +11,11 @@ export default function Todozone({ todos, onClick }) {
 
   return (
     <ul>
-      {todos.map((i) => (
-        <li key={i}>
-          {i}
-          <Button onClick={() => onClick(i)}>
-            del
+      {todos.map((todo) => (
+        <li key={todo}>
+          {todo}
+          <Button onClick={() => onClick(todo)}>
+            완료
           </Button>
         </li>
       ))}
