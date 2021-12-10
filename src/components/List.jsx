@@ -1,7 +1,7 @@
 import Item from "./Item";
 
 export default function List({ list, deleteList }) {
-  const hasList = Boolean(list.length);
+  const hasList = list.length > 0;
 
   function renderList() {
     return list.map((v) => (
