@@ -32,6 +32,7 @@ const TodoApp = () => {
 
   const handleClickRemoveTodo = (id) => {
     setState({
+      ...state,
       todos: todos.filter((todo) => todo.id !== id),
     });
   };
