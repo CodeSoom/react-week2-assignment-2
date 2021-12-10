@@ -3,9 +3,11 @@ import Page from './Page';
 
 export default function App() {
   const [toDoList, setToDoList] = useState([]);
+  const [text, setText] = useState('');
 
   function handlehandleAddList(item) {
-    setToDoList([...toDoList, item]);
+    const added = [...toDoList, item];
+    setToDoList(added);
   }
 
   function handlehandleDeleteList(item) {
@@ -15,7 +17,9 @@ export default function App() {
 
   return (
     <Page
+      text={text}
       list={toDoList}
+      setText={setText}
       handleAddList={handlehandleAddList}
       handleDeleteList={handlehandleDeleteList}
     />
