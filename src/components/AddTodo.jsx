@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Button from "./common/Button";
-import TextInput from "./common/TextInput";
+import Button from './common/Button';
+import TextInput from './common/TextInput';
 
 export default function AddTodo({ list, addList }) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   function onClickButton() {
-    if (text === "") {
+    if (text === '') {
       return;
     }
 
@@ -16,7 +16,7 @@ export default function AddTodo({ list, addList }) {
     }
 
     addList(text);
-    setText("");
+    setText('');
   }
 
   return (

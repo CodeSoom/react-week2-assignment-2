@@ -1,5 +1,5 @@
-import AddToDo from "./AddTodo";
-import List from "./List";
+import AddToDo from './AddTodo';
+import List from './List';
 
 export default function Page({
   list,

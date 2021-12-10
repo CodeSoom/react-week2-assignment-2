@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Page from "./Page";
+import { useState } from 'react';
+import Page from './Page';
 
 export default function App() {
   const [toDoList, setToDoList] = useState([]);
