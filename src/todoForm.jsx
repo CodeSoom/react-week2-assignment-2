@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+import Input from './Input';
+import Button from './Button';
+
 export default function TodoForm({ onClickAdd }) {
   const [inputValue, setValue] = useState('');
 
@@ -16,15 +19,14 @@ export default function TodoForm({ onClickAdd }) {
 
   return (
     <form>
-      <input
-        type="text"
+      <Input
         placeholder="할 일을 입력해주세요."
         value={inputValue}
         onChange={handleChange}
       />
-      <button type="button" onClick={handleClickAdd}>
+      <Button onClick={handleClickAdd}>
         추가
-      </button>
+      </Button>
     </form>
   );
 }
