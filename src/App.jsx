@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Button from './Button';
+import Input from './Input';
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
@@ -32,7 +33,7 @@ export default function App() {
     <div>
       <h2>To-do</h2>
       <div>
-        <input
+        <Input
           type="text"
           placeholder="enter todo thing"
           value={todoInput}
