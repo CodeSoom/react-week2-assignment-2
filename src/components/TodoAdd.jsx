@@ -8,7 +8,7 @@ export default function TodoAdd({ handleAddTodo, handleChange, todoItem }) {
         type="text"
         name="text"
         placeholder="할 일을 입력해 주세요"
-        handleChange={() => handleChange(event.target.value)}
+        handleChange={(event) => handleChange(event.target.value)}
         todoItem={todoItem}
       />
       <Button onClick={handleAddTodo}>

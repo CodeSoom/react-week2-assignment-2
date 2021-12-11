@@ -5,7 +5,7 @@ export default function App() {
   const [state, setState] = useState({
     todoItem: '',
     todoArray: [],
-  })
+  });
 
   const { todoItem, todoArray } = state;
 
@@ -25,7 +25,7 @@ export default function App() {
 
   function handleFinishTodo(item) {
     setState({
-      todoArray: todoArray.filter((testItem) => item !== testItem)
+      todoArray: todoArray.filter((testItem) => item !== testItem),
     });
   }
 

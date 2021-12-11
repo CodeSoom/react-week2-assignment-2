@@ -1,8 +1,8 @@
 import Button from './Button';
 
 export default function TodoList({ todoArray, handleFinishTodo }) {
-  if (todoArray.length === 0) return <p>할 일이 없어요!</p>
-  else if (todoArray.length !== 0) {
+  if (todoArray.length === 0) return <p>할 일이 없어요!</p>;
+  if (todoArray.length !== 0) {
     return (
       <ol>
         {todoArray.map((todoItem) => (
@@ -14,7 +14,6 @@ export default function TodoList({ todoArray, handleFinishTodo }) {
           </li>
         ))}
       </ol>
-    )
+    );
   }
 }
-
