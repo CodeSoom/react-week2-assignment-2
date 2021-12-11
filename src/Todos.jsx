@@ -1,7 +1,7 @@
-function Todos({ todos, onClickRemove }) {
-  const isEmptyTodos = todos.length === 0;
+import { isEmptyArray } from '../utils';
 
-  if (isEmptyTodos) {
+function Todos({ todos, onClickRemove }) {
+  if (isEmptyArray(todos)) {
     return (
       <div>할 일이 없어요!</div>
     );
@@ -9,12 +9,12 @@ function Todos({ todos, onClickRemove }) {
 
   return (
     <div>
-      {todos.map((todo, todoIndex) => (
+      {todos.map((todo, index) => (
         <div key={todo}>
           <span>
-            {`${todoIndex + 1}. ${todo} `}
+            {`${index + 1}. ${todo} `}
           </span>
-          <button type="button" onClick={() => onClickRemove(todoIndex)}>완료</button>
+          <button type="button" onClick={() => onClickRemove(index)}>완료</button>
         </div>
       ))}
     </div>
