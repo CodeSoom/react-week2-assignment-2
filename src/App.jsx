@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function App() {
-  const todoList = [ // 임시
-    '아이폰 사기',
-    '맥북 프로 사기',
-    '에어팟 사기',
-    '애플 주식 사기',
-  ];
+  const [todoList, setTodoList] = useState([]);
+  const [todoInput, setTodoInput] = useState('');
+
+  function handleChangeInput(todo) {
+    setTodoInput(todo);
+  }
+
+  function handleClickAddButton() {
+    setTodoList([...todoList, todoInput]);
+    setTodoInput('');
+  }
 
   return(
     <div>
       <h2>To-do</h2>
-      <form>
-        <input />
-        <button type="submit">
+      <div>
+        <input
+          type="text"
+          placeholder="enter todo thing"
+          onChange={(e) => handleChangeInput(e.target.value)}
+        />
+        <button
+          type="submit"
+          onClick={handleClickAddButton}
+        >
           추가
         </button>
-      </form>
+      </div>
       <div>
         <ul>
           {todoList.map((todoThing, i) => (
