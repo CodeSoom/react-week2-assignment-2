@@ -2,26 +2,37 @@ import { useState } from 'react';
 import Page from './Page';
 
 export default function App() {
-  const [todoItem, setNewTodo] = useState('');
-  const [todoArray, setTodoArray] = useState([]);
+  const [state, setState] = useState({
+    todoItem: '',
+    todoArray: [],
+  })
+
+  const { todoItem, todoArray } = state;
 
   function handleChange(e) {
-    setNewTodo(e.target.value);
+    setState({
+      todoItem: e.target.value,
+      todoArray,
+    });
   }
 
   function handleAddTodo() {
-    setTodoArray([...todoArray, todoItem]);
-    setNewTodo('');
+    setState({
+      todoArray: [...todoArray, todoItem],
+      todoItem: '',
+    });
   }
 
   function handleFinishTodo(item) {
-    setTodoArray(todoArray.filter((testItem) => item !== testItem));
+    setState({
+      todoArray: todoArray.filter((testItem) => item !== testItem)
+    });
   }
 
   return (
     <Page
-      todoItem={todoItem}
-      todoArray={todoArray}
+      todoItem={state.todoItem}
+      todoArray={state.todoArray}
       handleChange={handleChange}
       handleAddTodo={handleAddTodo}
       handleFinishTodo={handleFinishTodo}
