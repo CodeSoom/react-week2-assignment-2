@@ -1,6 +1,6 @@
 import Button from './Button';
 
-function TodoList({ todoArray, finishTodo }) {
+export default function TodoList({ todoArray, finishTodo }) {
   return (
     <>
       {todoArray.length === 0 ? <p>할 일이 없어요!</p>
@@ -19,5 +19,3 @@ function TodoList({ todoArray, finishTodo }) {
     </>
   );
 }
-
-export default TodoList;

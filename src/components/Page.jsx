@@ -2,7 +2,7 @@ import TodoTitle from './TodoTitle';
 import TodoAdd from './TodoAdd';
 import TodoList from './TodoList';
 
-function Page({
+export default function Page({
   todoItem, todoArray, handleChange, addTodo, finishTodo,
 }) {
   return (
@@ -20,5 +20,3 @@ function Page({
     </>
   );
 }
-
-export default Page;

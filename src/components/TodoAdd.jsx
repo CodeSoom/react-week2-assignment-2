@@ -1,7 +1,7 @@
 import Input from './Input';
 import Button from './Button';
 
-function TodoAdd({ addTodo, handleChange, todoItem }) {
+export default function TodoAdd({ addTodo, handleChange, todoItem }) {
   return (
     <form>
       <Input
@@ -17,5 +17,3 @@ function TodoAdd({ addTodo, handleChange, todoItem }) {
     </form>
   );
 }
-
-export default TodoAdd;

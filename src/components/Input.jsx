@@ -1,4 +1,4 @@
-function Input({
+export default function Input({
   type, name, placeholder, handleChange, todoItem,
 }) {
   return (
@@ -11,5 +11,3 @@ function Input({
     />
   );
 }
-
-export default Input;

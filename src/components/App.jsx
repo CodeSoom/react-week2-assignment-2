@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Page from './Page';
 
-function App() {
+export default function App() {
   const [todoItem, setNewTodo] = useState('');
   const [todoArray, setTodoArray] = useState([]);
 
@@ -28,5 +28,3 @@ function App() {
     />
   );
 }
-
-export default App;
