@@ -2,6 +2,7 @@ import Todo from './Todo';
 
 const TodoList = ({ todos, onClickRemove }) => {
   const isEmpty = (arr = []) => arr.length === 0;
+
   if (isEmpty(todos)) {
     return <p>할 일이 없어요!</p>;
   }
