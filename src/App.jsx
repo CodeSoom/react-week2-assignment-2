@@ -13,6 +13,19 @@ export default function App() {
     setTodoInput('');
   }
 
+  function handleClickRemoveButton(index) {
+    if (todoList.length === 1) {
+      setTodoList([]);
+
+      return;
+    }
+
+    setTodoList([
+      ...todoList.slice(0, index),
+      ...todoList.slice(index + 1, todoList.length),
+    ])
+  }
+
   return(
     <div>
       <h2>To-do</h2>
@@ -37,7 +50,10 @@ export default function App() {
               <span>
                 {i + 1}. {todoThing}
               </span>
-              <button type="button">
+              <button
+                type="button"
+                onClick={() => handleClickRemoveButton(i)}
+              >
                 삭제
               </button>
             </li>
