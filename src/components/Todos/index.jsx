@@ -1,7 +1,9 @@
 import TodoItem from '../TodoItem';
 
+const isEmpty = (array) => array.length === 0;
+
 const ToDos = ({ todos, completeTodo }) => {
-  if (todos.length === 0) {
+  if (isEmpty(todos)) {
     return '할 일이 없어요!';
   }
 
