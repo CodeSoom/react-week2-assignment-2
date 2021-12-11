@@ -5,12 +5,12 @@ import ToDoInput from '../../components/TodoInput';
 
 const ToDo = () => {
   const [todos, setTodos] = useState([]);
-  const maxId = useRef(0);
+  const todoId = useRef(0);
 
   const addTodo = (content) => {
     const newTodo = {
       content,
-      id: maxId.current + 1,
+      id: todoId.current + 1,
     };
     setTodos([...todos, newTodo]);
   };
