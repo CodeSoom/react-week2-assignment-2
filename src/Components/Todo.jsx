@@ -1,11 +1,13 @@
 const Todo = ({
-  id, index, todo, onClick,
+  todo: { id, title }, onClickRemove,
 }) => {
   const style = { padding: '5px 0' };
   return (
-    <li key={id} style={style}>
-      {`${index}. ${todo}`}
-      <button type="button" onClick={() => onClick(id)}>완료</button>
+    <li style={style}>
+      {title}
+      <button type="button" onClick={() => onClickRemove(id)}>
+        완료
+      </button>
     </li>
   );
 };

@@ -1,49 +1,52 @@
 import { useState } from 'react';
 
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import TodoPage from './TodoPage';
 
 const TodoApp = () => {
   const [state, setState] = useState({
+    newId: 100,
     todos: [],
-    todo: '',
+    todoTitle: '',
   });
 
-  const { todos, todo } = state;
+  const { newId, todos, todoTitle } = state;
 
   const handleChangeInput = (e) => {
     setState({
       ...state,
-      todo: e.target.value,
+      todoTitle: e.target.value,
     });
   };
 
   const handleClickAddTodo = () => {
-    if (todo === '') {
+    if (todoTitle === '') {
       return;
     }
     setState({
+      newId: newId + 1,
       todos: [...todos, {
-        todo,
-        id: todos.length,
+        title: todoTitle,
+        id: newId,
       }],
-      todo: '',
+      todoTitle: '',
     });
   };
 
   const handleClickRemoveTodo = (id) => {
     setState({
       ...state,
-      todos: todos.filter((v) => v.id !== id),
+      todos: todos.filter((todo) => todo.id !== id),
     });
   };
 
   return (
-    <>
-      <h1>To-do</h1>
-      <TodoInput todo={todo} onClick={handleClickAddTodo} onChange={handleChangeInput} />
-      <TodoList todos={todos} onClick={handleClickRemoveTodo} />
-    </>
+    <TodoPage
+      todoTitle={todoTitle}
+      todos={todos}
+      onClickAddTodo={handleClickAddTodo}
+      onClickRemoveTodo={handleClickRemoveTodo}
+      onChangeTodo={handleChangeInput}
+    />
   );
 };
 
