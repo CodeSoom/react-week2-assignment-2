@@ -1,6 +1,6 @@
 import Todo from './Todo';
 
-function Todos({ todos, onDelete }) {
+export default function Todos({ todos, onDelete }) {
   return (
     <ol>
       {todos.map((todo) => (
@@ -9,5 +9,3 @@ function Todos({ todos, onDelete }) {
     </ol>
   );
 }
-
-export default Todos;

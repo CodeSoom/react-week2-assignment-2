@@ -1,4 +1,4 @@
-function Todo({ todo, onDelete }) {
+export default function Todo({ todo, onDelete }) {
   return (
     <li>
       <span>{todo.name}</span>
@@ -6,5 +6,3 @@ function Todo({ todo, onDelete }) {
     </li>
   );
 }
-
-export default Todo;
