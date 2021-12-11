@@ -34,8 +34,6 @@ export default function App() {
   function handleClickDeleteTodo(todoId) {
     setState({
       ...state,
-      nextId: nextId + 1,
-      todoTitle: '',
       todos: todos.filter((todo) => todo.id !== todoId),
     });
   }
