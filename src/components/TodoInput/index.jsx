@@ -1,25 +1,25 @@
 import { useState } from 'react';
 
 const ToDoInput = ({ addTodo }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [todoContent, setTodoContent] = useState('');
   const onClick = (text) => {
     addTodo(text);
-    setInputValue('');
+    setTodoContent('');
   };
-  
+
   const onChange = ({ target: { value } }) => {
-    setInputValue(value);
-  }
+    setTodoContent(value);
+  };
 
   return (
     <div>
       <input
         onChange={onChange}
-        value={inputValue}
+        value={todoContent}
         type="text"
         placeholder="할 일을 입력해주세요"
       />
-      <button onClick={() => onClick(inputValue)} type="button">
+      <button onClick={() => onClick(todoContent)} type="button">
         추가
       </button>
     </div>
