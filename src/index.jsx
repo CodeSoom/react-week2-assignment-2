@@ -1,41 +1,30 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-function AddButton({ children }) {
-  return (
-    <button type="button" onClick={children}>
-      추가
-    </button>
-  );
-}
-
-function InputForm({ text, onClick }) {
-  return (
-    <div>
-      <form>
-        <input key="Form" type="text" placeholder="할 일을 입력해 주세요" />
-        <AddButton>{onClick}</AddButton>
-      </form>
-      <p>{text}</p>
-    </div>
-  );
-}
-
-function Page({ text, onClick }) {
-  return (
-    <InputForm
-      text={text}
-      onClick={onClick}
-    />
-  );
-}
-
-function ToDoList({ todo, onClick }) {
+function ToDoList({ todo }) {
   return (
     <ol>
       <li>{todo}</li>
-      <button type="button" onClick={onClick}>완료</button>
+      <button type="button">완료</button>
     </ol>
+  );
+}
+
+function InputForm({ text, todo, onChange }) {
+  return (
+    <div>
+      <form>
+        <input onChange={onChange} type="text" placeholder="할 일을 입력해 주세요" />
+        <button type="button">
+          추가
+        </button>
+        <p>{text}</p>
+        <ToDoList
+          todo={todo}
+          onChange={onChange}
+        />
+      </form>
+    </div>
   );
 }
 
@@ -47,23 +36,21 @@ function App() {
 
   const { text, todo } = state;
 
-  function resultText() {
+  function resultText(e) {
     setState({
+      ...state,
       text: '',
-      todo: 'wow',
+      todo: e.target.value,
     });
   }
 
   return (
     <div>
       <h1>TO-DO</h1>
-      <Page
+      <InputForm
         text={text}
-        onClick={resultText}
-      />
-      <ToDoList
         todo={todo}
-        onClick={resultText}
+        onChange={resultText}
       />
       <br />
     </div>
