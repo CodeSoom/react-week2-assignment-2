@@ -1,13 +1,11 @@
-import { useMemo } from 'react';
-
 import TodoItem from './TodoItem';
+
+const TodoListTitle = () => (<h2 style={{ display: 'none' }}>Todo 리스트</h2>);
 
 /**
  * @param {{ todos: Todo[], onComplete: (id: string) => void }} props
  */
 const TodoList = ({ todos = [], onComplete }) => {
-  const TodoListTitle = useMemo(() => () => <h2 style={{ display: 'none' }}>Todo 리스트</h2>, []);
-
   if (todos.length === 0) {
     return (
       <div>
