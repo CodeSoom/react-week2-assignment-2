@@ -1,5 +1,5 @@
-export default function TodoTitle() {
+export default function TodoTitle({ children }) {
   return (
-    <h1>To-do</h1>
+    <h1>{children}</h1>
   );
 }

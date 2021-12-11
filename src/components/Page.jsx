@@ -7,7 +7,9 @@ export default function Page({
 }) {
   return (
     <>
-      <TodoTitle />
+      <TodoTitle>
+        To-do
+      </TodoTitle>
       <TodoAdd
         addTodo={addTodo}
         handleChange={handleChange}
