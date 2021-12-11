@@ -9,12 +9,12 @@ export default function App() {
     setNewTodo(e.target.value);
   }
 
-  function addTodo() {
+  function handleAddTodo() {
     setTodoArray([...todoArray, todoItem]);
     setNewTodo('');
   }
 
-  function finishTodo(item) {
+  function handleFinishTodo(item) {
     setTodoArray(todoArray.filter((testItem) => item !== testItem));
   }
 
@@ -23,8 +23,8 @@ export default function App() {
       todoItem={todoItem}
       todoArray={todoArray}
       handleChange={handleChange}
-      addTodo={addTodo}
-      finishTodo={finishTodo}
+      handleAddTodo={handleAddTodo}
+      handleFinishTodo={handleFinishTodo}
     />
   );
 }

@@ -1,7 +1,7 @@
 import Input from './Input';
 import Button from './Button';
 
-export default function TodoAdd({ addTodo, handleChange, todoItem }) {
+export default function TodoAdd({ handleAddTodo, handleChange, todoItem }) {
   return (
     <form>
       <Input
@@ -11,7 +11,7 @@ export default function TodoAdd({ addTodo, handleChange, todoItem }) {
         handleChange={handleChange}
         todoItem={todoItem}
       />
-      <Button onClick={addTodo}>
+      <Button onClick={handleAddTodo}>
         추가
       </Button>
     </form>

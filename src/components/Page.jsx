@@ -3,7 +3,7 @@ import TodoAdd from './TodoAdd';
 import TodoList from './TodoList';
 
 export default function Page({
-  todoItem, todoArray, handleChange, addTodo, finishTodo,
+  todoItem, todoArray, handleChange, handleAddTodo, handleFinishTodo,
 }) {
   return (
     <>
@@ -11,13 +11,13 @@ export default function Page({
         To-do
       </TodoTitle>
       <TodoAdd
-        addTodo={addTodo}
+        handleAddTodo={handleAddTodo}
         handleChange={handleChange}
         todoItem={todoItem}
       />
       <TodoList
         todoArray={todoArray}
-        finishTodo={finishTodo}
+        handleFinishTodo={handleFinishTodo}
       />
     </>
   );
