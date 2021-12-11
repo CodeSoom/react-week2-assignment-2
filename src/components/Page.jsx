@@ -1,4 +1,3 @@
-import React from 'react';
 import TodoTitle from './TodoTitle';
 import TodoAdd from './TodoAdd';
 import TodoList from './TodoList';
