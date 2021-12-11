@@ -6,19 +6,19 @@ import EmptyTodos from './EmptyTodos';
 import TodoForm from './Form';
 
 function App() {
-  const [newTodoName, setNewTodoName] = useState('');
+  const [todoName, setTodoName] = useState('');
   const [todos, setTodos] = useState([]);
 
   const isEmpty = todos.length === 0;
 
   function handleChangeNewTodo({ target: { value } }) {
-    setNewTodoName(value);
+    setTodoName(value);
   }
 
   function handleSubmitNewTodo(e) {
     e.preventDefault();
-    setTodos((prevTodos) => [...prevTodos, { id: uuid(), name: newTodoName, done: false }]);
-    setNewTodoName('');
+    setTodos((prevTodos) => [...prevTodos, { id: uuid(), name: todoName, done: false }]);
+    setTodoName('');
   }
 
   function handleClickDeleteTodo(id) {
@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <h1>To-do</h1>
-      <TodoForm value={newTodoName} onChange={handleChangeNewTodo} onSubmit={handleSubmitNewTodo} />
+      <TodoForm value={todoName} onChange={handleChangeNewTodo} onSubmit={handleSubmitNewTodo} />
       <p>
         {isEmpty ? <EmptyTodos /> : (
           <Todos
