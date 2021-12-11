@@ -1,11 +1,11 @@
-export default function TodoItem({ todoItem, onClickDeleteTodo }) {
+export default function TodoItem({ todoItem: { id, text }, onClickDeleteTodo }) {
   function handleDeleteTodoItem() {
-    onClickDeleteTodo(todoItem.id);
+    onClickDeleteTodo(id);
   }
 
   return (
     <li>
-      {todoItem.text}
+      {text}
       <button type="button" onClick={handleDeleteTodoItem}>
         완료
       </button>
