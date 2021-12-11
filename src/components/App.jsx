@@ -9,9 +9,9 @@ export default function App() {
 
   const { todoItem, todoArray } = state;
 
-  function handleChange(e) {
+  function handleChange(itemInput) {
     setState({
-      todoItem: e.target.value,
+      todoItem: itemInput,
       todoArray,
     });
   }
