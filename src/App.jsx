@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Button from './Button';
+
 export default function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoInput, setTodoInput] = useState('');
@@ -36,12 +38,11 @@ export default function App() {
           value={todoInput}
           onChange={(e) => handleChangeInput(e.target.value)}
         />
-        <button
+        <Button
           type="submit"
+          buttonTitle="추가"
           onClick={handleClickAddButton}
-        >
-          추가
-        </button>
+        />
       </div>
       <div>
         <ul>
@@ -50,12 +51,11 @@ export default function App() {
               <span>
                 {i + 1}. {todoThing}
               </span>
-              <button
+              <Button 
                 type="button"
+                buttonTitle="삭제"
                 onClick={() => handleClickRemoveButton(i)}
-              >
-                삭제
-              </button>
+              />
             </li>
           ))}
         </ul>
