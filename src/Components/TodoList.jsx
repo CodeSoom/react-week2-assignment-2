@@ -1,11 +1,17 @@
 import Todo from './Todo';
 
 const TodoList = ({ todos, onClick }) => {
-  if (!Array.isArray(todos) || (Array.isArray(todos) && todos.length === 0)) {
+  const style = {
+    listStyleType: 'none',
+    padding: 0,
+  };
+
+  const isEmpty = (arr = []) => arr.length === 0;
+  if (isEmpty(todos)) {
     return <p>할 일이 없어요!</p>;
   }
   return (
-    <ul style={{ listStyleType: 'none', padding: 0 }}>
+    <ul style={style}>
       {todos.map(({ todo, id }, index) => (
         <Todo id={id} index={index + 1} todo={todo} onClick={onClick} />
       ))}
