@@ -32,7 +32,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "nanoid": "^3.1.30",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }

@@ -1,20 +1,15 @@
 import Button from './Button';
 
-export default function Field({ todo, onChange, onClick }) {
-  function handleClick() {
-    onClick(todo);
-    onChange('');
-  }
-
+export default function Field({ newTodo, onChange, onClick }) {
   return (
     <div>
       <input
         type="text"
         placeholder="할 일을 입력해주세요."
-        value={todo.text}
-        onChange={(event) => onChange(event.target.value)}
+        value={newTodo}
+        onChange={onChange}
       />
-      <Button onClick={handleClick}>
+      <Button onClick={onClick}>
         추가
       </Button>
     </div>

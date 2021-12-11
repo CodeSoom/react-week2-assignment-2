@@ -1,29 +1,37 @@
 import { useState } from 'react';
 
-import { nanoid } from 'nanoid';
-
 import Field from './Field';
 import Todos from './Todos';
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
-  const [todo, setTodo] = useState({
-    id: '',
-    text: '',
+  const [state, setState] = useState({
+    newId: 0,
+    newTodo: '',
+    todos: [],
   });
 
-  function addTodo(newTodo) {
-    setTodos([...todos, newTodo]);
+  const { newId, newTodo, todos } = state;
+
+  function addTodo() {
+    setState({
+      ...state,
+      newId: newId + 1,
+      newTodo: '',
+      todos: [...todos, { id: newId, text: newTodo }],
+    });
   }
 
   function deleteTodo(id) {
-    setTodos(todos.filter((item) => item.id !== id));
+    setState({
+      ...state,
+      todos: todos.filter((item) => item.id !== id),
+    });
   }
 
-  function handleChange(input) {
-    setTodo({
-      id: nanoid(),
-      text: input,
+  function handleChange(event) {
+    setState({
+      ...state,
+      newTodo: event.target.value,
     });
   }
 
@@ -32,7 +40,7 @@ export default function App() {
       <h1>To-do</h1>
       <div>
         <Field
-          todo={todo}
+          newTodo={newTodo}
           onChange={handleChange}
           onClick={addTodo}
         />

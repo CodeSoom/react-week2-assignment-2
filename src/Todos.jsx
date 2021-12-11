@@ -10,17 +10,17 @@ export default function Todos({ todos, onClick }) {
   }
 
   return (
-    <div>
+    <ol>
       {todos.map((todo, index) => (
         <Todo
           key={todo.id}
           index={index}
           todo={todo}
-          onClick={onClick}
+          onClick={() => onClick(todo.id)}
         >
           {todo}
         </Todo>
       ))}
-    </div>
+    </ol>
   );
 }

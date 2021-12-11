@@ -1,16 +1,14 @@
 import Button from './Button';
 
-export default function Todo({ todo, index, onClick }) {
+export default function Todo({ todo, onClick }) {
   return (
-    <div>
+    <li>
       <span>
-        {index + 1}
-        .
         {todo.text}
       </span>
-      <Button onClick={() => onClick(todo.id)}>
+      <Button onClick={() => onClick(todo)}>
         완료
       </Button>
-    </div>
+    </li>
   );
 }
