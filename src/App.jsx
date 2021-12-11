@@ -1,33 +1,59 @@
 import { useState } from 'react';
 
-import TodoAppender from './components/TodoAppender';
-import Todos from './components/Todos';
+import Page from './components/Page';
 
-function App() {
-  const [todos, setTodos] = useState([]);
-  const [nextId, setNextId] = useState(1);
+export default function App() {
+  const [state, setState] = useState({
+    todoTitle: '',
+    nextId: 1,
+    todos: [],
+  });
 
-  function handleAddTodo(todoItemText) {
+  const { todoTitle, nextId, todos } = state;
+
+  function handleSubmitAddTodo(event) {
+    event.preventDefault();
+
+    if (todoTitle === '') {
+      return;
+    }
+
     const todoItem = {
       id: nextId,
-      text: todoItemText,
+      text: todoTitle,
     };
 
-    setTodos([...todos, todoItem]);
-    setNextId(nextId + 1);
+    setState({
+      ...state,
+      nextId: nextId + 1,
+      todoTitle: '',
+      todos: [...todos, todoItem],
+    });
   }
 
-  function handleDeleteTodo(todoId) {
-    setTodos(todos.filter((todo) => todo.id !== todoId));
+  function handleClickDeleteTodo(todoId) {
+    setState({
+      ...state,
+      nextId: nextId + 1,
+      todoTitle: '',
+      todos: todos.filter((todo) => todo.id !== todoId),
+    });
+  }
+
+  function handleChangeTitle({ target }) {
+    setState({
+      ...state,
+      todoTitle: target.value,
+    });
   }
 
   return (
-    <>
-      <h1>To-do</h1>
-      <TodoAppender onSubmitAddTodo={handleAddTodo} />
-      <Todos todos={todos} onClickDeleteTodo={handleDeleteTodo} />
-    </>
+    <Page
+      todoTitle={todoTitle}
+      onChangeTitle={handleChangeTitle}
+      onSubmitAddTodo={handleSubmitAddTodo}
+      todos={todos}
+      onClickDeleteTodo={handleClickDeleteTodo}
+    />
   );
 }
-
-export default App;

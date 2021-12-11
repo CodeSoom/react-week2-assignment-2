@@ -1,6 +1,6 @@
 import TodoItem from './TodoItem';
 
-function Todos({ todos, onClickDeleteTodo }) {
+export default function Todos({ todos, onClickDeleteTodo }) {
   if (todos.length === 0) {
     return (
       <p>
@@ -21,5 +21,3 @@ function Todos({ todos, onClickDeleteTodo }) {
     </ol>
   );
 }
-
-export default Todos;

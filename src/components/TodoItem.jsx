@@ -1,4 +1,4 @@
-function TodoItem({ todoItem, onClickDeleteTodo }) {
+export default function TodoItem({ todoItem, onClickDeleteTodo }) {
   function handleDeleteTodoItem() {
     onClickDeleteTodo(todoItem.id);
   }
@@ -12,5 +12,3 @@ function TodoItem({ todoItem, onClickDeleteTodo }) {
     </li>
   );
 }
-
-export default TodoItem;
