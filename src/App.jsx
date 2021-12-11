@@ -20,6 +20,7 @@ export default function App() {
         <input
           type="text"
           placeholder="enter todo thing"
+          value={todoInput}
           onChange={(e) => handleChangeInput(e.target.value)}
         />
         <button
