@@ -1,15 +1,15 @@
-export default function TodoList({ todoList, onClick }) {
-  if (!todoList.length) {
+export default function todoList({ todoState, onClick }) {
+  if (!todoState.todos.length) {
     return (<div>할 일이 없어요!</div>);
   }
   return (
     <div>
       <ol>
-        {todoList.map((todo) => (
+        {todoState.todos.map((todo) => (
           <div key={todo}>
             <li>
-              {todo.content}
-              <button type="button" onClick={() => onClick(todo.id)}>완료</button>
+              {todo}
+              <button type="button" onClick={() => onClick(todo)}>완료</button>
             </li>
           </div>
         ))}
