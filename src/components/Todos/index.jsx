@@ -1,13 +1,13 @@
 import TodoItem from '../TodoItem';
 
-const ToDoList = ({ list, completeTodo }) => {
-  if (list.length === 0) {
-    return '할 일이 없어요!'
+const ToDos = ({ todos, completeTodo }) => {
+  if (todos.length === 0) {
+    return '할 일이 없어요!';
   }
 
   return (
     <div>
-      {list.map((todo) => (
+      {todos.map((todo) => (
         <TodoItem
           key={todo.id}
           content={todo.content}
@@ -16,6 +16,6 @@ const ToDoList = ({ list, completeTodo }) => {
       ))}
     </div>
   );
-}
+};
 
-export default ToDoList;
+export default ToDos;

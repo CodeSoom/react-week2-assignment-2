@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-import ToDoList from '../../components/TodoList';
+import Todos from '../../components/Todos';
 import ToDoInput from '../../components/TodoInput';
 
 const ToDo = () => {
@@ -22,7 +22,7 @@ const ToDo = () => {
   return (
     <div>
       <ToDoInput addTodo={addTodo} />
-      <ToDoList list={todos} completeTodo={completeTodo} />
+      <Todos todos={todos} completeTodo={completeTodo} />
     </div>
   );
 };
