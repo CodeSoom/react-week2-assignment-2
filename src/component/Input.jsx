@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Input({ onSubmit, onChangeHabitToAdd, habitToAdd }) {
+
   const onChanageHandler = (event) => {
     onChangeHabitToAdd(event.target.value);
   };

@@ -16,6 +16,7 @@ function Page() {
       habitToAdd: value,
     });
   };
+
   const handleDelete = (id) => {
     setState({
       ...state,
