@@ -1,8 +1,12 @@
 import Todo from './Todo';
 
 export default class Todos {
-  constructor() {
-    this._list = [];
+  constructor(list) {
+    this._list = list;
+  }
+
+  static EMPTY() {
+    return new Todos([]);
   }
 
   /**
@@ -30,5 +34,10 @@ export default class Todos {
   /** @returns {boolean} */
   isEmpty() {
     return this._list.length === 0;
+  }
+
+  /** @returns {Todos} */
+  copy() {
+    return new Todos(this._list);
   }
 }

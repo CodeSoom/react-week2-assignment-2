@@ -4,9 +4,9 @@ import Todos from './components/domain/Todos';
 
 export default function App() {
   const [title, setTitle] = useState('');
-  const [todos, setTodos] = useState(new Todos());
+  const [todos, setTodos] = useState(Todos.EMPTY());
 
-  const handleClick = () => {
+  const handleClickAdd = () => {
     setTodos(todos.pushTitle(title));
     setTitle('');
   };
@@ -15,7 +15,19 @@ export default function App() {
     setTitle(value);
   };
 
+  /** @param todo {Todo} */
+  const handleClickComplete = (todo) => {
+    todo.complete();
+    setTodos(todos.copy());
+  };
+
   return (
-    <Page title={title} onChange={handleChange} todos={todos} onClick={handleClick} />
+    <Page
+      title={title}
+      onChange={handleChange}
+      todos={todos}
+      onClickAdd={handleClickAdd}
+      onClickComplete={handleClickComplete}
+    />
   );
 }

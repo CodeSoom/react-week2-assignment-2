@@ -3,17 +3,21 @@ import React from 'react';
 /**
  *
  * @param todos {Todos}
+ * @param onClickComplete {Function}
  * @returns {JSX.Element}
  * @constructor
  */
 export function TodoList({
   todos,
+  onClickComplete,
 }) {
-  function completeTodo(todo) {
-    todo.complete();
+  if (todos.isEmpty()) {
+    return (
+      <div>
+        <p>할 일이 없어요!</p>
+      </div>
+    );
   }
-
-  console.log(`todos=${JSON.stringify(todos.list)}`);
 
   return (
     <div>
@@ -22,7 +26,7 @@ export function TodoList({
           <li key={todo.id}>
             <p>
               {todo.title}
-              <button type="button" onClick={() => completeTodo(todo)}>완료</button>
+              <button type="button" onClick={() => onClickComplete(todo)}>완료</button>
             </p>
           </li>
         ))}
