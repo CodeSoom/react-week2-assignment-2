@@ -6,13 +6,13 @@ export default function App() {
   const [title, setTitle] = useState('');
   const [todos, setTodos] = useState(new Todos());
 
-  const handleClick = (newTitle) => {
-    setTodos(todos.pushTitle(newTitle));
+  const handleClick = () => {
+    setTodos(todos.pushTitle(title));
     setTitle('');
   };
 
-  const handleChange = (event) => {
-    setTitle(event.target.value);
+  const handleChange = ({ target: { value } }) => {
+    setTitle(value);
   };
 
   return (

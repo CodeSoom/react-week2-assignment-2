@@ -1,11 +1,19 @@
 import React from 'react';
 
+/**
+ *
+ * @param todos {Todos}
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export function TodoList({
   todos,
 }) {
   function completeTodo(todo) {
     todo.complete();
   }
+
+  console.log(`todos=${JSON.stringify(todos.list)}`);
 
   return (
     <div>
