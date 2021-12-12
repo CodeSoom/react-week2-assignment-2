@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Input({ onSubmit }) {
-  const [value, setValue] = useState('');
+function Input({ onSubmit, onChangeHabitToAdd, habitToAdd }) {
   const onChanageHandler = (event) => {
-    setValue(event.target.value);
+    onChangeHabitToAdd(event.target.value);
   };
 
   const onClickSubmitHabit = (event) => {
     event.preventDefault();
     const habit = {
-      id: Date.now() + value,
-      text: value,
+      id: Date.now() + habitToAdd,
+      text: habitToAdd,
     };
-    setValue('');
     onSubmit(habit);
   };
 
@@ -22,7 +20,7 @@ function Input({ onSubmit }) {
         <input
           type="text"
           name="content"
-          value={value}
+          value={habitToAdd}
           onChange={onChanageHandler}
           placeholder="할 일을 입력해 주세요"
         />
