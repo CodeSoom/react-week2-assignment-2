@@ -1,21 +1,15 @@
-import { useState } from 'react';
-
-export default function ToDoInputField({ appendToDoHandler }) {
-  const [newToDoValue, setNewToDoValue] = useState('');
-
-  const onChangeInput = ({ target: { value } }) => {
-    setNewToDoValue(value);
-  };
-
+export default function ToDoInputField({
+  appendToDoHandler, newToDoValue, changeInputHandler, resetInputValue,
+}) {
   const onSubmitNewToDo = (event) => {
     event.preventDefault();
     appendToDoHandler(newToDoValue);
-    setNewToDoValue('');
+    resetInputValue();
   };
 
   return (
     <form onSubmit={onSubmitNewToDo}>
-      <input value={newToDoValue} placeholder="할 일을 입력해 주세요" onChange={onChangeInput} />
+      <input value={newToDoValue} placeholder="할 일을 입력해 주세요" onChange={changeInputHandler} />
       <button type="submit">
         추가
       </button>
