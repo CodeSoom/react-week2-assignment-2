@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import Button from './Button';
-import Input from './Input';
+import TodoInput from './TodoInput';
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
@@ -34,19 +34,15 @@ export default function App() {
   return (
     <div>
       <h2>To-do</h2>
-      <div>
-        <Input
-          type="text"
-          placeholder="enter todo thing"
-          value={todoInput}
-          onChange={(e) => handleChangeInput(e.target.value)}
-        />
-        <Button
-          type="submit"
-          buttonTitle="추가"
-          onClick={handleClickAddButton}
-        />
-      </div>
+      <TodoInput
+        inputType="text"
+        placeholder="enter todo thing"
+        value={todoInput}
+        buttonType="submit"
+        buttonTitle="추가"
+        onChangeInput={(e) => handleChangeInput(e.target.value)}
+        onClickButton={handleClickAddButton}
+      />
       <div>
         <ul>
           {todoList.map((todoThing, i) => (
