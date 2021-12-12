@@ -25,6 +25,8 @@ module.exports = {
     Scenario: 'readonly',
   },
   rules: {
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
     indent: ['error', 2],
     'no-trailing-spaces': 'error',
     curly: 'error',
