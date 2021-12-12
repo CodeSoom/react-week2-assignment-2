@@ -1,9 +1,7 @@
-/* eslint-disable react/no-array-index-key */
-
 import React, { useState } from 'react';
 
-import Button from './Button';
 import TodoInput from './TodoInput';
+import TodoList from './TodoList';
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
@@ -44,22 +42,12 @@ export default function App() {
         onClickButton={handleClickAddButton}
       />
       <div>
-        <ul>
-          {todoList.map((todoThing, i) => (
-            <li key={i}>
-              <span>
-                {i + 1}
-                .
-                {todoThing}
-              </span>
-              <Button
-                type="button"
-                buttonTitle="삭제"
-                onClick={() => handleClickRemoveButton(i)}
-              />
-            </li>
-          ))}
-        </ul>
+        <TodoList
+          todoItems={todoList}
+          buttonType="button"
+          buttonTitle="삭제"
+          onClick={handleClickRemoveButton}
+        />
       </div>
     </div>
   );
