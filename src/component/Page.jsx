@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Input from './Input';
+import Habits from './Habits';
 
 function Page() {
   const [state, setState] = useState({
@@ -22,13 +23,17 @@ function Page() {
       ],
     });
   };
-
   return (
-    <Input
-      onSubmit={handleSubmit}
-      onClickDelete={handleDelete}
-      habits={habits}
-    />
+    <div>
+      <Input
+        onSubmit={handleSubmit}
+      />
+      <Habits
+        onClickDelete={handleDelete}
+        habits={habits}
+      />
+    </div>
+
   );
 }
 
