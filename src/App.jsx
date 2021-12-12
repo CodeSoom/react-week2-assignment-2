@@ -1,36 +1,37 @@
 import { useState } from 'react';
-import ToDoInputBlock from './components/ToDoInputBlock';
+import ToDoForm from './components/ToDoForm';
 
 import ToDos from './components/ToDos';
 
 export default function App() {
-  const [todoInputValue, setTodoInputValue] = useState('');
+  const [todoText, setTodoText] = useState('');
   const [todos, setTodos] = useState([]);
 
   const handleChangeInputValue = (event) => {
-    setTodoInputValue(event.target.value);
+    setTodoText(event.target.value);
   };
 
-  const handleAddTodo = () => {
-    if (!todoInputValue) return;
-    setTodos([...todos, todoInputValue]);
-    setTodoInputValue('');
+  const handleClickAddTodo = () => {
+    if (!todoText) {
+      return;
+    }
+    setTodos([...todos, todoText]);
+    setTodoText('');
   };
 
-  const handleRemoveTodo = (id) => {
-    console.log(id);
+  const handleClickRemoveTodo = (id) => {
     setTodos(todos.filter((todo) => todo !== id));
   };
 
   return (
     <section>
       <h1>To-do</h1>
-      <ToDoInputBlock
-        todo={todoInputValue}
+      <ToDoForm
+        todo={todoText}
         onChange={handleChangeInputValue}
-        onClick={handleAddTodo}
+        onClick={handleClickAddTodo}
       />
-      <ToDos todos={todos} onClick={handleRemoveTodo} />
+      <ToDos todos={todos} onClick={handleClickRemoveTodo} />
     </section>
   );
 }

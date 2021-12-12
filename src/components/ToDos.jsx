@@ -8,7 +8,12 @@ export default function Todos({ todos, onClick }) {
   return (
     <div>
       {todos.map((todo, index) => (
-        <Todo key={todo} index={index + 1} todo={todo} onClick={onClick} />
+        <Todo
+          key={`todo_${index}`}
+          index={index + 1}
+          todo={todo}
+          onClick={onClick}
+        />
       ))}
     </div>
   );
