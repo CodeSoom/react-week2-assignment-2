@@ -6,6 +6,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:react/jsx-runtime',
+    'prettier',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -45,5 +47,6 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { mode: 'strict' }],
     'arrow-spacing': ['error', { before: true, after: true }],
+    'react/prop-types': 'off',
   },
 };
