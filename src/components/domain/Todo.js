@@ -25,14 +25,6 @@ export default class Todo {
     return this._title;
   }
 
-  /**
-   * @param id {string}
-   * @returns {boolean}
-   */
-  equals(id) {
-    return this._id === id;
-  }
-
   /** @returns {boolean} */
   isReady() {
     return this._status === TodoStatus.READY;

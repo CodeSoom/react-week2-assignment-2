@@ -23,7 +23,7 @@ export default class Todos {
    * */
   push(todo) {
     this._list.push(todo);
-    return Object.assign(this);
+    return this.copy();
   }
 
   /** @returns {Todo[]} */
