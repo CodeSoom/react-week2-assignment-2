@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+
 import React, { useState } from 'react';
 
 import Button from './Button';
@@ -26,10 +28,10 @@ export default function App() {
     setTodoList([
       ...todoList.slice(0, index),
       ...todoList.slice(index + 1, todoList.length),
-    ])
+    ]);
   }
 
-  return(
+  return (
     <div>
       <h2>To-do</h2>
       <div>
@@ -50,9 +52,11 @@ export default function App() {
           {todoList.map((todoThing, i) => (
             <li key={i}>
               <span>
-                {i + 1}. {todoThing}
+                {i + 1}
+                .
+                {todoThing}
               </span>
-              <Button 
+              <Button
                 type="button"
                 buttonTitle="삭제"
                 onClick={() => handleClickRemoveButton(i)}
