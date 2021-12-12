@@ -12,10 +12,8 @@ export default function Page() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const copyState = [...todos];
-    copyState.push(text);
     setState({
-      todos: copyState,
+      todos: [...todos, text],
       text: '',
     });
   }
