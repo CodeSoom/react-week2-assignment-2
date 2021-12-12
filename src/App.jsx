@@ -8,6 +8,13 @@ export default function App() {
     todos: [],
   });
 
+  function onChangeTodo(changedTodo) {
+    setTodoState({
+      ...todoState,
+      todo: changedTodo,
+    });
+  }
+
   function onClickSubmit(e) {
     e.preventDefault();
     setTodoState(
@@ -27,7 +34,7 @@ export default function App() {
 
   return (
     <>
-      <TodoInput todoState={todoState} setTodoState={setTodoState} onClick={onClickSubmit} />
+      <TodoInput todoState={todoState} onChangeTodo={onChangeTodo} onClick={onClickSubmit} />
       <TodoList todoState={todoState} onClick={onClickFinish} />
     </>
   );
