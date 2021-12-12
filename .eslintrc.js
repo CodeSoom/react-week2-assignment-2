@@ -45,5 +45,19 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { mode: 'strict' }],
     'arrow-spacing': ['error', { before: true, after: true }],
+    'import/prefer-default-export': 'off',
+    'no-underscore-dangle': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
   },
+  overrides: [
+    {
+      files: [
+        '**/*.spec.js',
+      ],
+      env: {
+        jest: true,
+      },
+    },
+  ],
 };
