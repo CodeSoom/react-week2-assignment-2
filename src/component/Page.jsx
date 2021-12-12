@@ -26,11 +26,11 @@ function Page() {
 
   const handleSubmit = (habit) => {
     setState({
-      ...state,
       habits: [
         habit,
         ...habits,
       ],
+      habitToAdd: '',
     });
   };
   return (
