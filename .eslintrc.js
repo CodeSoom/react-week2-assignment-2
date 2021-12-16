@@ -4,8 +4,9 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
     'airbnb',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -45,5 +46,6 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { mode: 'strict' }],
     'arrow-spacing': ['error', { before: true, after: true }],
+    'react/prop-types': 'off',
   },
 };
