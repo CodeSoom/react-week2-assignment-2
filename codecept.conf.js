@@ -6,27 +6,27 @@ const { setHeadlessWhen } = require('@codeceptjs/configure');
 setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
-  tests: './test/*_test.js',
-  output: './output',
-  helpers: {
-    Puppeteer: {
-      url: 'http://localhost:8080',
-      show: true,
-      windowSize: '1200x900',
-    },
+ tests: './test/*_test.js',
+ output: './output',
+ helpers: {
+  Puppeteer: {
+   url: 'http://localhost:8080',
+   show: true,
+   windowSize: '1200x900',
   },
-  include: {
-    I: './steps_file.js',
+ },
+ include: {
+  I: './steps_file.js',
+ },
+ bootstrap: null,
+ mocha: {},
+ name: 'assignment-1-1',
+ plugins: {
+  retryFailedStep: {
+   enabled: true,
   },
-  bootstrap: null,
-  mocha: {},
-  name: 'assignment-1-1',
-  plugins: {
-    retryFailedStep: {
-      enabled: true,
-    },
-    screenshotOnFail: {
-      enabled: true,
-    },
+  screenshotOnFail: {
+   enabled: true,
   },
+ },
 };
