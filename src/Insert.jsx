@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function Insert({ placeholder, onClick }) {
-  const [inputValue, setInputValue] = useState('');
-  const onChange = (e) => {
-    const { value } = e.target;
-    setInputValue(value);
-  };
-  const onClickWrap = () => {
-    onClick(inputValue);
-    setInputValue('');
-  };
+export default function Insert({ inputText, placeholder, onClick, onEdit }) {
   return (
     <div>
       <input
         type="text"
         placeholder={placeholder}
-        value={inputValue}
-        onChange={onChange}
+        value={inputText}
+        onChange={onEdit}
       />
-      <button type="button" onClick={onClickWrap}>
+      <button type="button" onClick={onClick}>
         추가
       </button>
     </div>
