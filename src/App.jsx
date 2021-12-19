@@ -2,26 +2,38 @@ import React, { useState } from 'react';
 import Page from './Page';
 
 export default function App() {
-  const [todoList, setTodoList] = useState([]);
+  const [state, setState] = useState({
+    todos: [],
+    inputText: '',
+  });
+  const { todos, inputText } = state;
 
-  const onInsert = (text) => {
-    setTodoList((oldArray) => [
-      ...oldArray,
-      { key: todoList.length + 1, text },
-    ]);
+  const onEdit = (e) => {
+    setState({ ...state, inputText: e.target.value });
   };
 
-  const onFinish = (key) => {
-    const temp = [...todoList];
-    const idx = temp.findIndex((item) => item.key === key);
-
-    if (idx <= -1) {
-      return;
-    }
-
-    temp.splice(idx, 1);
-    setTodoList(temp);
+  const onClickAdd = () => {
+    setState({
+      ...state,
+      inputText: '',
+      todos: [...todos, { key: todos.length + 1, text: inputText }],
+    });
   };
 
-  return <Page list={todoList} onInsert={onInsert} onFinish={onFinish} />;
+  const onClickFinish = (key) => {
+    setState({
+      ...state,
+      todos: [...todos.filter((item) => item.key !== key)],
+    });
+  };
+
+  return (
+    <Page
+      todos={todos}
+      inputText={inputText}
+      onEdit={onEdit}
+      onClickAdd={onClickAdd}
+      onClickFinish={onClickFinish}
+    />
+  );
 }
