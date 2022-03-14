@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:react/jsx-runtime',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -25,6 +26,7 @@ module.exports = {
     Scenario: 'readonly',
   },
   rules: {
+    'react/prop-types': 0,
     indent: ['error', 2],
     'no-trailing-spaces': 'error',
     curly: 'error',
