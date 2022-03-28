@@ -15,7 +15,6 @@ export default function TodoForm({ setTodos }) {
     }
 
     setTodos((prev) => [...prev, { [newId(prev)]: input }]);
-    console.log(input);
     updateInput('');
   }
 
