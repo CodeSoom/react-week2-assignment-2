@@ -1,14 +1,18 @@
 import React from 'react';
 
-export default function Todo({ todo }) {
-  const key = Object.keys(todo);
+import CompleteButton from './CompleteButton';
 
-  const value = Object.values(todo);
+export default function Todo({ todo, setTodos }) {
+  const { id, value } = todo;
   return (
     <>
-      <li key={key}>
+      <li key={id}>
         {value}
       </li>
+      <CompleteButton
+        todoId={id}
+        setTodos={setTodos}
+      />
     </>
   );
 }

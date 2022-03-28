@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 function newId(list) {
-  const CurrentIds = list.reduce((acc, item) => [...acc, ...Object.keys(item)], []);
+  if (!list.length) {
+    return 1;
+  }
 
-  const id = Math.max(CurrentIds) + 1;
+  const id = list[list.length - 1].id + 1;
 
   return id;
 }
@@ -14,7 +16,7 @@ export default function TodoForm({ setTodos }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    setTodos((prev) => [...prev, { [newId(prev)]: input }]);
+    setTodos((todos) => [...todos, { id: newId(todos), value: input }]);
     updateInput('');
   }
 
