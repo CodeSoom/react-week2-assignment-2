@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Title from './components/Title';
 import TodoForm from './components/TodoForm';
-import Todo from './components/Todo';
+import Todos from './components/Todos';
 import Message from './components/Message';
 
 function App() {
@@ -12,15 +12,9 @@ function App() {
   return (
     <>
       <Title />
-      <TodoForm
-        setTodos={setTodos}
-      />
+      <TodoForm setTodos={setTodos} />
       {todos.length > 0 ? (
-        <ol>
-          {todos.map((todo) => (
-            <Todo content={todo} />
-          ))}
-        </ol>
+        <Todos todos={todos} setTodos={setTodos} />
       ) : (
         <Message />
       )}

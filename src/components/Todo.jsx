@@ -1,12 +1,14 @@
 import React from 'react';
 
-export default function Todo({ content }) {
-  const key = Object.keys(content);
+export default function Todo({ todo }) {
+  const key = Object.keys(todo);
 
-  const todo = Object.values(content);
+  const value = Object.values(todo);
   return (
-    <li key={key}>
-      {todo}
-    </li>
+    <>
+      <li key={key}>
+        {value}
+      </li>
+    </>
   );
 }

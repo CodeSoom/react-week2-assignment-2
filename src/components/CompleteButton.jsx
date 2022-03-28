@@ -1,9 +1,16 @@
 import React from 'react';
 
-export default function Title() {
+export default function CompleteButton({ todoId, setTodos }) {
+  function handleClick() {
+    setTodos((prev) => prev.filter((todo) => Object.keys(todo))[0] !== todoId);
+  }
+
   return (
-    <h1>
-      To-do
-    </h1>
+    <button
+      type="button"
+      onClick={handleClick}
+    >
+      완료
+    </button>
   );
 }
