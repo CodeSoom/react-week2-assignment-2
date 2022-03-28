@@ -2,19 +2,19 @@ import React from 'react';
 
 function Todo({ children }) {
   return (
-    <p>
+    <ol>
       {children.length
         ? children
         : '할 일이 없어요!'}
-    </p>
+    </ol>
   );
 }
 
 Todo.List = ({ index, value, onClick }) => (
-  <p>
-    {`${index + 1}.${value}`}
+  <li>
+    {value}
     <button type="button" onClick={() => onClick(index)}>완료</button>
-  </p>
+  </li>
 );
 
 export default Todo;
