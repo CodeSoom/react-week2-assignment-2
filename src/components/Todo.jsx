@@ -8,11 +8,11 @@ export default function Todo({ todo, setTodos }) {
     <>
       <li key={id}>
         {value}
+        <CompleteButton
+          todoId={id}
+          setTodos={setTodos}
+        />
       </li>
-      <CompleteButton
-        todoId={id}
-        setTodos={setTodos}
-      />
     </>
   );
 }
