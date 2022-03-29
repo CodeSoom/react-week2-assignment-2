@@ -1,5 +1,3 @@
-import React from 'react';
-
 import CompleteButton from './CompleteButton';
 
 export default function Todo({ todo, setTodos }) {

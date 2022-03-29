@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function CompleteButton({ todoId, setTodos }) {
   function handleClick() {
     setTodos((todos) => todos.filter((todo) => todo.id !== todoId));
