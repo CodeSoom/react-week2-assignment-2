@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import TodoForm from './TodoForm';
 import Todos from './Todos';
-import Message from './Message';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -16,7 +15,9 @@ export default function App() {
       {todos.length > 0 ? (
         <Todos todos={todos} setTodos={setTodos} />
       ) : (
-        <Message />
+        <p>
+          할 일이 없어요!
+        </p>
       )}
     </>
   );
