@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function InputBox() {
+function TodoInput() {
   const [state, setState] = useState({
     inputValue: '',
   });
@@ -27,4 +27,4 @@ function InputBox() {
   );
 }
 
-export default InputBox;
+export default TodoInput;

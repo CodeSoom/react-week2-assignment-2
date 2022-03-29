@@ -1,11 +1,11 @@
 import React from 'react';
-import InputBox from './InputBox';
+import TodoInput from './TodoInput';
 
 function App() {
   return (
     <>
       <h1>To-do</h1>
-      <InputBox />
+      <TodoInput />
     </>
   );
 }
