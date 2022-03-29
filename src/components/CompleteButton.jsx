@@ -1,14 +1,14 @@
 import React from 'react';
 
 export default function CompleteButton({ todoId, setTodos }) {
-  function handleClick(id) {
-    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  function handleClick() {
+    setTodos((todos) => todos.filter((todo) => todo.id !== todoId));
   }
 
   return (
     <button
       type="button"
-      onClick={() => handleClick(todoId)}
+      onClick={handleClick}
     >
       완료
     </button>
