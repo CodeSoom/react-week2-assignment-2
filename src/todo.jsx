@@ -1,6 +1,4 @@
-import React from 'react';
-
-function Todo({ children }) {
+export default function Todo({ children }) {
   return (
     <ol>
       {children.length
@@ -16,5 +14,3 @@ Todo.List = ({ index, value, onClick }) => (
     <button type="button" onClick={() => onClick(index)}>완료</button>
   </li>
 );
-
-export default Todo;

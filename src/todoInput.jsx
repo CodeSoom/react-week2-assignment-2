@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-function TodoInput({ onSubmit }) {
+export default function TodoInput({ onSubmit }) {
   const [value, setValue] = useState('');
 
   function handleChange(event) {
@@ -20,5 +20,3 @@ function TodoInput({ onSubmit }) {
     </form>
   );
 }
-
-export default TodoInput;

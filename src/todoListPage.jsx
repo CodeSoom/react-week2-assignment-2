@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import Todo from './todo';
-import TodoInput from './todoInput';
+import { useState } from 'react';
 
-function TodoListPage() {
+import Todo from './Todo';
+import TodoInput from './TodoInput';
+
+export default function TodoListPage() {
   const [todoList, setTodoList] = useState([]);
 
   function handleSubmit(value) {
@@ -23,5 +24,3 @@ function TodoListPage() {
     </div>
   );
 }
-
-export default TodoListPage;

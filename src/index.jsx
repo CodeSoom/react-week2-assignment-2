@@ -1,14 +1,8 @@
-import React from "react";
-import ReactDom from "react-dom";
-import TodoListPage from "./todoListPage";
+import ReactDom from 'react-dom';
 
-function App() {
-    return (
-        <TodoListPage />
-    )
-}
+import App from './App';
 
 ReactDom.render(
-    <App/>,
-    document.getElementById("app")
-)
+  <App />,
+  document.getElementById('app'),
+);
