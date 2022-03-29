@@ -20,7 +20,7 @@ function InputBox() {
   return (
     <p>
       <input value={inputValue} onChange={onChange} />
-      <button type='button' onClick={clickAddTodo}>
+      <button type='submit' onClick={clickAddTodo}>
         추가
       </button>
     </p>
