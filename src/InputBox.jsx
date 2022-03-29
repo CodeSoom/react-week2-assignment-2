@@ -7,7 +7,7 @@ function InputBox() {
 
   const { inputValue } = state;
 
-  function onChange(e) {
+  function onChangeInput(e) {
     setState({
       inputValue: e.target.value,
     });
@@ -19,7 +19,7 @@ function InputBox() {
 
   return (
     <p>
-      <input value={inputValue} onChange={onChange} />
+      <input value={inputValue} onChange={onChangeInput} />
       <button type='submit' onClick={clickAddTodo}>
         추가
       </button>
