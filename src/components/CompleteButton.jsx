@@ -1,12 +1,8 @@
-export default function CompleteButton({ todoId, setTodos }) {
-  function handleClick() {
-    setTodos((todos) => todos.filter((todo) => todo.id !== todoId));
-  }
-
+export default function CompleteButton({ handleDelete }) {
   return (
     <button
       type="button"
-      onClick={handleClick}
+      onClick={handleDelete}
     >
       완료
     </button>
