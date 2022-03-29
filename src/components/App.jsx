@@ -16,19 +16,19 @@ function newId(list) {
 export default function App() {
   const [todos, setTodos] = useState([]);
 
-  const [input, updateInput] = useState('');
+  const [todoInput, updateTodoInput] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    setTodos([...todos, { id: newId(todos), value: input }]);
-    updateInput('');
+    setTodos([...todos, { id: newId(todos), value: todoInput }]);
+    updateTodoInput('');
   }
 
   function handleChange(e) {
     const { value } = e.target;
 
-    updateInput(value);
+    updateTodoInput(value);
   }
 
   function handleDelete(todoId) {
@@ -41,7 +41,7 @@ export default function App() {
         To-do
       </h1>
       <TodoForm
-        input={input}
+        input={todoInput}
         handleSubmit={handleSubmit}
         handleChange={handleChange}
       />
