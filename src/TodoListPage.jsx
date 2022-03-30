@@ -18,7 +18,7 @@ function generateTodoId(todoList) {
 export default function TodoListPage() {
   const [todoList, setTodoList] = useState([]);
 
-  function handleSubmit(value) {
+  function addTodo(value) {
     const id = generateTodoId(todoList);
     setTodoList([...todoList, { id, value }]);
   }
@@ -28,7 +28,7 @@ export default function TodoListPage() {
   }
   return (
     <div>
-      <TodoInput onSubmit={handleSubmit} />
+      <TodoInput onSubmit={addTodo} />
       <Todos todoList={todoList} onClick={handleClear} />
     </div>
   );
