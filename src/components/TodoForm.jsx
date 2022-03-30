@@ -1,11 +1,23 @@
 export default function TodoForm({ input, onSubmit, onChange }) {
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    onSubmit();
+  }
+
+  function handleChange(e) {
+    const { value } = e.target;
+
+    onChange(value);
+  }
+
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
         value={input}
-        onChange={onChange}
+        onChange={handleChange}
       />
       <button type="submit">
         추가

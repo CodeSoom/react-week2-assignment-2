@@ -7,7 +7,6 @@ function newId(list) {
   if (!list.length) {
     return 1;
   }
-
   const id = list[list.length - 1].id + 1;
 
   return id;
@@ -15,19 +14,15 @@ function newId(list) {
 
 export default function App() {
   const [todos, setTodos] = useState([]);
-
   const [todoInput, updateTodoInput] = useState('');
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
+  function handleSubmit() {
     setTodos([...todos, { id: newId(todos), value: todoInput }]);
+
     updateTodoInput('');
   }
 
-  function handleChange(e) {
-    const { value } = e.target;
-
+  function handleChange(value) {
     updateTodoInput(value);
   }
 
