@@ -42,12 +42,12 @@ export default function App() {
       </h1>
       <TodoForm
         input={todoInput}
-        handleSubmit={handleSubmit}
-        handleChange={handleChange}
+        onSubmit={handleSubmit}
+        onChange={handleChange}
       />
       <TodoList
         todos={todos}
-        handleDelete={handleDelete}
+        onClickDelete={handleDelete}
       />
     </>
   );

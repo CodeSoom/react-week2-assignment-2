@@ -1,8 +1,8 @@
-export default function CompleteButton({ handleDelete }) {
+export default function CompleteButton({ onClick }) {
   return (
     <button
       type="button"
-      onClick={handleDelete}
+      onClick={onClick}
     >
       완료
     </button>
