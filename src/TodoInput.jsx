@@ -7,10 +7,10 @@ function TodoInput() {
 
   const { inputValue } = state;
 
-  function onChangeInput(e) {
+  function onChangeInput(value) {
     setState({
       ...inputValue,
-      inputValue: e.target.value,
+      inputValue: value,
     });
   }
 
@@ -19,12 +19,17 @@ function TodoInput() {
   }
 
   return (
-    <p>
-      <input value={inputValue} onChange={onChangeInput} />
+    <form>
+      <input
+        type="text"
+        placeholder="할 일을 입력해 주세요"
+        value={inputValue}
+        onChange={(event) => onChangeInput(event.target.value)}
+      />
       <button type="submit" onClick={clickAddTodo}>
         추가
       </button>
-    </p>
+    </form>
   );
 }
 
