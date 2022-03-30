@@ -4,21 +4,25 @@ export default function App() {
   const [value, setValue] = useState('');
 
   const handleSubmit = (e) => {
-
+    // TODO: todo list 추가 해야함.
+    e.preventDefault();
   };
 
   const handleChange = (e) => {
-
+    setValue({
+      ...value,
+      value: e.target.value,
+    });
   };
 
   return (
     <>
+      <h1>To-do</h1>
       <form onSubmit={() => handleSubmit}>
         <label>
-          hi:
           <textarea value={setValue} onChange={() => handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="추가" />
       </form>
     </>
   );
