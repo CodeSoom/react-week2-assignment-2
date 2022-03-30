@@ -1,34 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function TodoInput() {
-  const [state, setState] = useState({
-    inputValue: '',
-  });
-
-  const { inputValue } = state;
-
-  function onChangeInput(value) {
-    setState({
-      ...inputValue,
-      inputValue: value,
-    });
-  }
-
-  function clickAddTodo() {
-    console.log(inputValue);
+function TodoInput({ onAdd, onInput, inputValue }) {
+  function handleAdd(e) {
+    e.preventDefault();
+    onAdd();
   }
 
   return (
-    <form>
+    <form onSubmit={handleAdd}>
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
         value={inputValue}
-        onChange={(event) => onChangeInput(event.target.value)}
+        onChange={(e) => onInput(e.target.value)}
       />
-      <button type="submit" onClick={clickAddTodo}>
-        추가
-      </button>
+      <button type="submit">추가</button>
     </form>
   );
 }
