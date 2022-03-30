@@ -1,7 +1,14 @@
 import { useState } from 'react';
+import ToDoList from './ToDoList';
 
 export default function App() {
+  const TodosInitalState = {
+    id: null,
+    text: '',
+  };
+
   const [text, setText] = useState('');
+  const [todos, setTodos] = useState({ TodosInitalState });
 
   const onClick = (e) => {
     // TODO: 클릭시 todo list 추가 해야함.
@@ -16,8 +23,21 @@ export default function App() {
   return (
     <>
       <h1>To-do</h1>
-      <input type="text" onChange={onChange} value={text} placeholder="할 일을 입력해 주세요" />
-      <button type="submit" onClick={onClick}>추가</button>
+      <input
+        type="text"
+        onChange={onChange}
+        value={text}
+        placeholder="할 일을 입력해 주세요"
+      />
+      <button
+        type="submit"
+        onClick={onClick}
+      >
+        추가
+      </button>
+      <p>
+        <ToDoList />
+      </p>
     </>
   );
 }
