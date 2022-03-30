@@ -1,21 +1,17 @@
-import { useState } from 'react';
-
-export default function TodoInput({ onSubmit }) {
-  const [value, setValue] = useState('');
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
+export default function TodoInput({ value, onChange, onSubmit }) {
   function handleSubmit(e) {
     e.preventDefault();
     onSubmit(value);
-    setValue('');
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={value} onChange={handleChange} />
+      <input
+        type="text"
+        value={value}
+        onChange={onChange}
+        placeholder="할 일을 입력해 주세요"
+      />
       <button type="submit">추가</button>
     </form>
   );
