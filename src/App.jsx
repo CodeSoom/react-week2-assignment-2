@@ -20,7 +20,7 @@ export default function App() {
       <h1>To-do</h1>
       <form onSubmit={() => handleSubmit}>
         <label>
-          <textarea value={setValue} onChange={() => handleChange} />
+          <textarea value={value} onChange={() => handleChange} />
         </label>
         <input type="submit" value="추가" />
       </form>
