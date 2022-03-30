@@ -9,6 +9,7 @@ function TodoInput() {
 
   function onChangeInput(e) {
     setState({
+      ...inputValue,
       inputValue: e.target.value,
     });
   }
