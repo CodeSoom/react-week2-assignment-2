@@ -10,7 +10,6 @@ export default function App() {
   };
 
   const onChange = (e) => {
-    console.log(e.target.value);
     setText(e.target.value);
   };
 
