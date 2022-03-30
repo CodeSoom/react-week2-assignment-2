@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import TodoForm from './TodoForm';
-import Todo from './Todo';
+import TodoList from './TodoList';
 
 function newId(list) {
   if (!list.length) {
@@ -45,17 +45,10 @@ export default function App() {
         handleSubmit={handleSubmit}
         handleChange={handleChange}
       />
-      {todos.length > 0 ? (
-        <ol>
-          {todos.map((todo) => (
-            <Todo todo={todo} handleDelete={() => handleDelete(todo.id)} />
-          ))}
-        </ol>
-      ) : (
-        <p>
-          할 일이 없어요!
-        </p>
-      )}
+      <TodoList
+        todos={todos}
+        handleDelete={handleDelete}
+      />
     </>
   );
 }
