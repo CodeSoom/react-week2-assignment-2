@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Todo from './Todo';
+import Todos from './Todos';
 import TodoInput from './TodoInput';
 
 import generateId from './generateId';
@@ -29,11 +29,7 @@ export default function TodoListPage() {
   return (
     <div>
       <TodoInput onSubmit={handleSubmit} />
-      <Todo>
-        {todoList.map((todo) => (
-          <Todo.List todo={todo} onClick={handleClear} />
-        ))}
-      </Todo>
+      <Todos todoList={todoList} onClick={handleClear} />
     </div>
   );
 }
