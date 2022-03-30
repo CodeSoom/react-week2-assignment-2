@@ -21,7 +21,7 @@ function TodoInput() {
   return (
     <p>
       <input value={inputValue} onChange={onChangeInput} />
-      <button type='submit' onClick={clickAddTodo}>
+      <button type="submit" onClick={clickAddTodo}>
         추가
       </button>
     </p>
