@@ -8,9 +8,9 @@ export default function Todo({ children }) {
   );
 }
 
-Todo.List = ({ index, value, onClick }) => (
+Todo.List = ({ todo, onClick }) => (
   <li>
-    {value}
-    <button type="button" onClick={() => onClick(index)}>완료</button>
+    {todo.value}
+    <button type="button" onClick={() => onClick(todo.id)}>완료</button>
   </li>
 );
