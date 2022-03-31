@@ -2,22 +2,26 @@ import { useState } from 'react';
 import ToDoList from './ToDoList';
 
 export default function App() {
-  const TodosInitalState = {
-    id: null,
-    text: '',
-  };
+  // const TodosInitialState = {
+  //   id: null,
+  //   text: '',
+  // };
 
   const [text, setText] = useState('');
-  const [todos, setTodos] = useState({ TodosInitalState });
+  const [todos, setTodos] = useState('');
 
-  const onClick = (e) => {
-    // TODO: 클릭시 todo list 추가 해야함.
+  const onClick = () => {
+    setTodos({ ...todos, text });
+    // 현재 text를 todo 의 리스트 만들때 인자로 보내줘야함.
     setText('');
-    e.preventDefault();
   };
 
   const onChange = (e) => {
     setText(e.target.value);
+  };
+
+  const handleRemove = ({todo.id}) => {
+    filter({todo.id} => )
   };
 
   return (
@@ -30,13 +34,14 @@ export default function App() {
         placeholder="할 일을 입력해 주세요"
       />
       <button
-        type="submit"
+        name="DoneButton"
+        type="button"
         onClick={onClick}
       >
         추가
       </button>
       <p>
-        <ToDoList />
+        <ToDoList todos={todos} onClick={handleRemove} />
       </p>
     </>
   );
