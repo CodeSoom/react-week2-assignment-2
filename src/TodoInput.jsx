@@ -2,11 +2,11 @@ export default function TodoInput({ value, onChange, onSubmit }) {
   function handleChange(e) {
     onChange(e.target.value);
   }
+
   function handleSubmit(e) {
     e.preventDefault();
     onSubmit(value);
   }
-
   return (
     <form onSubmit={handleSubmit}>
       <input
