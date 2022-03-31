@@ -1,5 +1,3 @@
-import React from 'react';
-
 function ToDoList({ todo, onRemoveTask }) {
   if (todo.length === 0) {
     return '할 일이 없어요!';
