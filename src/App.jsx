@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import Input from './Input';
 import Button from './Button';
+import TodoList from './TodoList';
 
 export default function App() {
-  const [state, setState] = useState({
-    todo: '',
-  });
-
-  const { todo } = state;
+  const [todo, setTodo] = useState('');
+  const [todoList, setTodoList] = useState([]);
 
   function handleChange(e) {
     const todoValue = e.target.value;
-    setState({
-      todo: todoValue,
-    });
+    setTodo(todoValue);
+  }
+
+  function handleClick() {
+    setTodo('');
+    setTodoList([...todoList, todo]);
   }
 
   return (
@@ -22,10 +23,13 @@ export default function App() {
       <div>
         <Input
           onChange={handleChange}
+          value={todo}
         />
-        <Button>추가</Button>
+        <Button onClick={handleClick}>추가</Button>
       </div>
-      {todo}
+      <TodoList
+        todoList={todoList}
+      />
     </div>
   );
 }
