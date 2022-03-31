@@ -20,16 +20,16 @@ const initialInputValue = '';
 export default function TodoListPage() {
   const [todoList, setTodoList] = useState([]);
 
-  const [inputValue, setInputValue] = useState(initialInputValue);
+  const [todoInputValue, setTodoInputValue] = useState(initialInputValue);
 
   function handleChangeInput(value) {
-    setInputValue(value);
+    setTodoInputValue(value);
   }
 
   function addTodo(value) {
     const id = generateTodoId(todoList);
     setTodoList([...todoList, { id, value }]);
-    setInputValue(initialInputValue);
+    setTodoInputValue(initialInputValue);
   }
 
   function handleClear(id) {
@@ -37,8 +37,15 @@ export default function TodoListPage() {
   }
   return (
     <div>
-      <TodoInput value={inputValue} onChange={handleChangeInput} onSubmit={addTodo} />
-      <Todos todoList={todoList} onClick={handleClear} />
+      <TodoInput
+        value={todoInputValue}
+        onChange={handleChangeInput}
+        onSubmit={addTodo}
+      />
+      <Todos
+        todoList={todoList}
+        onClick={handleClear}
+      />
     </div>
   );
 }

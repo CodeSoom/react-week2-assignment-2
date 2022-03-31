@@ -10,7 +10,10 @@ export default function Todos({ todoList, onClick }) {
       {todoList.map((todo) => (
         <li>
           {todo.value}
-          <button type="button" onClick={() => onClick(todo.id)}>
+          <button
+            type="button"
+            onClick={() => onClick(todo.id)}
+          >
             완료
           </button>
         </li>
