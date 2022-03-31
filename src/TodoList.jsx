@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 
-function TodoList({ todoList, onDelete }) {
+export default function TodoList({ todoList, onDelete }) {
   return (
     <div>
       {todoList.length > 0 ? (
@@ -21,5 +21,3 @@ function TodoList({ todoList, onDelete }) {
     </div>
   );
 }
-
-export default TodoList;

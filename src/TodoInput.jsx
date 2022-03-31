@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoInput({ onAdd, onInput, inputValue }) {
+export default function TodoInput({ onAdd, onInput, inputValue }) {
   function handleAdd(e) {
     e.preventDefault();
     onAdd();
@@ -18,5 +18,3 @@ function TodoInput({ onAdd, onInput, inputValue }) {
     </form>
   );
 }
-
-export default TodoInput;

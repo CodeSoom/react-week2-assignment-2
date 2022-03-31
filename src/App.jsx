@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
-function App() {
+export default function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState('');
 
@@ -34,5 +34,3 @@ function App() {
     </>
   );
 }
-
-export default App;

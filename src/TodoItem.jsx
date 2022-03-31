@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoItem({ todoItem, onDelete }) {
+export default function TodoItem({ todoItem, onDelete }) {
   const { name } = todoItem;
 
   function handleDelete() {
@@ -16,5 +16,3 @@ function TodoItem({ todoItem, onDelete }) {
     </li>
   );
 }
-
-export default TodoItem;
