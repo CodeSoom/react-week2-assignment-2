@@ -7,21 +7,22 @@ export default function ToDoList({ todo, onClick }) {
   if (!todo) {
     return <p> 할일이 없어요!</p>;
   }
-
-  return (
-    todo.map((todos, id) => (
-      <li key={todo.id}>
-        <p>
-          {id}
-          {todos}
-        </p>
-        <button
-          type="button"
-          onClick={onClick(id)}
-        >
-          완료
-        </button>
-      </li>
-    ))
-  );
+  if (todo) {
+    return (
+      todo.map((todos, id) => (
+        <li key={todo.id}>
+          <p>
+            {id}
+            {todos}
+          </p>
+          <button
+            type="button"
+            onClick={onClick(id)}
+          >
+            완료
+          </button>
+        </li>
+      ))
+    );
+  }
 }
