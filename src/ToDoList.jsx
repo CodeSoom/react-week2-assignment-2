@@ -4,14 +4,14 @@ function ToDoList({ todo, onRemoveTask }) {
   }
 
   return todo.map((item, index) => (
-    <div>
+    <div key={item.id}>
       {index + 1}
       .
       {' '}
-      {item}
+      {item.data}
       <button
         type="button"
-        onClick={() => onRemoveTask(index)}
+        onClick={() => onRemoveTask({ id: item.id })}
       >
         완료
       </button>

@@ -5,17 +5,23 @@ function App() {
   const [todo, setTodo] = useState([]);
   const [newTask, setNewTask] = useState('');
 
+  function newId() {
+    if (todo.length === 0) return 1;
+
+    return todo[todo.length - 1].id + 1;
+  }
+
   function onNewTask(event) {
     setNewTask(event.target.value);
   }
 
   function onAddTask() {
-    setTodo([...todo, newTask]);
+    setTodo([...todo, { id: newId(), data: newTask }]);
     setNewTask('');
   }
 
-  function onRemoveTask(index) {
-    setTodo(todo.filter((item, i) => i !== index));
+  function onRemoveTask({ id }) {
+    setTodo(todo.filter((item) => item.id !== id));
   }
 
   return (
