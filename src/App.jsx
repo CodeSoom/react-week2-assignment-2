@@ -8,11 +8,10 @@ export default function App() {
   // };
 
   const [text, setText] = useState('');
-  const [todos, setTodos] = useState('');
+  const [todos, setTodos] = useState([]);
 
   const onClick = () => {
-    setTodos({ ...todos, text });
-    // 현재 text를 todo 의 리스트 만들때 인자로 보내줘야함.
+    setTodos([...todos, text]);
     setText('');
   };
 
@@ -20,8 +19,8 @@ export default function App() {
     setText(e.target.value);
   };
 
-  const handleRemove = ({todo.id}) => {
-    filter({todo.id} => )
+  const handleRemove = ({ id }) => {
+    todos.filter((todo) => todo.id !== id);
   };
 
   return (

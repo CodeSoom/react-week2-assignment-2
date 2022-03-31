@@ -12,6 +12,7 @@ export default function ToDoList({ todo, onClick }) {
     todo.map((todos, id) => (
       <li key={todo.id}>
         <p>
+          {id}
           {todos}
         </p>
         <button
