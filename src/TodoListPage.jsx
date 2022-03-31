@@ -22,8 +22,8 @@ export default function TodoListPage() {
 
   const [inputValue, setInputValue] = useState(initialInputValue);
 
-  function handleChangeInput(event) {
-    setInputValue(event.target.value);
+  function handleChangeInput(value) {
+    setInputValue(value);
   }
 
   function addTodo(value) {
