@@ -7,7 +7,7 @@ export default function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState('');
 
-  function handleInput(value) {
+  function handleChangeInput(value) {
     setTodoValue(value);
   }
 
@@ -28,7 +28,7 @@ export default function App() {
       <TodoInput
         inputValue={todoValue}
         onAdd={handleAdd}
-        onInput={handleInput}
+        onChange={handleChangeInput}
       />
       <TodoList todoList={todoList} onDelete={handleDelete} />
     </>
