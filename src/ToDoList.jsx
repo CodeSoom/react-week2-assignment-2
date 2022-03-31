@@ -9,7 +9,12 @@ function ToDoList({ todo, onRemoveTask }) {
       .
       {' '}
       {item}
-      <button type="button" onClick={() => onRemoveTask(index)}>완료</button>
+      <button
+        type="button"
+        onClick={() => onRemoveTask(index)}
+      >
+        완료
+      </button>
     </div>
   ));
 }
