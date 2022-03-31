@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function TodoItem({ todoItem, onDelete }) {
   const { name } = todoItem;
 

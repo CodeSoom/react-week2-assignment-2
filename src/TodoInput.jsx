@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function TodoInput({ onAdd, onInput, inputValue }) {
   function handleAdd(e) {
     e.preventDefault();
