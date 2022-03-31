@@ -1,6 +1,6 @@
 function ToDoList({ todo, onRemoveTask }) {
   if (todo.length === 0) {
-    return '할 일이 없어요!';
+    return <p>할 일이 없어요!</p>;
   }
 
   return todo.map((item, index) => (
