@@ -1,19 +1,19 @@
 import Todo from './Todo';
 
 export default function TodoList({ todos, onClickDelete }) {
-  if (todos.length > 0) {
+  if (todos.length === 0) {
     return (
-      <ol>
-        {todos.map((todo) => (
-          <Todo todo={todo} onClickDelete={() => onClickDelete(todo.id)} />
-        ))}
-      </ol>
+      <p>
+        할 일이 없어요!
+      </p>
     );
   }
 
   return (
-    <p>
-      할 일이 없어요!
-    </p>
+    <ol>
+      {todos.map((todo) => (
+        <Todo todo={todo} onClickDelete={() => onClickDelete(todo.id)} />
+      ))}
+    </ol>
   );
 }

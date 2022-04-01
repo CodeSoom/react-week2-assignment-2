@@ -1,4 +1,4 @@
-import CompleteButton from './CompleteButton';
+import Button from './Button';
 
 export default function Todo({ todo, onClickDelete }) {
   const { id, value } = todo;
@@ -6,7 +6,7 @@ export default function Todo({ todo, onClickDelete }) {
   return (
     <li key={id}>
       {value}
-      <CompleteButton onClick={onClickDelete} />
+      <Button onClick={onClickDelete} title="완료" />
     </li>
   );
 }

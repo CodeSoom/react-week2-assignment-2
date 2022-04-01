@@ -1,10 +1,10 @@
-export default function CompleteButton({ onClick }) {
+export default function Button({ onClick, title }) {
   return (
     <button
       type="button"
       onClick={onClick}
     >
-      완료
+      {title}
     </button>
   );
 }
