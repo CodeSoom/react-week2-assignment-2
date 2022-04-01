@@ -1,6 +1,7 @@
 import { useState } from 'react';
+
 import AddTodoForm from './components/AddTodoForm';
-import Todo from './components/Todo';
+import TodoList from './components/TodoList';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -28,16 +29,7 @@ const App = () => {
       <h1>To-do</h1>
       <AddTodoForm onSubmit={addTodo} />
       <br />
-      {
-        todos.length ? (
-          <ol>
-            {todos.map(({ content, id }) => (
-              <Todo content={content} handleComplete={() => handleComplete(id)} />
-            ))}
-          </ol>
-        ) : <span>할 일이 없어요!</span>
-      }
-
+      <TodoList todos={todos} handleComplete={handleComplete} />
     </>
   );
 };
