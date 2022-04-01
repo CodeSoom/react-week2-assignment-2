@@ -1,20 +1,20 @@
 export default function TodoInput({ onAdd, onChange, inputValue }) {
-  function handleAdd(e) {
+  function handleAddInput(e) {
     e.preventDefault();
     onAdd();
   }
 
-  function handleChange(e) {
+  function handleChangeInput(e) {
     onChange(e.target.value);
   }
 
   return (
-    <form onSubmit={handleAdd}>
+    <form onSubmit={handleAddInput}>
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
         value={inputValue}
-        onChange={handleChange}
+        onChange={handleChangeInput}
       />
       <button type="submit">추가</button>
     </form>

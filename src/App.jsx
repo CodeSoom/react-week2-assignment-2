@@ -11,12 +11,12 @@ export default function App() {
     setTodoValue(value);
   }
 
-  function handleAdd() {
+  function handleAddTodo() {
     setTodoList([...todoList, { id: Date.now(), name: todoValue }]);
     setTodoValue('');
   }
 
-  function handleDelete(todo) {
+  function handleDeleteTodo(todo) {
     setTodoList((preTodoList) =>
       preTodoList.filter((preTodo) => preTodo.id !== todo.id),
     );
@@ -27,10 +27,10 @@ export default function App() {
       <h1>To-do</h1>
       <TodoInput
         inputValue={todoValue}
-        onAdd={handleAdd}
+        onAdd={handleAddTodo}
         onChange={handleChangeInput}
       />
-      <TodoList todoList={todoList} onDelete={handleDelete} />
+      <TodoList todoList={todoList} onDelete={handleDeleteTodo} />
     </>
   );
 }
