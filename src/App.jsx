@@ -17,9 +17,9 @@ export default function App() {
   }
 
   function handleDelete(todo) {
-    const prevTodoList = [...todoList];
-    const result = prevTodoList.filter((prevTodo) => prevTodo.id !== todo.id);
-    setTodoList(result);
+    setTodoList((preTodoList) =>
+      preTodoList.filter((preTodo) => preTodo.id !== todo.id),
+    );
   }
 
   return (
