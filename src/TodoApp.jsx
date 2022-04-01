@@ -26,18 +26,14 @@ export default function TodoApp() {
         onClick={addTodo}
       />
 
-      <div>
-        <ul>
-          {todos.map((eachTodo, index) => (
-            <li>
-              {index + 1}
-              .
-              {eachTodo}
-              <button type="button">완료</button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {todos.map((eachTodo, index) => (
+        <div>
+          {index + 1}
+          .
+          {eachTodo}
+          <button type="button" onClick={removeTodo}>완료</button>
+        </div>
+      ))}
     </div>
 
   );
