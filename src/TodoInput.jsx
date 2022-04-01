@@ -11,6 +11,7 @@ export default function TodoInput({ value, onChange, onSubmit }) {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        name="todo"
         value={value}
         onChange={handleChange}
         placeholder="할 일을 입력해 주세요"
