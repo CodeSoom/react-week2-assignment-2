@@ -1,10 +1,10 @@
-export default function Button({ onClick, title }) {
+export default function Button({ onClick, children }) {
   return (
     <button
       type="button"
       onClick={onClick}
     >
-      {title}
+      {children}
     </button>
   );
 }
