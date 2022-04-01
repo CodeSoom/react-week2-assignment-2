@@ -3,21 +3,17 @@ import { useState } from 'react';
 import AddTodoForm from './components/AddTodoForm';
 import TodoList from './components/TodoList';
 
-const App = () => {
+export default function App() {
   const [todos, setTodos] = useState([]);
 
-  const addTodo = (e) => {
-    e.preventDefault();
-
+  const addTodo = (content) => {
     setTodos([
       ...todos,
       {
         id: Date.now(),
-        content: e.target['new-todo'].value,
+        content,
       },
     ]);
-
-    e.target['new-todo'].value = '';
   };
 
   const handleComplete = (id) => {
@@ -27,11 +23,9 @@ const App = () => {
   return (
     <>
       <h1>To-do</h1>
-      <AddTodoForm onSubmit={addTodo} />
+      <AddTodoForm addTodo={addTodo} />
       <br />
       <TodoList todos={todos} handleComplete={handleComplete} />
     </>
   );
-};
-
-export default App;
+}
