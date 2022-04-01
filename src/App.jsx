@@ -21,9 +21,9 @@ export default function App() {
     setText(e.target.value);
   };
 
-  const handleClickDoneButton = () => {
+  const handleClickDoneButton = (id) => {
     setTodos(
-      todos.filter((a) => a.id !== todos.id),
+      todos.filter((todo) => todo.id !== id),
     );
   };
 

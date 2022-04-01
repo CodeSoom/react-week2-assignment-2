@@ -8,12 +8,13 @@ export default function ToDoList({ todos, handleClickDoneButton }) {
       {todos.map((todo, id) => (
         <li key={todo.id}>
           <p>
-            {id}
+            {id + 1}
             .
+            {' '}
             {todo.value}
             <button
               type="button"
-              onClick={handleClickDoneButton}
+              onClick={handleClickDoneButton(id)}
             >
               완료
             </button>
