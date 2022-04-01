@@ -14,6 +14,10 @@ export default function TodoApp() {
     setTodoInput(event.target.value);
   }
 
+  function removeTodo(index) {
+    setTodos(todos.filter((todo, todoIndex) => index !== todoIndex));
+  }
+
   return (
     <div>
       <h1>To-do</h1>
@@ -31,7 +35,7 @@ export default function TodoApp() {
           {index + 1}
           .
           {eachTodo}
-          <button type="button" onClick={removeTodo}>완료</button>
+          <button type="button" id={index} onClick={() => removeTodo(index)}>완료</button>
         </div>
       ))}
     </div>
