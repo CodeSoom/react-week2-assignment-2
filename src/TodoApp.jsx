@@ -6,16 +6,16 @@ export default function TodoApp() {
   const [todos, setTodos] = useState([]);
   const [todoInput, setTodoInput] = useState('');
 
-  function addTodo() {
+  function handleAddTodo() {
     setTodos([...todos, todoInput]);
+  }
+
+  function handleRemoveTodo(index) {
+    setTodos(todos.filter((todo, todoIndex) => index !== todoIndex));
   }
 
   function onChangeTodoInput(event) {
     setTodoInput(event.target.value);
-  }
-
-  function removeTodo(index) {
-    setTodos(todos.filter((todo, todoIndex) => index !== todoIndex));
   }
 
   return (
@@ -27,7 +27,7 @@ export default function TodoApp() {
         value={todoInput}
       />
       <TodoButton
-        onClick={addTodo}
+        onClick={handleAddTodo}
       />
 
       {todos.map((eachTodo, index) => (
@@ -35,7 +35,7 @@ export default function TodoApp() {
           {index + 1}
           .
           {eachTodo}
-          <button type="button" id={index} onClick={() => removeTodo(index)}>완료</button>
+          <button type="button" id={index} onClick={() => handleRemoveTodo(index)}>완료</button>
         </div>
       ))}
     </div>
