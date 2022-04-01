@@ -11,16 +11,16 @@ function App() {
     return todo[todo.length - 1].id + 1;
   }
 
-  function onNewTask(event) {
+  function handleNewTask(event) {
     setNewTask(event.target.value);
   }
 
-  function onAddTask() {
+  function handleAddTask() {
     setTodo([...todo, { id: newId(), data: newTask }]);
     setNewTask('');
   }
 
-  function onRemoveTask({ id }) {
+  function handleRemoveTask({ id }) {
     setTodo(todo.filter((item) => item.id !== id));
   }
 
@@ -30,18 +30,18 @@ function App() {
       <input
         placeholder="할 일을 입력해 주세요"
         value={newTask}
-        onChange={onNewTask}
+        onChange={handleNewTask}
       />
       <button
         type="button"
-        onClick={onAddTask}
+        onClick={handleAddTask}
       >
         추가
       </button>
       <p>
         <ToDoList
           todo={todo}
-          onRemoveTask={onRemoveTask}
+          handleRemoveTask={handleRemoveTask}
         />
       </p>
     </>

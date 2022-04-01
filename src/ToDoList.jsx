@@ -1,4 +1,4 @@
-function ToDoList({ todo, onRemoveTask }) {
+function ToDoList({ todo, handleRemoveTask }) {
   if (todo.length === 0) {
     return <p>할 일이 없어요!</p>;
   }
@@ -11,7 +11,7 @@ function ToDoList({ todo, onRemoveTask }) {
       {item.data}
       <button
         type="button"
-        onClick={() => onRemoveTask({ id: item.id })}
+        onClick={() => handleRemoveTask({ id: item.id })}
       >
         완료
       </button>
