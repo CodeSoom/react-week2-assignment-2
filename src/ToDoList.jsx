@@ -10,7 +10,7 @@ export default function ToDoList({ todos, handleClickDoneButton }) {
           <p>
             {id}
             .
-            {todos}
+            {todo.value}
             <button
               type="button"
               onClick={handleClickDoneButton}

@@ -10,7 +10,10 @@ export default function App() {
     setText('');
     setTodos([
       ...todos,
-      text,
+      {
+        id: todos.length,
+        value: text,
+      },
     ]);
   };
 
