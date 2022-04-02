@@ -6,7 +6,9 @@ export default function Todo({ todo, onClickDelete }) {
   return (
     <li key={id}>
       {value}
-      <Button onClick={onClickDelete} title="완료" />
+      <Button onClick={onClickDelete}>
+        완료
+      </Button>
     </li>
   );
 }
