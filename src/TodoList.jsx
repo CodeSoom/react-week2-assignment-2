@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function TodoList({ todos, onClick }) {
   return (
     todos.map((eachTodo, index) => (

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function TodoInput({ onChange, value }) {
   return (
     <input
