@@ -4,33 +4,49 @@ import TodoButton from './TodoButton';
 import TodoList from './TodoList';
 
 export default function TodoApp() {
-  const [todos, setTodos] = useState([]);
-  const [todoInput, setTodoInput] = useState('');
+  const [todos, setTodos] = useState({
+    newId: 100,
+    taskTitle: '',
+    tasks: [],
+  });
+
+  const { newId, taskTitle, tasks } = todos;
 
   function handleAddTodo() {
-    setTodos([...todos, todoInput]);
+    setTodos({
+      ...todos,
+      newId: newId + 1,
+      taskTitle: '',
+      tasks: [...tasks, { id: newId, title: taskTitle }],
+    });
   }
 
-  function handleRemoveTodo(index) {
-    setTodos(todos.filter((todo, todoIndex) => index !== todoIndex));
+  function handleRemoveTodo(id) {
+    setTodos({
+      ...todos,
+      tasks: tasks.filter((task) => task.id !== id),
+    });
   }
 
-  function onChangeTodoInput(event) {
-    setTodoInput(event.target.value);
+  function handleChangeTitle(event) {
+    setTodos({
+      ...todos,
+      taskTitle: event.target.value,
+    });
   }
 
   return (
     <div>
       <h1>To-do</h1>
       <TodoInput
-        onChange={onChangeTodoInput}
-        value={todoInput}
+        onChange={handleChangeTitle}
+        value={taskTitle}
       />
       <TodoButton
         onClick={handleAddTodo}
       />
       <TodoList
-        todos={todos}
+        tasks={tasks}
         onClick={handleRemoveTodo}
       />
     </div>

@@ -1,18 +1,19 @@
-export default function TodoList({ todos, onClick }) {
-  return (
-    todos.map((eachTodo, index) => (
+import Todo from './Todo';
+
+export default function TodoList({ tasks, onClick }) {
+  if (!tasks.length) {
+    return (
       <div>
-        {index + 1}
-        .
-        {eachTodo}
-        <button
-          type="button"
-          id={index}
-          onClick={() => onClick(index)}
-        >
-          완료
-        </button>
+        <p>할 일이 없어요!</p>
       </div>
-    ))
+    );
+  }
+
+  return (
+    <ol>
+      {tasks.map((task) => (
+        <Todo key={task.id} task={task} onClick={onClick} />
+      ))}
+    </ol>
   );
 }
