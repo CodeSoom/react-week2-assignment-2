@@ -21,7 +21,6 @@ export default function TodoApp() {
   return (
     <div>
       <h1>To-do</h1>
-
       <TodoInput
         onChange={onChangeTodoInput}
         value={todoInput}
