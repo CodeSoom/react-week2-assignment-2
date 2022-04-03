@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TodoInput from './TodoInput';
 import TodoButton from './TodoButton';
+import TodoList from './TodoList';
 
 export default function TodoApp() {
   const [todos, setTodos] = useState([]);
@@ -28,15 +29,10 @@ export default function TodoApp() {
       <TodoButton
         onClick={handleAddTodo}
       />
-
-      {todos.map((eachTodo, index) => (
-        <div>
-          {index + 1}
-          .
-          {eachTodo}
-          <button type="button" id={index} onClick={() => handleRemoveTodo(index)}>완료</button>
-        </div>
-      ))}
+      <TodoList
+        todos={todos}
+        onClick={handleRemoveTodo}
+      />
     </div>
 
   );
