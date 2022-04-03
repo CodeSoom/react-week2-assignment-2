@@ -28,6 +28,7 @@ function App() {
     <>
       <h1>To-do</h1>
       <input
+        name="taskInput"
         placeholder="할 일을 입력해 주세요"
         value={newTask}
         onChange={handleNewTask}
