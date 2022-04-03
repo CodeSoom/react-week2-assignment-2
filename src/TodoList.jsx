@@ -1,18 +1,13 @@
 import Button from './Button';
 
-export default function TodoList({ ...rest }) {
+export default function TodoList({ todoList, onClick }) {
   function todoListItem() {
     return (
-      rest.todoList.map((value, index) => (
+      todoList.map((value) => (
         <li key={value}>
           {value}
           <Button
-            type="finish"
-            index={index}
-            todo={rest.todo}
-            setTodo={rest.setTodo}
-            todoList={rest.todoList}
-            setTodoList={rest.setTodoList}
+            onClick={() => onClick(value)}
           >
             완료
           </Button>
@@ -21,14 +16,16 @@ export default function TodoList({ ...rest }) {
     );
   }
 
-  if (rest.todoList.length > 0) {
+  if (todoList.length === 0) {
+    return (
+      <p>할 일이 없어요!</p>
+    );
+  }
+  if (todoList.length > 0) {
     return (
       <ol className="todo-list">
         {todoListItem()}
       </ol>
     );
   }
-  return (
-    <p>할 일이 없어요!</p>
-  );
 }
