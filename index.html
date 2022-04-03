@@ -3,7 +3,132 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>TODO</title>
+  <title>To-do</title>
+  <style>
+    html,
+    body,
+    h1,
+    p,
+    ol,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      vertical-align: top;
+    }
+
+    html,
+    body,
+    #app {
+      height: 100%;
+    }
+
+    body,
+    button {
+      font-family: Malgun Gothic, "Apple SD Gothic Neo", sans-serif;
+    }
+
+    .todo-wrap {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+
+    .todo-title {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .todo-input {
+      display: flex;
+      height: 40px;
+    }
+
+    .todo-input input {
+      padding: 0 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 10px 0 0 10px;
+      flex: 1 1 100%;
+    }
+
+    .todo-input button {
+      min-width: 60px;
+      position: relative;
+      font-size: 0;
+      border: 1px solid #ccc;
+      border-left: none;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .todo-input button:before,
+    .todo-input button:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 4px;
+      height: 20px;
+      background-color: #000;
+    }
+
+    .todo-input button:before {
+      transform: translate(-50%, -50%);
+    }
+
+    .todo-input button:after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .todo-input + p,
+    .todo-list {
+      margin-top: 40px;
+    }
+
+    .todo-list > li {
+      display: flex;
+      position: relative;
+      padding-right: 40px;
+      min-height: 40px;
+      border-bottom: 1px dashed #000;
+      word-break: break-all;
+      align-items: center;
+    }
+
+    .todo-list > li + li {
+      margin-top: 20px;
+    }
+
+    .todo-list > li button {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+      font-size: 0;
+      background-color: green;
+      border: none;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    .todo-list > li button:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: calc(50% - 2px);
+      width: 8px;
+      height: 14px;
+      border-bottom: 4px solid #fff;
+      border-right: 4px solid #fff;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  </style>
 </head>
 
 <body>
