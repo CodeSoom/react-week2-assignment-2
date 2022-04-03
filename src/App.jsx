@@ -12,8 +12,15 @@ export default function App() {
   }
 
   function todoListAdd() {
-    setTodo('');
-    setTodoList([...todoList, todo]);
+    const spacePattern = /\s/g;
+    const spaceCheck = todo.replace(spacePattern, '');
+    if (spaceCheck === '') {
+      setTodo('');
+    }
+    if (spaceCheck !== '') {
+      setTodo('');
+      setTodoList([...todoList, todo]);
+    }
   }
 
   function todoListFinish(value) {
