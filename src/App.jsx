@@ -1,9 +1,10 @@
 import React from 'react';
+import TodoTitle from './componenet/TodoTitle';
 
 function App() {
   return (
     <div>
-      <p>App Pages</p>
+      <TodoTitle>To-do</TodoTitle>
     </div>
   );
 }
