@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import EmptyListCard from './EmptyListCard';
 import List from './List';
 import NewCard from './NewCard';
+import Title from './Title';
 
 const App = () => {
   const [content, setContent] = useState('');
@@ -22,13 +24,14 @@ const App = () => {
   };
   return (
     <>
-      <h1>To-do</h1>
+      <Title />
       <NewCard
         content={content}
         handleContentChange={handleContentChange}
         handleContentSubmit={handleContentSubmit}
       />
-      <List list={list} handleContentDone={handleContentDone} />
+      {list.length === 0 && <EmptyListCard />}
+      {list.length !== 0 && <List list={list} handleContentDone={handleContentDone} />}
     </>
   );
 };
