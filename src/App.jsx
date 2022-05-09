@@ -8,7 +8,8 @@ const App = () => {
   const [content, setContent] = useState('');
   const [list, setList] = useState([]);
   const handleContentChange = (event) => {
-    setContent(event.target.value);
+    const { value } = event.target;
+    setContent(value);
   };
   const handleContentSubmit = () => {
     if (content.length > 0) {
@@ -18,9 +19,8 @@ const App = () => {
   };
   const handleContentDone = (event) => {
     const { value } = event.target;
-    const index = Number(value);
-    const newList = list.filter((item, i) => i !== index);
-    setList(newList);
+    const listIndex = Number(value);
+    setList((previousList) => previousList.filter((item, i) => i !== listIndex));
   };
   return (
     <>
