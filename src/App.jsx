@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TodoInput from './componenet/TodoInput';
+import TodoList from './componenet/TodoList';
 import TodoTitle from './componenet/TodoTitle';
 
 function App() {
@@ -25,22 +26,30 @@ function App() {
       todos: [...todos, {
         id: todoId,
         text: todoInput,
+        done: false,
       }],
       todoId: todoId + 1,
     });
   }
 
-  console.log(Object);
+  function handleClickDone(id) {
+    setState({
+      ...state,
+      todos: todos.filter((todo) => todo.id !== id),
+    });
+  }
+
   return (
-  // onSubmit={}
-  // value={}
-  // onChange={}
     <div>
       <TodoTitle>To-do</TodoTitle>
       <TodoInput
         todoInput={todoInput}
         onSubmit={handleSubmit}
         onChange={handleChangeInput}
+      />
+      <TodoList
+        todos={todos}
+        onClick={handleClickDone}
       />
     </div>
   );
