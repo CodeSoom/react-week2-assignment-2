@@ -1,17 +1,18 @@
 import React from 'react';
 
+import useStore from './useStore';
+
 import EmptyPlaceHolder from './EmptyPlaceHolder';
 import TodoActionContainer from './TodoActionContainer';
 import NewTodoForm from './NewTodoForm';
 import Title from './Title';
-import useStore from './useStore';
 
 const App = () => {
   const {
     addTodoAction,
     removeTodoAction,
     currentTodo,
-    isEmptyCurrentTodo,
+    isExistCurrentTodo,
     isEmptyTodoActions,
     isExistTodoActions,
     setCurrentTodo,
@@ -24,7 +25,7 @@ const App = () => {
   };
 
   const onCurrentTodoSubmit = () => {
-    if (isEmptyCurrentTodo) {
+    if (isExistCurrentTodo) {
       addTodoAction([...todoActions, currentTodo]);
     }
   };

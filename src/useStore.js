@@ -13,7 +13,7 @@ const useStore = () => {
     setTodoActions(todoActions.filter((todoAction, index) => index !== id));
   };
 
-  const isEmptyCurrentTodo = () => currentTodo === '';
+  const isExistCurrentTodo = () => currentTodo !== '';
 
   const isEmptyTodoActions = () => todoActions.length === 0;
 
@@ -26,7 +26,7 @@ const useStore = () => {
     setTodoActions,
     addTodoAction,
     removeTodoAction,
-    isEmptyCurrentTodo,
+    isExistCurrentTodo,
     isEmptyTodoActions,
     isExistTodoActions,
   };
