@@ -1,19 +1,21 @@
 import React from 'react';
 
-export default function TodoList({ todoList, onClick }) {
-  if (todoList.length === 0) {
+export default function TodoList({ todos, onClick }) {
+  const isEmpty = (arr) => arr.length === 0;
+
+  if (isEmpty(todos)) {
     return <p>할 일이 없어요!</p>;
   }
 
   return (
     <>
       <br />
-      {todoList.map((item, index) => (
-        <div key={item.id}>
+      {todos.map(({ id, todo }, index) => (
+        <div key={id}>
           {index + 1}
           :
-          {item.data}
-          <button type="button" onClick={() => onClick({ id: item.id })}>
+          {todo}
+          <button type="button" onClick={() => onClick({ id })}>
             완료
           </button>
           <br />

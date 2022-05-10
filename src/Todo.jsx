@@ -5,12 +5,14 @@ import TodoList from './TodoList';
 
 export default function Todo() {
   const [todo, setTodo] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   function createId() {
-    if (todoList.length === 0) return 1;
+    if (todos.length === 0) {
+      return 1;
+    }
 
-    return todoList[todoList.length - 1].id + 1;
+    return todos[todos.length - 1].id + 1;
   }
 
   const handleAddTodoChange = (e) => {
@@ -19,12 +21,12 @@ export default function Todo() {
 
   const handleAddTodoClick = (e) => {
     e.preventDefault();
-    setTodoList([...todoList, { id: createId(), data: todo }]);
+    setTodos([...todos, { id: createId(), todo }]);
     setTodo('');
   };
 
   const handleTodoListClick = ({ id }) => {
-    setTodoList(todoList.filter((i) => i.id !== id));
+    setTodos(todos.filter((i) => i.id !== id));
   };
 
   return (
@@ -35,7 +37,7 @@ export default function Todo() {
         onChange={handleAddTodoChange}
         onClick={handleAddTodoClick}
       />
-      <TodoList todoList={todoList} onClick={handleTodoListClick} />
+      <TodoList todos={todos} onClick={handleTodoListClick} />
     </>
   );
 }
