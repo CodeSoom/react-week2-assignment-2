@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
 import TodoForm from './TodoForm';
+import TodoList from './TodoList';
 
 const App = () => {
   const [inputValue, setInputValue] = useState('');
-  const [todoList, setTodoList] = useState('할 일이 없어요!');
+  const [todoItem, setTodoItem] = useState('할 일이 없어요!');
 
   const handleInputChange = (e) => (
     setInputValue(e.currentTarget.value)
@@ -13,7 +14,7 @@ const App = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setInputValue('');
-    console.log(inputValue);
+    setTodoItem(inputValue);
   };
 
   return (
@@ -24,7 +25,9 @@ const App = () => {
         onChange={handleInputChange}
         onSubmit={handleFormSubmit}
       />
-      <p>{todoList}</p>
+      <TodoList
+        todoItem={todoItem}
+      />
     </>
   );
 };
