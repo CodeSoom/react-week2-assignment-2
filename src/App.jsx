@@ -7,16 +7,19 @@ import Title from './Title';
 const App = () => {
   const [content, setContent] = useState('');
   const [list, setList] = useState([]);
+
   const handleContentChange = (event) => {
     const { value } = event.target;
     setContent(value);
   };
+
   const handleContentSubmit = () => {
     if (content.length > 0) {
       setList([...list, content]);
       setContent('');
     }
   };
+
   const handleContentDone = (event) => {
     const { value } = event.target;
     const listIndex = Number(value);
