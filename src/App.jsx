@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import EmptyPlaceHolder from './EmptyPlaceHolder';
 import TodoActionContainer from './TodoActionContainer';
 import NewTodoForm from './NewTodoForm';
 import Title from './Title';
+import useStore from './useStore';
 
 const App = () => {
-  const [currentTodoAction, setCurrentTodoAction] = useState('');
-  const [todoActions, setTodoActions] = useState([]);
+  const {
+    addTodoAction,
+    removeTodoAction,
+    currentTodoAction,
+    isEmptyCurrentTodoAction,
+    isEmptyTodoActions,
+    isExistTodoActions,
+    setCurrentTodoAction,
+    todoActions,
+  } = useStore();
 
   const onCurrentTodoActionChange = (event) => {
     const { value } = event.target;
@@ -15,16 +24,15 @@ const App = () => {
   };
 
   const onCurrentTodoActionSubmit = () => {
-    if (currentTodoAction.length > 0) {
-      setTodoActions([...todoActions, currentTodoAction]);
-      setCurrentTodoAction('');
+    if (isEmptyCurrentTodoAction) {
+      addTodoAction([...todoActions, currentTodoAction]);
     }
   };
 
   const onTodoActionToDone = (event) => {
     const { value } = event.target;
     const listIndex = Number(value);
-    setTodoActions((previousList) => previousList.filter((item, i) => i !== listIndex));
+    removeTodoAction(listIndex);
   };
   return (
     <>
@@ -34,8 +42,8 @@ const App = () => {
         handleCurrentTodoActionChange={onCurrentTodoActionChange}
         handleCurrentTodoActionSubmit={onCurrentTodoActionSubmit}
       />
-      {todoActions.length === 0 && <EmptyPlaceHolder />}
-      {todoActions.length !== 0
+      {isEmptyTodoActions && <EmptyPlaceHolder />}
+      {isExistTodoActions
       && (
         <TodoActionContainer
           todoActions={todoActions}
