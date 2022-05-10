@@ -1,37 +1,47 @@
 import React, { useState } from 'react';
-import EmptyListCard from './EmptyListCard';
-import List from './List';
-import NewCard from './NewCard';
+
+import EmptyPlaceHolder from './EmptyPlaceHolder';
+import TodoActionContainer from './TodoActionContainer';
+import NewTodoForm from './NewTodoForm';
 import Title from './Title';
 
 const App = () => {
-  const [content, setContent] = useState('');
-  const [list, setList] = useState([]);
-  const handleContentChange = (event) => {
+  const [currentTodoAction, setCurrentTodoAction] = useState('');
+  const [todoActions, setTodoActions] = useState([]);
+
+  const onCurrentTodoActionChange = (event) => {
     const { value } = event.target;
-    setContent(value);
+    setCurrentTodoAction(value);
   };
-  const handleContentSubmit = () => {
-    if (content.length > 0) {
-      setList([...list, content]);
-      setContent('');
+
+  const onCurrentTodoActionSubmit = () => {
+    if (currentTodoAction.length > 0) {
+      setTodoActions([...todoActions, currentTodoAction]);
+      setCurrentTodoAction('');
     }
   };
-  const handleContentDone = (event) => {
+
+  const onTodoActionToDone = (event) => {
     const { value } = event.target;
     const listIndex = Number(value);
-    setList((previousList) => previousList.filter((item, i) => i !== listIndex));
+    setTodoActions((previousList) => previousList.filter((item, i) => i !== listIndex));
   };
   return (
     <>
       <Title />
-      <NewCard
-        content={content}
-        handleContentChange={handleContentChange}
-        handleContentSubmit={handleContentSubmit}
+      <NewTodoForm
+        currentTodoAction={currentTodoAction}
+        handleCurrentTodoActionChange={onCurrentTodoActionChange}
+        handleCurrentTodoActionSubmit={onCurrentTodoActionSubmit}
       />
-      {list.length === 0 && <EmptyListCard />}
-      {list.length !== 0 && <List list={list} handleContentDone={handleContentDone} />}
+      {todoActions.length === 0 && <EmptyPlaceHolder />}
+      {todoActions.length !== 0
+      && (
+        <TodoActionContainer
+          todoActions={todoActions}
+          onTodoActionToDone={onTodoActionToDone}
+        />
+      )}
     </>
   );
 };
