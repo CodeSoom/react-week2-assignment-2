@@ -10,22 +10,22 @@ const App = () => {
   const {
     addTodoAction,
     removeTodoAction,
-    currentTodoAction,
-    isEmptyCurrentTodoAction,
+    currentTodo,
+    isEmptyCurrentTodo,
     isEmptyTodoActions,
     isExistTodoActions,
-    setCurrentTodoAction,
+    setCurrentTodo,
     todoActions,
   } = useStore();
 
-  const onCurrentTodoActionChange = (event) => {
+  const onCurrentTodoChange = (event) => {
     const { value } = event.target;
-    setCurrentTodoAction(value);
+    setCurrentTodo(value);
   };
 
-  const onCurrentTodoActionSubmit = () => {
-    if (isEmptyCurrentTodoAction) {
-      addTodoAction([...todoActions, currentTodoAction]);
+  const onCurrentTodoSubmit = () => {
+    if (isEmptyCurrentTodo) {
+      addTodoAction([...todoActions, currentTodo]);
     }
   };
 
@@ -38,9 +38,9 @@ const App = () => {
     <>
       <Title />
       <NewTodoForm
-        currentTodoAction={currentTodoAction}
-        handleCurrentTodoActionChange={onCurrentTodoActionChange}
-        handleCurrentTodoActionSubmit={onCurrentTodoActionSubmit}
+        currentTodo={currentTodo}
+        handleCurrentTodoChange={onCurrentTodoChange}
+        handleCurrentTodoSubmit={onCurrentTodoSubmit}
       />
       {isEmptyTodoActions && <EmptyPlaceHolder />}
       {isExistTodoActions

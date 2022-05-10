@@ -1,13 +1,13 @@
 import React from 'react';
 
 const NewTodoForm = ({
-  currentTodoAction,
-  handleCurrentTodoActionChange,
-  handleCurrentTodoActionSubmit,
+  currentTodo,
+  handleCurrentTodoChange,
+  handleCurrentTodoSubmit,
 }) => (
   <>
-    <input placeholder="할 일을 입력해 주세요" onChange={handleCurrentTodoActionChange} value={currentTodoAction} />
-    <button type="button" onClick={handleCurrentTodoActionSubmit}>추가</button>
+    <input placeholder="할 일을 입력해 주세요" onChange={handleCurrentTodoChange} value={currentTodo} />
+    <button type="button" onClick={handleCurrentTodoSubmit}>추가</button>
   </>
 );
 
