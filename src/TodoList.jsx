@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoList({ todo, order, onClick }) {
+export default function TodoList({ todo, order, onClick }) {
   return (
     <div>
       <span>{`${order}. ${todo.text}`}</span>
@@ -10,5 +10,3 @@ function TodoList({ todo, order, onClick }) {
     </div>
   );
 }
-
-export default TodoList;

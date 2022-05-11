@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoInput({ todoInput, onChange, onSubmit }) {
+export default function TodoInput({ todoInput, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
       <input onChange={onChange} value={todoInput.text} />
@@ -8,5 +8,3 @@ function TodoInput({ todoInput, onChange, onSubmit }) {
     </form>
   );
 }
-
-export default TodoInput;

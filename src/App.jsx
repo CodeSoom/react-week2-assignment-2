@@ -5,7 +5,7 @@ import TodoLists from './TodoLists';
 
 import uuidv4 from '../utils/uuidv4';
 
-function App() {
+export default function App() {
   const [todoInput, setTodoInput] = useState({
     id: '',
     text: '',
@@ -54,5 +54,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
