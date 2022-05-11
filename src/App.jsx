@@ -6,16 +6,16 @@ import TodoLists from './TodoLists';
 import uuidv4 from '../utils/uuidv4';
 
 function App() {
-  const [inputText, setInputText] = useState({
+  const [todoInput, setTodoInput] = useState({
     id: '',
     text: '',
   });
   const [todos, setTodos] = useState([]);
 
-  function handleChangeInputText(e) {
+  function handleChangeTodoInput(e) {
     const { value } = e.target;
 
-    setInputText({
+    setTodoInput({
       id: uuidv4(),
       text: value,
     });
@@ -24,8 +24,8 @@ function App() {
   function handleAddTodoList(e) {
     e.preventDefault();
 
-    setTodos([...todos, inputText]);
-    setInputText({
+    setTodos([...todos, todoInput]);
+    setTodoInput({
       id: '',
       text: '',
     });
@@ -40,9 +40,9 @@ function App() {
     <div>
       <p>To-do</p>
       <TodoInput
-        onChange={handleChangeInputText}
+        onChange={handleChangeTodoInput}
         onSubmit={handleAddTodoList}
-        inputText={inputText}
+        todoInput={todoInput}
       />
       <div style={{ marginTop: '20px' }}>
         {todos.length ? (

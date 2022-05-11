@@ -1,9 +1,9 @@
 import React from 'react';
 
-function TodoInput({ inputText, onChange, onSubmit }) {
+function TodoInput({ todoInput, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
-      <input onChange={onChange} value={inputText.text} />
+      <input onChange={onChange} value={todoInput.text} />
       <button type="button">추가</button>
     </form>
   );
