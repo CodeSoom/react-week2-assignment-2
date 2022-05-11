@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import TodoInput from './TodoInput';
 import TodoLists from './TodoLists';
+import EmptyTodo from './EmptyTodo';
 
 import uuidv4 from '../utils/uuidv4';
 
@@ -48,7 +49,7 @@ export default function App() {
         {todos.length ? (
           <TodoLists todos={todos} onClick={handleCompleteTodoList} />
         ) : (
-          <div>할일이 없어요!</div>
+          <EmptyTodo />
         )}
       </div>
     </div>
