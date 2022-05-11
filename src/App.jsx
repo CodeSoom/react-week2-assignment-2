@@ -5,13 +5,11 @@ import TodoLists from './TodoLists';
 
 import uuidv4 from '../utils/uuidv4';
 
-const initialState = {
-  id: '',
-  text: '',
-};
-
 function App() {
-  const [inputText, setInputText] = useState(initialState);
+  const [inputText, setInputText] = useState({
+    id: '',
+    text: '',
+  });
   const [todos, setTodos] = useState([]);
 
   function handleChangeInputText(e) {
@@ -27,7 +25,10 @@ function App() {
     e.preventDefault();
 
     setTodos([...todos, inputText]);
-    setInputText(initialState);
+    setInputText({
+      id: '',
+      text: '',
+    });
   }
 
   function handleCompleteTodoList(todoListId) {
