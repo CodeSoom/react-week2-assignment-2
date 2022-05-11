@@ -12,9 +12,6 @@ export default function App() {
     addTodoAction,
     removeTodoAction,
     currentTodo,
-    isExistCurrentTodo,
-    isEmptyTodoActions,
-    isExistTodoActions,
     setCurrentTodo,
     todoActions,
   } = useStore();
@@ -25,8 +22,8 @@ export default function App() {
   };
 
   const onCurrentTodoSubmit = () => {
-    if (isExistCurrentTodo) {
-      addTodoAction([...todoActions, currentTodo]);
+    if (currentTodo !== '') {
+      addTodoAction(currentTodo);
     }
   };
 
@@ -43,8 +40,8 @@ export default function App() {
         handleCurrentTodoChange={onCurrentTodoChange}
         handleCurrentTodoSubmit={onCurrentTodoSubmit}
       />
-      { isEmptyTodoActions && <EmptyPlaceHolder /> }
-      { isExistTodoActions
+      { todoActions.length === 0 && <EmptyPlaceHolder /> }
+      { todoActions.length !== 0
         && (
           <TodoActionContainer
             todoActions={todoActions}
