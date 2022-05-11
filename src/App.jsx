@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import TodoInput from './TodoInput';
 import TodoLists from './TodoLists';
 
+import uuidv4 from '../utils/uuidv4';
+
 const initialState = {
   id: '',
   text: '',
@@ -16,13 +18,14 @@ function App() {
     const { value } = e.target;
 
     setInputText({
-      id: new Date().getMilliseconds(),
+      id: uuidv4(),
       text: value,
     });
   }
 
   function handleAddTodoList(e) {
     e.preventDefault();
+
     setTodos([...todos, inputText]);
     setInputText(initialState);
   }
