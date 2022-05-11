@@ -2,14 +2,14 @@ import React from 'react';
 
 import TodoList from './TodoList';
 
-function TodoLists({ todoLists, onClick }) {
+function TodoLists({ todos, onClick }) {
   return (
     <div>
       {
-        todoLists.map((todoList, index) => (
+        todos.map((todo, index) => (
           <TodoList
-            key={todoList.id}
-            todoList={todoList}
+            key={todo.id}
+            todo={todo}
             order={index + 1}
             onClick={onClick}
           />

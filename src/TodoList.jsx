@@ -1,10 +1,12 @@
 import React from 'react';
 
-function TodoList({ todoList, order, onClick }) {
+function TodoList({ todo, order, onClick }) {
   return (
     <div>
-      <span>{`${order}. ${todoList.text}`}</span>
-      <button type="button" onClick={() => onClick(todoList.id)}>완료</button>
+      <span>{`${order}. ${todo.text}`}</span>
+      <button type="button" onClick={() => onClick(todo.id)}>
+        완료
+      </button>
     </div>
   );
 }

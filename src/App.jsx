@@ -10,7 +10,7 @@ const initialState = {
 
 function App() {
   const [inputText, setInputText] = useState(initialState);
-  const [todoLists, setTodoLists] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   function handleChangeInputText(e) {
     const { value } = e.target;
@@ -23,13 +23,13 @@ function App() {
 
   function handleAddTodoList(e) {
     e.preventDefault();
-    setTodoLists([...todoLists, inputText]);
+    setTodos([...todos, inputText]);
     setInputText(initialState);
   }
 
   function handleCompleteTodoList(todoListId) {
-    const filteredTodoLists = todoLists.filter((todoList) => todoList.id !== todoListId);
-    setTodoLists(filteredTodoLists);
+    const filteredTodos = todos.filter((todo) => todo.id !== todoListId);
+    setTodos(filteredTodos);
   }
 
   return (
@@ -41,11 +41,11 @@ function App() {
         inputText={inputText}
       />
       <div style={{ marginTop: '20px' }}>
-        {
-          todoLists.length
-            ? <TodoLists todoLists={todoLists} onClick={handleCompleteTodoList} />
-            : <div>할일이 없어요!</div>
-        }
+        {todos.length ? (
+          <TodoLists todos={todos} onClick={handleCompleteTodoList} />
+        ) : (
+          <div>할일이 없어요!</div>
+        )}
       </div>
     </div>
   );
