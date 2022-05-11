@@ -10,7 +10,7 @@ export default function TodoActionContainer({
       key={`${todoAction}.${String(index)}`}
       index={index}
       todoAction={todoAction}
-      handleTodoActionToDone={onTodoActionToDone}
+      onTodoActionToDone={onTodoActionToDone}
     />
   ));
 }
