@@ -19,10 +19,15 @@ export default function Todo() {
     setTodo(e.target.value);
   };
 
-  const handleAddTodoClick = (e) => {
-    e.preventDefault();
+  const handleAddTodoClick = () => {
     setTodos([...todos, { id: createId(), todo }]);
     setTodo('');
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleAddTodoClick();
+    }
   };
 
   const handleTodoListClick = ({ id }) => {
@@ -35,6 +40,7 @@ export default function Todo() {
       <AddTodo
         value={todo}
         onChange={handleAddTodoChange}
+        onKeyPress={handleKeyPress}
         onClick={handleAddTodoClick}
       />
       <TodoList todos={todos} onClick={handleTodoListClick} />

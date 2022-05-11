@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function TodoList({ todos, onClick }) {
-  const isEmpty = (arr) => arr.length === 0;
+import isEmpty from './utils';
 
+export default function TodoList({ todos, onClick }) {
   if (isEmpty(todos)) {
     return <p>할 일이 없어요!</p>;
   }
