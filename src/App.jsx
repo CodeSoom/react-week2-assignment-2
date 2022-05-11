@@ -16,8 +16,7 @@ export default function App() {
     todoActions,
   } = useStore();
 
-  const onCurrentTodoChange = (event) => {
-    const { value } = event.target;
+  const onCurrentTodoChange = (value) => {
     setCurrentTodo(value);
   };
 
@@ -27,18 +26,17 @@ export default function App() {
     }
   };
 
-  const onTodoActionToDone = (event) => {
-    const { value } = event.target;
-    const listIndex = Number(value);
-    removeTodoAction(listIndex);
+  const onTodoActionToDone = (index) => {
+    removeTodoAction(index);
   };
+
   return (
     <>
       <Title />
       <NewTodoForm
         currentTodo={currentTodo}
-        handleCurrentTodoChange={onCurrentTodoChange}
-        handleCurrentTodoSubmit={onCurrentTodoSubmit}
+        onCurrentTodoChange={onCurrentTodoChange}
+        onCurrentTodoSubmit={onCurrentTodoSubmit}
       />
       { todoActions.length === 0 && <EmptyPlaceHolder /> }
       { todoActions.length !== 0
