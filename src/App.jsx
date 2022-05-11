@@ -7,7 +7,7 @@ import TodoActionContainer from './TodoActionContainer';
 import NewTodoForm from './NewTodoForm';
 import Title from './Title';
 
-const App = () => {
+export default function App() {
   const {
     addTodoAction,
     removeTodoAction,
@@ -43,16 +43,14 @@ const App = () => {
         handleCurrentTodoChange={onCurrentTodoChange}
         handleCurrentTodoSubmit={onCurrentTodoSubmit}
       />
-      {isEmptyTodoActions && <EmptyPlaceHolder />}
-      {isExistTodoActions
-      && (
-        <TodoActionContainer
-          todoActions={todoActions}
-          onTodoActionToDone={onTodoActionToDone}
-        />
-      )}
+      { isEmptyTodoActions && <EmptyPlaceHolder /> }
+      { isExistTodoActions
+        && (
+          <TodoActionContainer
+            todoActions={todoActions}
+            onTodoActionToDone={onTodoActionToDone}
+          />
+        ) }
     </>
   );
-};
-
-export default App;
+}
