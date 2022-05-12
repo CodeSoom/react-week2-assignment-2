@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
+
+import TodoTitle from './componenet/TodoTitle';
 import TodoInput from './componenet/TodoInput';
 import TodoList from './componenet/TodoList';
-import TodoTitle from './componenet/TodoTitle';
 
-function App() {
+export default function App() {
   const [state, setState] = useState({
-    todoInput: '',
+    title: '',
     todos: [],
     todoId: 0,
   });
 
-  const { todoInput, todos, todoId } = state;
+  const isEmpty = (arr) => arr.length === 0;
+
+  const { title, todos, todoId } = state;
 
   function handleChangeInput(e) {
     setState({
       ...state,
-      todoInput: e.target.value,
+      title: e.target.value,
     });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     setState({
-      todoInput: '',
+      title: '',
       todos: [...todos, {
         id: todoId,
-        text: todoInput,
+        text: title,
         done: false,
       }],
       todoId: todoId + 1,
@@ -43,16 +46,15 @@ function App() {
     <div>
       <TodoTitle>To-do</TodoTitle>
       <TodoInput
-        todoInput={todoInput}
+        title={title}
         onSubmit={handleSubmit}
         onChange={handleChangeInput}
       />
       <TodoList
+        isEmpty={isEmpty}
         todos={todos}
         onClick={handleClickDone}
       />
     </div>
   );
 }
-
-export default App;
