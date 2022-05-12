@@ -1,11 +1,7 @@
 import React from 'react';
 
 import useStore from './useStore';
-
-import EmptyPlaceHolder from './EmptyPlaceHolder';
-import TodoContainer from './TodoContainer';
-import NewTodoForm from './NewTodoForm';
-import Title from './Title';
+import AppView from './AppView';
 
 export default function App() {
   const {
@@ -16,11 +12,11 @@ export default function App() {
     todoItems,
   } = useStore();
 
-  const handleChangeTodo = (value) => {
+  const onChangeTodo = (value) => {
     setCurrentTodo(value);
   };
 
-  const handleSubmit = () => {
+  const onSubmit = () => {
     if (currentTodo !== '') {
       addTodoItem(currentTodo);
     }
@@ -31,21 +27,12 @@ export default function App() {
   };
 
   return (
-    <>
-      <Title />
-      <NewTodoForm
-        currentTodo={currentTodo}
-        onChangeTodo={handleChangeTodo}
-        onSubmit={handleSubmit}
-      />
-      { todoItems.length === 0 && <EmptyPlaceHolder /> }
-      { todoItems.length !== 0
-        && (
-          <TodoContainer
-            todoItems={todoItems}
-            onTodoDone={onTodoDone}
-          />
-        ) }
-    </>
+    <AppView
+      currentTodo={currentTodo}
+      onChangeTodo={onChangeTodo}
+      onSubmit={onSubmit}
+      todoItems={todoItems}
+      onTodoDone={onTodoDone}
+    />
   );
 }
