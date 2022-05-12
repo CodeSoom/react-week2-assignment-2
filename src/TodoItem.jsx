@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function TodoAction({ todoAction, index, onTodoDone }) {
+export default function TodoItem({ todoItem, index, onTodoDone }) {
   return (
     <div>
-      { todoAction }
+      { todoItem }
       <button type="button" onClick={() => onTodoDone(index)}>완료</button>
     </div>
   );

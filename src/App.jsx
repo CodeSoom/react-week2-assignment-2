@@ -3,17 +3,17 @@ import React from 'react';
 import useStore from './useStore';
 
 import EmptyPlaceHolder from './EmptyPlaceHolder';
-import TodoActionContainer from './TodoActionContainer';
+import TodoContainer from './TodoContainer';
 import NewTodoForm from './NewTodoForm';
 import Title from './Title';
 
 export default function App() {
   const {
-    addTodoAction,
-    removeTodoAction,
+    addTodoItem,
+    removeTodoItem,
     currentTodo,
     setCurrentTodo,
-    todoActions,
+    todoItems,
   } = useStore();
 
   const handleChangeTodo = (value) => {
@@ -22,12 +22,12 @@ export default function App() {
 
   const handleSubmit = () => {
     if (currentTodo !== '') {
-      addTodoAction(currentTodo);
+      addTodoItem(currentTodo);
     }
   };
 
   const onTodoDone = (index) => {
-    removeTodoAction(index);
+    removeTodoItem(index);
   };
 
   return (
@@ -38,11 +38,11 @@ export default function App() {
         onChangeTodo={handleChangeTodo}
         onSubmit={handleSubmit}
       />
-      { todoActions.length === 0 && <EmptyPlaceHolder /> }
-      { todoActions.length !== 0
+      { todoItems.length === 0 && <EmptyPlaceHolder /> }
+      { todoItems.length !== 0
         && (
-          <TodoActionContainer
-            todoActions={todoActions}
+          <TodoContainer
+            todoItems={todoItems}
             onTodoDone={onTodoDone}
           />
         ) }

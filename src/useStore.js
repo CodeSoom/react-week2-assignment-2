@@ -2,24 +2,24 @@ import { useState } from 'react';
 
 const useStore = () => {
   const [currentTodo, setCurrentTodo] = useState('');
-  const [todoActions, setTodoActions] = useState([]);
+  const [todoItems, setTodoItems] = useState([]);
 
-  const addTodoAction = (todoAction) => {
-    setTodoActions([...todoActions, todoAction]);
+  const addTodoItem = (todoItem) => {
+    setTodoItems([...todoItems, todoItem]);
     setCurrentTodo('');
   };
 
-  const removeTodoAction = (id) => {
-    setTodoActions(todoActions.filter((todoAction, index) => index !== id));
+  const removeTodoItem = (id) => {
+    setTodoItems(todoItems.filter((todoItem, index) => index !== id));
   };
 
   return {
     currentTodo,
     setCurrentTodo,
-    todoActions,
-    setTodoActions,
-    addTodoAction,
-    removeTodoAction,
+    todoItems,
+    setTodoItems,
+    addTodoItem,
+    removeTodoItem,
   };
 };
 
