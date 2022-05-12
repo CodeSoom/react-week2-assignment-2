@@ -1,3 +1,3 @@
-export default function isEmpty(arr) {
-  return arr.length === 0;
-}
+const isEmpty = (arr) => arr.length === 0;
+
+export default isEmpty;
