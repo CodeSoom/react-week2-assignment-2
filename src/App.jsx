@@ -14,7 +14,7 @@ export default function App() {
 
   function handleAddClick() {
     setState({
-      todos: todos.concat([{ id: uuid(), content: todo }]),
+      todos: [...todos, { id: uuid(), content: todo }],
       todo: '',
     });
   }
@@ -36,7 +36,7 @@ export default function App() {
   return (
     <>
       <h3>To-do</h3>
-      <InputTodo onClick={handleAddClick} onChange={handleInputChange} todo={todo} />
+      <InputTodo onSubmit={handleAddClick} onChange={handleInputChange} todo={todo} />
       <TodoList todos={todos} onClick={handleFinishClick} />
     </>
   );

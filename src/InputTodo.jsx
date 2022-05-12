@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function InputTodo({ onClick, onChange, todo }) {
+export default function InputTodo({ onSubmit, onChange, todo }) {
   function handleSubmit(e) {
     e.preventDefault();
-    onClick();
+    onSubmit();
   }
 
   return (
