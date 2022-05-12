@@ -3,14 +3,14 @@ import React from 'react';
 import TodoAction from './TodoAction';
 
 export default function TodoActionContainer({
-  todoActions, onTodoActionToDone,
+  todoActions, onTodoDone,
 }) {
   return todoActions.map((todoAction, index) => (
     <TodoAction
       key={`${todoAction}.${String(index)}`}
       index={index}
       todoAction={todoAction}
-      onTodoActionToDone={onTodoActionToDone}
+      onTodoDone={onTodoDone}
     />
   ));
 }

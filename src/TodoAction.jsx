@@ -1,16 +1,10 @@
 import React from 'react';
 
-export default function TodoAction({ todoAction, index, onTodoActionToDone }) {
-  const handleTodoActionToDone = (event) => {
-    const { value } = event.target;
-    const listIndex = Number(value);
-    onTodoActionToDone(listIndex);
-  };
-
+export default function TodoAction({ todoAction, index, onTodoDone }) {
   return (
     <div>
       { todoAction }
-      <button type="button" onClick={handleTodoActionToDone} value={index}>완료</button>
+      <button type="button" onClick={() => onTodoDone(index)}>완료</button>
     </div>
   );
 }

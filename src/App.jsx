@@ -16,17 +16,17 @@ export default function App() {
     todoActions,
   } = useStore();
 
-  const onCurrentTodoChange = (value) => {
+  const handleChangeTodo = (value) => {
     setCurrentTodo(value);
   };
 
-  const onCurrentTodoSubmit = () => {
+  const handleSubmit = () => {
     if (currentTodo !== '') {
       addTodoAction(currentTodo);
     }
   };
 
-  const onTodoActionToDone = (index) => {
+  const onTodoDone = (index) => {
     removeTodoAction(index);
   };
 
@@ -35,15 +35,15 @@ export default function App() {
       <Title />
       <NewTodoForm
         currentTodo={currentTodo}
-        onCurrentTodoChange={onCurrentTodoChange}
-        onCurrentTodoSubmit={onCurrentTodoSubmit}
+        onChangeTodo={handleChangeTodo}
+        onSubmit={handleSubmit}
       />
       { todoActions.length === 0 && <EmptyPlaceHolder /> }
       { todoActions.length !== 0
         && (
           <TodoActionContainer
             todoActions={todoActions}
-            onTodoActionToDone={onTodoActionToDone}
+            onTodoDone={onTodoDone}
           />
         ) }
     </>
