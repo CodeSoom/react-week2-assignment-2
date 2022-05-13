@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TodoTitle from './componenet/TodoTitle';
 import TodoInput from './componenet/TodoInput';
 import TodoList from './componenet/TodoList';
+import isEmpty from './utils/Empty';
 
 export default function App() {
   const [state, setState] = useState({
@@ -11,7 +12,7 @@ export default function App() {
     todoId: 0,
   });
 
-  const isEmpty = (arr) => arr.length === 0;
+  // const isEmpty = (arr) => arr.length === 0;
 
   const { title, todos, todoId } = state;
 
@@ -24,6 +25,7 @@ export default function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     setState({
       title: '',
       todos: [...todos, {

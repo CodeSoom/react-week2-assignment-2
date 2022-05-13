@@ -12,15 +12,14 @@ export default function TodoList({ isEmpty, todos, onClick }) {
   return (
     <div>
       {
-        todos.filter(({ done }) => !done)
-          .map(({ id, text }) => (
-            <TodoItem
-              key={id}
-              id={id}
-              text={text}
-              onClick={() => onClick(id)}
-            />
-          ))
+        todos.map(({ id, text }) => (
+          <TodoItem
+            key={id}
+            id={id}
+            text={text}
+            onClick={() => onClick(id)}
+          />
+        ))
       }
     </div>
   );
