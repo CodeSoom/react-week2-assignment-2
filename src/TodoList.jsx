@@ -1,5 +1,3 @@
-import React from 'react';
-
 import isEmpty from './utils';
 
 export default function TodoList({ todos, onClick }) {

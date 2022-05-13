@@ -1,11 +1,10 @@
-import React from 'react';
-
 export default function AddTodo({ value, onChange, onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
     onSubmit();
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <input
