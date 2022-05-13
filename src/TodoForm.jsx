@@ -1,22 +1,27 @@
-import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useState } from 'react';
 
 function TodoForm({ addTodo }) {
-  const initialInput = '';
-  const [input, setInput] = useState(initialInput);
+  const [input, setInput] = useState('');
   function handleChange(e) {
     setInput(e.target.value);
   }
 
   function handleReset() {
-    console.log('here!');
-    setInput(initialInput);
+    setInput('');
   }
 
   return (
     <>
-      <input placeholder="할 일을 입력해 주세요" onChange={handleChange} />
-      <button type="button" onClick={() => addTodo(input) && handleReset()}>추가</button>
+      <input placeholder="할 일을 입력해 주세요" onChange={handleChange} value={input} />
+      <button
+        type="button"
+        onClick={() => {
+          addTodo(input);
+          handleReset();
+        }}
+      >
+        추가
+      </button>
     </>
   );
 }
