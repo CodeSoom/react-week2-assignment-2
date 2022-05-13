@@ -1,8 +1,7 @@
 import React from 'react';
 
-import TodoItem from './TodoItem';
-import EmptyPlaceHolder from './EmptyPlaceHolder';
 import TodoForm from './TodoForm';
+import TodoItemsView from './TodoItemsView';
 
 export default function TodoContainer({
   todoItems, onTodoDone, currentTodo, onChangeTodo, onSubmit,
@@ -14,15 +13,10 @@ export default function TodoContainer({
         onChangeTodo={onChangeTodo}
         onSubmit={onSubmit}
       />
-      { todoItems.length === 0 && <EmptyPlaceHolder /> }
-      { todoItems.length !== 0 && todoItems.map((todoItem, index) => (
-        <TodoItem
-          key={`${todoItem}.${String(index)}`}
-          index={index}
-          todoItem={todoItem}
-          onTodoDone={onTodoDone}
-        />
-      ))}
+      <TodoItemsView
+        todoItems={todoItems}
+        onTodoDone={onTodoDone}
+      />
     </>
   );
 }
