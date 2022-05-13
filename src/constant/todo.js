@@ -1,4 +1,4 @@
-export const toDoConstant = {
+const toDoConstant = {
   label: 'To-Do',
   placeHolder: '할 일을 입력해 주세요.',
   noData: '할 일이 없어요!',
@@ -7,3 +7,5 @@ export const toDoConstant = {
 };
 
 Object.freeze(toDoConstant);
+
+export default toDoConstant;

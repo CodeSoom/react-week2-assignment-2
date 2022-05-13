@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { toDoConstant } from './constant/todo';
+
+import { ToDoForm } from './ToDoForm';
+import { ToDoItems } from './ToDoItems';
+import toDoConstant from './constant/todo';
 
 export function ToDoList() {
   const [toDo, setToDo] = useState('');
@@ -20,19 +23,8 @@ export function ToDoList() {
   return (
     <div>
       <h1>{toDoConstant.label}</h1>
-      <form>
-        <input
-          type="text"
-          placeholder={toDoConstant.placeHolder}
-          onChange={handleChange}
-        />
-        <input type="reset" onClick={addToDo} value={toDoConstant.add} />
-      </form>
-      <div>
-        {toDos.length === 0
-          ? toDoConstant.noData
-          : toDos.map((toDoItem) => <li>{toDoItem}</li>)}
-      </div>
+      <ToDoForm onChange={handleChange} onClick={addToDo} />
+      <ToDoItems toDos={toDos} />
     </div>
   );
 }
