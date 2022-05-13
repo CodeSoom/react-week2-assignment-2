@@ -1,17 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Page from './Page';
-
-function App() {
-  const [todoItems, setTodoItems] = useState([]);
-
-  function addItem(newItem) {
-    console.log('todoItems', todoItems);
-    console.log('newItem', newItem);
-    setTodoItems([...todoItems, newItem]);
-  }
-
-  return <Page items={todoItems} addItem={addItem}></Page>;
-}
+import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('app'));

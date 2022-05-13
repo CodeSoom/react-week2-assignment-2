@@ -1,21 +1,18 @@
 import React from 'react';
 
-function WriteInput({ onClick }) {
-  function handleClick() {
-    const newItem = document.getElementsByClassName('write-input').value;
-    onClick(newItem);
-  }
+function WriteInput({ handleClick, onSubmit }) {
+  // function onChange(e) {
+  //   const { value } = e.target;
+  // }
 
   return (
     <div>
-      <input
-        type="text"
-        className="write-input"
-        placeholder="할일을 입력해주세요"
-      />
-      <button type="button" onClick={handleClick}>
-        추가
-      </button>
+      <form action="" onSubmit={onSubmit}>
+        <input type="text" name="todo" placeholder="할일을 입력해주세요" />
+        <button type="submit" onClick={handleClick}>
+          추가
+        </button>
+      </form>
     </div>
   );
 }
