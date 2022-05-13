@@ -1,8 +1,7 @@
-import React from 'react';
-
 export default function InputTodo({ onSubmit, onChange, todo }) {
   function handleSubmit(e) {
     e.preventDefault();
+
     onSubmit();
   }
 

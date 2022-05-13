@@ -1,5 +1,3 @@
-import React from 'react';
-
 import TodoItem from './TodoItem';
 
 const isEmpty = (arr = []) => arr.length === 0;
