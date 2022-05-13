@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
-const App = () => {
+export default function App() {
   const [todo, setTodo] = useState('');
   const [todoItems, setTodoItems] = useState([]);
 
@@ -20,8 +20,17 @@ const App = () => {
     setTodo('');
     setTodoItems([
       ...todoItems,
-      todo,
+      {
+        id: todoItems.length,
+        value: todo,
+      },
     ]);
+  };
+
+  const handleClickRemoveButton = (id) => {
+    setTodoItems(
+      todoItems.filter((item) => item.id !== id),
+    );
   };
 
   return (
@@ -34,9 +43,8 @@ const App = () => {
       />
       <TodoList
         todoItems={todoItems}
+        onClick={handleClickRemoveButton}
       />
     </>
   );
-};
-
-export default App;
+}
