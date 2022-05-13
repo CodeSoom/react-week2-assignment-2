@@ -12,7 +12,7 @@ export default function App() {
 
   const { todos, todo } = state;
 
-  function handleAddClick() {
+  function handleSubmit() {
     setState({
       todos: [...todos, { id: uuid(), content: todo }],
       todo: '',
@@ -36,7 +36,11 @@ export default function App() {
   return (
     <>
       <h3>To-do</h3>
-      <InputTodo onSubmit={handleAddClick} onChange={handleInputChange} todo={todo} />
+      <InputTodo
+        onSubmit={handleSubmit}
+        onChange={handleInputChange}
+        todo={todo}
+      />
       <TodoList todos={todos} onClick={handleFinishClick} />
     </>
   );
