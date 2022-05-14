@@ -45,11 +45,7 @@ export default function App() {
         todoInput={todoInput}
       />
       <div style={{ marginTop: '20px' }}>
-        {todos.length ? (
-          <TodoLists todos={todos} onClick={handleCompleteTodoList} />
-        ) : (
-          <EmptyTodo />
-        )}
+        <TodoLists todos={todos} onClick={handleCompleteTodoList} />
       </div>
     </div>
   );
