@@ -1,16 +1,17 @@
-import React from 'react';
+import toDo from './constant/todo';
 
-import toDoConstant from './constant/todo';
-
-export function ToDoForm({ onChange, onClick }) {
+export function ToDoForm({ toDoText, onChange, onClick }) {
   return (
-    <form>
+    <form autoComplete="off">
       <input
         type="text"
-        placeholder={toDoConstant.placeHolder}
+        placeholder={toDo.placeHolder}
         onChange={onChange}
+        value={toDoText}
       />
-      <input type="reset" onClick={onClick} value={toDoConstant.add} />
+      <button type="submit" onClick={onClick}>
+        {toDo.add}
+      </button>
     </form>
   );
 }

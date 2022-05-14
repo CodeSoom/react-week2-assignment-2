@@ -1,30 +1,40 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { ToDoForm } from './ToDoForm';
 import { ToDoItems } from './ToDoItems';
-import toDoConstant from './constant/todo';
+
+import toDo from './constant/todo';
 
 export function ToDoList() {
-  const [toDo, setToDo] = useState('');
+  const [toDoText, setToDoText] = useState('');
   const [toDos, setToDos] = useState([]);
 
-  const addToDo = () => {
-    if (toDo === '') return;
+  const addToDo = (e) => {
+    e.preventDefault();
 
-    setToDos([...toDos, toDo]);
-    return setToDo('');
+    if (toDoText === '') {
+      return;
+    }
+
+    setToDos([...toDos, toDoText]);
+    setToDoText('');
   };
 
   const handleChange = (e) => {
-    const toDoItem = e.target.value;
-    setToDo(toDoItem);
+    setToDoText(e.target.value);
+  };
+
+  const handleClear = (index) => {
+    const newToDos = [...toDos];
+    newToDos.splice(index, 1);
+    setToDos(newToDos);
   };
 
   return (
     <div>
-      <h1>{toDoConstant.label}</h1>
-      <ToDoForm onChange={handleChange} onClick={addToDo} />
-      <ToDoItems toDos={toDos} />
+      <h1>{toDo.label}</h1>
+      <ToDoForm onChange={handleChange} onClick={addToDo} toDoText={toDoText} />
+      <ToDoItems toDos={toDos} onClick={handleClear} />
     </div>
   );
 }

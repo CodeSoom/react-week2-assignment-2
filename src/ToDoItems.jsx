@@ -1,15 +1,28 @@
-import React from 'react';
+import _ from 'lodash';
 
-import toDoConstant from './constant/todo';
+import toDo from './constant/todo';
 
-export function ToDoItems({ toDos = [] }) {
-  const isToDoExist = toDos.length !== 0;
-
+export function ToDoItems({ toDos = [], onClick }) {
   return (
-    <div>
-      {isToDoExist
-        ? toDos.map((toDoItem) => <li>{toDoItem}</li>)
-        : toDoConstant.noData}
-    </div>
+    <>
+      {_.isEmpty(toDos) ? (
+        toDo.noData
+      ) : (
+        <ol>
+          {toDos.map((toDoItem, index) => (
+            <li key={index}>
+              {toDoItem}
+              <button
+                onClick={() => {
+                  onClick(index);
+                }}
+              >
+                {toDo.clear}
+              </button>
+            </li>
+          ))}
+        </ol>
+      )}
+    </>
   );
 }

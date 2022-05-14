@@ -1,4 +1,4 @@
-const toDoConstant = {
+const toDo = {
   label: 'To-Do',
   placeHolder: '할 일을 입력해 주세요.',
   noData: '할 일이 없어요!',
@@ -6,6 +6,6 @@ const toDoConstant = {
   clear: '완료',
 };
 
-Object.freeze(toDoConstant);
+Object.freeze(toDo);
 
-export default toDoConstant;
+export default toDo;
