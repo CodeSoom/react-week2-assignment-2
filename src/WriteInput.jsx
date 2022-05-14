@@ -1,14 +1,17 @@
 import React from 'react';
 
-function WriteInput({ handleClick, onSubmit }) {
-  // function onChange(e) {
-  //   const { value } = e.target;
-  // }
-
+export default function WriteInput({
+  handleClick, onSubmit, value, onChange,
+}) {
   return (
     <div>
       <form action="" onSubmit={onSubmit}>
-        <input type="text" name="todo" placeholder="할일을 입력해주세요" />
+        <input
+          type="text"
+          value={value}
+          onChange={onChange}
+          placeholder="할일을 입력해주세요"
+        />
         <button type="submit" onClick={handleClick}>
           추가
         </button>
@@ -16,5 +19,3 @@ function WriteInput({ handleClick, onSubmit }) {
     </div>
   );
 }
-
-export default WriteInput;

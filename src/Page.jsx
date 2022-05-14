@@ -3,14 +3,23 @@ import React from 'react';
 import WriteInput from './WriteInput';
 import TodoItems from './TodoItems';
 
-function Page({ todoItems, onSubmit }) {
+export default function Page({
+  items,
+  onSubmit,
+  handleComplete,
+  itemTitle,
+  onChangeTitle,
+}) {
   return (
     <div>
       <h1>To-Do List</h1>
-      <WriteInput onSubmit={onSubmit} />
-      <TodoItems todoItems={todoItems} />
+      <WriteInput
+        onSubmit={onSubmit}
+        value={itemTitle}
+        onChange={onChangeTitle}
+      />
+      <br />
+      <TodoItems items={items} handleComplete={handleComplete} />
     </div>
   );
 }
-
-export default Page;
