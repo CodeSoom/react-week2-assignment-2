@@ -33,8 +33,7 @@ export default function App() {
   }
 
   function handleCompleteTodoList(todoListId) {
-    const filteredTodos = todos.filter((todo) => todo.id !== todoListId);
-    setTodos(filteredTodos);
+    setTodos(todos.filter((todo) => todo.id !== todoListId));
   }
 
   return (
