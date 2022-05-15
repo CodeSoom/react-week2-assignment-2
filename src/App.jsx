@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
 
-import InputTodo from './InputTodo';
-import TodoList from './TodoList';
+import Page from './Page';
 
 export default function App() {
   const [state, setState] = useState({
@@ -21,27 +20,26 @@ export default function App() {
 
   function handleInputChange(value) {
     setState({
-      todos,
+      ...state,
       todo: value,
     });
   }
 
   function handleFinishClick(finishedTodo) {
     setState({
+      ...state,
       todos: todos.filter((item) => item.id !== finishedTodo.id),
-      todo,
     });
   }
 
   return (
-    <>
-      <h3>To-do</h3>
-      <InputTodo
-        onSubmit={handleSubmit}
-        onChange={handleInputChange}
-        todo={todo}
-      />
-      <TodoList todos={todos} onClick={handleFinishClick} />
-    </>
+    <Page
+      onClick={handleFinishClick}
+      onSubmit={handleSubmit}
+      onChange={handleInputChange}
+      todos={todos}
+      todo={todo}
+    />
+
   );
 }
