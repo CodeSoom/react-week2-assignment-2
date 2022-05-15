@@ -4,7 +4,7 @@ import _ from 'lodash';
 import TodoList from './TodoList';
 import EmptyTodo from './EmptyTodo';
 
-export default function TodoLists({ todos, onClick }) {
+export default function TodoLists({ todos, onClickAddTask }) {
   if (_.isEmpty(todos)) {
     return <EmptyTodo />;
   }
@@ -16,7 +16,7 @@ export default function TodoLists({ todos, onClick }) {
           key={todo.id}
           todo={todo}
           order={index + 1}
-          onClick={onClick}
+          onClickAddTask={onClickAddTask}
         />
       ))}
     </div>
