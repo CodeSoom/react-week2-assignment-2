@@ -19,7 +19,6 @@ function App() {
 
   function removeTodo(todo) {
     setTodos(todos.filter((item) => item.id !== todo.id));
-    nextId.current -= 1;
   }
 
   return (
