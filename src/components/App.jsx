@@ -7,12 +7,13 @@ export default function App() {
   const [todo, setTodo] = useState('');
   const [todoItems, setTodoItems] = useState([]);
 
-  const handleInputChange = (e) => (
-    setTodo(e.target.value)
-  );
+  const handleInputChange = (e) => {
+    setTodo(e.target.value);
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
     if (!todo) {
       return;
     }
