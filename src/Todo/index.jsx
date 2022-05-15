@@ -6,10 +6,10 @@ import Todos from './Todos';
 export default function Todo() {
   const [todos, setTodos] = useState([]);
 
+  const lastIndexDerive = (arr) => arr[arr.length - 1];
+
   const handleAddTodo = (work) => {
-    const { length } = todos;
-    const lastIndex = length - 1;
-    const idx = length === 0 ? 1 : todos[lastIndex].idx + 1;
+    const idx = (lastIndexDerive(todos)?.idx ?? 0) + 1;
 
     setTodos(todos.concat({ idx, work }));
   };
