@@ -7,7 +7,6 @@ export default function TodoList({
   todoHandler,
   createTodo,
   completionTodo,
-  randomId,
 }) {
   return (
     <>
@@ -20,7 +19,6 @@ export default function TodoList({
       <List
         completionTodo={completionTodo}
         todos={todos}
-        randomId={randomId}
       />
     </>
   );
