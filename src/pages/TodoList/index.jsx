@@ -1,12 +1,27 @@
 import TodoSubmit from '../../components/TodoSubmit';
 import List from '../../components/List';
 
-export default function TodoList() {
+export default function TodoList({
+  todos,
+  todo,
+  todoHandler,
+  createTodo,
+  completionTodo,
+  randomId,
+}) {
   return (
     <>
       <h1>Todo</h1>
-      <TodoSubmit />
-      <List />
+      <TodoSubmit
+        todo={todo}
+        todoHandler={todoHandler}
+        createTodo={createTodo}
+      />
+      <List
+        completionTodo={completionTodo}
+        todos={todos}
+        randomId={randomId}
+      />
     </>
   );
 }
