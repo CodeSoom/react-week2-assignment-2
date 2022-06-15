@@ -1,4 +1,15 @@
+import { useState } from 'react';
+
+import TodoList from './TodoList';
+
 export default function App() {
+  const [todoList, setTodoList] = useState([
+    {
+      id: 1,
+      title: '아무것도 하지 않기11',
+    },
+  ]);
+
   return (
     <div className="container">
       <h1 className="title">To-do</h1>
@@ -7,12 +18,7 @@ export default function App() {
         <button type="submit" className="todo-submit">추가</button>
       </form>
 
-      <ul className="todo-list">
-        <li className="todo-item">
-          <strong className="todo-item__title">아무것도 하지 않기</strong>
-          <button type="button" className="todo-item__complete">완료</button>
-        </li>
-      </ul>
+      <TodoList list={todoList} />
     </div>
   );
 }
