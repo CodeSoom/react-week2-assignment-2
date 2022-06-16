@@ -1,21 +1,20 @@
 export default function TodoList({ todos, compelteTodo }) {
+  const listStyle = {
+    liststyleType: 'demical',
+  };
+
   return (
     <>
-      {todos.length !== 0 ? todos.map(({ todo, id }, idx) => (
-        <div key={id}>
-          <p>
-            {idx + 1}
-            .
-            {todo}
-            <button
-              type="button"
-              onClick={() => compelteTodo(id)}
-            >
-              완료
-
-            </button>
-          </p>
-        </div>
+      {todos.length !== 0 ? todos.map(({ todo, id }) => (
+        <li style={listStyle} key={id}>
+          {todo}
+          <button
+            type="button"
+            onClick={() => compelteTodo(id)}
+          >
+            완료
+          </button>
+        </li>
       )) : <p>할 일이 없어요!</p>}
     </>
   );
