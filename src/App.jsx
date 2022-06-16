@@ -5,29 +5,38 @@ import InputTodo from './components/InputTodo';
 import TodoList from './components/TodoList';
 
 export default function App() {
-  const [data, setData] = useState([]);
-  const [createIdx, setCreateIdx] = useState(1);
+  const [toDoData, setToDoData] = useState([]);
+  const [createdIdx, setCreateIdx] = useState(1);
 
   const addToDo = (inputToDo) => {
-    setCreateIdx(createIdx + 1);
+    setCreateIdx(createdIdx + 1);
 
     const newTodo = {
-      idx: createIdx,
+      idx: createdIdx,
       toDo: inputToDo,
     };
 
-    setData([newTodo, ...data]);
+    setToDoData([newTodo, ...toDoData]);
   };
 
   const completeToDo = () => {
   // completedToDo 삭제하는 코드 작성 예정
+
+  };
+
+  const handlerClickAddButton = (inputToDo) => {
+    addToDo(inputToDo);
+  };
+
+  const handlerClickCompleteButton = (targetToDo) => {
+    completeToDo(targetToDo);
   };
 
   return (
     <>
       <Title title="To-do" />
-      <InputTodo onClick={addToDo} />
-      <TodoList data={data} onClick={completeToDo} />
+      <InputTodo onClick={handlerClickAddButton} />
+      <TodoList toDoData={toDoData} onClick={handlerClickCompleteButton} />
     </>
   );
 }

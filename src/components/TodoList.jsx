@@ -1,24 +1,20 @@
-export default function TodoList({ data, onClick }) {
-  const style = { display: 'flex', alignItems: 'center' };
+export default function TodoList({ toDoData, onClick }) {
+  const style = { display: 'flex', alignItems: 'center', margin: '3px' };
+
+  if (toDoData.length === 0) {
+    return <p>할 일이 없어요!</p>;
+  }
 
   return (
-    <>
-      {data.length < 1 ? (
-        <p>할 일을 등록해주세요.</p>
-      ) : (
-        <div>
-          {data.map((item) => (
-            <div style={style} key={item.idx}>
-              <p>
-                {item.idx}
-                .
-                {item.toDo}
-              </p>
-              <button type="button" onClick={() => onClick(item)}>완료</button>
-            </div>
-          ))}
-        </div>
-      )}
-    </>
+    <ul style={{ margin: '0', padding: '0' }}>
+      {toDoData.map((item) => (
+        <li style={style} key={item.idx}>
+          {item.idx}
+          .
+          {item.toDo}
+          <button type="button" onClick={() => onClick(item)}>완료</button>
+        </li>
+      ))}
+    </ul>
   );
 }
