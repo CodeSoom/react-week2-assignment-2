@@ -1,5 +1,11 @@
 import { useState } from 'react';
 
+import Button from './components/Button';
+import Input from './components/Input';
+import Title from './components/Title';
+import TodoNull from './components/TodoNull';
+import Todos from './components/Todos';
+
 export default function App() {
   const [state, setState] = useState({
     inputValue: '',
@@ -39,27 +45,16 @@ export default function App() {
 
   return (
     <div>
-      <h1>To-Do</h1>
-      <div>
-        <input value={inputValue} onChange={handleInputChange} placeholder="할 일을 입력해 주세요" />
+      <Title>To-Do</Title>
+      <Input onChange={handleInputChange} placeholder="할 일을 입력해 주세요">
+        {inputValue}
+      </Input>
 
-        <button onClick={handleClickInsertButton} type="button">추가</button>
+      <Button onClick={handleClickInsertButton}>추가</Button>
 
-        {todoListIsNull ? (<div>할 일이 없어요!</div>) : todoList.map(({ text, index }, mapIdx) => (
-          <div key={index}>
-            <span>{text}</span>
-            <button
-              onClick={() => {
-                handleClickCompleteButton(mapIdx);
-              }}
-              type="button"
-            >
-              완료
-            </button>
-          </div>
-        ))}
-
-      </div>
+      {todoListIsNull
+        ? <TodoNull />
+        : <Todos todoList={todoList} onClick={handleClickCompleteButton} />}
     </div>
   );
 }
