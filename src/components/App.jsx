@@ -1,17 +1,28 @@
 import { useState } from 'react';
 import Page from './Page';
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  console.log(`'${e.target.firstChild.value}', 해야 할 일 목록 업데이트`);
-  e.target.firstChild.value = '';
-};
-
-const handleClick = (e) => {
-  e.preventDefault();
-  console.log(`${e.target.className}번 항목 완료됨`);
-};
-
 export default function App() {
-  return <Page onClick={handleClick} onSubmit={handleSubmit} />;
+  const [addedTodo, setaddedTodo] = useState(0);
+  const [deletedTodoNumber, setDeletedTodoNumber] = useState(0);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setaddedTodo(e.target.firstChild.value);
+    console.log(e.target.firstChild.value);
+    e.target.firstChild.value = '';
+  };
+
+  const handleClick = (e) => {
+    setDeletedTodoNumber(e.target.className);
+    console.log(e.target.className);
+  };
+
+  return (
+    <Page
+      onClick={handleClick}
+      onSubmit={handleSubmit}
+      addedTodo={addedTodo}
+      deletedTodoNumber={deletedTodoNumber}
+    />
+  );
 }

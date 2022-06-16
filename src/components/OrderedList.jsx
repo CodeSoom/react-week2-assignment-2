@@ -1,16 +1,27 @@
-export default function OrderedList({ onClick }) {
+const todoListArray = [];
+
+export default function OrderedList({
+  onClick,
+  onSubmit,
+  addedTodo,
+  deletedTodoNumber,
+}) {
+  if (addedTodo || false) {
+    todoListArray.push(addedTodo);
+  }
+  todoListArray.splice(deletedTodoNumber, 1);
   return (
     <ol>
-      {[1, 2, 3, 4, 5].map((i) => (
-        <li key={i}>
-          <span>항목</span>
+      {' '}
+      {todoListArray.map((item, index) => (
+        <li key={index}>
+          <span>{item}</span>{' '}
           <input
-            className={i}
-            key={i}
-            onClick={onClick}
+            className={index}
             type="button"
+            onClick={onClick}
             value="완료"
-          />
+          />{' '}
         </li>
       ))}
     </ol>
