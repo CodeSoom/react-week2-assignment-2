@@ -6,7 +6,7 @@ export default function Todo({
   todo,
   todoHandler,
   createTodo,
-  completionTodo,
+  compelteTodo,
 }) {
   return (
     <>
@@ -17,7 +17,7 @@ export default function Todo({
         createTodo={createTodo}
       />
       <TodoList
-        completionTodo={completionTodo}
+        compelteTodo={compelteTodo}
         todos={todos}
       />
     </>

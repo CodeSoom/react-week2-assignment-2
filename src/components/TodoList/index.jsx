@@ -1,4 +1,4 @@
-export default function TodoList({ todos, completionTodo }) {
+export default function TodoList({ todos, compelteTodo }) {
   return (
     <>
       {todos.length !== 0 ? todos.map(({ todo, id }, idx) => (
@@ -9,7 +9,7 @@ export default function TodoList({ todos, completionTodo }) {
             {todo}
             <button
               type="button"
-              onClick={() => completionTodo(id)}
+              onClick={() => compelteTodo(id)}
             >
               완료
 

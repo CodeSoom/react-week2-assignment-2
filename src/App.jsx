@@ -19,7 +19,7 @@ export default function App() {
     setTodo('');
   };
 
-  const completionTodo = (id) => {
+  const compelteTodo = (id) => {
     const targetTodo = todos.filter((target) => target.id !== id);
 
     setTodos(targetTodo);
@@ -30,7 +30,7 @@ export default function App() {
       todo={todo}
       todoHandler={todoHandler}
       createTodo={createTodo}
-      completionTodo={completionTodo}
+      compelteTodo={compelteTodo}
       todos={todos}
     />
   );
