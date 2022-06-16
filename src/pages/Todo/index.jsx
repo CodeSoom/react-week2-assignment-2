@@ -3,7 +3,7 @@ import TodoList from '../../components/TodoList';
 
 export default function Todo({
   todos,
-  todo,
+  inputTodo,
   todoHandler,
   createTodo,
   compelteTodo,
@@ -14,7 +14,7 @@ export default function Todo({
     <>
       <h1>Todo</h1>
       <TodoSubmit
-        todo={todo}
+        inputTodo={inputTodo}
         todoHandler={todoHandler}
         createTodo={createTodo}
         disabled={disabled}

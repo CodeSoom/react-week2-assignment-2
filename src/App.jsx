@@ -2,51 +2,55 @@ import { useEffect, useState } from 'react';
 
 import useInput from './hooks/useInput';
 
-import Todo from './pages/Todo';
-
 import nothingContents from './utils/nothingContents';
+
+import Todo from './pages/Todo';
 
 export default function App() {
   const [todo, todoHandler, setTodo] = useInput('');
-  const [todos, setTodos] = useState([]);
   const [disabled, setDisabled] = useState(false);
 
+  const { inputValue: inputTodo, contents: todos } = todo;
+
   useEffect(() => {
-    if (todo === '') {
+    if (inputTodo === '') {
       setDisabled(true);
     }
-    if (todo !== '') {
+    if (inputTodo !== '') {
       setDisabled(false);
     }
-  }, [todo, setDisabled]);
+  }, [inputTodo, setDisabled]);
 
-  const createTodo = (contents) => {
+  const createTodo = (entered) => {
     const newTodo = {
       id: window.crypto.getRandomValues(new Uint32Array(1))[0],
-      todo: contents,
+      todo: entered,
     };
 
-    setTodos([...todos, newTodo]);
-
-    setTodo('');
+    setTodo({
+      ...todos,
+      contents: [...todos, newTodo],
+      inputValue: '',
+    });
   };
 
   const compelteTodo = (id) => {
     const targetTodo = todos.filter((target) => target.id !== id);
 
-    setTodos(targetTodo);
+    setTodo({ ...todo, contents: targetTodo });
   };
 
   const emptyTodo = () => {
     if (nothingContents(todos)) {
       return <p>할 일이 없어요!</p>;
     }
+
     return false;
   };
 
   return (
     <Todo
-      todo={todo}
+      inputTodo={inputTodo}
       todoHandler={todoHandler}
       createTodo={createTodo}
       compelteTodo={compelteTodo}
