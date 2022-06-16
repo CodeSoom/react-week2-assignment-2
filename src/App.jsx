@@ -20,7 +20,7 @@ const App = () => {
   return (
     <>
       <Title />
-      <TodoForm addTodo={addTodo} />
+      <TodoForm onSubmit={addTodo} />
       <TodoList
         todos={todos}
         onComplete={deleteTodo}

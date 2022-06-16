@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const TodoForm = ({ addTodo }) => {
+const TodoForm = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
 
   const handleChange = (e) => {
@@ -9,9 +9,8 @@ const TodoForm = ({ addTodo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodo(title);
+    onSubmit(title);
     setTitle('');
-    e.target.reset();
   };
 
   return (
@@ -19,7 +18,7 @@ const TodoForm = ({ addTodo }) => {
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
-        title={title}
+        value={title}
         onChange={handleChange}
       />
       <button type="submit">추가</button>
