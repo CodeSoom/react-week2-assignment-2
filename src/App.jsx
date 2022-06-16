@@ -9,11 +9,10 @@ export default function App() {
   return (
     <div>
       <h1>To-do</h1>
+
       <TodoForm />
 
-      {
-        todoItems.length ? (<TodoItems todoItems={todoItems} />) : (<p>할 일을 입력해주세요</p>)
-      }
+      <TodoItems todoItems={todoItems} />
     </div>
   );
 }
