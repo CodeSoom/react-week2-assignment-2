@@ -1,10 +1,10 @@
 import TodoItem from './TodoItem';
 
-export default function TodoList({ list }) {
+export default function TodoItems({ todoItems = [] }) {
   return (
-    <ul className="todo-list">
+    <ul>
       {
-        list.map((item) => (
+        todoItems.map((item) => (
           <TodoItem item={item} key={item.id} />
         ))
       }

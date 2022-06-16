@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import TodoList from './TodoList';
+import TodoItems from './TodoItems';
 import TodoForm from './TodoForm';
 
 export default function App() {
-  const [todoList, setTodoList] = useState([]);
+  const [todoItems, setTodoItems] = useState([]);
 
   return (
     <div className="container">
@@ -12,7 +12,7 @@ export default function App() {
       <TodoForm />
 
       {
-        todoList.length ? (<TodoList list={todoList} />) : (<p className="todo-empty">할 일을 입력해주세요</p>)
+        todoItems.length ? (<TodoItems todoItems={todoItems} />) : (<p className="todo-empty">할 일을 입력해주세요</p>)
       }
     </div>
   );
