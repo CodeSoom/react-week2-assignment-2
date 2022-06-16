@@ -1,7 +1,12 @@
-const TodoItem = ({ todo }) => (
+const TodoItem = ({ todo, onComplete }) => (
   <li>
-    {todo}
-    <button type="button">완료</button>
+    {todo.title}
+    <button
+      type="button"
+      onClick={() => onComplete(todo.id)}
+    >
+      완료
+    </button>
   </li>
 );
 
