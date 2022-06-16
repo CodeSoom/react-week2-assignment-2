@@ -46,15 +46,16 @@ export default function App() {
   return (
     <div>
       <Title>To-Do</Title>
+
       <Input onChange={handleInputChange} placeholder="할 일을 입력해 주세요">
         {inputValue}
       </Input>
 
       <Button onClick={handleClickInsertButton}>추가</Button>
 
-      {todoListIsNull
-        ? <TodoNull />
-        : <Todos todoList={todoList} onClick={handleClickCompleteButton} />}
+      {todoListIsNull && <TodoNull />}
+      {!todoListIsNull && <Todos todoList={todoList} onClick={handleClickCompleteButton} /> }
+
     </div>
   );
 }
