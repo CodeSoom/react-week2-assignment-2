@@ -1,15 +1,15 @@
 export default function TodoList({ todos, completionTodo }) {
   return (
     <>
-      {todos.length !== 0 ? todos.map((todo, idx) => (
+      {todos.length !== 0 ? todos.map(({ todo, id }, idx) => (
         <div key={window.crypto.getRandomValues(new Uint32Array(1))[0]}>
           <p>
             {idx + 1}
             .
-            {todo.todo}
+            {todo}
             <button
               type="button"
-              onClick={() => completionTodo(todo.id)}
+              onClick={() => completionTodo(id)}
             >
               완료
 
