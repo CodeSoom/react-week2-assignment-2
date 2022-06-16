@@ -1,4 +1,4 @@
-const TodoItem = ({ todo, onComplete }) => (
+const Todo = ({ todo, onComplete }) => (
   <li>
     {todo.title}
     <button
@@ -10,4 +10,4 @@ const TodoItem = ({ todo, onComplete }) => (
   </li>
 );
 
-export default TodoItem;
+export default Todo;

@@ -1,4 +1,4 @@
-import TodoItem from './TodoItem';
+import Todo from './Todo';
 
 const TodoList = ({ todos, onComplete }) => {
   if (todos.length) {
@@ -6,7 +6,7 @@ const TodoList = ({ todos, onComplete }) => {
       <ol>
         {todos.map(
           (todo) => (
-            <TodoItem
+            <Todo
               todo={todo}
               onComplete={onComplete}
             />
