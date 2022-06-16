@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-import Button from './components/Button';
-import Input from './components/Input';
-import Title from './components/Title';
-import TodoNull from './components/TodoNull';
-import Todos from './components/Todos';
+import Button from './components/common/Button';
+import Input from './components/common/Input';
+import Title from './components/common/Title';
+
+import TodoNull from './components/todo/TodoNull';
+import Todos from './components/todo/Todos';
 
 export default function App() {
   const [todo, setTodo] = useState({
