@@ -36,6 +36,10 @@ export default function App() {
     });
   };
 
+  const handleEnter = (e) => {
+    if (e.key === 'Enter') handleClickInsertButton();
+  };
+
   const handleClickCompleteButton = (id) => {
     const remainingTodoList = todos.filter((i) => i.id !== id);
 
@@ -51,7 +55,11 @@ export default function App() {
     <div>
       <Title>To-Do</Title>
 
-      <Input onChange={handleInputChange} placeholder="할 일을 입력해 주세요">
+      <Input
+        onKeyPress={handleEnter}
+        onChange={handleInputChange}
+        placeholder="할 일을 입력해 주세요"
+      >
         {todoInsertInputValue}
       </Input>
 
