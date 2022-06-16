@@ -24,19 +24,19 @@ export default function App() {
 
   };
 
-  const handlerClickAddButton = (inputToDo) => {
+  const handleClickAddButton = (inputToDo) => {
     addToDo(inputToDo);
   };
 
-  const handlerClickCompleteButton = (targetToDo) => {
+  const handleClickCompleteButton = (targetToDo) => {
     completeToDo(targetToDo);
   };
 
   return (
     <>
       <Title title="To-do" />
-      <InputTodo onClick={handlerClickAddButton} />
-      <TodoList toDoData={toDoData} onClick={handlerClickCompleteButton} />
+      <InputTodo onClick={handleClickAddButton} />
+      <TodoList toDoData={toDoData} onClick={handleClickCompleteButton} />
     </>
   );
 }

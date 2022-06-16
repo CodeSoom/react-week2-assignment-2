@@ -7,12 +7,17 @@ export default function InputTodo({ onClick }) {
     setNewTodo(e.target.value);
   };
 
+  const handleEnter = (e) => {
+    if (e.key === 'Enter') onClick(e.target.value);
+  };
+
   return (
     <div>
       <input
         type="text"
         value={newTodo}
         onChange={handleInputChange}
+        onKeyPress={handleEnter}
         placeholder="할 일을 입력해주세요."
       />
       <button
