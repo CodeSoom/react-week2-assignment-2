@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import useInput from './hooks/useInput';
 
-import TodoList from './pages/TodoList';
+import Todo from './pages/Todo';
 
 export default function App() {
   const [todo, todoHandler, setTodo] = useInput('');
@@ -26,7 +26,7 @@ export default function App() {
   };
 
   return (
-    <TodoList
+    <Todo
       todo={todo}
       todoHandler={todoHandler}
       createTodo={createTodo}

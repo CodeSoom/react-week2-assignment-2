@@ -1,7 +1,7 @@
 import TodoSubmit from '../../components/TodoSubmit';
-import List from '../../components/List';
+import TodoList from '../../components/TodoList';
 
-export default function TodoList({
+export default function Todo({
   todos,
   todo,
   todoHandler,
@@ -16,7 +16,7 @@ export default function TodoList({
         todoHandler={todoHandler}
         createTodo={createTodo}
       />
-      <List
+      <TodoList
         completionTodo={completionTodo}
         todos={todos}
       />

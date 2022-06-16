@@ -1,4 +1,4 @@
-export default function List({ todos, completionTodo }) {
+export default function TodoList({ todos, completionTodo }) {
   return (
     <>
       {todos.length !== 0 ? todos.map((todo, idx) => (
