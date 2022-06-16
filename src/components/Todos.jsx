@@ -1,11 +1,11 @@
-export default function Todos({ todoList, handleClickCompleteButton }) {
+export default function Todos({ todoList, onClick }) {
   return (
     todoList.map(({ text, index }, mapIdx) => (
       <div key={index}>
         <span>{text}</span>
         <button
           onClick={() => {
-            handleClickCompleteButton(mapIdx);
+            onClick(mapIdx);
           }}
           type="button"
         >
