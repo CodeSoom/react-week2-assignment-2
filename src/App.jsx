@@ -4,6 +4,8 @@ import useInput from './hooks/useInput';
 
 import Todo from './pages/Todo';
 
+import nothingContents from './utils/nothingContents';
+
 export default function App() {
   const [todo, todoHandler, setTodo] = useInput('');
   const [todos, setTodos] = useState([]);
@@ -25,6 +27,13 @@ export default function App() {
     setTodos(targetTodo);
   };
 
+  const emptyTodo = () => {
+    if (nothingContents(todos)) {
+      return <p>할 일이 없어요!</p>;
+    }
+    return false;
+  };
+
   return (
     <Todo
       todo={todo}
@@ -32,6 +41,7 @@ export default function App() {
       createTodo={createTodo}
       compelteTodo={compelteTodo}
       todos={todos}
+      emptyTodo={emptyTodo}
     />
   );
 }

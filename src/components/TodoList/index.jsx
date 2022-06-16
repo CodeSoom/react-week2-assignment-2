@@ -1,11 +1,15 @@
-export default function TodoList({ todos, compelteTodo }) {
+export default function TodoList({
+  todos,
+  compelteTodo,
+  emptyTodo,
+}) {
   const listStyle = {
     liststyleType: 'demical',
   };
 
   return (
     <>
-      {todos.length !== 0 ? todos.map(({ todo, id }) => (
+      {todos.map(({ todo, id }) => (
         <li style={listStyle} key={id}>
           {todo}
           <button
@@ -15,7 +19,8 @@ export default function TodoList({ todos, compelteTodo }) {
             완료
           </button>
         </li>
-      )) : <p>할 일이 없어요!</p>}
+      ))}
+      {emptyTodo()}
     </>
   );
 }
