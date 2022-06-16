@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Title from './Title';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
-import EmptyMessage from './EmptyMessage';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -22,16 +21,10 @@ const App = () => {
     <>
       <Title />
       <TodoForm addTodo={addTodo} />
-      {
-        todos.length
-          ? (
-            <TodoList
-              todos={todos}
-              onComplete={deleteTodo}
-            />
-          )
-          : <EmptyMessage />
-      }
+      <TodoList
+        todos={todos}
+        onComplete={deleteTodo}
+      />
     </>
   );
 };
