@@ -1,11 +1,11 @@
-export default function Todos({ todoList, onClick }) {
+export default function Todos({ todos, onClick }) {
   return (
-    todoList.map(({ text, index }, mapIdx) => (
-      <div key={index}>
+    todos.map(({ text, id }) => (
+      <div key={id}>
         <span>{text}</span>
         <button
           onClick={() => {
-            onClick(mapIdx);
+            onClick(id);
           }}
           type="button"
         >

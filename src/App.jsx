@@ -7,55 +7,60 @@ import TodoNull from './components/TodoNull';
 import Todos from './components/Todos';
 
 export default function App() {
-  const [state, setState] = useState({
-    inputValue: '',
-    todoList: [],
+  const [todo, setTodo] = useState({
+    todoInsertInputValue: '',
+    todos: [],
   });
 
-  const { inputValue, todoList } = state;
+  const { todoInsertInputValue, todos } = todo;
 
   const handleInputChange = (e) => {
-    setState({
-      ...state,
-      inputValue: e.target.value,
+    setTodo({
+      ...todo,
+      todoInsertInputValue: e.target.value,
     });
   };
 
   const handleClickInsertButton = () => {
-    const list = todoList;
-    list.push({ text: inputValue, index: list.length });
+    const timeNumber = new Date().getTime();
+    const randomNumber = Math.floor(Math.random() * 10000000000);
 
-    setState({
-      todoList: list,
-      inputValue: '',
+    const id = timeNumber + randomNumber;
+
+    const todoList = { text: todoInsertInputValue, id };
+
+    setTodo({
+      ...todo,
+      todos: [...todo.todos, todoList],
+      todoInsertInputValue: '',
     });
   };
 
-  const handleClickCompleteButton = (index) => {
-    const list = todoList;
-    list.splice(index, 1);
+  const handleClickCompleteButton = (id) => {
+    const remainingTodoList = todos.filter((i) => i.id !== id);
 
-    setState({
-      ...state,
-      todoList: list,
+    setTodo({
+      ...todo,
+      todos: remainingTodoList,
     });
   };
 
-  const todoListIsNull = todoList.length === 0;
+  const todosIsNull = todos.length === 0;
 
   return (
     <div>
       <Title>To-Do</Title>
 
       <Input onChange={handleInputChange} placeholder="할 일을 입력해 주세요">
-        {inputValue}
+        {todoInsertInputValue}
       </Input>
 
       <Button onClick={handleClickInsertButton}>추가</Button>
 
-      {todoListIsNull && <TodoNull />}
-      {!todoListIsNull && <Todos todoList={todoList} onClick={handleClickCompleteButton} /> }
-
+      {todosIsNull && <TodoNull />}
+      {!todosIsNull && (
+        <Todos todos={todos} onClick={handleClickCompleteButton} />
+      )}
     </div>
   );
 }
