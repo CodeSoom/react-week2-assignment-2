@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import useInput from './hooks/useInput';
 
@@ -9,6 +9,16 @@ import nothingContents from './utils/nothingContents';
 export default function App() {
   const [todo, todoHandler, setTodo] = useInput('');
   const [todos, setTodos] = useState([]);
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    if (todo === '') {
+      setDisabled(true);
+    }
+    if (todo !== '') {
+      setDisabled(false);
+    }
+  }, [todo, setDisabled]);
 
   const createTodo = (contents) => {
     const newTodo = {
@@ -42,6 +52,7 @@ export default function App() {
       compelteTodo={compelteTodo}
       todos={todos}
       emptyTodo={emptyTodo}
+      disabled={disabled}
     />
   );
 }

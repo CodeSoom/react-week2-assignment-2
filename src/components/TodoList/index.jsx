@@ -4,7 +4,7 @@ export default function TodoList({
   emptyTodo,
 }) {
   const listStyle = {
-    liststyleType: 'demical',
+    listStyleType: 'demical',
   };
 
   return (

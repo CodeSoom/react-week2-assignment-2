@@ -8,6 +8,7 @@ export default function Todo({
   createTodo,
   compelteTodo,
   emptyTodo,
+  disabled,
 }) {
   return (
     <>
@@ -16,6 +17,7 @@ export default function Todo({
         todo={todo}
         todoHandler={todoHandler}
         createTodo={createTodo}
+        disabled={disabled}
       />
       <TodoList
         compelteTodo={compelteTodo}
