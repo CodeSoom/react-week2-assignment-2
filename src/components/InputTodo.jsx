@@ -1,10 +1,6 @@
-import { useState } from 'react';
-
-export default function InputTodo({ onClick }) {
-  const [newTodo, setNewTodo] = useState('');
-
+export default function InputTodo({ onClick, inputTodo, setInputTodo }) {
   const handleInputChange = (e) => {
-    setNewTodo(e.target.value);
+    setInputTodo(e.target.value);
   };
 
   const handleEnter = (e) => {
@@ -15,14 +11,14 @@ export default function InputTodo({ onClick }) {
     <div>
       <input
         type="text"
-        value={newTodo}
+        value={inputTodo}
         onChange={handleInputChange}
         onKeyPress={handleEnter}
         placeholder="할 일을 입력해주세요."
       />
       <button
         type="button"
-        onClick={() => onClick(newTodo)}
+        onClick={() => onClick(inputTodo)}
       >
         추가
       </button>

@@ -7,6 +7,7 @@ import TodoList from './components/TodoList';
 export default function App() {
   const [toDoData, setToDoData] = useState([]);
   const [createdIdx, setCreateIdx] = useState(1);
+  const [inputTodo, setInputTodo] = useState('');
 
   const addToDo = (inputToDo) => {
     setCreateIdx(createdIdx + 1);
@@ -25,6 +26,7 @@ export default function App() {
   };
 
   const handleClickAddButton = (inputToDo) => {
+    setInputTodo('');
     addToDo(inputToDo);
   };
 
@@ -35,7 +37,7 @@ export default function App() {
   return (
     <>
       <Title title="To-do" />
-      <InputTodo onClick={handleClickAddButton} />
+      <InputTodo onClick={handleClickAddButton} inputTodo={inputTodo} setInputTodo={setInputTodo} />
       <TodoList toDoData={toDoData} onClick={handleClickCompleteButton} />
     </>
   );
