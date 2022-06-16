@@ -1,7 +1,7 @@
 const TodoItem = ({ idx, title, onClick }) => (
   <div>
     <span>
-      {`${idx + 1}. ${title}`}
+      {`${idx}. ${title}`}
       <button type="button" onClick={onClick}>완료</button>
     </span>
   </div>

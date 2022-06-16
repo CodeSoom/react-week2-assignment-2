@@ -1,23 +1,23 @@
 import { useState } from 'react';
 
 import TodoItemCreater from './TodoItemCreater';
-import TodoList from './TodoList';
+import Todos from './Todos';
 
 const App = () => {
-  const [todoItemList, setTodoItemList] = useState([]);
+  const [todoItems, setTodoItems] = useState([]);
 
   const handleSubmit = (todoItem) => {
-    setTodoItemList((prev) => [...prev, todoItem]);
+    setTodoItems([...todoItems, { id: todoItems.length + 1, todo: todoItem }]);
   };
 
-  const handleClickComplete = (todoItem) => {
-    setTodoItemList((prev) => prev.filter((item) => item !== todoItem));
+  const handleClickComplete = (todoItemId) => {
+    setTodoItems(todoItems.filter((item) => item.id !== todoItemId));
   };
 
   return (
     <div>
       <TodoItemCreater onSubmit={handleSubmit} />
-      <TodoList todoItemList={todoItemList} onClickComplete={handleClickComplete} />
+      <Todos todoItems={todoItems} onClickComplete={handleClickComplete} />
     </div>
   );
 };
