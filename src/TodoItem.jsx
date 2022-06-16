@@ -3,7 +3,7 @@ const TodoItem = ({ todo, onComplete }) => (
     {todo.title}
     <button
       type="button"
-      onClick={() => onComplete(todo.id)}
+      onClick={() => onComplete(todo)}
     >
       완료
     </button>

@@ -7,39 +7,27 @@ import EmptyMessage from './EmptyMessage';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
-  const [title, setTitle] = useState('');
   const [nextId, setNextId] = useState(1);
 
-  const handleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const addTodo = (title) => {
     setTodos([...todos, { id: nextId, title }]);
     setNextId(nextId + 1);
-    setTitle('');
-    e.target.reset();
   };
 
-  const handleComplete = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const deleteTodo = (todoDelete) => {
+    setTodos(todos.filter((todo) => todo.id !== todoDelete.id));
   };
 
   return (
     <>
       <Title />
-      <TodoForm
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-        title={title}
-      />
+      <TodoForm addTodo={addTodo} />
       {
         todos.length
           ? (
             <TodoList
               todos={todos}
-              onComplete={handleComplete}
+              onComplete={deleteTodo}
             />
           )
           : <EmptyMessage />
