@@ -1,30 +1,13 @@
-import { useState } from 'react';
-
-export default function TodoForm({ onSubmit }) {
-  const [todoTitle, setTodoTitle] = useState('');
-
-  function clearTodoTitle() {
-    setTodoTitle('');
-  }
-
-  function handleChangeTodoTitle(e) {
-    setTodoTitle(e.target.value.trim());
-  }
-
+export default function TodoForm({ onSubmit, todoInput = '', onChange }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // @TODO alert로 변경하기
-    if (!todoTitle) return;
-
-    onSubmit(todoTitle);
-
-    clearTodoTitle();
+    onSubmit();
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={todoTitle} onChange={handleChangeTodoTitle} />
+      <input type="text" value={todoInput} onChange={onChange} />
       <button type="submit">추가</button>
     </form>
   );
