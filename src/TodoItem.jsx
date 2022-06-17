@@ -1,4 +1,6 @@
-export default function TodoItem({ item, index, onRemoveTodoItem }) {
+import React from 'react';
+
+function TodoItem({ item, index, onRemoveTodoItem }) {
   return (
     <div key={item.id}>
       <span>
@@ -10,3 +12,5 @@ export default function TodoItem({ item, index, onRemoveTodoItem }) {
     </div>
   );
 }
+
+export default TodoItem;

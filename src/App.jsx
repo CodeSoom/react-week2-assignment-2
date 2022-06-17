@@ -1,44 +1,34 @@
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-
+import React, { useState, useRef } from 'react';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
-export default function App() {
+function App() {
   const [todos, setTodos] = useState([]);
-  const [todoValue, setTodoValue] = useState('');
+  const inputRef = useRef();
 
-  const handleAddTodoItem = () => {
-    if (todoValue === '') {
+  const onAddTodoItem = () => {
+    if (inputRef.current.value === '') {
       alert('할 일을 입력해 주세요.');
       return;
     }
 
-    const newTodo = { id: uuidv4(), text: todoValue };
-    setTodos((prevTodos) => ([...prevTodos, newTodo]));
-    setTodoValue('');
+    const newItem = { id: Math.floor((Math.random() * 99999)), text: inputRef.current.value };
+    setTodos((prevTodos) => ([...prevTodos, newItem]));
+    inputRef.current.value = '';
   };
 
-  const handleRemoveTodoItem = (id) => {
+  const onRemoveTodoItem = (id) => {
     const filterTodoList = todos.filter((todo) => todo.id !== id);
     setTodos(filterTodoList);
-  };
-
-  const handleChangeTodoInput = (e) => {
-    const input = e.target.value;
-
-    setTodoValue(input);
   };
 
   return (
     <>
       <p>To-do</p>
-      <TodoInput
-        todoValue={todoValue}
-        onChange={handleChangeTodoInput}
-        onAddTodoItem={handleAddTodoItem}
-      />
-      <TodoList todos={todos} onRemoveTodoItem={handleRemoveTodoItem} />
+      <TodoInput inputRef={inputRef} onAddTodoItem={onAddTodoItem} />
+      <TodoList todos={todos} onRemoveTodoItem={onRemoveTodoItem} />
     </>
   );
 }
+
+export default App;
