@@ -15,6 +15,18 @@ export default function App() {
     setTodoInput(input);
   }
 
+  function completeTodo(id) {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+
+    setTodos(newTodos);
+  }
+
+  function handleComplete(id) {
+    if (!id) return;
+
+    completeTodo(id);
+  }
+
   function addTodo(todo) {
     const newTodos = [...todos, todo];
 
@@ -35,6 +47,7 @@ export default function App() {
     };
 
     addTodo(todo);
+
     setTodoInput('');
   }
 
@@ -48,7 +61,10 @@ export default function App() {
         onSubmit={handleSubmitTodoForm}
       />
 
-      <Todos todos={todos} />
+      <Todos
+        todos={todos}
+        onComplete={handleComplete}
+      />
     </div>
   );
 }

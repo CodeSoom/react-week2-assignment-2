@@ -1,6 +1,6 @@
 import Todo from './Todo';
 
-export default function Todos({ todos = [] }) {
+export default function Todos({ todos = [], onComplete }) {
   if (!todos.length) {
     return (
       <p>할 일을 입력해주세요</p>
@@ -11,7 +11,11 @@ export default function Todos({ todos = [] }) {
     <ul>
       {
         todos.map((todo) => (
-          <Todo todo={todo} key={todo.id} />
+          <Todo
+            key={todo.id}
+            todo={todo}
+            onComplete={onComplete}
+          />
         ))
       }
     </ul>
