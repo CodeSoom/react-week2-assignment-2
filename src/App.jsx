@@ -12,10 +12,6 @@ export default function App() {
 
   const { inputValue: inputTodo, contents: todos } = todo;
 
-  useEffect(() => {
-    setDisabled(inputTodo === '');
-  }, [inputTodo]);
-
   const createTodo = (entered) => {
     const newTodo = {
       id: window.crypto.getRandomValues(new Uint32Array(1))[0],
@@ -34,6 +30,10 @@ export default function App() {
 
     setTodo({ ...todo, contents: targetTodo });
   };
+
+  useEffect(() => {
+    setDisabled(inputTodo === '');
+  }, [inputTodo]);
 
   return (
     <Todo
