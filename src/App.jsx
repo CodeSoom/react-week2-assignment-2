@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Button from './components/common/Button';
 import Input from './components/common/Input';
@@ -23,12 +24,7 @@ export default function App() {
   };
 
   const handleClickInsertButton = () => {
-    const timeNumber = new Date().getTime();
-    const randomNumber = Math.floor(Math.random() * 10000000000);
-
-    const id = timeNumber + randomNumber;
-
-    const todoList = { text: todoInsertInputValue, id };
+    const todoList = { text: todoInsertInputValue, id: uuidv4() };
 
     setTodo({
       ...todo,
@@ -38,7 +34,7 @@ export default function App() {
   };
 
   const handleEnter = (e) => {
-    if (e.key === 'Enter') handleClickInsertButton();
+    if (e.key === 'Enter') { handleClickInsertButton(); }
   };
 
   const handleClickCompleteButton = (id) => {
