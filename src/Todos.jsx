@@ -1,4 +1,4 @@
-import Todo from './TodoItem';
+import Todo from './Todo';
 
 export default function Todos({ todos = [] }) {
   if (!todos.length) {
