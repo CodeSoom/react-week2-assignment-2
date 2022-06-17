@@ -7,28 +7,18 @@ import Input from './components/common/Input';
 import TodosView from './components/todo/TodosView';
 
 export default function App() {
-  const [todo, setTodo] = useState({
-    todoInsertInputValue: '',
-    todos: [],
-  });
-
-  const { todoInsertInputValue, todos } = todo;
+  const [todos, setTodos] = useState([]);
+  const [todo, setTodo] = useState('');
 
   const handleInputChange = (e) => {
-    setTodo({
-      ...todo,
-      todoInsertInputValue: e.target.value,
-    });
+    setTodo(e.target.value);
   };
 
   const handleClickInsertButton = () => {
-    const todoList = { text: todoInsertInputValue, id: uuidv4() };
+    const todoList = { text: todo, id: uuidv4() };
 
-    setTodo({
-      ...todo,
-      todos: [...todo.todos, todoList],
-      todoInsertInputValue: '',
-    });
+    setTodos([...todos, todoList]);
+    setTodo('');
   };
 
   const handleEnter = (e) => {
@@ -36,12 +26,9 @@ export default function App() {
   };
 
   const handleClickCompleteButton = (id) => {
-    const remainingTodoList = todos.filter((i) => i.id !== id);
+    const newTodos = todos.filter((i) => i.id !== id);
 
-    setTodo({
-      ...todo,
-      todos: remainingTodoList,
-    });
+    setTodos(newTodos);
   };
 
   return (
@@ -53,7 +40,7 @@ export default function App() {
         onChange={handleInputChange}
         placeholder="할 일을 입력해 주세요"
       >
-        {todoInsertInputValue}
+        {todo}
       </Input>
 
       <Button onClick={handleClickInsertButton}>추가</Button>
