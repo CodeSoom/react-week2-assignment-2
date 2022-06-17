@@ -1,24 +1,24 @@
 import { useState } from 'react';
 
-import TodoItems from './TodoItems';
+import Todos from './Todos';
 import TodoForm from './TodoForm';
 
 export default function App() {
-  const [todoItems, setTodoItems] = useState([]);
+  const [todos, setTodos] = useState([]);
 
-  function addTodoItem(todoItem) {
-    const newTodoItems = [...todoItems, todoItem];
+  function addTodo(todo) {
+    const newTodos = [...todos, todo];
 
-    setTodoItems(newTodoItems);
+    setTodos(newTodos);
   }
 
-  function handleSubmitTodoForm(todoTitle = '') {
-    const todoItem = {
+  function handleSubmitTodoForm(title = '') {
+    const todo = {
       id: Date.now(),
-      title: todoTitle,
+      title,
     };
 
-    addTodoItem(todoItem);
+    addTodo(todo);
   }
 
   return (
@@ -27,7 +27,7 @@ export default function App() {
 
       <TodoForm onSubmit={handleSubmitTodoForm} />
 
-      <TodoItems todoItems={todoItems} />
+      <Todos todos={todos} />
     </div>
   );
 }

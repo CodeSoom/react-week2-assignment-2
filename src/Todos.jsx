@@ -1,7 +1,7 @@
 import Todo from './TodoItem';
 
-export default function TodoItems({ todoItems = [] }) {
-  if (!todoItems.length) {
+export default function Todos({ todos = [] }) {
+  if (!todos.length) {
     return (
       <p>할 일을 입력해주세요</p>
     );
@@ -10,8 +10,8 @@ export default function TodoItems({ todoItems = [] }) {
   return (
     <ul>
       {
-        todoItems.map((item) => (
-          <Todo todo={item} key={item.id} />
+        todos.map((todo) => (
+          <Todo todo={todo} key={todo.id} />
         ))
       }
     </ul>
