@@ -7,7 +7,7 @@ import nothingContents from './utils/nothingContents';
 import Todo from './pages/Todo';
 
 export default function App() {
-  const [todo, todoHandler, setTodo] = useInput('');
+  const [todo, handleChangeTodo, setTodo] = useInput('');
   const [disabled, setDisabled] = useState(false);
 
   const { inputValue: inputTodo, contents: todos } = todo;
@@ -51,7 +51,7 @@ export default function App() {
   return (
     <Todo
       inputTodo={inputTodo}
-      todoHandler={todoHandler}
+      handleChangeTodo={handleChangeTodo}
       createTodo={createTodo}
       compelteTodo={compelteTodo}
       todos={todos}
