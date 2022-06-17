@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import useInput from './hooks/useInput';
 
-import nothingContents from './utils/nothingContents';
+import isEmpty from './utils/isEmpty';
 
 import Todo from './pages/Todo';
 
@@ -35,14 +35,6 @@ export default function App() {
     setTodo({ ...todo, contents: targetTodo });
   };
 
-  const emptyTodo = () => {
-    if (nothingContents(todos)) {
-      return <p>할 일이 없어요!</p>;
-    }
-
-    return false;
-  };
-
   return (
     <Todo
       inputTodo={inputTodo}
@@ -50,8 +42,8 @@ export default function App() {
       createTodo={createTodo}
       compelteTodo={compelteTodo}
       todos={todos}
-      emptyTodo={emptyTodo}
       disabled={disabled}
+      isEmpty={isEmpty}
     />
   );
 }

@@ -7,8 +7,8 @@ export default function Todo({
   handleChangeTodo,
   createTodo,
   compelteTodo,
-  emptyTodo,
   disabled,
+  isEmpty,
 }) {
   return (
     <>
@@ -22,7 +22,7 @@ export default function Todo({
       <TodoList
         compelteTodo={compelteTodo}
         todos={todos}
-        emptyTodo={emptyTodo}
+        isEmpty={isEmpty}
       />
     </>
   );

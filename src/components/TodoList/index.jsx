@@ -1,11 +1,17 @@
 export default function TodoList({
   todos,
   compelteTodo,
-  emptyTodo,
+  isEmpty,
 }) {
   const listStyle = {
     listStyleType: 'demical',
   };
+
+  if (isEmpty(todos)) {
+    return (
+      <p>할 일이 없어요!</p>
+    );
+  }
 
   return (
     <>
@@ -20,7 +26,6 @@ export default function TodoList({
           </button>
         </li>
       ))}
-      {emptyTodo()}
     </>
   );
 }
