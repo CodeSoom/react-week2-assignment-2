@@ -13,13 +13,8 @@ export default function App() {
   const { inputValue: inputTodo, contents: todos } = todo;
 
   useEffect(() => {
-    if (inputTodo === '') {
-      setDisabled(true);
-    }
-    if (inputTodo !== '') {
-      setDisabled(false);
-    }
-  }, [inputTodo, setDisabled]);
+    setDisabled(inputTodo === '');
+  }, [inputTodo]);
 
   const createTodo = (entered) => {
     const newTodo = {
