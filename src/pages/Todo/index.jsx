@@ -6,7 +6,7 @@ export default function Todo({
   inputTodo,
   handleChangeTodo,
   createTodo,
-  compelteTodo,
+  completeTodo,
   disabled,
   isEmpty,
 }) {
@@ -20,7 +20,7 @@ export default function Todo({
         disabled={disabled}
       />
       <TodoList
-        compelteTodo={compelteTodo}
+        completeTodo={completeTodo}
         todos={todos}
         isEmpty={isEmpty}
       />

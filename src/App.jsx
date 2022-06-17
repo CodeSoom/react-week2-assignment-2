@@ -29,7 +29,7 @@ export default function App() {
     });
   };
 
-  const compelteTodo = (id) => {
+  const completeTodo = (id) => {
     const targetTodo = todos.filter((target) => target.id !== id);
 
     setTodo({ ...todo, contents: targetTodo });
@@ -40,7 +40,7 @@ export default function App() {
       inputTodo={inputTodo}
       handleChangeTodo={handleChangeTodo}
       createTodo={createTodo}
-      compelteTodo={compelteTodo}
+      completeTodo={completeTodo}
       todos={todos}
       disabled={disabled}
       isEmpty={isEmpty}

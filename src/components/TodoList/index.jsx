@@ -1,6 +1,6 @@
 export default function TodoList({
   todos,
-  compelteTodo,
+  completeTodo,
   isEmpty,
 }) {
   const listStyle = {
@@ -20,7 +20,7 @@ export default function TodoList({
           {todo}
           <button
             type="button"
-            onClick={() => compelteTodo(id)}
+            onClick={() => completeTodo(id)}
           >
             완료
           </button>
