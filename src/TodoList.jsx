@@ -7,6 +7,7 @@ const TodoList = ({ todos, onComplete }) => {
         {todos.map(
           (todo) => (
             <Todo
+              key={todo.id}
               todo={todo}
               onComplete={onComplete}
             />
