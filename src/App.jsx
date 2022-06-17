@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Button from './components/common/Button';
 import Input from './components/common/Input';
-import Title from './components/common/Title';
 
 import TodosView from './components/todo/TodosView';
 
@@ -47,7 +46,7 @@ export default function App() {
 
   return (
     <div>
-      <Title>To-Do</Title>
+      <h1>To-Do</h1>
 
       <Input
         onKeyPress={handleEnter}
