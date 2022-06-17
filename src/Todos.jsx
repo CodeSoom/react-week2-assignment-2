@@ -1,10 +1,9 @@
 import Todo from './Todo';
+import EmptyMessage from './EmptyMessage';
 
 export default function Todos({ todos = [], onComplete }) {
   if (!todos.length) {
-    return (
-      <p>할 일을 입력해주세요</p>
-    );
+    return <EmptyMessage message="할 일이 없어요!" />;
   }
 
   return (
