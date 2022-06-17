@@ -5,8 +5,7 @@ import Button from './components/common/Button';
 import Input from './components/common/Input';
 import Title from './components/common/Title';
 
-import TodoNull from './components/todo/TodoNull';
-import Todos from './components/todo/Todos';
+import TodosView from './components/todo/TodosView';
 
 export default function App() {
   const [todo, setTodo] = useState({
@@ -46,8 +45,6 @@ export default function App() {
     });
   };
 
-  const todosIsNull = todos.length === 0;
-
   return (
     <div>
       <Title>To-Do</Title>
@@ -62,10 +59,8 @@ export default function App() {
 
       <Button onClick={handleClickInsertButton}>추가</Button>
 
-      {todosIsNull && <TodoNull />}
-      {!todosIsNull && (
-        <Todos todos={todos} onClick={handleClickCompleteButton} />
-      )}
+      <TodosView todos={todos} onClick={handleClickCompleteButton} />
+
     </div>
   );
 }
