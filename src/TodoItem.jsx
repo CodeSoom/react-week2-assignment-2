@@ -1,7 +1,7 @@
-export default function TodoItem({ item }) {
+export default function Todo({ todo }) {
   return (
     <li>
-      <strong>{ item.title }</strong>
+      <strong>{ todo.title }</strong>
       <button type="button">완료</button>
     </li>
   );

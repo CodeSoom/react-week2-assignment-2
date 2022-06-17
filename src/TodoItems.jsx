@@ -1,4 +1,4 @@
-import TodoItem from './TodoItem';
+import Todo from './TodoItem';
 
 export default function TodoItems({ todoItems = [] }) {
   if (!todoItems.length) {
@@ -11,7 +11,7 @@ export default function TodoItems({ todoItems = [] }) {
     <ul>
       {
         todoItems.map((item) => (
-          <TodoItem item={item} key={item.id} />
+          <Todo todo={item} key={item.id} />
         ))
       }
     </ul>
