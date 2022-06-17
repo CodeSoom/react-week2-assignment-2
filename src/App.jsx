@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import Title from './Title';
 import TodoForm from './TodoForm';
@@ -6,11 +6,9 @@ import TodoList from './TodoList';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
-  const nextId = useRef(1);
 
   const addTodo = (title) => {
-    setTodos([...todos, { id: nextId.current, title }]);
-    nextId.current += 1;
+    setTodos([...todos, { id: Date.now(), title }]);
   };
 
   const deleteTodo = (todoDelete) => {
