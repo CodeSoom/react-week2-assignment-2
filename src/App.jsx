@@ -20,9 +20,10 @@ export default function App() {
     setTodos([newTodo, ...todos]);
   };
 
-  const completeToDo = () => {
-  // completedToDo 삭제하는 코드 작성 예정
+  const completeToDo = (completedToDo) => {
+    const resultToDo = todos.filter((item) => item.id !== completedToDo.id);
 
+    setTodos(resultToDo);
   };
 
   const resetInput = () => {
