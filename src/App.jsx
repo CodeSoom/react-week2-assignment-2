@@ -8,17 +8,17 @@ import Todos from './components/todo/Todos';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
-  const [todo, setTodo] = useState('');
+  const [inputTodo, setInputTodo] = useState('');
 
   const handleInputChange = (e) => {
-    setTodo(e.target.value);
+    setInputTodo(e.target.value);
   };
 
   const handleClickInsertButton = () => {
-    const todoList = { text: todo, id: uuidv4() };
+    const todoList = { text: inputTodo, id: uuidv4() };
 
     setTodos([...todos, todoList]);
-    setTodo('');
+    setInputTodo('');
   };
 
   const handleEnter = (e) => {
@@ -40,7 +40,7 @@ export default function App() {
         onChange={handleInputChange}
         placeholder="할 일을 입력해 주세요"
       >
-        {todo}
+        {inputTodo}
       </Input>
 
       <Button onClick={handleClickInsertButton}>추가</Button>
