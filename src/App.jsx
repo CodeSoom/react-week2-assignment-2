@@ -25,8 +25,12 @@ export default function App() {
 
   };
 
-  const handleClickAddButton = (inputToDo) => {
+  const resetInput = () => {
     setInputTodo('');
+  };
+
+  const handleClickAddButton = (inputToDo) => {
+    resetInput();
     addToDo(inputToDo);
   };
 
