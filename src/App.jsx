@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import Button from './components/common/Button';
-import Input from './components/common/Input';
+import Input from './components/todo/Input';
 
 import Todos from './components/todo/Todos';
 

@@ -1,6 +1,6 @@
 import Button from '../common/Button';
 
-export default function TodosView({ todos, onClick }) {
+export default function Todos({ todos, onClick }) {
   if (todos.length === 0) {
     return <div>할 일이 없어요!</div>;
   }
