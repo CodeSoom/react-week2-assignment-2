@@ -1,10 +1,10 @@
 const todoList = [];
 export default function ListOfTodos({ todo }) {
-  console.log(todoList);
+  // console.log(todoList);
 
   if (todo || false) {
     todoList.push(todo);
-    console.log('list');
+    // console.log('list');
   }
 
   return (
@@ -15,3 +15,4 @@ export default function ListOfTodos({ todo }) {
     </ol>
   );
 }
+

@@ -18,7 +18,7 @@ export default function App() {
     }
 
     // setTodo('');
-    console.log(value);
+    // console.log(value);
     setFormInputValue('');
   };
 
@@ -27,7 +27,7 @@ export default function App() {
   };
 
   const handleClick = (e) => {
-    console.log('handleClick');
+    // console.log('handleClick');
     // setDeletedTodoNumber(e.target.className);
   };
 
