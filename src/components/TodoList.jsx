@@ -9,8 +9,6 @@ export default function TodoList({ todos, onClick }) {
     <ol style={style}>
       {todos.map((item) => (
         <li key={item.id}>
-          {item.id}
-          .
           {item.toDo}
           <button type="button" onClick={() => onClick(item)}>완료</button>
         </li>
