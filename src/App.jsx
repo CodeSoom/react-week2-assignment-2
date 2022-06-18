@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Button from './components/common/Button';
 import Input from './components/common/Input';
 
-import TodosView from './components/todo/TodosView';
+import Todos from './components/todo/Todos';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -45,7 +45,7 @@ export default function App() {
 
       <Button onClick={handleClickInsertButton}>추가</Button>
 
-      <TodosView todos={todos} onClick={handleClickCompleteButton} />
+      <Todos todos={todos} onClick={handleClickCompleteButton} />
 
     </div>
   );

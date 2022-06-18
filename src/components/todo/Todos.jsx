@@ -1,3 +1,5 @@
+import Button from '../common/Button';
+
 export default function TodosView({ todos, onClick }) {
   if (todos.length === 0) {
     return <div>할 일이 없어요!</div>;
@@ -7,14 +9,13 @@ export default function TodosView({ todos, onClick }) {
       { todos.map(({ text, id }) => (
         <li key={id}>
           <span>{text}</span>
-          <button
+          <Button
             onClick={() => {
               onClick(id);
             }}
-            type="button"
           >
             완료
-          </button>
+          </Button>
         </li>
       ))}
     </ol>
