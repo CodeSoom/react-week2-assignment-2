@@ -1,20 +1,20 @@
 export default function TodoList({ todos, onClick }) {
-  const style = { display: 'flex', alignItems: 'center', margin: '3px' };
+  const style = { margin: '16px', padding: 0 };
 
   if (todos.length === 0) {
     return <p>할 일이 없어요!</p>;
   }
 
   return (
-    <ul style={{ margin: '0', padding: '0' }}>
+    <ol style={style}>
       {todos.map((item) => (
-        <li style={style} key={item.id}>
+        <li key={item.id}>
           {item.id}
           .
           {item.toDo}
           <button type="button" onClick={() => onClick(item)}>완료</button>
         </li>
       ))}
-    </ul>
+    </ol>
   );
 }
