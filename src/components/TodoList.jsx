@@ -1,8 +1,10 @@
 export default function TodoList({ todos, onClick }) {
   const style = { margin: '16px', padding: 0 };
 
-  if (todos.length === 0) {
-    return <p>할 일이 없어요!</p>;
+  const isEmpty = (arr = []) => arr.length === 0;
+
+  if (isEmpty(todos)) {
+    return '할 일이 없어요!';
   }
 
   return (
