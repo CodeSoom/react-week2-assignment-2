@@ -17,8 +17,8 @@ export default function App() {
     setMessage('');
   };
 
-  const handleButttonClick = (key) => {
-    setTodoList(todoList.filter((item) => item.key !== key));
+  const handleButttonClick = (deletedItemKey) => {
+    setTodoList(todoList.filter((item) => item.key !== deletedItemKey));
 
     if (todoList.length === 1) {
       setMessage('할 일이 없어요!');

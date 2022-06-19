@@ -3,7 +3,7 @@ export default function ListOfTodos({ todoList, handleButttonClick }) {
     <ol>
       {todoList.map((item) => (
         <li key={item.key}>
-          {item.text}{' '}
+          {item.text}
           <button
             key={item.key}
             onClick={() => handleButttonClick(item.key)}
