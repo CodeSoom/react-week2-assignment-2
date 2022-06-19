@@ -1,8 +1,5 @@
 import { useState } from 'react';
-
-import Title from './components/Title';
-import InputTodo from './components/InputTodo';
-import TodoList from './components/TodoList';
+import Page from './Page';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -41,17 +38,12 @@ export default function App() {
   };
 
   return (
-    <>
-      <Title title="To-do" />
-      <InputTodo
-        onClick={handleClickAddButton}
-        todoTitle={todoTitle}
-        setTodoTitle={setTodoTitle}
-      />
-      <TodoList
-        onClick={handleClickCompleteButton}
-        todos={todos}
-      />
-    </>
+    <Page
+      todos={todos}
+      todoTitle={todoTitle}
+      setTodoTitle={setTodoTitle}
+      handleClickAddButton={handleClickAddButton}
+      handleClickCompleteButton={handleClickCompleteButton}
+    />
   );
 }
