@@ -1,18 +1,23 @@
-export default function InputTodo({ onClick, inputTodo, setInputTodo }) {
-  const handleInputChange = (e) => {
-    setInputTodo(e.target.value);
-  };
-
+export default function InputTodo({
+  onClick,
+  todoTitle,
+  setTodoTitle,
+}) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    onClick(inputTodo);
+
+    onClick(todoTitle);
+  };
+
+  const handleInputChange = (e) => {
+    setTodoTitle(e.target.value);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={inputTodo}
+        value={todoTitle}
         onChange={handleInputChange}
         placeholder="할 일을 입력해주세요."
       />

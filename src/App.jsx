@@ -6,32 +6,33 @@ import TodoList from './components/TodoList';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
-  const [createdId, setCreateId] = useState(1);
-  const [inputTodo, setInputTodo] = useState('');
+  const [todoId, setTodoId] = useState(1);
+  const [todoTitle, setTodoTitle] = useState('');
 
   const addToDo = (inputToDo) => {
-    setCreateId(createdId + 1);
+    setTodoId(todoId + 1);
 
     const newTodo = {
-      id: createdId,
+      id: todoId,
       toDo: inputToDo,
     };
 
     setTodos([newTodo, ...todos]);
   };
 
-  const completeToDo = (completedToDo) => {
-    const resultToDo = todos.filter((item) => item.id !== completedToDo.id);
+  const completeToDo = (targetToDo) => {
+    const filteredTodos = todos.filter((item) => item.id !== targetToDo.id);
 
-    setTodos(resultToDo);
+    setTodos(filteredTodos);
   };
 
   const resetInput = () => {
-    setInputTodo('');
+    setTodoTitle('');
   };
 
   const handleClickAddButton = (inputToDo) => {
     resetInput();
+
     addToDo(inputToDo);
   };
 
@@ -42,8 +43,15 @@ export default function App() {
   return (
     <>
       <Title title="To-do" />
-      <InputTodo onClick={handleClickAddButton} inputTodo={inputTodo} setInputTodo={setInputTodo} />
-      <TodoList onClick={handleClickCompleteButton} todos={todos} />
+      <InputTodo
+        onClick={handleClickAddButton}
+        todoTitle={todoTitle}
+        setTodoTitle={setTodoTitle}
+      />
+      <TodoList
+        onClick={handleClickCompleteButton}
+        todos={todos}
+      />
     </>
   );
 }
