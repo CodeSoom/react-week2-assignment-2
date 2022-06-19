@@ -1,46 +1,39 @@
 import { useState } from 'react';
 
-import { set } from 'immutable';
-
 import ListOfTodos from './ListOfTodos';
 import Form from './Form';
 
+const key = {
+  value: 0,
+};
+
 export default function App() {
-  const [todo, setTodo] = useState(null);
-  const [formInputValue, setFormInputValue] = useState(null);
+  const [todoList, setTodoList] = useState([]);
+  const [message, setMessage] = useState('할 일이 없어요!');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { value } = e.target.firstChild;
+  const receiveSubmit = (formInputValue) => {
+    key.value += 1;
+    setTodoList([...todoList, { key: key.value, text: formInputValue }]);
+    setMessage('');
+  };
 
-    if (value || false) {
-      setTodo(value);
+  const handleButttonClick = (key) => {
+    setTodoList(todoList.filter((item) => item.key !== key));
+
+    if (todoList.length === 1) {
+      setMessage('할 일이 없어요!');
     }
-
-    // setTodo('');
-    // console.log(value);
-    setFormInputValue('');
-  };
-
-  const handleOnChange = (e) => {
-    setFormInputValue(e.target.value);
-  };
-
-  const handleClick = (e) => {
-    // console.log('handleClick');
-    // setDeletedTodoNumber(e.target.className);
   };
 
   return (
     <div>
       <h1>To-Do-App</h1>
-      <Form
-        onSubmit={handleSubmit}
-        onChange={handleOnChange}
-        todo={todo}
-        formInputValue={formInputValue}
+      <Form receiveSubmit={receiveSubmit} />
+      <ListOfTodos
+        todoList={todoList}
+        handleButttonClick={handleButttonClick}
       />
-      <ListOfTodos todo={todo} />
+      <div>{message}</div>
     </div>
   );
 }

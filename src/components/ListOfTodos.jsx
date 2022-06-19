@@ -1,18 +1,18 @@
-const todoList = [];
-export default function ListOfTodos({ todo }) {
-  // console.log(todoList);
-
-  if (todo || false) {
-    todoList.push(todo);
-    // console.log('list');
-  }
-
+export default function ListOfTodos({ todoList, handleButttonClick }) {
   return (
     <ol>
-      {todoList.map((i) => (
-        <li>{i}</li>
+      {todoList.map((item) => (
+        <li key={item.key}>
+          {item.text}{' '}
+          <button
+            key={item.key}
+            onClick={() => handleButttonClick(item.key)}
+            type="button"
+          >
+            완료
+          </button>
+        </li>
       ))}
     </ol>
   );
 }
-
