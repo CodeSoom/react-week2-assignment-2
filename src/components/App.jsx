@@ -12,16 +12,16 @@ function App() {
 
   const { textInput, toDoArray } = state;
 
+  function handleTextInput(event) {
+    setState((prevState) => ({ textInput: event.target.value, toDoArray: prevState.toDoArray }));
+  }
+
   function handleAddButton(e) {
     e.preventDefault();
     setState((prevState) => ({
       textInput: '',
       toDoArray: [...prevState.toDoArray, prevState.textInput],
     }));
-  }
-
-  function handleTextInput(event) {
-    setState((prevState) => ({ textInput: event.target.value, toDoArray: prevState.toDoArray }));
   }
 
   function handleCompleteButton(deleteIndex) {

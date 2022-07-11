@@ -1,6 +1,10 @@
 import React from 'react';
 
-function Todo({ index, toDo, onCompleteButtonClick }) {
+function Todo({
+  index,
+  toDo,
+  onCompleteButtonClick,
+}) {
   return (
     <p id={index.toString()}>
       {`${index + 1}. ${toDo}`}
