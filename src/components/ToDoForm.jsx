@@ -1,14 +1,20 @@
 import React from 'react';
 
 function ToDoForm({
-  textInput,
-  onTextChange,
-  onAddButtonClick,
+  toDoInput,
+  onChangeToDo,
+  onSubmit,
 }) {
   return (
     <form>
-      <input type="text" placeholder="할 일을 입력해 주세요" onChange={onTextChange} value={textInput} />
-      <button type="submit" onClick={onAddButtonClick}>추가</button>
+      <input
+        type="text"
+        name="todo"
+        placeholder="할 일을 입력해 주세요"
+        onChange={onChangeToDo}
+        value={toDoInput}
+      />
+      <button type="submit" onClick={onSubmit}>추가</button>
     </form>
   );
 }

@@ -1,46 +1,59 @@
 import React, { useState } from 'react';
+import { v4 as generateId } from 'uuid';
 
-import Page from './Page';
+import ToDoForm from './ToDoForm';
+import ToDoList from './ToDoList';
 
 function App() {
   const [state, setState] = useState(
     {
-      textInput: '',
-      toDoArray: [],
+      toDoInput: '',
+      toDoList: [],
     },
   );
 
-  const { textInput, toDoArray } = state;
+  const { toDoInput, toDoList } = state;
 
-  function handleTextInput(event) {
-    setState((prevState) => ({ textInput: event.target.value, toDoArray: prevState.toDoArray }));
+  function handleToDoInput(event) {
+    setState((prevState) => ({ ...prevState, toDoInput: event.target.value }));
   }
 
-  function handleAddButton(e) {
+  function handleToDoSubmit(e) {
     e.preventDefault();
+
+    const newToDo = {
+      id: generateId(),
+      content: toDoInput,
+    };
+
     setState((prevState) => ({
-      textInput: '',
-      toDoArray: [...prevState.toDoArray, prevState.textInput],
+      toDoInput: '',
+      toDoList: [...prevState.toDoList, newToDo],
     }));
   }
 
-  function handleCompleteButton(deleteIndex) {
+  function handleClickDelete(idToDelete) {
     setState((prevState) => (
       {
-        textInput: prevState.textInput,
-        toDoArray: prevState.toDoArray.filter((_, index) => index !== deleteIndex),
+        ...prevState,
+        toDoList: prevState.toDoList.filter((toDo) => toDo.id !== idToDelete),
       }
     ));
   }
 
   return (
-    <Page
-      textInput={textInput}
-      toDoArray={toDoArray}
-      onTextChange={handleTextInput}
-      onAddButtonClick={handleAddButton}
-      onCompleteButtonClick={handleCompleteButton}
-    />
+    <>
+      <h1>To-do</h1>
+      <ToDoForm
+        toDoInput={toDoInput}
+        onChangeToDo={handleToDoInput}
+        onSubmit={handleToDoSubmit}
+      />
+      <ToDoList
+        toDoList={toDoList}
+        onClickDelete={handleClickDelete}
+      />
+    </>
   );
 }
 
