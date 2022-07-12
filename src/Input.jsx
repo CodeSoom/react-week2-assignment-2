@@ -6,7 +6,8 @@ export default function Input({ handleClick }) {
   const [value, setValue] = useState('');
 
   const checkInputValue = (e) => {
-    setValue(e.target.value);
+    const inputText = e.target.value;
+    return setValue(inputText);
   };
 
   return (

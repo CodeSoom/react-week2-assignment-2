@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
+import uuid from 'react-uuid';
+
 import Input from './Input';
 import Todo from './Todo';
 
@@ -17,11 +19,11 @@ function App() {
     <div>
       <p>To-do</p>
       <Input handleClick={handleAddTodo} />
-      <div>
+      <ul>
         {todoItem.map((item) => (
-          <Todo lable={item} />
+          <Todo lable={item} key={uuid()} id={uuid()} />
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
