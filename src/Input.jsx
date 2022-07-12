@@ -14,7 +14,7 @@ export default function Input({ handleClick }) {
     <div>
       <label htmlFor="todoInput">
         <input id="todoInput" type="text" onChange={(e) => checkInputValue(e)} />
-        <CommonButton lable="추가" handleClick={() => handleClick(value)} />
+        <CommonButton lable="추가" handleClick={() => handleClick(value)} disabled={!value && true} />
       </label>
     </div>
   );
