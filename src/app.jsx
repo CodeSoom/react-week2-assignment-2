@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import List from './list';
 import Form from './form';
 import Button from './button';
-import Input from './inputs';
+import Input from './input';
 
 function App() {
-  const [input, setInput] = useState('');
   const [toDos, setToDos] = useState([]);
+  const toDoInputs = useRef('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (input === '') {
+    const currentInput = toDoInputs.current.value;
+    const resetInputValue = () => {
+      document.getElementsByClassName('todo-input')[0].value = '';
+    };
+
+    if (currentInput === '') {
       return;
     }
 
-    setToDos((previousToDos) => [...previousToDos, input]);
-    setInput('');
-  };
-
-  const handleChange = (event) => {
-    setInput(event.target.value);
+    setToDos((previousToDos) => [...previousToDos, currentInput]);
+    resetInputValue();
+    toDoInputs.current.focus();
   };
 
   const handleToDoDone = (indexToDelete) => {
@@ -34,9 +36,9 @@ function App() {
       <h1>To-do</h1>
       <Form onSubmit={handleSubmit}>
         <Input
+          className="todo-input"
+          inputRef={toDoInputs}
           placeholder="할 일을 입력해주세요"
-          value={input}
-          onChange={handleChange}
         />
         <Button type="submit">추가</Button>
       </Form>
