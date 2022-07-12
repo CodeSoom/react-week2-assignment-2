@@ -40,11 +40,8 @@ function App() {
         />
         <Button type="submit">추가</Button>
       </Form>
-      {toDos.length ? (
-        <List toDos={toDos} onClick={handleToDoDone} />
-      ) : (
-        <p>할 일이 없어요!</p>
-      )}
+      {toDos.length > 0 && <List listItem={toDos} onClick={handleToDoDone} />}
+      {toDos.length === 0 && <p>할 일이 없어요!</p>}
     </>
   );
 }
