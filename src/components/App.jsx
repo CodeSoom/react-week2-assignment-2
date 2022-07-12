@@ -14,12 +14,14 @@ function App() {
 
   const { toDoInput, toDoList } = state;
 
-  function handleToDoInput(event) {
-    setState((prevState) => ({ ...prevState, toDoInput: event.target.value }));
+  function handleToDoInput(input) {
+    setState((prevState) => ({ ...prevState, toDoInput: input }));
   }
 
   function handleToDoSubmit(e) {
     e.preventDefault();
+
+    if (!toDoInput) return;
 
     const newToDo = {
       id: generateId(),

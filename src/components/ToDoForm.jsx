@@ -11,7 +11,7 @@ function ToDoForm({
         type="text"
         name="todo"
         placeholder="할 일을 입력해 주세요"
-        onChange={onChangeToDo}
+        onChange={(e) => onChangeToDo(e.target.value)}
         value={toDoInput}
       />
       <button type="submit" onClick={onSubmit}>추가</button>
