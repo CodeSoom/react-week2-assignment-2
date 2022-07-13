@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import List from './list';
 import Form from './form';
 import Button from './button';
@@ -22,10 +22,13 @@ function App() {
   const handleChange = (event) => {
     const currentInput = event.target.value;
 
-    setInputs((previousInputs) => previousInputs + currentInput);
+    setInputs(currentInput);
   };
 
-  const debouncedHandleChange = debounceFunction(handleChange, 200);
+  const debouncedHandleChange = useCallback(
+    debounceFunction(handleChange, 200),
+    [],
+  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,7 +37,11 @@ function App() {
       return;
     }
 
-    setToDos([...toDos, { id: inputs + toDos.length, toDo: inputs }]);
+    const deepCopyTodos = [...toDos].map((todo) => {
+      return { ...todo };
+    });
+
+    setToDos([...deepCopyTodos, { id: inputs + toDos.length, toDo: inputs }]);
     setInputs('');
     toDoInputs.current.value = '';
     toDoInputs.current.focus();
