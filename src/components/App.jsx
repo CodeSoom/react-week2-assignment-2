@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ToDoInput from './ToDoInput';
 import ToDoList from './ToDoList';
 
-function App() {
+const App = () => {
   const [todoList, setTodoList] = useState([]);
   const [inputText, setInputText] = useState('');
 
@@ -26,6 +26,6 @@ function App() {
       <ToDoList todoList={todoList} onClick={handleRemove} />
     </>
   );
-}
+};
 
 export default App;
