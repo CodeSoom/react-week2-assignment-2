@@ -6,7 +6,9 @@ function ToDoList({
   toDoList,
   onClickDelete,
 }) {
-  if (toDoList.length === 0) { return (<p>할 일이 없어요!</p>); }
+  if (toDoList.length === 0) {
+    return (<p>할 일이 없어요!</p>);
+  }
 
   return (
     <div>
