@@ -4,29 +4,44 @@ import Form from './form';
 import Button from './button';
 import Input from './input';
 
+const debounceFunction = (callback, delay) => {
+  let timer;
+
+  return (...args) => {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => callback(...args), delay);
+  };
+};
+
 function App() {
+  const [inputs, setInputs] = useState('');
   const [toDos, setToDos] = useState([]);
   const toDoInputs = useRef('');
+
+  const handleChange = (event) => {
+    const currentInput = event.target.value;
+
+    setInputs((previousInputs) => previousInputs + currentInput);
+  };
+
+  const debouncedHandleChange = debounceFunction(handleChange, 200);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const currentInput = toDoInputs.current.value;
-    const resetInputValue = () => {
-      document.getElementsByClassName('todo-input')[0].value = '';
-    };
-
-    if (currentInput === '') {
+    if (inputs === '') {
       return;
     }
 
-    setToDos((previousToDos) => [...previousToDos, currentInput]);
-    resetInputValue();
+    setToDos([...toDos, { id: inputs + toDos.length, toDo: inputs }]);
+    setInputs('');
+    toDoInputs.current.value = '';
     toDoInputs.current.focus();
   };
 
-  const handleToDoDone = (indexToDelete) => {
-    const editedToDos = toDos.filter((_, index) => index !== indexToDelete);
+  const handleToDoDone = (idToDelete) => {
+    const editedToDos = toDos.filter((toDo) => toDo.id !== idToDelete);
 
     setToDos(editedToDos);
   };
@@ -36,14 +51,14 @@ function App() {
       <h1>To-do</h1>
       <Form onSubmit={handleSubmit}>
         <Input
-          className="todo-input"
+          name="todo"
           inputRef={toDoInputs}
           placeholder="할 일을 입력해주세요"
+          onChange={debouncedHandleChange}
         />
         <Button type="submit">추가</Button>
       </Form>
-      {toDos.length > 0 && <List listItem={toDos} onClick={handleToDoDone} />}
-      {toDos.length === 0 && <p>할 일이 없어요!</p>}
+      {<List listItem={toDos} onClick={handleToDoDone} />}
     </>
   );
 }
