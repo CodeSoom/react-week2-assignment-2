@@ -1,22 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import CommonButton from './CommonButton';
 
-export default function Input({ handleClick }) {
-  const [value, setValue] = useState('');
-
-  const checkInputValue = (e) => {
-    const inputText = e.target.value;
-    if (inputText) {
-      setValue(inputText);
-    }
-  };
-
+export default function Input({ handleClick, handleChange, inputTextValue }) {
   return (
     <div>
       <label htmlFor="todoInput">
-        <input id="todoInput" type="text" onChange={(e) => checkInputValue(e)} />
-        <CommonButton lable="추가" handleClick={() => handleClick(value)} disabled={!value && true} />
+        <input id="todoInput" type="text" onChange={handleChange} />
+        {/* disabled={inputTextValue == '' && true} → 인풋에 입력 값이 없을 경우 disabled 속성이 활성화 되도록 조건처리 */}
+        <CommonButton lable="추가" handleClick={handleClick} disabled={inputTextValue === '' && true} />
       </label>
     </div>
   );
