@@ -2,10 +2,10 @@ import React from 'react';
 
 import CommonButton from './CommonButton';
 
-export default function Todo({ lable, id }) {
+export default function Todo({ label, id }) {
   return (
     <li id={id}>
-      {lable}
+      {label}
       <CommonButton>완료</CommonButton>
     </li>
   );

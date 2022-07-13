@@ -25,7 +25,7 @@ export default function App() {
       <Input handleClick={handleAddTodo} handleChange={handleSetInputTextValue} value={inputTextValue} />
       <ul>
         {todoItem.map((item) => (
-          <Todo lable={item} key={uuid()} id={uuid()} />
+          <Todo label={item} key={uuid()} id={uuid()} />
         ))}
       </ul>
     </div>
