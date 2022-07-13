@@ -6,7 +6,7 @@ export default function Todo({ lable, id }) {
   return (
     <li id={id}>
       {lable}
-      <CommonButton lable="완료" />
+      <CommonButton>완료</CommonButton>
     </li>
   );
 }
