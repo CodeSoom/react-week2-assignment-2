@@ -10,19 +10,19 @@ export default function App() {
   const [inputTextValue, setInputTextValue] = useState('');
 
   const handleAddTodo = () => {
-    const result = [...todoItem];
-    result.push(inputTextValue);
-    setTodoItem(result);
+    const copyTodoItem = [...todoItem];
+    copyTodoItem.push(inputTextValue);
+    setTodoItem(copyTodoItem);
   };
 
-  const checkInputValue = (e) => {
+  const handleSetInputTextValue = (e) => {
     setInputTextValue(e.target.value);
   };
 
   return (
     <div>
       <p>To-do</p>
-      <Input handleClick={handleAddTodo} handleChange={checkInputValue} value={inputTextValue} />
+      <Input handleClick={handleAddTodo} handleChange={handleSetInputTextValue} value={inputTextValue} />
       <ul>
         {todoItem.map((item) => (
           <Todo lable={item} key={uuid()} id={uuid()} />
