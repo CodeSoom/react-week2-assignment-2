@@ -19,13 +19,17 @@ export default function App() {
     setInputTextValue(e.target.value);
   };
 
+  // const handleDeleteTodo = (currentTodoItemId) => {
+  // console.log(currentTodoItemId);
+  // };
+
   return (
     <div>
       <p>To-do</p>
-      <Input handleClick={handleAddTodo} handleChange={handleSetInputTextValue} value={inputTextValue} />
+      <Input handleClick={handleAddTodo} handleChange={handleSetInputTextValue} inputTextValue={inputTextValue} />
       <ul>
         {todoItem.map((item) => (
-          <Todo label={item} key={uuid()} id={uuid()} />
+          <Todo label={item} key={uuid()} id={uuid()} handleDeleteTodo={handleDeleteTodo} />
         ))}
       </ul>
     </div>
