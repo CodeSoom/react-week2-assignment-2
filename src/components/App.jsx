@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ToDoInput from './ToDoInput';
 import ToDoList from './ToDoList';
 
@@ -22,7 +22,11 @@ const App = () => {
   return (
     <>
       <h1>To-do</h1>
-      <ToDoInput inputText={inputText} onChange={handleChange} onClick={handleClickAddButton} />
+      <ToDoInput
+        inputText={inputText}
+        onChange={handleChange}
+        onClick={handleClickAddButton}
+      />
       <ToDoList todoList={todoList} onClick={handleRemove} />
     </>
   );

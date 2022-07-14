@@ -1,4 +1,4 @@
-import React from 'react';
+import ToDoListItem from './ToDoListItem';
 
 const ToDoList = ({ todoList, onClick }) => {
   if (todoList.length === 0) {
@@ -8,10 +8,11 @@ const ToDoList = ({ todoList, onClick }) => {
   }
 
   const listItem = todoList.map((item) => (
-    <li key={item}>
-      {item}
-      <button type="button" onClick={() => onClick({ finishedItem: item })}>완료</button>
-    </li>
+    <ToDoListItem
+      key={item}
+      item={item}
+      onClick={onClick}
+    />
   ));
 
   return (
