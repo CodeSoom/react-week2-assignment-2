@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import uuid from 'react-uuid';
+import { v4 as uuid } from 'uuid';
 
 import Input from './Input';
 import Todo from './Todo';
