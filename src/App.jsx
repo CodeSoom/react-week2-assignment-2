@@ -11,7 +11,10 @@ export default function App() {
 
   const handleAddTodo = () => {
     const copyTodoItem = [...todoItem];
-    copyTodoItem.push(inputTextValue);
+    copyTodoItem.push({
+      id: uuid(),
+      content: inputTextValue,
+    });
     setTodoItem(copyTodoItem);
   };
 
@@ -19,9 +22,10 @@ export default function App() {
     setInputTextValue(e.target.value);
   };
 
-  // const handleDeleteTodo = (currentTodoItemId) => {
-  // console.log(currentTodoItemId);
-  // };
+  const handleDeleteTodo = (currentTodoItemId) => {
+    const countOutCurrentTodoArray = todoItem.filter((item) => item.id !== currentTodoItemId);
+    setTodoItem(countOutCurrentTodoArray);
+  };
 
   return (
     <div>
@@ -29,7 +33,7 @@ export default function App() {
       <Input handleClick={handleAddTodo} handleChange={handleSetInputTextValue} inputTextValue={inputTextValue} />
       <ul>
         {todoItem.map((item) => (
-          <Todo label={item} key={uuid()} id={uuid()} handleDeleteTodo={handleDeleteTodo} />
+          <Todo label={item.content} key={item.id} id={item.id} handleDeleteTodo={handleDeleteTodo} />
         ))}
       </ul>
     </div>
