@@ -10,12 +10,13 @@ export default function App() {
   const [inputTextValue, setInputTextValue] = useState('');
 
   const handleAddTodo = () => {
-    const copyTodoItem = [...todoItem];
-    copyTodoItem.push({
-      id: uuid(),
-      content: inputTextValue,
-    });
-    setTodoItem(copyTodoItem);
+    const copyTodoItem = [
+      {
+        id: uuid(),
+        content: inputTextValue,
+      },
+    ];
+    setTodoItem([...todoItem, ...copyTodoItem]);
   };
 
   const handleSetInputTextValue = (e) => {
