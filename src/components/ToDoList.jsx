@@ -9,7 +9,7 @@ const ToDoList = ({ todoList, onClick }) => {
 
   const listItem = todoList.map((item) => (
     <ToDoListItem
-      key={item}
+      key={item.id}
       item={item}
       onClick={onClick}
     />
