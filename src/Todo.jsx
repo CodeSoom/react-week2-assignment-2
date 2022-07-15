@@ -4,7 +4,7 @@ import CommonButton from './CommonButton';
 
 export default function Todo({ label, id, handleDeleteTodo }) {
   return (
-    <li id={id}>
+    <li>
       {label}
       <CommonButton handleClick={() => handleDeleteTodo(id)}>완료</CommonButton>
     </li>
