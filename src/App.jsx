@@ -26,7 +26,10 @@ export default function App() {
   };
 
   const handleDeleteTodo = (currentTodoItemId) => {
-    const countOutCurrentTodoArray = todoList.filter((item) => item.id !== currentTodoItemId);
+    const countOutCurrentTodoArray = todoList.filter((item) => {
+      const notSameCurrentItem = item.id !== currentTodoItemId;
+      return notSameCurrentItem;
+    });
     setTodoList(countOutCurrentTodoArray);
   };
 
@@ -34,7 +37,11 @@ export default function App() {
     return (
       <div>
         <p>To-do</p>
-        <Form handleClick={handleAddTodoItem} handleChange={handleSetTodoItemInput} todoItemInput={todoItemInput} />
+        <Form
+          handleClick={handleAddTodoItem}
+          handleChange={handleSetTodoItemInput}
+          todoItemInput={todoItemInput}
+        />
         <p>할 일이 없어요!</p>
       </div>
     );
@@ -43,10 +50,19 @@ export default function App() {
   return (
     <div>
       <p>To-do</p>
-      <Form handleClick={handleAddTodoItem} handleChange={handleSetTodoItemInput} todoItemInput={todoItemInput} />
+      <Form
+        handleClick={handleAddTodoItem}
+        handleChange={handleSetTodoItemInput}
+        todoItemInput={todoItemInput}
+      />
       <ul>
         {todoList.map((item) => (
-          <Todo label={item.content} key={item.id} id={item.id} handleDeleteTodo={handleDeleteTodo} />
+          <Todo
+            label={item.content}
+            key={item.id}
+            id={item.id}
+            handleDeleteTodo={handleDeleteTodo}
+          />
         ))}
       </ul>
     </div>
