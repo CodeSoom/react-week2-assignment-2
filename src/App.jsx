@@ -33,20 +33,6 @@ export default function App() {
     setTodoList(countOutCurrentTodoArray);
   };
 
-  if (todoList.length === 0) {
-    return (
-      <div>
-        <p>To-do</p>
-        <Form
-          handleClick={handleAddTodoItem}
-          handleChange={handleSetTodoItemInput}
-          todoItemInput={todoItemInput}
-        />
-        <p>할 일이 없어요!</p>
-      </div>
-    );
-  }
-
   return (
     <div>
       <p>To-do</p>
@@ -55,16 +41,21 @@ export default function App() {
         handleChange={handleSetTodoItemInput}
         todoItemInput={todoItemInput}
       />
-      <ul>
-        {todoList.map((item) => (
-          <Todo
-            label={item.content}
-            key={item.id}
-            id={item.id}
-            handleDeleteTodo={handleDeleteTodo}
-          />
-        ))}
-      </ul>
+
+      {todoList.length === 0 ? (
+        <p>할 일이 없어요!</p>
+      ) : (
+        <ul>
+          {todoList.map((item) => (
+            <Todo
+              label={item.content}
+              key={item.id}
+              id={item.id}
+              handleDeleteTodo={handleDeleteTodo}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
