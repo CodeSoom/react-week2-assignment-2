@@ -9,15 +9,13 @@ export default function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoItemInput, setTodoItemInput] = useState('');
 
-  const handleAddTodoItem = () => {
-    const newTodoItem = [
-      {
-        id: uuid(),
-        content: todoItemInput,
-      },
-    ];
+  const handleAddTodo = () => {
+    const newTodoItem = {
+      id: uuid(),
+      content: todoItemInput,
+    };
 
-    setTodoList([...todoList, ...newTodoItem]);
+    setTodoList([...todoList, newTodoItem]);
     setTodoItemInput('');
   };
 
@@ -26,10 +24,8 @@ export default function App() {
   };
 
   const handleDeleteTodo = (currentTodoItemId) => {
-    const countOutCurrentTodoArray = todoList.filter((item) => {
-      const notSameCurrentItem = item.id !== currentTodoItemId;
-      return notSameCurrentItem;
-    });
+    const countOutCurrentTodoArray = todoList.filter((item) => item.id !== currentTodoItemId);
+
     setTodoList(countOutCurrentTodoArray);
   };
 
@@ -37,7 +33,7 @@ export default function App() {
     <div>
       <p>To-do</p>
       <Form
-        handleClick={handleAddTodoItem}
+        handleClick={handleAddTodo}
         handleChange={handleSetTodoItemInput}
         todoItemInput={todoItemInput}
       />
