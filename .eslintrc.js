@@ -47,6 +47,7 @@ module.exports = {
     'arrow-spacing': ['error', { before: true, after: true }],
 
     'react/prop-types': 'off',
+    'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
   },
 };
