@@ -5,5 +5,4 @@ export default function Form({ inputText, onInputChange, onAddButtonClick }) {
         <button type="submit">추가</button>
       </form>
     );
-  }
-  
+}

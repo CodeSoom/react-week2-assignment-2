@@ -9,5 +9,4 @@ export default function ToDos({ toDos, onDeleteButtonClick }) {
         ))}
       </ol>
     );
-  }
-  
+}
