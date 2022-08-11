@@ -7,7 +7,7 @@ export default function App() {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
 
-  function handleInputChange(e) {
+  function handleChangeInput(e) {
     setInputText(e.target.value);
   }
 
@@ -16,14 +16,14 @@ export default function App() {
     return todoList[todoList.length - 1].id + 1;
   }
 
-  function handleAddButtonClick(e) {
+  function handleClickAddButton(e) {
     e.preventDefault();
     const id = getId(todos);
     setTodos([...todos, { id, content: inputText }]);
     setInputText('');
   }
 
-  function handleDeleteButtonClick(id) {
+  function handleClickDeleteButton(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
@@ -32,11 +32,11 @@ export default function App() {
       <h1>To-do</h1>
       <Form
         inputText={inputText}
-        onInputChange={handleInputChange}
-        onAddButtonClick={handleAddButtonClick}
+        onChangeInput={handleChangeInput}
+        onClickAddButton={handleClickAddButton}
       />
       {todos.length === 0 ? <p>할 일이 없어요!</p>
-        : <Todos todos={todos} onDeleteButtonClick={handleDeleteButtonClick} />}
+        : <Todos todos={todos} onClickDeleteButton={handleClickDeleteButton} />}
     </>
   );
 }
