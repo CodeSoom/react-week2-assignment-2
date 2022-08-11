@@ -49,9 +49,6 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-no-bind': ['error', {
-      allowArrowFunction: true,
-      allowFunctions: true,
-    }],
+    'react/jsx-no-bind': 'off',
   },
 };
