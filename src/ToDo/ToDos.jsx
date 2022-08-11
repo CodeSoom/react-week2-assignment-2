@@ -1,10 +1,10 @@
-export default function ToDos({ toDos, onDeleteButtonClick }) {
+export default function Todos({ todos, onDeleteButtonClick }) {
   return (
     <ol>
-      {toDos.map((toDo) => (
-        <li key={toDo.id}>
-          <span>{toDo.content}</span>
-          <button type="button" onClick={() => onDeleteButtonClick(toDo.id)}>완료</button>
+      {todos.map((todo) => (
+        <li key={todo.id}>
+          <span>{todo.content}</span>
+          <button type="button" onClick={() => onDeleteButtonClick(todo.id)}>완료</button>
         </li>
       ))}
     </ol>

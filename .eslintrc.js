@@ -50,6 +50,7 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-no-bind': ['error', {
+      allowArrowFunction: true,
       allowFunctions: true,
     }],
   },

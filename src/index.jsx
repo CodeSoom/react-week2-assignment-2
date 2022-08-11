@@ -1,5 +1,5 @@
 import ReactDom from 'react-dom/client';
 
-import ToDoApp from './ToDo/App';
+import TodoApp from './Todo/App';
 
-ReactDom.createRoot(document.getElementById('app')).render(<ToDoApp />);
+ReactDom.createRoot(document.getElementById('app')).render(<TodoApp />);

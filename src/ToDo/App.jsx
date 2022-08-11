@@ -1,30 +1,30 @@
 import { useState } from 'react';
 
 import Form from './Form';
-import ToDos from './ToDos';
+import Todos from './Todos';
 
 export default function App() {
   const [inputText, setInputText] = useState('');
-  const [toDos, setToDos] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   function handleInputChange(e) {
     setInputText(e.target.value);
   }
 
-  function getId(toDolist) {
-    if (toDolist.length === 0) return 1;
-    return toDolist[toDolist.length - 1].id + 1;
+  function getId(todoList) {
+    if (todoList.length === 0) return 1;
+    return todoList[todoList.length - 1].id + 1;
   }
 
   function handleAddButtonClick(e) {
     e.preventDefault();
-    const id = getId(toDos);
-    setToDos([...toDos, { id, content: inputText }]);
+    const id = getId(todos);
+    setTodos([...todos, { id, content: inputText }]);
     setInputText('');
   }
 
   function handleDeleteButtonClick(id) {
-    setToDos(toDos.filter((toDo) => toDo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   }
 
   return (
@@ -35,8 +35,8 @@ export default function App() {
         onInputChange={handleInputChange}
         onAddButtonClick={handleAddButtonClick}
       />
-      {toDos.length === 0 ? <p>할 일이 없어요!</p>
-        : <ToDos toDos={toDos} onDeleteButtonClick={handleDeleteButtonClick} />}
+      {todos.length === 0 ? <p>할 일이 없어요!</p>
+        : <Todos todos={todos} onDeleteButtonClick={handleDeleteButtonClick} />}
     </>
   );
 }
