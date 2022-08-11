@@ -32,13 +32,10 @@ export default function App() {
       <h1>To-do</h1>
       <Form
         inputText={inputText}
-        // eslint-disable-next-line react/jsx-no-bind
         onInputChange={handleInputChange}
-        // eslint-disable-next-line react/jsx-no-bind
         onAddButtonClick={handleAddButtonClick}
       />
       {toDos.length === 0 ? <p>할 일이 없어요!</p>
-        // eslint-disable-next-line react/jsx-no-bind
         : <ToDos toDos={toDos} onDeleteButtonClick={handleDeleteButtonClick} />}
     </>
   );
