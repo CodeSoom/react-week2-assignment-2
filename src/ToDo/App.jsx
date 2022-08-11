@@ -11,15 +11,15 @@ export default function App() {
     setInputText(e.target.value);
   }
 
-  function getId(todoList) {
-    if (todoList.length === 0) return 1;
-    return todoList[todoList.length - 1].id + 1;
+  function uuidv4() {
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
   }
 
   function handleClickAddButton(e) {
     e.preventDefault();
-    const id = getId(todos);
-    setTodos([...todos, { id, content: inputText }]);
+    setTodos([...todos, { id: uuidv4(), content: inputText }]);
     setInputText('');
   }
 
