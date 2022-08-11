@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Form from './Form';
 import Todos from './Todos';
@@ -11,10 +12,12 @@ export default function App() {
     setInputText(e.target.value);
   }
 
-  function uuidv4() {
-    // eslint-disable-next-line no-bitwise
-    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) => ((c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15) >> c / 4).toString(16));
-  }
+  // Todo : 혹시나 직접 구현할 때는 util파일 만들어서 관리!
+  // function uuidv4() {
+  // return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11)
+  //   .replace(/[018]/g, (c) => ((c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15) >> c / 4)
+  //     .toString(16));
+  // }
 
   function handleClickAddButton(e) {
     e.preventDefault();
