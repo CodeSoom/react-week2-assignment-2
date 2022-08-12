@@ -1,4 +1,4 @@
-export default function ToDoList({
+export default function TodoList({
   todos,
   onClickRemove,
 }) {

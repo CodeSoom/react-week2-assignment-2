@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import Form from './Form';
-import ToDoList from './ToDoList';
+import TodoList from './TodoList';
 
 export default function App() {
   const [inputValue, setInputValue] = useState('');
@@ -35,9 +35,8 @@ export default function App() {
       />
       { todos.length === 0 ? <p>할 일이 없어요!</p>
         : (
-          <ToDoList
+          <TodoList
             todos={todos}
-            setTodos={setTodos}
             onClickRemove={handleRemoveList}
           />
         )}
