@@ -1,15 +1,15 @@
 export default function ToDoList({
-  list,
+  todos,
   onClickRemove,
 }) {
   return (
     <ol>
-      {list.map((content) => (
-        <li key={content.id}>
-          {content.value}
+      {todos.map((todo) => (
+        <li key={todo.id}>
+          {todo.value}
           <button
             type="button"
-            onClick={() => onClickRemove(content.id)}
+            onClick={() => onClickRemove(todo.id)}
           >
             완료
           </button>
