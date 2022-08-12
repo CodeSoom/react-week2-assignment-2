@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { v4 as uuidv4 } from 'uuid';
 
 import Form from './Form';
@@ -12,7 +13,8 @@ export default function App() {
     setInputValue(target.value);
   }
 
-  function handleClickAdd() {
+  function handleClickAdd(e) {
+    e.preventDefault();
     setTodos([
       ...todos, { id: uuidv4(), value: inputValue },
     ]);

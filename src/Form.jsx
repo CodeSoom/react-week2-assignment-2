@@ -4,7 +4,9 @@ export default function Form({
   onClickAdd,
 }) {
   return (
-    <form>
+    <form
+      onSubmit={onClickAdd}
+    >
       <input
         type="text"
         placeholder="할 일을 입력해 주세요"
@@ -12,8 +14,7 @@ export default function Form({
         onChange={onChangeInput}
       />
       <button
-        type="button"
-        onClick={onClickAdd}
+        type="submit"
       >
         추가
       </button>
