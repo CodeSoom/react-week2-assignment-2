@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function App() {
   const [state, setState] = useState({
@@ -10,8 +10,6 @@ export default function App() {
   });
 
   const { newId, todoTitle, todos } = state;
-
-  const [text, setText] = useState('')
 
   function handleChangeTitle(e) {
     setState({
@@ -24,6 +22,7 @@ export default function App() {
     setState({
       ...state,
       newId: uuidv4(),
+      todoTitle: '',
       todos: [...todos, { id: newId, text: todoTitle }],
     });
   }
@@ -32,7 +31,7 @@ export default function App() {
     setState({
       ...state,
       todos: todos.filter((todo) => todo.id !== id),
-    })
+    });
   }
 
   return (
@@ -44,27 +43,30 @@ export default function App() {
         placeholder="할 일을 입력해 주세요"
         onChange={handleChangeTitle}
       />
-      <button onClick={handleAddClick}>
+      <button
+        type="button"
+        onClick={handleAddClick}
+      >
         추가
       </button>
 
       <ol>
-      {todos.length !== 0 ? (
-        todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.text}
-            <button 
-              type="button"
-              onClick={() => handleDoneClick(todo.id)}
-            >
-              완료
-            </button>
-          </li>
-        ))
-      ) : (
-        <h2>할 일이 없어요!</h2>
-      )}
+        {todos.length !== 0 ? (
+          todos.map((todo) => (
+            <li key={todo.id}>
+              {todo.text}
+              <button
+                type="button"
+                onClick={() => handleDoneClick(todo.id)}
+              >
+                완료
+              </button>
+            </li>
+          ))
+        ) : (
+          <h2>할 일이 없어요!</h2>
+        )}
       </ol>
-  </div>
+    </div>
   );
 }
