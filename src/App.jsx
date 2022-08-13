@@ -29,7 +29,6 @@ export default function App() {
   }
 
   function handleDoneClick(id) {
-    console.log('id',id);
     setState({
       ...state,
       todos: todos.filter((todo) => todo.id !== id),
@@ -49,17 +48,23 @@ export default function App() {
         추가
       </button>
 
-      <ol>{todos.map((todo) => (
-        <li key={todo.id}>
-          {todo.text}
-          <button 
-            type="button"
-            onClick={() => handleDoneClick(todo.id)}
-          >
-            완료
-          </button>
-        </li>
-      ))}</ol>
+      <ol>
+      {todos.length !== 0 ? (
+        todos.map((todo) => (
+          <li key={todo.id}>
+            {todo.text}
+            <button 
+              type="button"
+              onClick={() => handleDoneClick(todo.id)}
+            >
+              완료
+            </button>
+          </li>
+        ))
+      ) : (
+        <h2>할 일이 없어요!</h2>
+      )}
+      </ol>
   </div>
   );
 }
