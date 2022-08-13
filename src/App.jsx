@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
+import {v4 as uuidv4} from 'uuid';
+
 export default function App() {
   const [state, setState] = useState({
-    newId: 100,
+    newId: uuidv4(),
     todoTitle: '',
     todos: [],
   });
@@ -21,7 +23,7 @@ export default function App() {
   function handleAddClick() {
     setState({
       ...state,
-      newId: newId +1,
+      newId: uuidv4(),
       todos: [...todos, { id: newId, text: todoTitle }],
     });
   }
