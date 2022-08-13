@@ -4,20 +4,7 @@ export default function App() {
   const [state, setState] = useState({
     newId: 100,
     todoTitle: '',
-    todos: [
-      {
-        id: 1,
-        text: '리액트 시작',
-      },
-      {
-        id: 2,
-        text: '컴포넌트 이해',
-      },
-      {
-        id: 3,
-        text: '투두리스트 만들기',
-      },
-    ],
+    todos: [],
   });
 
   const { newId, todoTitle, todos } = state;
@@ -39,6 +26,14 @@ export default function App() {
     });
   }
 
+  function handleDoneClick(id) {
+    console.log('id',id);
+    setState({
+      ...state,
+      todos: todos.filter((todo) => todo.id !== id),
+    })
+  }
+
   return (
     <div>
       <h1>To-do</h1>
@@ -55,7 +50,10 @@ export default function App() {
       <ol>{todos.map((todo) => (
         <li key={todo.id}>
           {todo.text}
-          <button type="button">
+          <button 
+            type="button"
+            onClick={() => handleDoneClick(todo.id)}
+          >
             완료
           </button>
         </li>
