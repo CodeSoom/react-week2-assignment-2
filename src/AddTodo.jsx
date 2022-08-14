@@ -1,17 +1,18 @@
-// import { useState } from 'react';
-
-// import Todos from './Todos';
-// import { createTodo } from './Todos';
-// import { initialTodos } from './Todos';
-
-// export default function AddTodo({ onClick }) {
-
-//   return (
-//     <div>
-//       <input></input>
-//       <button onClick={onClick}>
-//         추가
-//       </button>
-//     </div>
-//   );
-// }
+export default function AddTodo({ value, onChange, onClick }) {
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="할 일을 입력해 주세요"
+        value={value}
+        onChange={onChange}
+      />
+      <button
+        type="button"
+        onClick={onClick}
+      >
+        추가
+      </button>
+    </div>
+  );
+}
