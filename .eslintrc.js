@@ -25,6 +25,7 @@ module.exports = {
     Scenario: 'readonly',
   },
   rules: {
+    'linebreak-style': 0,
     indent: ['error', 2],
     'no-trailing-spaces': 'error',
     curly: 'error',
@@ -48,5 +49,6 @@ module.exports = {
 
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-no-bind': 'off',
   },
 };
