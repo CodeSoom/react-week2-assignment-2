@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import TodoDefault from './TodoDefault';
+import TodoForm from './TodoForm';
+import TodoList from './TodoList';
+import TodoTitle from './TodoTitle';
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -31,37 +35,29 @@ function App() {
 
   return (
     <div>
-      <h1>To-do</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          value={todoInput}
-          placeholder="할 일을 입력해 주세요"
-          onChange={(e) => onChange(e)}
-        />
-        <button type="submit">
-          추가
-        </button>
-      </form>
+      <TodoTitle />
+      <TodoForm
+        handleSubmit={handleSubmit}
+        onChange={onChange}
+        todoInput={todoInput}
+      />
       {
         todoList.length
           ? (
             <ol>
               {
                 todoList.map(({ id, todo }, idx) => (
-                  <li key={id}>
-                    {todo}
-                    <button
-                      type="button"
-                      onClick={() => confirmTodo(idx)}
-                    >
-                      완료
-                    </button>
-                  </li>
+                  <TodoList
+                    key={id}
+                    todo={todo}
+                    idx={idx}
+                    confirmTodo={confirmTodo}
+                  />
                 ))
               }
             </ol>
           )
-          : <span>할 일이 없어요!</span>
+          : <TodoDefault />
       }
     </div>
   );
