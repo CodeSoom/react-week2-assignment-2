@@ -1,12 +1,12 @@
 import React from 'react';
 
-function TodoList({ todo, confirmTodo, idx }) {
+function TodoList({ todo, confirmTodo, id }) {
   return (
     <li>
       {todo}
       <button
         type="button"
-        onClick={() => confirmTodo(idx)}
+        onClick={() => confirmTodo(id)}
       >
         완료
       </button>

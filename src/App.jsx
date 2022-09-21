@@ -32,12 +32,10 @@ function App() {
     setTodoInput(value);
   };
 
-  const confirmTodo = (idx) => {
-    setTodoList((current) => {
-      const newTodoList = [...current];
-      newTodoList.splice(idx, 1);
-      return newTodoList;
-    });
+  const confirmTodo = (id) => {
+    setTodoList((current) => (
+      current.filter((todo) => todo.id !== id)
+    ));
   };
 
   return (
@@ -51,11 +49,11 @@ function App() {
       <ol>
         {
           !!todoList.length
-          && todoList.map(({ id, todo }, idx) => (
+          && todoList.map(({ id, todo }) => (
             <TodoList
               key={id}
               todo={todo}
-              idx={idx}
+              id={id}
               confirmTodo={confirmTodo}
             />
           ))
