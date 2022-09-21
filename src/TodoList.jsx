@@ -1,9 +1,7 @@
 import React from 'react';
 
-function TodoList({ children }) {
+export default function TodoList({ children }) {
   return (
-    <ul>{children}</ul>
+    <ol>{children}</ol>
   );
 }
-
-export default TodoList;

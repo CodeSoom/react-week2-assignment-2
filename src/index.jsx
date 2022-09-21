@@ -1,16 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TodoWrap from './TodoWrap';
+import App from './App';
 
-function App() {
-  return (
-    <TodoWrap />
-    // <div>hello</div>
-  );
-}
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('app'),
-);
+ReactDOM.render(<App />, document.getElementById('app'));

@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
-import TodoInput from './TodoInput';
-import Button from './Button';
+import TodoAdd from './TodoAdd';
 import TodoList from './TodoList';
 import TodoItem from './TodoItem';
 
-function TodoWrap() {
-  const [todos, setTodos] = useState(['1', '2']);
+export default function TodoWrap() {
+  const [todos, setTodos] = useState([]);
+  const nextId = useRef(1);
 
-  function addTotoItem() {
-    console.log('click!');
-    setTodos('추가');
+  function onInsertTodo(text) {
+    const todo = {
+      idx: nextId.current,
+      text,
+    };
+    setTodos(todos.concat(todo));
+    nextId.current += 1;
+  }
+
+  function onDeleteTodo(idx) {
+    setTodos(todos.filter((item) => item.idx !== idx));
   }
 
   return (
     <div>
-      <p>Todo!</p>
-      <TodoInput />
-      <Button onClick={addTotoItem}>추가</Button>
+      <h1>To-do!</h1>
+      <TodoAdd onInsert={onInsertTodo} />
       <TodoList>
-        <TodoItem data={todos} />
-        <Button>삭제</Button>
+        <TodoItem data={todos} onDelete={onDeleteTodo} />
       </TodoList>
     </div>
   );
 }
-
-export default TodoWrap;

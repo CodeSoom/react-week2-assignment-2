@@ -1,15 +1,7 @@
 import React from 'react';
 
-function Button({ onClick, children }) {
-  // const [count, setCount] = useState(0);
-
-  // function handleClick(i = 1) {
-  //   setCount(count + i);
-  // }
-
+export default function Button({ submitType, onClick, children }) {
   return (
-    <button type="button" onClick={onClick}>{children}</button>
+    <button type={submitType ? 'submit' : 'button'} onClick={onClick}>{children}</button>
   );
 }
-
-export default Button;

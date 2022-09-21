@@ -1,17 +1,23 @@
 import React from 'react';
 
-function TodoItem({ data }) {
-  // console.log(data);
-  return (
-  // {
-  // data.map((todo) => {
+import Button from './Button';
 
-  // return (
-    <li>{ data }</li>
-  // )
-  // })
-    // }
+export default function TodoItem({ data, onDelete }) {
+  return (
+    <>
+      {
+        data.length > 0 ? (
+          <>
+            {data.map((todo) => (
+              <li key={todo.idx}>
+                { todo.text }
+                {' '}
+                <Button onClick={() => onDelete(todo.idx)}>완료</Button>
+              </li>
+            ))}
+          </>
+        ) : '할 일이 없어요!'
+      }
+    </>
   );
 }
-
-export default TodoItem;
