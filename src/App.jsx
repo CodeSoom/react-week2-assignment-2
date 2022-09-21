@@ -48,23 +48,22 @@ function App() {
         onChange={onChange}
         todoInput={todoInput}
       />
+      <ol>
+        {
+          !!todoList.length
+          && todoList.map(({ id, todo }, idx) => (
+            <TodoList
+              key={id}
+              todo={todo}
+              idx={idx}
+              confirmTodo={confirmTodo}
+            />
+          ))
+        }
+      </ol>
       {
-        todoList.length
-          ? (
-            <ol>
-              {
-                todoList.map(({ id, todo }, idx) => (
-                  <TodoList
-                    key={id}
-                    todo={todo}
-                    idx={idx}
-                    confirmTodo={confirmTodo}
-                  />
-                ))
-              }
-            </ol>
-          )
-          : <TodoDefault />
+        !todoList.length
+        && <TodoDefault />
       }
     </div>
   );
