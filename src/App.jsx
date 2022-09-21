@@ -58,8 +58,7 @@ function App() {
       />
       <ol>
         {
-          !!todoList.length
-          && todoList.map(({ id, todo }) => (
+          todoList.map(({ id, todo }) => (
             <TodoList
               key={id}
               todo={todo}
