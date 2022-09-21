@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import TodoDefault from './TodoDefault';
 import TodoForm from './TodoForm';
@@ -8,6 +8,12 @@ import TodoTitle from './TodoTitle';
 function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoInput, setTodoInput] = useState('');
+  const idRef = useRef(0);
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,14 +22,17 @@ function App() {
 
     setTodoList((current) => {
       const newTodo = {
-        id: current[current.length - 1]?.id + 1 || 1,
+        id: idRef.current,
         todo: todoInput,
       };
+
+      idRef.current += 1;
 
       return [...current, newTodo];
     });
 
     setTodoInput('');
+    inputRef.current.focus();
   };
 
   const onChange = (e) => {
@@ -45,6 +54,7 @@ function App() {
         handleSubmit={handleSubmit}
         onChange={onChange}
         todoInput={todoInput}
+        inputRef={inputRef}
       />
       <ol>
         {
