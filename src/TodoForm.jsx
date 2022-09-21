@@ -4,6 +4,7 @@ function TodoForm({ handleSubmit, onChange, todoInput }) {
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <input
+        name="todoInput"
         value={todoInput}
         placeholder="할 일을 입력해 주세요"
         onChange={(e) => onChange(e)}
