@@ -2,17 +2,17 @@ import React from 'react';
 
 import Button from './Button';
 
-export default function TodoItem({ data, onDelete }) {
+export default function TodoItem({ todoList, onDelete }) {
   return (
     <>
       {
-        data.length > 0 ? (
+        todoList.length > 0 ? (
           <>
-            {data.map((todo) => (
-              <li key={todo.idx}>
+            {todoList.map((todo) => (
+              <li key={todo.id}>
                 { todo.text }
                 {' '}
-                <Button onClick={() => onDelete(todo.idx)}>완료</Button>
+                <Button onClick={() => onDelete(todo.id)}>완료</Button>
               </li>
             ))}
           </>

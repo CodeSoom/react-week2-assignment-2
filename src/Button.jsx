@@ -1,7 +1,12 @@
 import React from 'react';
 
-export default function Button({ submitType, onClick, children }) {
+export default function Button({ onClick, children }) {
   return (
-    <button type={submitType ? 'submit' : 'button'} onClick={onClick}>{children}</button>
+    <button
+      type="button"
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
