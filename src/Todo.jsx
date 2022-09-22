@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoList({ todo, confirmTodo, id }) {
+function Todo({ todo, confirmTodo, id }) {
   return (
     <li>
       {todo}
@@ -14,4 +14,4 @@ function TodoList({ todo, confirmTodo, id }) {
   );
 }
 
-export default TodoList;
+export default Todo;

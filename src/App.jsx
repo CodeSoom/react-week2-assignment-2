@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import TodoDefault from './TodoDefault';
 import TodoForm from './TodoForm';
-import TodoList from './TodoList';
+import Todo from './Todo';
 import TodoTitle from './TodoTitle';
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
       <ol>
         {
           todoList.map(({ id, todo }) => (
-            <TodoList
+            <Todo
               key={id}
               todo={todo}
               id={id}
