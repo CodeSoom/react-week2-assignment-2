@@ -8,7 +8,6 @@ import TodoTitle from './TodoTitle';
 function App() {
   const [todoList, setTodoList] = useState([]);
   const [todoInput, setTodoInput] = useState('');
-  const idRef = useRef(0);
   const inputRef = useRef();
 
   useEffect(() => {
@@ -20,11 +19,9 @@ function App() {
 
     setTodoList((current) => {
       const newTodo = {
-        id: idRef.current,
+        id: current[current.length - 1]?.id + 1 || 1,
         todo: todoInput,
       };
-
-      idRef.current += 1;
 
       return [...current, newTodo];
     });
