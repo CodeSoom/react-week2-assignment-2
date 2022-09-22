@@ -1,19 +1,19 @@
 import React from 'react';
 
 function TodoForm({
-  handleSubmit,
+  onSubmit,
   onChange,
   todoInput,
   inputRef,
 }) {
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={onSubmit}>
       <input
         name="todoInput"
         ref={inputRef}
         value={todoInput}
         placeholder="할 일을 입력해 주세요"
-        onChange={(e) => onChange(e)}
+        onChange={onChange}
       />
       <button type="submit">
         추가

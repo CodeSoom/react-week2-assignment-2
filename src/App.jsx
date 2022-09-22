@@ -15,9 +15,7 @@ function App() {
     inputRef.current.focus();
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = () => {
     if (todoInput === '') return;
 
     setTodoList((current) => {
@@ -33,6 +31,12 @@ function App() {
 
     setTodoInput('');
     inputRef.current.focus();
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    handleSubmit();
   };
 
   const onChange = (e) => {
@@ -51,7 +55,7 @@ function App() {
     <div>
       <TodoTitle />
       <TodoForm
-        handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
         onChange={onChange}
         todoInput={todoInput}
         inputRef={inputRef}
