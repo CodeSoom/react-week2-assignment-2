@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import TodoAdd from './TodoAdd';
 import TodoList from './TodoList';
@@ -6,31 +6,32 @@ import TodoItem from './TodoItem';
 
 export default function TodoWrap() {
   const [todos, setTodos] = useState([]);
-  const [todoId, setTodoId] = useState(1);
-  const [addContent, setAddContent] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
-  function onInsertTodo(text) {
+  function onInsertTodo() {
     const todo = {
-      id: todoId,
-      text,
+      id: todos.length + 1,
+      content: inputValue,
     };
-    setTodos(todos.concat(todo));
-    setTodoId(todoId + 1);
+    setInputValue('');
+    setTodos([
+      ...todos,
+      todo,
+    ]);
   }
 
   function onDeleteTodo(id) {
     setTodos(todos.filter((item) => item.id !== id));
   }
 
-  function onAddTodos() {
-    onInsertTodo(addContent);
-    setAddContent('');
+  function onAddTodo(e) {
+    setInputValue(e.target.value);
   }
 
   return (
     <div>
       <h1>To-do!</h1>
-      <TodoAdd onAdd={onAddTodos} inputValue={addContent} changeValue={setAddContent} />
+      <TodoAdd onAddTodo={onInsertTodo} todoValue={inputValue} onChangeTodo={onAddTodo} />
       <TodoList>
         <TodoItem todoList={todos} onDelete={onDeleteTodo} />
       </TodoList>
