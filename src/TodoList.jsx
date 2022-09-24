@@ -5,7 +5,7 @@ export default function TodoList({ toDoList, onClick }) {
     <div>
       {
         toDoList.length > 0 ? toDoList.map((todo, index) => (
-          <p>
+          <p key={index}>
             {`${index + 1}.${todo}`}
             <button type="button" onClick={() => onClick(index)}>완료</button>
           </p>
