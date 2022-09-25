@@ -2,8 +2,8 @@ import React from 'react';
 
 import Button from './Button';
 
-export default function TodoItem({ todoList, onDelete }) {
-  if (todoList.length === 0) {
+export default function TodoItem({ todoItems, onDelete }) {
+  if (todoItems.length === 0) {
     return (
       <p>할 일이 없어요!</p>
     );
@@ -11,7 +11,7 @@ export default function TodoItem({ todoList, onDelete }) {
 
   return (
     <>
-      {todoList.map((todo) => (
+      {todoItems.map((todo) => (
         <li key={todo.id}>
           { todo.content }
           {' '}
