@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import TodoAdd from './TodoAdd';
 import TodoList from './TodoList';
@@ -7,10 +7,15 @@ import TodoItem from './TodoItem';
 export default function TodoWrap() {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [nextId, setNextId] = useState(0);
+
+  useEffect(() => {
+    setNextId(nextId + 1);
+  }, [todos]);
 
   function onInsertTodo() {
     const todo = {
-      id: todos.length + 1,
+      id: nextId,
       content: inputValue,
     };
 
