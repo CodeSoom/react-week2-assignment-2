@@ -1,48 +1,47 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import Page from './Page';
 
 function App() {
-  const [toDo, setToDo] = useState([]);
-  const [input, setInput] = useState('');
+  const [todos, setTodos] = useState([]);
+  const [values, setValues] = useState({
+    id: null,
+    content: '',
+  });
 
-  function deleteTodoButton(e) {
-
+  function deleteTodoButton(todoId) {
+    setTodos(todos.filter((item) => item.id !== todoId));
   }
 
   function handleChange(e) {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.input,
-    });
+    setValues(e.target.value);
   }
 
-  function handleTodoSubmit(e) {
-    e.preventDefault();
-    setToDo([
-      ...toDo,
-      {
-        id: Date.now(),
-        content: input,
-      },
-    ]);
-    setInput('');
+  function handleTodoSubmit() {
+    setTodos(
+      [...values,
+        {
+          id: Date.now(),
+          content: values.content,
+        }],
+    );
+    setValues('');
   }
+
+  console.log('setValues', setValues);
+  console.log('setTodos', setTodos);
+  console.log('todos', todos);
+  console.log('values', values);
+
   return (
     <div>
-      <h1>To-do</h1>
-      <input
-        type="text"
-        name="todoInput"
-        id="todoInput"
-        input={input}
-        onChange={handleChange}
+      <Page
+        values={values}
+        handleChange={handleChange}
+        onSubmit={handleTodoSubmit}
+        todos={todos}
+        onClick={deleteTodoButton}
       />
-      <button
-        type="button"
-        onClick={handleTodoSubmit}
-      >
-        추가
-      </button>
     </div>
   );
 }
