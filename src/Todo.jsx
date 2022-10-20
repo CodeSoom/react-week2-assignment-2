@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Todo({ text, onClick }) {
   return (
     <li>

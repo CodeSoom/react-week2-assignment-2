@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
-
-function TodoForm({ onSubmit }) {
-  const [todoText, setTodoText] = useState('');
-  const handleChange = (e) => setTodoText(e.target.value);
-
+function TodoForm({
+  onSubmit,
+  todoText,
+  handleChange,
+}) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!todoText) {
-      alert('할 일을 입력해 주세요😀');
-      return;
-    }
-    if (onSubmit) {
-      onSubmit(todoText);
-    }
-    setTodoText('');
+    onSubmit(todoText);
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
