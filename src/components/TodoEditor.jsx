@@ -1,5 +1,3 @@
-import React from 'react';
-
 function TodoEditor({ todo, onChange, onClick }) {
   const { content } = todo;
   return (

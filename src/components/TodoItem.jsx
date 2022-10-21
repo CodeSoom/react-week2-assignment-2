@@ -1,5 +1,3 @@
-import React from 'react';
-
 function TodoItem({ todoItem, index, onDelete }) {
   const { id, content } = todoItem;
 
