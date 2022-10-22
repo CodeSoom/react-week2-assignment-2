@@ -1,7 +1,7 @@
 function TodoForm({
   onSubmit,
+  onChange,
   todoText,
-  handleChange,
 }) {
   return (
     <div>
@@ -9,7 +9,7 @@ function TodoForm({
         <input
           type="text"
           placeholder="할 일을 입력해주세요."
-          onChange={handleChange}
+          onChange={onChange}
           value={todoText}
         />
         <button type="submit">추가</button>
