@@ -1,25 +1,27 @@
-import React from 'react';
+import Todos from './Todos';
 
-const TodoList = ({
-  values, handleChange, onSubmit,
-}) => (
-  <div>
-    <input
-      type="text"
-      name="todoInput"
-      id="todoInput"
-      values={values}
-      onChange={handleChange}
-      placeholder="할 일을 입력해주세요"
-    />
-    <button
-      type="submit"
-      onSubmit={() => onSubmit(values)}
-    >
-      추가
-    </button>
+export default function TodoList({ todoList, onDelete }) {
+  return (
+    <div>
+      {
 
-  </div>
-);
+        todoList.length === 0 ? <p>할 일이 없습니다</p>
+          : (
+            <ol>
+              {
+                todoList.map((item) => (
+                  <Todos
+                    key={item.id}
+                    todoItem={item}
+                    onDelete={onDelete}
+                  />
+                ))
+              }
+            </ol>
+          )
 
-export default TodoList;
+      }
+    </div>
+
+  );
+}
