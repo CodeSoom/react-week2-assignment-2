@@ -1,10 +1,10 @@
-export default function Todos({ todoItem, onDelete }) {
+export default function Todos({ todoItem: { content, id }, onDelete }) {
   return (
     <li>
-      <span>{todoItem.content}</span>
+      <span>{content}</span>
       <button
         type="button"
-        onClick={() => onDelete(todoItem.id)}
+        onClick={() => onDelete(id)}
       >
         완료
       </button>

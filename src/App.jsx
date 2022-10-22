@@ -7,8 +7,7 @@ export default function App() {
     content: '',
   });
   const [todoList, setTodoList] = useState([]);
-
-  // const { id, content, todoText } = todo;
+  const { id, content } = todoItem;
 
   function handleChange(e) {
     setTodoItem({
@@ -25,8 +24,8 @@ export default function App() {
     }
     setTodoList([
       ...todoList, {
-        id: todoItem.id,
-        content: todoItem.content,
+        id,
+        content,
       },
     ]);
     setTodoItem({
@@ -35,9 +34,9 @@ export default function App() {
     });
   }
 
-  function handleClickDelete(id) {
+  function handleClickDelete(todoId) {
     setTodoList(
-      [...todoList].filter((item) => item.id !== id),
+      [...todoList].filter((item) => item.id !== todoId),
     );
   }
 

@@ -9,9 +9,7 @@ export default function Page({
       <h1>To-do</h1>
       <TodoEditor
         onClick={onClick}
-        // value={todoList}
         onChange={onChange}
-        // value={todo}
         todoItem={todoItem}
 
       />
