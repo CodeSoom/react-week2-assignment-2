@@ -1,14 +1,14 @@
-import TodoEditor from './Todo/TodoEditor';
+import TodoForm from './Todo/TodoForm';
 import TodoList from './Todo/TodoList';
 
 export default function Page({
-  onClick, todoList, todoItem, onChange, onDelete,
+  onSubmit, todoList, todoItem, onChange, onDelete,
 }) {
   return (
     <div>
       <h1>To-do</h1>
-      <TodoEditor
-        onClick={onClick}
+      <TodoForm
+        onSubmit={onSubmit}
         onChange={onChange}
         todoItem={todoItem}
 

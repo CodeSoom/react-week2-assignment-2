@@ -1,4 +1,4 @@
-export default function Todos({ todoItem: { content, id }, onDelete }) {
+export default function Todo({ todoItem: { content, id }, onDelete }) {
   return (
     <li>
       <span>{content}</span>

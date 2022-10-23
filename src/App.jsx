@@ -16,8 +16,9 @@ export default function App() {
     });
   }
 
-  function handleClickAdd(e) {
+  function handleSubmitTodo(e) {
     e.preventDefault();
+
     if (todoItem.content === '') {
       alert('할 일을 입력하세요');
       return;
@@ -43,7 +44,7 @@ export default function App() {
   return (
     <div>
       <Page
-        onClick={handleClickAdd}
+        onSubmit={handleSubmitTodo}
         onChange={handleChange}
         onDelete={handleClickDelete}
         todoList={todoList}

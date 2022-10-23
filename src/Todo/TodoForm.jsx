@@ -1,9 +1,10 @@
-export default function TodoEditor({
-  onClick, onChange, todoItem,
+export default function TodoForm({
+  onSubmit, onChange, todoItem,
 }) {
   const { content } = todoItem;
+
   return (
-    <div>
+    <form>
       <input
         type="text"
         name="todoInput"
@@ -12,9 +13,9 @@ export default function TodoEditor({
         value={content}
         onChange={onChange}
       />
-      <button type="button" onClick={onClick}>
+      <button type="submit" onClick={onSubmit}>
         추가
       </button>
-    </div>
+    </form>
   );
 }

@@ -1,27 +1,23 @@
-import Todos from './Todos';
+import Todo from './Todo';
+
+const isEmpty = (arr) => arr.length === 0;
 
 export default function TodoList({ todoList, onDelete }) {
+  if (isEmpty(todoList)) {
+    return <p>할 일이 없어요!</p>;
+  }
+
   return (
     <div>
-      {
-
-        todoList.length === 0 ? <p>할 일이 없습니다</p>
-          : (
-            <ol>
-              {
-                todoList.map((item) => (
-                  <Todos
-                    key={item.id}
-                    todoItem={item}
-                    onDelete={onDelete}
-                  />
-                ))
-              }
-            </ol>
-          )
-
-      }
+      <ol>
+        {todoList.map((item) => (
+          <Todo
+            key={item.id}
+            todoItem={item}
+            onDelete={onDelete}
+          />
+        ))}
+      </ol>
     </div>
-
   );
 }
