@@ -1,16 +1,16 @@
-function TodoEditor({ todo, onChange, onClick }) {
+function TodoForm({ todo, onChange, onSubmit }) {
   const { content } = todo;
   return (
-    <div>
+    <form>
       <input
         type="text"
         value={content}
         placeholder="할 일을 입력해주세요"
         onChange={onChange}
       />
-      <button type="button" onClick={() => onClick(content)}>추가</button>
-    </div>
+      <button type="submit" onClick={onSubmit}>추가</button>
+    </form>
   );
 }
 
-export default TodoEditor;
+export default TodoForm;
