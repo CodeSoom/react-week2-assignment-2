@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import TodoEditor from './TodoEditor';
+import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 function App() {
@@ -18,11 +18,13 @@ function App() {
     });
   };
 
-  const handleClick = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (todo.content === '') {
       return;
     }
     setTodoList([...todoList, { id: todo.id, content: todo.content }]);
+
     setTodo({
       id: null,
       content: '',
@@ -36,10 +38,10 @@ function App() {
   return (
     <div>
       <h1>To-do</h1>
-      <TodoEditor
-        onChange={handleChange}
+      <TodoForm
         todo={todo}
-        onClick={handleClick}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
       />
       <TodoList todoList={todoList} onDelete={handleDelete} />
     </div>
