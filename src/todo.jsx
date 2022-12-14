@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Form from './form';
+import List from './list';
 
 const Todo = () => {
   const [input, setInput] = useState('');
@@ -24,15 +25,7 @@ const Todo = () => {
     <>
       <h3>To-do</h3>
       <Form value={input} onSubmit={addTodo} onChange={onChangeValue} />
-      <ol>
-        {todo.length
-          ? todo.map((t, i) => (
-              <li key={i}>
-                {t} <button> 완료</button>
-              </li>
-            ))
-          : '할 일이 없어요'}
-      </ol>
+      <List todo={todo} />
     </>
   );
 };

@@ -1,15 +1,15 @@
-// const List = ({todo}) => {
-//     const totolist = [...todo]
-//     todolist.length = 2
-//     return (
-//         {totolist.length
-//             ? todo.map((t, i) => (
-//                 <li key={i}>
-//                   {t} <button> 완료</button>
-//                 </li>
-//               ))
-//             : '할 일이 없어요'}
-//     )
-// }
+const List = ({ todo = [] }) => {
+  return (
+    <ol>
+      {todo.length
+        ? todo.map((t, i) => (
+            <li key={i}>
+              {t} <button> 완료</button>
+            </li>
+          ))
+        : '할 일이 없어요'}
+    </ol>
+  );
+};
 
-// export default List
+export default List;
