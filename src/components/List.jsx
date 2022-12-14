@@ -6,9 +6,9 @@ export default function List({ todoList, onClick }) {
       {
         todoList.length > 0
           ? todoList.map((todo, index) => (
-            <Row key={todo} todo={todo} index={index} onClick={onClick} />
+            <Row key={Date.now() + todo} todo={todo} index={index} onClick={onClick} />
           ))
-          : <p>할 일이 없어요!</p>
+          : '할 일이 없어요!'
       }
     </div>
   );

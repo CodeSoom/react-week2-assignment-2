@@ -1,8 +1,8 @@
-export default function Input({ onChange, onClick }) {
+export default function Input({ todoInput, onChange, onClick }) {
   return (
-    <div>
-      <input placeholder="할 일을 입력해 주세요" onChange={(eventObject) => onChange(eventObject)} />
-      <button type="button" onClick={(eventObject) => onClick(eventObject)}>추가</button>
-    </div>
+    <p>
+      <input placeholder="할 일을 입력해 주세요" value={todoInput} onChange={onChange} />
+      <button type="button" onClick={onClick}>추가</button>
+    </p>
   );
 }
