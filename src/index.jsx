@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Input from './components/Input';
 import List from './components/List';
@@ -11,8 +11,9 @@ function App() {
 
   const { todoList, todoInput } = state;
 
-  function handleClickAdd(e) {
-    e.target.previousSibling.value = '';
+  function handleClickAdd(eventObject) {
+    const temp = eventObject;
+    temp.target.previousSibling.value = '';
     setState({
       ...state,
       todoList: [...todoList, todoInput],
