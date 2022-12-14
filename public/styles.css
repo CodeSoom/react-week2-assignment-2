@@ -1,0 +1,12 @@
+.app {
+    padding: 50px;
+}
+
+ol, button, p{
+    padding: 0;
+    margin: 0;
+}
+
+.todoItem{
+    display: flex;
+};
