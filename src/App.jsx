@@ -12,11 +12,15 @@ export default function App() {
   const { todoList, todoInput } = state;
 
   function handleClickAdd() {
-    if (todoInput === '' || todoList.includes(todoInput)) return;
-
     setState({
       todoInput: '',
-      todoList: [...todoList, todoInput],
+      todoList: [
+        ...todoList,
+        {
+          id: Date.now(),
+          todo: todoInput,
+        },
+      ],
     });
   }
 
