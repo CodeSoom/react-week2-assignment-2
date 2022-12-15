@@ -1,8 +1,8 @@
 const Form = ({ value, onSubmit, onChange }) => {
   return (
     <form onSubmit={onSubmit}>
-      <input type='text' value={value} onChange={onChange} />
-      <button type='button'>추가</button>
+      <input type='text' value={value} onChange={onChange} placeholder={'할 일을 입력해주세요'} />
+      <button>추가</button>
     </form>
   );
 };

@@ -1,31 +1,36 @@
 import { useState } from 'react';
 
-import Form from './form';
-import List from './list';
+import Form from './Form';
+import List from './List';
 
 const Todo = () => {
-  const [input, setInput] = useState('');
-  const [todo, setTodo] = useState([]);
+  const [newTodo, setNewTodo] = useState('');
+  const [todos, setTodos] = useState([]);
 
   const addTodo = (e) => {
     e.preventDefault();
 
-    setTodo((prevTodo) => {
-      return [...prevTodo, input];
+    setTodos((prevTodos) => {
+      return [...prevTodos, newTodo];
     });
-
-    setInput('');
+    setNewTodo('');
   };
 
   const onChangeValue = (e) => {
-    setInput(e.target.value);
+    setNewTodo(e.target.value);
+  };
+
+  const onClickTodoList = (index) => {
+    const unFinishedTodo = [...todos];
+    unFinishedTodo.splice(index, 1);
+    setTodos(unFinishedTodo);
   };
 
   return (
     <>
-      <h3>To-do</h3>
-      <Form value={input} onSubmit={addTodo} onChange={onChangeValue} />
-      <List todo={todo} />
+      <h1>To-do</h1>
+      <Form value={newTodo} onSubmit={addTodo} onChange={onChangeValue} />
+      <List todos={todos} onClick={onClickTodoList} />
     </>
   );
 };
