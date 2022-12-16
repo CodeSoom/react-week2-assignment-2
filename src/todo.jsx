@@ -16,11 +16,11 @@ const Todo = () => {
     setNewTodo('');
   };
 
-  const onChangeValue = (e) => {
+  const changeNewTodo = (e) => {
     setNewTodo(e.target.value);
   };
 
-  const onClickTodoList = (index) => {
+  const removeTodo = (index) => {
     const unFinishedTodo = [...todos];
     unFinishedTodo.splice(index, 1);
     setTodos(unFinishedTodo);
@@ -29,8 +29,8 @@ const Todo = () => {
   return (
     <>
       <h1>To-do</h1>
-      <Form value={newTodo} onSubmit={addTodo} onChange={onChangeValue} />
-      <List todos={todos} onClick={onClickTodoList} />
+      <Form value={newTodo} onSubmit={addTodo} onChange={changeNewTodo} />
+      <List todos={todos} onClick={removeTodo} />
     </>
   );
 };
