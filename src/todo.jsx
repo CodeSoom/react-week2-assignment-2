@@ -20,9 +20,9 @@ const Todo = () => {
     setNewTodo(e.target.value);
   };
 
-  const removeTodo = (index) => {
-    const unFinishedTodo = [...todos];
-    unFinishedTodo.splice(index, 1);
+  const removeTodo = (finishedTodoIndex) => {
+    const unFinishedTodo = todos.filter((todo, index) => index !== finishedTodoIndex);
+
     setTodos(unFinishedTodo);
   };
 
