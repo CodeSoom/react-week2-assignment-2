@@ -4,6 +4,7 @@ import Title from './Title';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
+// Page
 const Todo = () => {
   const [todoList, setTodoList] = useState([]);
 
@@ -22,7 +23,7 @@ const Todo = () => {
   return (
     <article>
       <Title />
-      <TodoForm onUpdateTodos={updateTodoList} />
+      <TodoForm todoList={todoList} onUpdateTodos={updateTodoList} />
       <TodoList todoList={todoList} onCompleteTodo={completeTodo} />
     </article>
   );
