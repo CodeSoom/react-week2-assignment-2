@@ -43,5 +43,6 @@ module.exports = {
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'import/no-unresolved': 'off',
   },
 };
