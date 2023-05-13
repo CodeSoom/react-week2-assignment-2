@@ -1,36 +1,40 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import Header from './components/Header';
-import TodoInput from './components/TodoInput';
+import TodoForm from './components/TodoForm';
 import TodoLists from './components/TodoLists';
 
 export default function App() {
-  const [inputText, setInputText] = useState('');
+  const [newTodo, setNewTodo] = useState('');
   const [todos, setTodos] = useState([]);
-  const randomId = () => Math.random().toString(12).substr(2, 16);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTodos([...todos, { id: randomId(), text: inputText }]);
-    setInputText('');
+    setTodos([...todos, { id: nanoid(6), text: newTodo }]);
+    setNewTodo('');
   };
 
   const handleChange = (e) => {
-    setInputText(e.target.value);
+    setNewTodo(e.target.value);
   };
 
-  const handleClickComplete = (e) => {
-    setTodos(todos.filter((item) => e.target.id !== item.id));
+  const handleClickComplete = (clickedItemID) => {
+    setTodos(todos.filter((item) => item.id !== clickedItemID));
   };
 
   return (
     <div>
       <Header />
-      <TodoInput
-        inputText={inputText}
+      <TodoForm
+        newTodo={newTodo}
         onSubmit={handleSubmit}
         onChange={handleChange}
       />
-      <TodoLists todos={todos} onClickComplete={handleClickComplete} />
+      <TodoLists
+        hasTodos={todos.length}
+        todos={todos}
+        onClickComplete={handleClickComplete}
+      />
     </div>
   );
 }
