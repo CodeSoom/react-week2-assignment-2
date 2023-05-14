@@ -2,14 +2,11 @@ import React from 'react';
 import NoneTodos from './NoneTodos';
 import ShowTodos from './ShowTodos';
 
-export default function TodoLists({ hasTodos, todos, onClickComplete }) {
-  return (
-    <>
-      {hasTodos ? (
-        <ShowTodos todos={todos} onClickComplete={onClickComplete} />
-      ) : (
-        <NoneTodos />
-      )}
-    </>
-  );
+const isEmpty = (arr = []) => arr.length === 0;
+
+export default function TodoLists({ todos, onClickComplete }) {
+  if (isEmpty(todos)) {
+    return <NoneTodos />;
+  }
+  return <ShowTodos todos={todos} onClickComplete={onClickComplete} />;
 }

@@ -5,17 +5,17 @@ import TodoForm from './components/TodoForm';
 import TodoLists from './components/TodoLists';
 
 export default function App() {
-  const [newTodo, setNewTodo] = useState('');
+  const [newOrUpdateTodo, setNewOrUpdateTodo] = useState('');
   const [todos, setTodos] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTodos([...todos, { id: nanoid(6), text: newTodo }]);
-    setNewTodo('');
+    setTodos([...todos, { id: nanoid(6), text: newOrUpdateTodo }]);
+    setNewOrUpdateTodo('');
   };
 
   const handleChange = (e) => {
-    setNewTodo(e.target.value);
+    setNewOrUpdateTodo(e.target.value);
   };
 
   const handleClickComplete = (clickedItemID) => {
@@ -26,15 +26,11 @@ export default function App() {
     <div>
       <Header />
       <TodoForm
-        newTodo={newTodo}
+        newOrUpdateTodo={newOrUpdateTodo}
         onSubmit={handleSubmit}
         onChange={handleChange}
       />
-      <TodoLists
-        hasTodos={todos.length}
-        todos={todos}
-        onClickComplete={handleClickComplete}
-      />
+      <TodoLists todos={todos} onClickComplete={handleClickComplete} />
     </div>
   );
 }
